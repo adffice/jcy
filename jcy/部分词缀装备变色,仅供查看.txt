@@ -1,0 +1,45 @@
+English Affix	Simplified Chinese (zhCN)	Traditional Chinese (zhTW)
+Emerald	绿宝石	綠寶石
+Artificer's	巧匠的	工匠的
+Jeweler's	珠宝匠的	珠寶匠的
+Archer's	弓手的	弓手的
+Athlete's	健体的	健體的
+Lancer's	长矛兵的	長矛兵的
+Volcanic	火山的	火山的
+Powered	力量	力量
+Accursed	诅咒	詛咒
+Venomous	剧毒	劇毒
+Golemlord's	石魔的	石魔的
+Rose Branded	玫瑰烙印	玫瑰烙印
+Echoing	回音	回音
+Cunning	狡黠	取巧
+Kenshi's	剑圣的	劍聖的
+Trump	王牌	王牌
+of Regrowth	再生之	再生之
+of the Mammoth	猛犸之	長毛象之
+of the Colosuss	巨像之	巨像之
+of the Locust	蝗虫之	蝗蟲之
+of Anima	灵魂之	靈魂之
+of Alacrity	敏捷之	敏捷之
+of Deflecting	格挡之	格擋之
+of Carnage	屠杀之	屠殺之
+of Slaughter	屠宰之	屠宰之
+of Butchery	屠夫之	屠夫之
+of Evisceration	削骨之	削骨之
+of Stability	稳定之	穩定之
+of Revivification	复苏之	復甦之
+of the Squid	乌贼之	烏賊之
+of the Lamprey	八目鳗之	八目鰻之
+of the Leech	蚂蟥之	螞蟥之
+of the Wraith	幽灵之	幽靈之
+of the Vampire	吸血鬼之	吸血鬼之
+of the Bat	蝙蝠之	蝙蝠之
+of Defiance	反抗之	反抗之
+of the Kraken	海怪之	海怪之
+of Memory	记忆之	記憶之
+of the Elephant	巨象之	巨象之
+of the Phoenix	凤凰之	鳳凰之
+of Nova	新星之	新星之
+of Hydra Shield	九头蛇之盾	九頭蛇之盾
+of Teleportation	传送之	傳送之
+of Lower Resistance	降低抵抗	降低抵抗
