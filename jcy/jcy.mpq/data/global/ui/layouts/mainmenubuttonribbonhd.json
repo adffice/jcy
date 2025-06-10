@@ -40,13 +40,13 @@
                     },
                 },
                 {
-                    // Will Mod's Info
-                    "type": "ButtonWidget", "name": "WillModInfo",
+                    // jcy Mod's Info
+                    "type": "ButtonWidget", "name": "jcyModInfo",
                     "fields": {
                         "rect": { "x": 165, "y": 600 },
                         "filename": "FrontEnd\\HD\\Final\\FrontEnd_ButtonMed",
-                        "textString": "Will Mod  v2.8",
-                        "onClickMessage": "PanelManager:OpenPanel:WillModInfo",
+                        "textString": "jcy Mod  v1.0.1",
+                        "onClickMessage": "PanelManager:OpenPanel:jcyModInfo",
                         "textColor": "$LightButtonTextColor",
                         "text/style": "$StyleFEButtonText",
                         "hoveredFrame": 3,
@@ -88,7 +88,7 @@
                         "onClickMessage": "PanelManager:OpenPanel:CreditsModal",
                         "textColor": "$LightButtonTextColor",
                         "text/style": "$StyleFEButtonText",
-                        "hoveredFrame": 3,
+                        "hoveredFrame": 3,	
                         "disabledFrame": 2,
                     }
                 },
