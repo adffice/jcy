@@ -2,7 +2,7 @@ Sound	*Index	Redirect	Channel	FileName	IsLocal	IsMusic	IsAmbientScene	IsAmbientE
 	0			none.flac	0	0	0	0	0	0	0	100	100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	-1	-1	-1	0	0	
 cursor_pass	1	cursor_pass_hd_4	sfx/cursor-ui_sd	cursor\pass.flac	0	0	0	0	1	255	255	100	100	0	0	0	0	0	0	1	0	0	1	0	120	100	0	0	0	0	0	-1	-1	-1	0	0	
 cursor_select	2	cursor_select_hd	sfx/cursor-ui_sd	cursor\select.flac	0	0	0	0	1	255	255	100	100	0	0	0	0	0	0	1	0	0	1	0	120	255	0	0	0	0	0	-1	-1	-1	0	0	
-cursor_error	3	cursor_error_hd	sfx/cursor-ui_sd	cursor\windowopen.flac	0	0	0	0	1	255	255	100	100	0	0	0	0	0	1	0	0	0	1	0	120	100	0	0	0	0	0	-1	-1	-1	0	0	
+cursor_error	3	cursor_error_hd	sfx/cursor-ui_sd	cursor\windowopen.flac	0	0sxxx	0	0	1	255	255	100	100	0	0	0	0	0	1	0	0	0	1	0	120	100	0	0	0	0	0	-1	-1	-1	0	0	
 cursor_button_click	4	cursor_button_hd_1	sfx/cursor-ui_sd	cursor\button.flac	0	0	0	0	1	142	160	100	100	0	0	0	0	0	0	1	0	0	1	0	120	100	0	1	0	0	0	-1	-1	-1	0	0	
 cursor_point_drop	5	cursor_point_drop_hd_1	sfx/cursor-ui_sd	cursor\pointdrop.flac	0	0	0	0	1	220	220	100	100	0	0	0	0	0	0	1	0	0	1	0	120	255	0	0	0	0	0	-1	-1	-1	0	0	
 cursor_switch	6	cursor_error_hd	sfx/cursor-ui_sd	cursor\windowopen.flac	0	0	0	0	1	255	255	100	100	0	0	0	0	0	1	0	0	0	1	0	120	100	0	0	0	0	0	-1	-1	-1	0	0	
@@ -11388,20 +11388,20 @@ desecrated_enter	11385	desecrated_enter_hd	sfx/ambient/event-3d_sd	quest\desecra
 desecrated_enter_hd	11386		sfx/ambient/event-3d_hd	quest\desecrated_enter_hd.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	1	0	0	0	4	25	60	255	1	0	0	1	0	-1	-1	-1	0	0	
 music_desecrated	11387	music_desecrated_hd	music_sd	common\options.flac	0	1	0	0	0	127	127	100	100	0	0	1	125	125	1	0	0	0	0	25	0	255	1	1	0	0	1	-1	-1	-1	0	0	
 music_desecrated_hd	11388		music_hd	common\options_hd.flac	0	1	0	0	0	127	127	100	100	0	0	1	125	125	1	0	0	0	0	100	0	255	1	1	0	0	1	-1	-1	-1	0	0	
-r22	11389		sfx/items_hd	item\r22.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r23	11390		sfx/items_hd	item\r23.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r24	11391		sfx/items_hd	item\r24.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r25	11392		sfx/items_hd	item\r25.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r26	11393		sfx/items_hd	item\r26.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r27	11394		sfx/items_hd	item\r27.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r28	11395		sfx/items_hd	item\r28.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r29	11396		sfx/items_hd	item\r29.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r30	11397		sfx/items_hd	item\r30.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r31	11398		sfx/items_hd	item\r31.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r32	11399		sfx/items_hd	item\r32.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-r33	11400		sfx/items_hd	item\r33.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-gc	11401		sfx/items_hd	item\gc.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
-sc	11402		sfx/items_hd	item\sc.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r22	11389		sfx/items_hd	item\r22.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r23	11390		sfx/items_hd	item\r23.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r24	11391		sfx/items_hd	item\r24.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r25	11392		sfx/items_hd	item\r25.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r26	11393		sfx/items_hd	item\r26.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r27	11394		sfx/items_hd	item\r27.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r28	11395		sfx/items_hd	item\r28.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r29	11396		sfx/items_hd	item\r29.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r30	11397		sfx/items_hd	item\r30.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r31	11398		sfx/items_hd	item\r31.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r32	11399		sfx/items_hd	item\r32.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+r33	11400		sfx/items_hd	item\r33.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+gc	11401		sfx/items_hd	item\gc.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
+sc	11402		sfx/items_hd	item\sc.flac	0	0	0	0	0	255	255	100	100	0	0	1	0	0	0	1	0	0	4	0	90	100	0	0	0	0	0	-1	-1	-1	0	0	
 enchant_off	11403		sfx/items_hd	skill\enchant_off.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	0	0	0	2	0	90	255	0	0	1	1	0	-1	-1	-1	0	0	
 chillingarmor_off	11404		sfx/items_hd	skillchillingarmor_off.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	0	0	0	2	0	90	255	0	0	1	1	0	-1	-1	-1	0	0	
 shout_off	11405		sfx/items_hd	skill\shout_off.flac	0	0	0	0	0	255	255	100	100	0	0	0	0	0	0	0	0	0	2	0	90	255	0	0	1	1	0	-1	-1	-1	0	0	

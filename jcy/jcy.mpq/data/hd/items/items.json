@@ -646,7 +646,7 @@
   { "ice": { "asset": "quest/scroll_of_self_resurrect" } },
   { "0sc": { "asset": "scroll/identify_scroll" } },
   { "tr2": { "asset": "quest/bark_scroll" } },
-  { "pk1": { "asset": "key/mephisto_key" } },
+  { "pk1": { "asset": "key/mephisto_key1" } },
   { "pk2": { "asset": "key/mephisto_key2" } },
   { "pk3": { "asset": "key/mephisto_key3" } },
   { "dhn": { "asset": "body_part/fang" } },

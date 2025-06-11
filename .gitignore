@@ -1,2 +1,8 @@
 # 控制器
 *.exe
+
+__pycache__
+build/
+dist/
+command.txt
+jcy Mod 控制器.spec
