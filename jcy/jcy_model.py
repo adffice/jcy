@@ -25,8 +25,8 @@ class FeatureConfig:
                 "FEATURE_ID_12": "屏蔽火焰之河岩浆特效",
                 # "FEATURE_ID_13": "屏蔽督军山克死亡特效", 文件内容尚未分析清楚
                 "FEATURE_ID_14": "魔法箭特效",
-                "FEATURE_ID_15": "6BOSS钥匙皮肤",
-                "FEATURE_ID_16": "A2贤者之谷小站增加塔墓标记 A3拆除崔凡克议会墙屋 A4拆除混沌庇护所大门 A5拆除毁灭王座石柱",
+                "FEATURE_ID_15": "6BOSS钥匙皮肤+掉落光柱",
+                "FEATURE_ID_16": "展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱",
                 "FEATURE_ID_17": "变色精英怪",
                 "FEATURE_ID_18": "特殊词缀装备变色",
                 "FEATURE_ID_19": "经验条变色",

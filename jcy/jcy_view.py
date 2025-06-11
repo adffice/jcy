@@ -8,7 +8,7 @@ class FeatureView:
         self.all_features_config = all_features_config
         self.controller = controller
 
-        master.title("jcy MOD 控制器")
+        master.title("jcy MOD 控制器 v1.0.1")
         master.geometry("600x700")
 
         self.feature_vars = {}  # 存储所有 Checkbutton 和 Radiobutton 的 Tkinter 变量

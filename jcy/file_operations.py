@@ -64,7 +64,10 @@ class FileOperations:
 
         for file in files:
             try:
-                shutil.copy2(file[0] if isEnabled else file[1], file[2])
+                true_file = os.path.join(self.dir_mod, file[0]) 
+                false_file = os.path.join(self.dir_mod, file[1]) 
+                target_file = os.path.join(self.dir_mod, file[2])
+                shutil.copy2(true_file if isEnabled else false_file, target_file)
                 count += 1
             except Exception as e:
                 print(e)
@@ -102,6 +105,7 @@ class FileOperations:
             r"data\hd\items\misc\rune\um_rune.json",
             r"data\hd\items\misc\rune\vex_rune.json",
             r"data\hd\items\misc\rune\zod_rune.json",
+            r"data\hd\items\misc\key\mephisto_key.json",
         )
 
         return self.common_rename(files_droped_highlight, isEnabled)
@@ -427,7 +431,7 @@ class FileOperations:
             r"data\hd\roomtiles\act_5_ice_caves_down_r.json",
         )
 
-        return self.common_rename(files_entrance_arrow)
+        return self.common_rename(files_entrance_arrow, isEnabled)
 
     def toggle_low_quality(self, isEnabled: bool):
         """
@@ -889,6 +893,7 @@ class FileOperations:
         files_global_excel_affixes = (
             r"data\global\excel\magicprefix.txt",
             r"data\global\excel\magicsuffix.txt",
+            r"data\global\ui\layouts\globaldatahd.json"
         )
 
         return self.common_rename(files_global_excel_affixes, isEnabled)
@@ -898,9 +903,8 @@ class FileOperations:
         开关 6BOSS钥匙皮肤
         """
         files_key = (
-            r"data\hd\items\items.json"
+            r"data\hd\items\items.json",
         )
-
         return self.common_rename(files_key, isEnabled)
 
     def toggle_hellfire_torch(self, isEnabled: bool):

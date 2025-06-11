@@ -1,6 +1,6 @@
 {
     "FEATURE_ID_01": true,
-    "FEATURE_ID_02": true,
+    "FEATURE_ID_02": false,
     "FEATURE_ID_03": true,
     "FEATURE_ID_04": true,
     "FEATURE_ID_05": true,
