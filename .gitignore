@@ -4,5 +4,7 @@
 __pycache__
 build/
 dist/
-command.txt
 jcy Mod 控制器.spec
+jcy Mod 控制器.exe
+package.bat
+startup.bat
