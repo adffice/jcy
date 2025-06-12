@@ -24,20 +24,32 @@ class FeatureView:
         notebook.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
         # 创建“独立功能”选项卡
-        standalone_tab = ttk.Frame(notebook)
-        notebook.add(standalone_tab, text=" 开关策略 ")
+        display_tab = ttk.Frame(notebook)
+        notebook.add(display_tab, text=" 显示性特效 ")
+
+        # 创建“独立功能”选项卡
+        function_tab = ttk.Frame(notebook)
+        notebook.add(function_tab, text=" 功能性特效 ")
 
         # 创建“分组的互斥功能”选项卡
         grouped_tab = ttk.Frame(notebook)
-        notebook.add(grouped_tab, text=" 组策略 ")
+        notebook.add(grouped_tab, text=" 组策略特效 ")
 
         # --- 独立功能 (Standalone Features) ---
-        standalone_features = self.all_features_config.get("standalone_features", {})
-        for fid, description in standalone_features.items():
+        display_features = self.all_features_config.get("display_features", {})
+        for fid, description in display_features.items():
             var = tk.BooleanVar()
             self.feature_vars[fid] = var
-            chk = ttk.Checkbutton(standalone_tab, text=description, variable=var, command=lambda f=fid, v=var: self.controller.execute_feature_action(f, v.get()))
+            chk = ttk.Checkbutton(display_tab, text=description, variable=var, command=lambda f=fid, v=var: self.controller.execute_feature_action(f, v.get()))
             chk.pack(anchor=tk.W, padx=10, pady=2)
+
+        function_features = self.all_features_config.get("function_features", {})
+        for fid, description in function_features.items():
+            var = tk.BooleanVar()
+            self.feature_vars[fid] = var
+            chk = ttk.Checkbutton(function_tab, text=description, variable=var, command=lambda f=fid, v=var: self.controller.execute_feature_action(f, v.get()))
+            chk.pack(anchor=tk.W, padx=10, pady=2)
+        
 
         # --- 分组的互斥功能 (Grouped Features) ---
         group_features = self.all_features_config.get("group_features", {})
@@ -72,7 +84,10 @@ class FeatureView:
         """
         for fid, var in self.feature_vars.items():
             # 处理独立功能 (Checkbutton) 的状态
-            if fid in self.all_features_config["standalone_features"]:
+            if fid in self.all_features_config["display_features"]:
+                value = current_states.get(fid, False)
+                var.set(value)
+            if fid in self.all_features_config["function_features"]:
                 value = current_states.get(fid, False)
                 var.set(value)
             # 处理分组功能 (Radiobutton) 的状态

@@ -983,6 +983,59 @@ class FileOperations:
                 os.remove(temp_path)
         return (1, 1)
     
+    def toggle_nihlathak_pointer(self, isEnabled: bool):
+        """
+        开/关 尼拉塞克指示
+        """
+        files_nihlathak_pointer = [
+            r"data/hd/env/preset/expansion/wildtemple/nihle.json",
+            r"data/hd/env/preset/expansion/wildtemple/nihln.json",
+            r"data/hd/env/preset/expansion/wildtemple/nihls.json",
+            r"data/hd/env/preset/expansion/wildtemple/nihlw.json",
+        ]
+
+        return self.common_rename(files_nihlathak_pointer, isEnabled)
+    
+    def toggle_barracks_pointer(self, isEnabled: bool):
+        """
+        开/关 兵营指示
+        """
+        files_barracks_pointer = [
+            r"data/hd/env/preset/act1/court/courte.json",
+            r"data/hd/env/preset/act1/court/courtn.json",
+            r"data/hd/env/preset/act1/court/courtw.json",
+        ]
+
+        return self.common_rename(files_barracks_pointer, isEnabled)
+
+    def toggle_hd_local_video(self, isEnabled: bool):
+        """
+        开/关 屏蔽动画
+        """
+        files_hd_local_video = [
+            r"data\hd\local\video\act2\act02start.flac",
+            r"data\hd\local\video\act3\act03start.flac",
+            r"data\hd\local\video\act4\act04end.flac",
+            r"data\hd\local\video\act4\act04start.flac",
+            r"data\hd\local\video\act5\d2x_out.flac",
+            r"data\hd\local\video\blizzardlogos.flac",
+            r"data\hd\local\video\d2intro.flac",
+            r"data\hd\local\video\d2x_intro.flac",
+            r"data\hd\local\video\logoanim.flac",
+        ]
+
+        return self.common_empty_file(files_hd_local_video, isEnabled)
+
+    def toggle_quick_game(self, isEnabled: bool):
+        """
+        开关 点击角色进游戏(最高难度)
+        """
+        files_quick_game = [
+            r"data\global\ui\layouts\mainmenupanelhd.json",
+        ]
+
+        return self.common_rename(files_quick_game, isEnabled)
+    
     def toggle_town_portal(self, radio: str):
         """
         传送门皮肤
@@ -1020,8 +1073,3 @@ class FileOperations:
                 os.remove(temp_file)
 
     
-
-
-
-
-

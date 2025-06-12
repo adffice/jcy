@@ -88,6 +88,14 @@ class FeatureController:
             "FEATURE_ID_19": self.file_operations.toggle_experience_bar,
             # "咒符/符文/技能提示音"
             "FEATURE_ID_20": self.file_operations.toggle_sound,
+            # "尼拉塞克指示"
+            "FEATURE_ID_21": self.file_operations.toggle_nihlathak_pointer,
+            # "兵营指示"
+            "FEATURE_ID_22": self.file_operations.toggle_barracks_pointer,
+            # "屏蔽动画"
+            "FEATURE_ID_23": self.file_operations.toggle_hd_local_video,
+            # "点击角色进游戏(最高难度)"
+            "FEATURE_ID_24": self.file_operations.toggle_quick_game,
         }
 
         # 分组功能处理函数 - 使用新的 group_id (适配 jcy_model.py 的新结构)
@@ -96,17 +104,6 @@ class FeatureController:
             # "传送门皮肤"
             "GROUP_FEATURES_01": self.file_operations.toggle_town_portal,
         }
-
-    def on_control_change(self, feature_id, value):
-        """
-        当UI控件状态改变时调用，更新内部状态。
-        """
-        self.current_states[feature_id] = value
-
-        # 对于组的开关，需要立即更新组内 Radiobutton 的启用/禁用状态
-        if feature_id.startswith('_') and feature_id.endswith('_enabled'):
-            group_name = feature_id[1:-8]
-            self.group_handlers[group_name]["enable_group"]() if value else self.group_handlers[group_name]["disable_group"]()
 
     def apply_settings(self):
         """
@@ -118,7 +115,18 @@ class FeatureController:
         changes_detected = False
 
         # -------------------- 独立功能 (Checkbutton) --------------------
-        for feature_id, description in self.feature_config.all_features_config["standalone_features"].items():
+        for feature_id, description in self.feature_config.all_features_config["display_features"].items():
+            current_value = self.current_states.get(feature_id)
+            loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
+            # 只有当 current_value 存在且与 loaded_value 不同时才处理
+            if current_value is not None and current_value != loaded_value:
+                changes_detected = True
+                if feature_id in self.toggle_handlers:
+                    # 执行实际的文件操作
+                    result = self.toggle_handlers[feature_id](current_value) # current_value 即 enable/disable
+                    self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
+
+        for feature_id, description in self.feature_config.all_features_config["function_features"].items():
             current_value = self.current_states.get(feature_id)
             loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
             # 只有当 current_value 存在且与 loaded_value 不同时才处理

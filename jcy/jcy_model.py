@@ -10,27 +10,33 @@ class FeatureConfig:
     """
     def __init__(self, base_path):
         self.all_features_config = {
-            "standalone_features": { # 不分组的独立功能 (使用 Checkbutton)
-                "FEATURE_ID_01": "MINI方块",
+            "display_features": { # 不分组的独立功能 (使用 Checkbutton)
                 "FEATURE_ID_02": "掉落光柱",
                 "FEATURE_ID_03": "符文编号贴图",
                 "FEATURE_ID_04": "箱子高亮",
                 "FEATURE_ID_05": "入口/小站光柱",
-                "FEATURE_ID_06": "屏蔽垃圾装备",
-                "FEATURE_ID_07": "屏蔽垃圾杂物",
                 "FEATURE_ID_08": "照亮玩家四周",
                 "FEATURE_ID_09": "马赛克护眼",
-                "FEATURE_ID_10": "按ESC直接退回大厅",
                 "FEATURE_ID_11": "屏蔽地狱火炬火焰风暴特效",
                 "FEATURE_ID_12": "屏蔽火焰之河岩浆特效",
                 "FEATURE_ID_13": "屏蔽开门动画,极速进站",
                 "FEATURE_ID_14": "魔法箭特效",
                 "FEATURE_ID_15": "6BOSS钥匙皮肤+掉落光柱",
                 "FEATURE_ID_16": "展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱",
+                "FEATURE_ID_19": "经验条变色",
+            },
+            "function_features": {
+                "FEATURE_ID_01": "MINI方块",
+                "FEATURE_ID_06": "屏蔽垃圾装备",
+                "FEATURE_ID_07": "屏蔽垃圾杂物",
+                "FEATURE_ID_10": "按ESC直接退回大厅",
                 "FEATURE_ID_17": "变色精英怪",
                 "FEATURE_ID_18": "特殊词缀装备变色",
-                "FEATURE_ID_19": "经验条变色",
-                "FEATURE_ID_20": "咒符/符文/技能提示音",
+                "FEATURE_ID_20": "咒符/符文/技能结束提示音",
+                "FEATURE_ID_21": "尼拉塞克指示",
+                "FEATURE_ID_22": "兵营指示",
+                "FEATURE_ID_23": "屏蔽动画",
+                "FEATURE_ID_24": "点击角色进游戏(最高难度)",
             },
             "group_features": { # 分组的互斥功能 (使用 Radiobutton)
                 "GROUP_FEATURES_01": {
@@ -51,7 +57,9 @@ class FeatureConfig:
 
         # 初始化默认功能状态
         self.default_feature_states = {}
-        for fid in self.all_features_config["standalone_features"]:
+        for fid in self.all_features_config["display_features"]:
+            self.default_feature_states[fid] = False # 独立功能默认关闭
+        for fid in self.all_features_config["function_features"]:
             self.default_feature_states[fid] = False # 独立功能默认关闭
 
         # 分组功能：默认选中每个组的第一个选项的“参数对象key”
@@ -81,7 +89,11 @@ class FeatureStateManager:
                     self.loaded_states = json.load(f)
 
                 # 确保所有独立功能都有状态，如果配置文件中缺少则使用默认值
-                for fid in self.config.all_features_config["standalone_features"]:
+                for fid in self.config.all_features_config["display_features"]:
+                    if fid not in self.loaded_states:
+                        self.loaded_states[fid] = False
+
+                for fid in self.config.all_features_config["function_features"]:
                     if fid not in self.loaded_states:
                         self.loaded_states[fid] = False
 
@@ -110,7 +122,11 @@ class FeatureStateManager:
         try:
             # 过滤掉不是功能ID或分组名称的键，以防保存不必要的临时状态
             states_to_save = {}
-            for fid in self.config.all_features_config["standalone_features"]:
+            for fid in self.config.all_features_config["display_features"]:
+                if fid in current_states:
+                    states_to_save[fid] = current_states[fid]
+
+            for fid in self.config.all_features_config["function_features"]:
                 if fid in current_states:
                     states_to_save[fid] = current_states[fid]
 
