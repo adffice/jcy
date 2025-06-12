@@ -11,7 +11,7 @@
     "FEATURE_ID_10": true,
     "FEATURE_ID_11": true,
     "FEATURE_ID_12": true,
-    "FEATURE_ID_13": false,
+    "FEATURE_ID_13": true,
     "FEATURE_ID_14": true,
     "FEATURE_ID_15": true,
     "FEATURE_ID_16": true,
@@ -19,7 +19,5 @@
     "FEATURE_ID_18": true,
     "FEATURE_ID_19": true,
     "FEATURE_ID_20": true,
-    "FEATURE_ID_21": false,
-    "_\u663e\u793a\u6a21\u5f0f_enabled": true,
-    "\u663e\u793a\u6a21\u5f0f": "GROUP_ID_DISPLAY_C"
+    "GROUP_FEATURES_01": "blue"
 }

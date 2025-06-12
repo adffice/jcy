@@ -22,9 +22,12 @@ class FeatureController:
         self.feature_view = FeatureView(master, self.feature_config.all_features_config, self)
 
         self.current_states = {}
-        self.feature_handlers = {}
+        # 保持用户原有的 toggle_handlers 命名
+        self.toggle_handlers = {}
+        # 初始化 group_handlers
+        self.group_handlers = {} 
         self._setup_feature_handlers()
-        self.dialogs = "";
+        self.dialogs = "" 
 
         self.feature_state_manager.load_settings()
         self.current_states.update(self.feature_state_manager.loaded_states)
@@ -36,7 +39,7 @@ class FeatureController:
             # 当应用程序被打包成 exe 时
             return os.path.dirname(sys.executable)
         else:
-            # 当作为脚本运行时
+            # 当从 Python 脚本运行时
             return os.path.dirname(os.path.abspath(__file__))
 
     def _setup_feature_handlers(self):
@@ -69,6 +72,8 @@ class FeatureController:
             "FEATURE_ID_11": self.file_operations.toggle_hellfire_torch,
             # "屏蔽火焰之河岩浆特效"
             "FEATURE_ID_12": self.file_operations.toggle_lava_river_flow,
+            # "删除开门动画,极速进站",
+            "FEATURE_ID_13": self.file_operations.toggle_load_screen_panel,
             # "魔法箭特效"
             "FEATURE_ID_14": self.file_operations.toggle_magic_arrow,
             # "6BOSS钥匙皮肤"
@@ -85,13 +90,11 @@ class FeatureController:
             "FEATURE_ID_20": self.file_operations.toggle_sound,
         }
 
-        # 分组功能：这里只处理组的开关状态，组内互斥选择的处理在 _handle_group_action 中
+        # 分组功能处理函数 - 使用新的 group_id (适配 jcy_model.py 的新结构)
+        # 键是 group_id (例如 "GROUP_FEATURES_01")，值是处理该组选中的函数
         self.group_handlers = {
-            "显示模式": {
-                "enable_group": lambda: self.feature_view._toggle_group_state("显示模式", True),
-                "disable_group": lambda: self.feature_view._toggle_group_state("显示模式", False),
-                "handle_selection": self._handle_display_mode,
-            },
+            # "传送门皮肤"
+            "GROUP_FEATURES_01": self.file_operations.toggle_town_portal,
         }
 
     def on_control_change(self, feature_id, value):
@@ -108,98 +111,67 @@ class FeatureController:
     def apply_settings(self):
         """
         应用所有功能设置，执行文件操作。
+        此方法被“应用设置”按钮调用。
+        保留用户原有的比较逻辑和对话框显示机制。
         """
-        self.dialogs = "";
+        self.dialogs = "" # 每次应用设置前清空 dialogs
+        changes_detected = False
 
-        # 获取上次保存的状态，用于比较
-        previous_states = self.feature_state_manager.loaded_states.copy()
+        # -------------------- 独立功能 (Checkbutton) --------------------
+        for feature_id, description in self.feature_config.all_features_config["standalone_features"].items():
+            current_value = self.current_states.get(feature_id)
+            loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
+            # 只有当 current_value 存在且与 loaded_value 不同时才处理
+            if current_value is not None and current_value != loaded_value:
+                changes_detected = True
+                if feature_id in self.toggle_handlers:
+                    # 执行实际的文件操作
+                    result = self.toggle_handlers[feature_id](current_value) # current_value 即 enable/disable
+                    self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
 
-        # 首先处理独立功能
-        for fid, description in self.feature_config.all_features_config["standalone_features"].items():
-            is_enabled = self.current_states.get(fid, False)
-            previous_enabled = previous_states.get(fid, False)
+        # -------------------- 分组功能 (Radiobutton) --------------------
+        for group_id, group_info in self.feature_config.all_features_config["group_features"].items():
+            current_value = self.current_states.get(group_id) # 获取选中项的 param_key
+            loaded_value = self.feature_state_manager.loaded_states.get(group_id)
 
-            if is_enabled != previous_enabled: # 只有状态发生变化才执行
-                _count = self.execute_feature_action(fid, is_enabled)
-                self.dialogs += f"{"开启" if is_enabled else "关闭" } {description} 操作文件数量: {_count[0]}/{_count[1]}\n"
+            # 只有当 current_value 存在且与 loaded_value 不同时才处理
+            if current_value is not None and current_value != loaded_value:
+                changes_detected = True
+                # 找到选中参数的描述文本
+                selected_description = next((param_dict[current_value] for param_dict in group_info["params"] if current_value in param_dict), current_value)
+                if group_id in self.group_handlers:
+                    # 执行实际的文件操作
+                    result = self.group_handlers[group_id](current_value) # current_value 即 selected_param_key
+                    self.dialogs += f"{group_info['text']} = {selected_description} 操作文件数量 {result[0]}/{result[1]} \n"
 
-        # 然后处理分组功能
-        for group_name, group_info in self.feature_config.all_features_config["feature_groups"].items():
-            group_enabled_key = f"_{group_name}_enabled"
-            is_group_enabled = self.current_states.get(group_enabled_key, False)
-            previous_group_enabled = previous_states.get(group_enabled_key, False)
-
-            selected_fid_in_group = self.current_states.get(group_name)
-            previous_selected_fid_in_group = previous_states.get(group_name)
-
-            # 比较组的开关状态
-            if is_group_enabled != previous_group_enabled:
-                if is_group_enabled:
-                    # 组从禁用变为启用，如果选中了Radiobutton，则执行其操作
-                    if selected_fid_in_group:
-                        self.execute_group_action(group_name, selected_fid_in_group)
-                    else:
-                        messagebox.showwarning("警告", f"'{group_name}' 组已启用但未选择任何选项。该组将被视为禁用。")
-                        self.feature_view.feature_vars[group_enabled_key].set(False) # 更新UI
-                        self.current_states[group_enabled_key] = False # 更新内部状态
-                        self._handle_group_disabled_action(group_name) # 执行禁用操作
-                else:
-                    # 组从启用变为禁用
-                    self._handle_group_disabled_action(group_name)
-                # 确保 Radiobutton 状态与 Group Checkbutton 同步
-                self.group_handlers[group_name]["enable_group"]() if is_group_enabled else self.group_handlers[group_name]["disable_group"]()
-            elif is_group_enabled and selected_fid_in_group != previous_selected_fid_in_group:
-                # 组已启用，且组内的Radiobutton选择发生了变化
-                self.execute_group_action(group_name, selected_fid_in_group)
-
+        # 保存当前状态到 settings.json
         self.feature_state_manager.save_settings(self.current_states)
-        # 核心修复：保存后，立即更新 loaded_states，使其反映当前已保存的状态
-        self.feature_state_manager.loaded_states.update(self.current_states)
+        # 核心：保存后，立即更新 loaded_states，使其反映当前已保存的状态
+        self.feature_state_manager.loaded_states.update(self.current_states) # 使用 update 方法
 
-        if(self.dialogs != ''):
-            messagebox.showinfo("完成", self.dialogs)
+        # 显示结果
+        if changes_detected:
+            messagebox.showinfo("设置已应用", self.dialogs)
         else:
             messagebox.showinfo("完成", "无变化!")
 
     def execute_feature_action(self, feature_id: str, enable: bool):
-        # 打印被调用的方法名
-        return self.toggle_handlers[feature_id](enable)
+        """
+        执行独立功能的开关操作。此方法由 jcy_view.py 直接调用。
+        它现在只更新内存中的 current_states，不执行文件操作。
+        """
+        self.current_states[feature_id] = enable
+        # 此时不进行文件操作，不累加 self.dialogs
 
-    def execute_group_action(self, group_name: str, selected_feature_id: str):
+    def execute_group_action(self, group_id: str, selected_param_key: str):
         """
-        执行分组功能的选中操作。
+        执行分组功能的选中操作。此方法由 jcy_view.py 直接调用。
+        它现在只更新内存中的 current_states，不执行文件操作。
         """
-        if group_name in self.group_handlers:
-            # 打印被调用的方法名和参数
-            self.group_handlers[group_name]["handle_selection"](selected_feature_id)
+        self.current_states[group_id] = selected_param_key
+        # 此时不进行文件操作，不累加 self.dialogs
 
-    def _handle_group_disabled_action(self, group_name: str):
-        """
-        处理当一个功能组被禁用时的操作。
-        对于分组功能，当主开关被禁用时，需要执行清除操作。
-        """
-        # 这里放置当整个组被禁用时的具体清理逻辑
-        # 例如，调用 FileOperations 中对应的禁用所有组内功能的方法
-        # if group_name == "显示模式":
-        #     self.file_operations.disable_all_display_modes() # 示例：需要你在 FileOperations 中实现
-        # elif group_name == "电源策略":
-        #     self.file_operations.reset_power_policy_to_default()
-        pass # Placeholder for actual disabling logic
-
-    # 以下是处理各个分组功能的具体策略方法
-    def _handle_display_mode(self, selected_fid: str):
-        group_info = self.feature_config.all_features_config['feature_groups']['显示模式']
-        description = group_info['features'].get(selected_fid, selected_fid)
-        # 根据 selected_fid 执行实际的文件操作
-        if selected_fid == "GROUP_ID_DISPLAY_A":
-            # 性能优先：可能删除或替换一些视觉效果文件
-            pass
-        elif selected_fid == "GROUP_ID_DISPLAY_B":
-            # 平衡模式：恢复默认视觉效果
-            pass
-        elif selected_fid == "GROUP_ID_DISPLAY_C":
-            # 外观优先：启用所有视觉效果文件
-            pass
+    
 
 if __name__ == "__main__":
     root = tk.Tk()

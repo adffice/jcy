@@ -854,6 +854,17 @@ class FileOperations:
 
         return self.common_empty_file(files_lava_effect, isEnabled)
 
+    def toggle_load_screen_panel(self, isEnabled: bool):
+        """
+        开关 删除进门动画
+        """
+        files_load_screen_panel = [
+            r"data/global/ui/layouts/loadscreenpanel.json",
+            r"data/global/ui/layouts/loadscreenpanelhd.json",
+        ]
+
+        return self.common_rename(files_load_screen_panel, isEnabled)
+
     def toggle_experience_bar(self, isEnabled: bool):
         """
         开关 经验条变色
@@ -971,3 +982,46 @@ class FileOperations:
             if os.path.exists(temp_path):
                 os.remove(temp_path)
         return (1, 1)
+    
+    def toggle_town_portal(self, radio: str):
+        """
+        传送门皮肤
+        """
+        params = {
+            "default" :"data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal_newstuff.particles",
+            "red": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal_newstuff_newred.particles",
+            "blue": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal.particles",
+            "red2": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal_newstuff_redversion.particles"
+        }
+
+        file = r"data\hd\objects\vfx_only\town_portal.json"
+        target_file = os.path.join(self.dir_mod, file)
+        temp_file = target_file + ".tmp"
+        try:
+            # 1.load
+            json_data = None
+            with open(target_file, 'r', encoding='utf-8') as f:
+                json_data = json.load(f)
+            
+            # 2.modify
+            json_data["entities"][0]["components"][2]["filename"] = params[radio]
+            
+            # 3.dump temp
+            with open(temp_file, 'w', encoding="utf-8") as f:
+                json.dump(json_data, f, ensure_ascii=False, indent=4)
+
+            # 4.replace
+            os.replace(temp_file, target_file)
+            return (1, 1)
+        except Exception as e:
+            print(e)
+        finally:
+            if os.path.exists(temp_file):
+                os.remove(temp_file)
+
+    
+
+
+
+
+
