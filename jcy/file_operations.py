@@ -461,22 +461,6 @@ class FileOperations:
 
         return self.common_swap(files_misc, isEnabled)
 
-    def toggle_player_light(self, isEnabled: bool):
-        """
-        开/关 角色灯光
-        """
-        files_character_lighting = (
-            r"data\hd\character\player\amazon.json",
-            r"data\hd\character\player\assassin.json",
-            r"data\hd\character\player\barbarian.json",
-            r"data\hd\character\player\druid.json",
-            r"data\hd\character\player\necromancer.json",
-            r"data\hd\character\player\paladin.json",
-            r"data\hd\character\player\sorceress.json",
-        )
-
-        return self.common_rename(files_character_lighting, isEnabled)
-
     def toggle_no_mosaic_sin(self, isEnabled: bool):
         """
         开关 马赛克护眼
@@ -1036,6 +1020,165 @@ class FileOperations:
 
         return self.common_rename(files_quick_game, isEnabled)
     
+    def toggle_context_menu(self, isEnabled: bool):
+        """
+        更大的好友菜单
+        """
+        files_context_menu = [
+            r"data\global\ui\layouts\contextmenuhd.json",
+        ]
+
+        return self.common_rename(files_context_menu, isEnabled);
+
+    def toggle_character_enemy(self, isEnabled: bool):
+        """
+        怪物光源+危险标识
+        """
+        files_danger_enemy = [
+            r"data\hd\character\enemy\andariel.json",
+            r"data\hd\character\enemy\arach1.json",
+            r"data\hd\character\enemy\baalclone.json",
+            r"data\hd\character\enemy\baalcrab.json",
+            r"data\hd\character\enemy\baalminion1.json",
+            r"data\hd\character\enemy\baboon1.json",
+            r"data\hd\character\enemy\baboon6.json",
+            r"data\hd\character\enemy\barricadedoor1.json",
+            r"data\hd\character\enemy\barricadedoor2.json",
+            r"data\hd\character\enemy\barricadetower.json",
+            r"data\hd\character\enemy\barricadewall1.json",
+            r"data\hd\character\enemy\barricadewall2.json",
+            r"data\hd\character\enemy\batdemon1.json",
+            r"data\hd\character\enemy\bear.json",
+            r"data\hd\character\enemy\bighead1.json",
+            r"data\hd\character\enemy\bladecreeper.json",
+            r"data\hd\character\enemy\bloodgolem.json",
+            r"data\hd\character\enemy\bloodlord1.json",
+            r"data\hd\character\enemy\bloodraven.json",
+            r"data\hd\character\enemy\blunderbore1.json",
+            r"data\hd\character\enemy\bonefetish1.json",
+            r"data\hd\character\enemy\boneprison1.json",
+            r"data\hd\character\enemy\boneprison2.json",
+            r"data\hd\character\enemy\boneprison3.json",
+            r"data\hd\character\enemy\boneprison4.json",
+            r"data\hd\character\enemy\brute2.json",
+            r"data\hd\character\enemy\cantor1.json",
+            r"data\hd\character\enemy\catapult1.json",
+            r"data\hd\character\enemy\catapultspotter1.json",
+            r"data\hd\character\enemy\chargeboltsentry.json",
+            r"data\hd\character\enemy\clawviper1.json",
+            r"data\hd\character\enemy\claygolem.json",
+            r"data\hd\character\enemy\compellingorb.json",
+            r"data\hd\character\enemy\corpsefire.json",
+            r"data\hd\character\enemy\corruptrogue1.json",
+            r"data\hd\character\enemy\councilmember1.json",
+            r"data\hd\character\enemy\cowking.json",
+            r"data\hd\character\enemy\cr_archer1.json",
+            r"data\hd\character\enemy\cr_lancer1.json",
+            r"data\hd\character\enemy\crownest1.json",
+            r"data\hd\character\enemy\darkelder.json",
+            r"data\hd\character\enemy\darkwanderer.json",
+            r"data\hd\character\enemy\deathmauler1.json",
+            r"data\hd\character\enemy\deathsentry.json",
+            r"data\hd\character\enemy\diablo.json",
+            r"data\hd\character\enemy\doomknight1.json",
+            r"data\hd\character\enemy\doomknight2.json",
+            r"data\hd\character\enemy\doomknight3.json",
+            r"data\hd\character\enemy\dopplezon.json",
+            r"data\hd\character\enemy\duriel.json",
+            r"data\hd\character\enemy\evilhole1.json",
+            r"data\hd\character\enemy\evilhut.json",
+            r"data\hd\character\enemy\fallen1.json",
+            r"data\hd\character\enemy\fallenshaman1.json",
+            r"data\hd\character\enemy\fetish1.json",
+            r"data\hd\character\enemy\fetish11.json",
+            r"data\hd\character\enemy\fetishblow1.json",
+            r"data\hd\character\enemy\fetishshaman1.json",
+            r"data\hd\character\enemy\fingermage1.json",
+            r"data\hd\character\enemy\firetower.json",
+            r"data\hd\character\enemy\flyingscimitar.json",
+            r"data\hd\character\enemy\foulcrow1.json",
+            r"data\hd\character\enemy\frogdemon1.json",
+            r"data\hd\character\enemy\frozenhorror1.json",
+            r"data\hd\character\enemy\gargoyletrap.json",
+            r"data\hd\character\enemy\goatman1.json",
+            r"data\hd\character\enemy\gorgon1.json",
+            r"data\hd\character\enemy\griswold.json",
+            r"data\hd\character\enemy\hellbovine.json",
+            r"data\hd\character\enemy\hephasto.json",
+            r"data\hd\character\enemy\imp1.json",
+            r"data\hd\character\enemy\invisopet.json",
+            r"data\hd\character\enemy\invisospawner.json",
+            r"data\hd\character\enemy\izual.json",
+            r"data\hd\character\enemy\lightningsentry.json",
+            r"data\hd\character\enemy\lightningspire.json",
+            r"data\hd\character\enemy\maggotbaby1.json",
+            r"data\hd\character\enemy\maggotegg1.json",
+            r"data\hd\character\enemy\maggotqueen1.json",
+            r"data\hd\character\enemy\megademon1.json",
+            r"data\hd\character\enemy\mephisto.json",
+            r"data\hd\character\enemy\mephistospirit.json",
+            r"data\hd\character\enemy\minion1.json",
+            r"data\hd\character\enemy\minionspawner1.json",
+            r"data\hd\character\enemy\mosquito1.json",
+            r"data\hd\character\enemy\mummy1.json",
+            r"data\hd\character\enemy\nihlathakboss.json",
+            r"data\hd\character\enemy\overseer1.json",
+            r"data\hd\character\enemy\painworm1.json",
+            r"data\hd\character\enemy\pantherwoman1.json",
+            r"data\hd\character\enemy\prisondoor.json",
+            r"data\hd\character\enemy\putriddefiler1.json",
+            r"data\hd\character\enemy\quillbear1.json",
+            r"data\hd\character\enemy\quillrat1.json",
+            r"data\hd\character\enemy\radament.json",
+            r"data\hd\character\enemy\reanimatedhorde1.json",
+            r"data\hd\character\enemy\regurgitator1.json",
+            r"data\hd\character\enemy\sandleaper1.json",
+            r"data\hd\character\enemy\sandmaggot1.json",
+            r"data\hd\character\enemy\sandraider1.json",
+            r"data\hd\character\enemy\sarcophagus.json",
+            r"data\hd\character\enemy\scarab1.json",
+            r"data\hd\character\enemy\seventombs.json",
+            r"data\hd\character\enemy\shadowwarrior.json",
+            r"data\hd\character\enemy\siegebeast1.json",
+            r"data\hd\character\enemy\sk_archer1.json",
+            r"data\hd\character\enemy\skeleton1.json",
+            r"data\hd\character\enemy\skmage_cold1.json",
+            r"data\hd\character\enemy\skmage_fire1.json",
+            r"data\hd\character\enemy\skmage_ltng1.json",
+            r"data\hd\character\enemy\skmage_pois1.json",
+            r"data\hd\character\enemy\slinger1.json",
+            r"data\hd\character\enemy\slinger5.json",
+            r"data\hd\character\enemy\smith.json",
+            r"data\hd\character\enemy\snowyeti1.json",
+            r"data\hd\character\enemy\succubus1.json",
+            r"data\hd\character\enemy\succubuswitch1.json",
+            r"data\hd\character\enemy\suicideminion1.json",
+            r"data\hd\character\enemy\summoner.json",
+            r"data\hd\character\enemy\swarm1.json",
+            r"data\hd\character\enemy\tentacle1.json",
+            r"data\hd\character\enemy\tentaclehead1.json",
+            r"data\hd\character\enemy\thornhulk1.json",
+            r"data\hd\character\enemy\trappedsoul1.json",
+            r"data\hd\character\enemy\trappedsoul2.json",
+            r"data\hd\character\enemy\turret1.json",
+            r"data\hd\character\enemy\unraveler1.json",
+            r"data\hd\character\enemy\vampire1.json",
+            r"data\hd\character\enemy\venomlord.json",
+            r"data\hd\character\enemy\vilechild1.json",
+            r"data\hd\character\enemy\vilemother1.json",
+            r"data\hd\character\enemy\vulture1.json",
+            r"data\hd\character\enemy\willowisp1.json",
+            r"data\hd\character\enemy\window1.json",
+            r"data\hd\character\enemy\window2.json",
+            r"data\hd\character\enemy\wolf.json",
+            r"data\hd\character\enemy\wraith1.json",
+            r"data\hd\character\enemy\zealot1.json",
+            r"data\hd\character\enemy\zombie1.json",
+        ]
+
+        return self.common_rename(files_danger_enemy, isEnabled)
+
+
     def toggle_town_portal(self, radio: str):
         """
         传送门皮肤
@@ -1072,4 +1215,38 @@ class FileOperations:
             if os.path.exists(temp_file):
                 os.remove(temp_file)
 
-    
+    def toggle_character_player(self, radio: str):
+        """
+        角色光源
+        """
+        params = [
+            r"data/hd/character/player/wolf.json",
+            r"data/hd/character/player/amazon.json",
+            r"data/hd/character/player/assassin.json",
+            r"data/hd/character/player/barbarian.json",
+            r"data/hd/character/player/bear.json",
+            r"data/hd/character/player/druid.json",
+            r"data/hd/character/player/necromancer.json",
+            r"data/hd/character/player/paladin.json",
+            r"data/hd/character/player/sorceress.json",
+        ]
+
+        count = 0
+        total = len(params)
+
+        try:
+            for param in params:
+                if "default" == radio:
+                    target_file = os.path.join(self.dir_mod, param)
+                    if os.path.exists(target_file):
+                        os.remove(target_file)
+                        count += 1
+                else:
+                    src_file = os.path.join(self.dir_mod, param + "." + radio)
+                    dst_file = os.path.join(self.dir_mod, param)
+                    if os.path.exists(src_file):
+                        shutil.copy2(src_file, dst_file)
+                        count += 1
+        except Exception as e:
+            print(e)
+        return (count, total)

@@ -3,7 +3,6 @@
     "FEATURE_ID_03": true,
     "FEATURE_ID_04": true,
     "FEATURE_ID_05": true,
-    "FEATURE_ID_08": false,
     "FEATURE_ID_09": true,
     "FEATURE_ID_11": true,
     "FEATURE_ID_12": true,
@@ -13,8 +12,8 @@
     "FEATURE_ID_16": true,
     "FEATURE_ID_19": true,
     "FEATURE_ID_01": true,
-    "FEATURE_ID_06": true,
-    "FEATURE_ID_07": true,
+    "FEATURE_ID_06": false,
+    "FEATURE_ID_07": false,
     "FEATURE_ID_10": true,
     "FEATURE_ID_17": true,
     "FEATURE_ID_18": true,
@@ -23,5 +22,8 @@
     "FEATURE_ID_22": true,
     "FEATURE_ID_23": true,
     "FEATURE_ID_24": true,
-    "GROUP_FEATURES_01": "blue"
+    "FEATURE_ID_25": true,
+    "FEATURE_ID_26": false,
+    "GROUP_FEATURES_01": "blue",
+    "GROUP_FEATURES_02": "kof"
 }

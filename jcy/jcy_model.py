@@ -15,7 +15,7 @@ class FeatureConfig:
                 "FEATURE_ID_03": "符文编号贴图",
                 "FEATURE_ID_04": "箱子高亮",
                 "FEATURE_ID_05": "入口/小站光柱",
-                "FEATURE_ID_08": "照亮玩家四周",
+                #"FEATURE_ID_08": "角色光源", -> group
                 "FEATURE_ID_09": "马赛克护眼",
                 "FEATURE_ID_11": "屏蔽地狱火炬火焰风暴特效",
                 "FEATURE_ID_12": "屏蔽火焰之河岩浆特效",
@@ -24,6 +24,7 @@ class FeatureConfig:
                 "FEATURE_ID_15": "6BOSS钥匙皮肤+掉落光柱",
                 "FEATURE_ID_16": "展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱",
                 "FEATURE_ID_19": "经验条变色",
+                
             },
             "function_features": {
                 "FEATURE_ID_01": "MINI方块",
@@ -37,6 +38,9 @@ class FeatureConfig:
                 "FEATURE_ID_22": "兵营指示",
                 "FEATURE_ID_23": "屏蔽动画",
                 "FEATURE_ID_24": "点击角色进游戏(最高难度)",
+                "FEATURE_ID_25": "更大的好友菜单",
+                "FEATURE_ID_26": "怪物光源+危险标识",
+
             },
             "group_features": { # 分组的互斥功能 (使用 Radiobutton)
                 "GROUP_FEATURES_01": {
@@ -46,6 +50,15 @@ class FeatureConfig:
                         {"red":"原版红门"},
                         {"blue":"双圈蓝门"},
                         {"red2":"单圈红门"}
+                    ]
+                },
+                "GROUP_FEATURES_02": {
+                    "text": "角色光源",
+                    "params": [
+                        {"default":"原版"},
+                        {"will":"角色高亮照亮+5"},
+                        {"kof":"角色中亮照亮+5"},
+                        {"mdk":"角色中亮照亮+10"}
                     ]
                 },
             }

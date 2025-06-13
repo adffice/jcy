@@ -96,6 +96,10 @@ class FeatureController:
             "FEATURE_ID_23": self.file_operations.toggle_hd_local_video,
             # "点击角色进游戏(最高难度)"
             "FEATURE_ID_24": self.file_operations.toggle_quick_game,
+            # "更大的好友选项"
+            "FEATURE_ID_25": self.file_operations.toggle_context_menu,
+            # "危险怪物标识"
+            "FEATURE_ID_26": self.file_operations.toggle_character_enemy,
         }
 
         # 分组功能处理函数 - 使用新的 group_id (适配 jcy_model.py 的新结构)
@@ -103,6 +107,9 @@ class FeatureController:
         self.group_handlers = {
             # "传送门皮肤"
             "GROUP_FEATURES_01": self.file_operations.toggle_town_portal,
+            # "角色光源"
+            "GROUP_FEATURES_02": self.file_operations.toggle_character_player,
+
         }
 
     def apply_settings(self):
