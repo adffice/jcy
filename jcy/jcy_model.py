@@ -19,10 +19,18 @@ class FeatureConfig:
                 "FEATURE_ID_105": "屏蔽地狱火炬火焰风暴特效",
                 "FEATURE_ID_106": "屏蔽火焰之河岩浆特效",
                 "FEATURE_ID_107": "屏蔽开门动画,极速进站",
-                "FEATURE_ID_108": "魔法箭特效",
+                "FEATURE_ID_108": "弓箭/弩箭/老鼠刺/剥皮吹箭->火箭特效",
                 "FEATURE_ID_109": "6BOSS钥匙皮肤+掉落光柱",
                 "FEATURE_ID_110": "展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱",
                 "FEATURE_ID_111": "经验条变色",
+                "FEATURE_ID_112": "屏蔽影散隐身特效",
+                "FEATURE_ID_113": "骷髅火焰刀+圣盾特效",
+                "FEATURE_ID_114": "隐藏头盔类装备外观",
+                "FEATURE_ID_115": "投掷标枪->闪电枪特效",
+                "FEATURE_ID_116": "投掷飞刀->闪电尾特效",
+                "FEATURE_ID_117": "画面变亮",
+                "FEATURE_ID_118": "怪物血条加宽加高",
+                "FEATURE_ID_119": "德鲁伊飓风术特效",
                 
             },
             "function_features": { 
@@ -40,6 +48,9 @@ class FeatureConfig:
                 "FEATURE_ID_211": "更大的好友菜单",
                 "FEATURE_ID_212": "怪物光源+危险标识",
                 "FEATURE_ID_213": "技能图标(附魔/速度爆发/影散/BO/刺客聚气)",
+                "FEATURE_ID_214": "火焰之河信标",
+                "FEATURE_ID_215": "任务BOSS红圈引导",
+                
             },
             "group_features": {
                 "FEATURE_ID_300": {
@@ -48,7 +59,16 @@ class FeatureConfig:
                         {"default":"原版蓝门"},
                         {"red":"原版红门"},
                         {"blue":"双圈蓝门"},
-                        {"red2":"单圈红门"}
+                        {"red2":"单圈红门"},
+                    ],
+                    "default_key": "default"
+                },
+                "FEATURE_ID_301": {
+                    "text": "传送术皮肤",
+                    "params": [
+                        {"default":"原版"},
+                        {"ice":"冰霜"},
+                        {"fire":"火焰"},
                     ],
                     "default_key": "default"
                 },

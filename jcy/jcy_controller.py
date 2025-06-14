@@ -60,15 +60,30 @@ class FeatureController:
             "FEATURE_ID_106": self.file_operations.toggle_lava_river_flow,
             # 屏蔽开门动画,极速进站
             "FEATURE_ID_107": self.file_operations.toggle_load_screen_panel,
-            # 魔法箭特效
-            "FEATURE_ID_108": self.file_operations.toggle_magic_arrow,
+            # 弓箭/弩箭/老鼠刺/剥皮吹箭->火箭特效
+            "FEATURE_ID_108": self.file_operations.toggle_missiles_arrow,
             # 6BOSS钥匙皮肤+掉落光柱
             "FEATURE_ID_109": self.file_operations.toggle_mephisto_key,
             # 展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱
             "FEATURE_ID_110": self.file_operations.toggle_hd_env_presets,
             # 经验条变色
             "FEATURE_ID_111": self.file_operations.toggle_experience_bar,
-
+            # 经验条变色
+            "FEATURE_ID_112": self.file_operations.toggle_fade_dummy,
+            # 骷髅火焰刀+圣盾特效
+            "FEATURE_ID_113": self.file_operations.toggle_necroskeleton,
+            # 隐藏头盔类装备外观
+            "FEATURE_ID_114": self.file_operations.toggle_circlet,
+            # 投掷标枪->闪电枪特效
+            "FEATURE_ID_115": self.file_operations.toggle_missiles_javelin,
+            # 投掷飞刀->闪电尾特效
+            "FEATURE_ID_116": self.file_operations.toggle_missiles_throw,
+            # 画面变亮
+            "FEATURE_ID_117": self.file_operations.toggle_env_vis,
+            # 怪物血条加宽加高
+            "FEATURE_ID_118": self.file_operations.toggle_monster_health,
+            # 德鲁伊飓风术特效
+            "FEATURE_ID_119": self.file_operations.toggle_hurricane,
 
             # MINI方块
             "FEATURE_ID_200": self.file_operations.toggle_mini_cube,
@@ -98,11 +113,16 @@ class FeatureController:
             "FEATURE_ID_212": self.file_operations.toggle_character_enemy,
             # 技能图标(附魔/速度爆发/影散/BO/刺客聚气)
             "FEATURE_ID_213": self.file_operations.toggle_skill_logo,
-            
+            # 火焰之河信标
+            "FEATURE_ID_214": self.file_operations.toggle_diab_bridge,
+            # 任务BOSS红圈引导
+            "FEATURE_ID_215": self.file_operations.toggle_character_enemy_boss,
+
             
             # 传送门皮肤
             "FEATURE_ID_300": self.file_operations.select_town_portal,
-            
+            # 传送术皮肤
+            "FEATURE_ID_301": self.file_operations.select_teleport_skin,
             
             # 照亮范围
             "FEATURE_ID_400": self.file_operations.modify_character_player,

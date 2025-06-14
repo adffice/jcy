@@ -1,0 +1,190 @@
+{
+    "dependencies": {
+        "particles": [
+            {
+                "path": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles"
+            },
+            {
+                "path": "data/hd/vfx/particles/overlays/common/baal_on_throne/baalshield.particles"
+            }
+        ],
+        "models": [
+            {
+                "path": "data/hd/vfx/meshes/lit_mesh/shrine_experience/torso_shell.model"
+            }
+        ],
+        "skeletons": [
+            {
+                "path": "data/hd/vfx/meshes/lit_mesh/shrine_experience/skeleton/shrine_experience.skeleton"
+            }
+        ],
+        "animations": [
+            {
+                "path": "data/hd/vfx/meshes/lit_mesh/shrine_experience/animation/shrine_experience.animation"
+            }
+        ],
+        "textures": [
+            {
+                "path": "data/hd/vfx/textures/mask/T_FX_Hemisphere_Exponential.texture"
+            }
+        ],
+        "physics": [],
+        "json": [],
+        "variantdata": [],
+        "objecteffects": [],
+        "other": []
+    },
+    "type": "OverlayDefinition",
+    "name": "shrine_experience",
+    "entities": [
+        {
+            "type": "Entity",
+            "name": "entity_root",
+            "id": 2064404087,
+            "components": [
+                {
+                    "type": "TransformDefinitionComponent",
+                    "name": "entity_root_TransformDefinition",
+                    "position": {
+                        "x": 0,
+                        "y": 14,
+                        "z": 0
+                    },
+                    "inheritOnlyPosition": true
+                },
+                {
+                    "type": "VfxDefinitionComponent",
+                    "name": "entity_root_VfxDefinition",
+                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
+                    "hardKillOnDestroy": true
+                }
+            ]
+        },
+        {
+            "type": "Entity",
+            "name": "entity_root",
+            "id": 2064404087,
+            "components": [
+                {
+                    "type": "TransformDefinitionComponent",
+                    "name": "entity_root_TransformDefinition",
+                    "position": {
+                        "x": -4.5,
+                        "y": 11.3,
+                        "z": 4.5
+                    },
+                    "inheritOnlyPosition": true
+                },
+                {
+                    "type": "VfxDefinitionComponent",
+                    "name": "entity_root_VfxDefinition",
+                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
+                    "hardKillOnDestroy": true
+                }
+            ]
+        },
+        {
+            "type": "Entity",
+            "name": "entity_root",
+            "id": 2064404087,
+            "components": [
+                {
+                    "type": "TransformDefinitionComponent",
+                    "name": "entity_root_TransformDefinition",
+                    "position": {
+                        "x": -4.5,
+                        "y": 17.7,
+                        "z": 4.5
+                    },
+                    "inheritOnlyPosition": true
+                },
+                {
+                    "type": "VfxDefinitionComponent",
+                    "name": "entity_root_VfxDefinition",
+                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
+                    "hardKillOnDestroy": true
+                }
+            ]
+        },
+        {
+            "type": "Entity",
+            "name": "entity_root",
+            "id": 2064404087,
+            "components": [
+                {
+                    "type": "TransformDefinitionComponent",
+                    "name": "entity_root_TransformDefinition",
+                    "position": {
+                        "x": 4.5,
+                        "y": 11.3,
+                        "z": -4.5
+                    },
+                    "inheritOnlyPosition": true
+                },
+                {
+                    "type": "VfxDefinitionComponent",
+                    "name": "entity_root_VfxDefinition",
+                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
+                    "hardKillOnDestroy": true
+                }
+            ]
+        },
+        {
+            "type": "Entity",
+            "name": "entity_root",
+            "id": 2064404087,
+            "components": [
+                {
+                    "type": "TransformDefinitionComponent",
+                    "name": "entity_root_TransformDefinition",
+                    "position": {
+                        "x": 4.5,
+                        "y": 17.7,
+                        "z": -4.5
+                    },
+                    "inheritOnlyPosition": true
+                },
+                {
+                    "type": "VfxDefinitionComponent",
+                    "name": "entity_root_VfxDefinition",
+                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
+                    "hardKillOnDestroy": true
+                }
+            ]
+        },
+        {
+            "type": "Entity",
+            "name": "vfx_entity",
+            "id": 1731987216,
+            "components": [
+                {
+                    "type": "VfxDefinitionComponent",
+                    "name": "vfx_entity_VfxDefinition",
+                    "filename": "data/hd/vfx/particles/overlays/common/baal_on_throne/baalshield.particles",
+                    "hardKillOnDestroy": false
+                },
+                {
+                    "type": "TransformDefinitionComponent",
+                    "name": "vfx_entity_TransformDefinition",
+                    "position": {
+                        "x": 0,
+                        "y": 14,
+                        "z": 0
+                    },
+                    "orientation": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0,
+                        "w": 1
+                    },
+                    "scale": {
+                        "x": 1,
+                        "y": 1,
+                        "z": 1
+                    },
+                    "inheritOnlyPosition": false
+                }
+            ]
+        }
+    ]
+}
