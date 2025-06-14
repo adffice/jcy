@@ -15,7 +15,7 @@ inferno	12			1																																																																		
 blaze	13																																																		3																						0
 bonearmor	14	1																																				1	1				bonearmor_front	bonearmor_back	bonearmor_null1	bonearmor_null2		bonearmor_cast			6	3											bonearmor_off										0
 concentrate	15													1																																				skill_armor_percent																							0
-enchant	16											1									1																											enchant		skill_enchant					weap	cred							enchant_off										0
+enchant	16											1									1																							enchant				enchant		skill_enchant					weap	cred							enchant_off										0
 innersight	17																					1																					innersight							armorclass																							0
 skill_move	18																																																																								0
 weaken	19						1	1													1																						curseweaken					curse_hit		damagepercent												necromancer_weaken											0
@@ -61,7 +61,7 @@ lifetap	58						1	1																																			cursereversevampire					cu
 confuse	59						1	1																			1																curseconfuse					curse_hit														necromancer_confuse											0
 decrepify	60						1	1													1																						cursedecrepify					curse_hit		skill_decrepify												necromancer_decrepify									1		0
 lowerresist	61						1	1															1	1	1	1																	curselowerresist					curse_hit		lightresist																							0
-openwounds	62								1																										1																																	85					0
+openwounds	62								1																										1								bloodlust_state					frogdemon_death									255	100				object_goopile_1						85					0
 dopplezon	63				1						1																		1	1	1			1						1																								2	0								0
 criticalstrike	64			1																																																																					0
 dodge	65			1																																																																					0
@@ -135,7 +135,7 @@ shrine_resist_cold	132							1									1																										shrine_resist_
 shrine_resist_poison	133							1											1																								shrine_resist_poison	shrine_shimmer01						poisonresist																							0
 shrine_skill	134							1																																			shrine_skill	shrine_shimmer00							9	6																					0
 shrine_mana_regen	135							1																																			shrine_mana_regen	shrine_shimmer01																													0
-shrine_stamina	136							1										1																									shrine_stamina	shrine_shimmer01						stamina																							0
+shrine_stamina	136							1										1																									shrine_stamina	shrine_shimmer01						stamina												shrine_ofenirhs											0
 shrine_experience	137							1																																			shrine_experience	shrine_shimmer00																													0
 fenris_rage	138																																										direwolfcharged	direwolfcharged																													0
 wolf	139	3			1					1	1	1																													1										14											druid_morph	wolf_off	1	430								0

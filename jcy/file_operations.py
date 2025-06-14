@@ -1178,8 +1178,40 @@ class FileOperations:
 
         return self.common_rename(files_danger_enemy, isEnabled)
 
+    def toggle_skill_logo(self, isEnabled: bool):
+        """
+        技能图标
+        """
+        files_skill_logo = [
+            r"data/hd/overlays/assassin/fade.json",
+            r"data/hd/overlays/assassin/quickness.json",
+            r"data/hd/overlays/common/battlecommand.json",
+            r"data/hd/overlays/common/battleorders.json",
+            r"data/hd/overlays/common/progressive_cold_1.json",
+            r"data/hd/overlays/common/progressive_cold_2.json",
+            r"data/hd/overlays/common/progressive_cold_3.json",
+            r"data/hd/overlays/common/progressive_damage_1.json",
+            r"data/hd/overlays/common/progressive_damage_2.json",
+            r"data/hd/overlays/common/progressive_damage_3.json",
+            r"data/hd/overlays/common/progressive_fire_1.json",
+            r"data/hd/overlays/common/progressive_fire_2.json",
+            r"data/hd/overlays/common/progressive_fire_3.json",
+            r"data/hd/overlays/common/progressive_lightning_1.json",
+            r"data/hd/overlays/common/progressive_lightning_2.json",
+            r"data/hd/overlays/common/progressive_lightning_3.json",
+            r"data/hd/overlays/common/progressive_other_1.json",
+            r"data/hd/overlays/common/progressive_other_2.json",
+            r"data/hd/overlays/common/progressive_other_3.json",
+            r"data/hd/overlays/common/progressive_steal_1.json",
+            r"data/hd/overlays/common/progressive_steal_2.json",
+            r"data/hd/overlays/common/progressive_steal_3.json",
+            r"data/hd/overlays/common/shout.json",
+            r"data/hd/overlays/sorceress/enchant.json",
+        ]
 
-    def toggle_town_portal(self, radio: str):
+        return self.common_rename(files_skill_logo, isEnabled)
+
+    def select_town_portal(self, radio: str):
         """
         传送门皮肤
         """
@@ -1215,7 +1247,7 @@ class FileOperations:
             if os.path.exists(temp_file):
                 os.remove(temp_file)
 
-    def toggle_character_player(self, radio: str):
+    def modify_character_player(self, val: int):
         """
         角色光源
         """
@@ -1234,19 +1266,26 @@ class FileOperations:
         count = 0
         total = len(params)
 
-        try:
-            for param in params:
-                if "default" == radio:
-                    target_file = os.path.join(self.dir_mod, param)
-                    if os.path.exists(target_file):
-                        os.remove(target_file)
-                        count += 1
-                else:
-                    src_file = os.path.join(self.dir_mod, param + "." + radio)
-                    dst_file = os.path.join(self.dir_mod, param)
-                    if os.path.exists(src_file):
-                        shutil.copy2(src_file, dst_file)
-                        count += 1
-        except Exception as e:
-            print(e)
+        for param in params:
+            try:
+                # 0.var
+                target_file = os.path.join(self.dir_mod, param)
+                temp_file = target_file + ".tmp"
+                # 1.load
+                json_data = None
+                with open(target_file, 'r', encoding='utf-8') as f:
+                    json_data = json.load(f)
+                
+                # 2.modify
+                json_data["entities"][-1]["components"][-1]["power"] = val * 3000
+                
+                # 3.dump temp
+                with open(temp_file, 'w', encoding="utf-8") as f:
+                    json.dump(json_data, f, ensure_ascii=False, indent=4)
+
+                # 4.replace
+                os.replace(temp_file, target_file)
+                count += 1
+            except Exception as e:
+                print(e)
         return (count, total)

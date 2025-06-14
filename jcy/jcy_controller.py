@@ -22,10 +22,6 @@ class FeatureController:
         self.feature_view = FeatureView(master, self.feature_config.all_features_config, self)
 
         self.current_states = {}
-        # 保持用户原有的 toggle_handlers 命名
-        self.toggle_handlers = {}
-        # 初始化 group_handlers
-        self.group_handlers = {} 
         self._setup_feature_handlers()
         self.dialogs = "" 
 
@@ -46,71 +42,72 @@ class FeatureController:
         """
         设置功能ID与对应的操作方法的映射。
         """
-        # 独立功能
-        self.toggle_handlers = {
-            # "MINI方块"
-            "FEATURE_ID_01": self.file_operations.toggle_mini_cube,
-            # "掉落光柱"
-            "FEATURE_ID_02": self.file_operations.toggle_droped_highlight,
-            # "符文编号贴图"
-            "FEATURE_ID_03": self.file_operations.toggle_rune_sprite,
-            # "箱子高亮"
-            "FEATURE_ID_04": self.file_operations.toggle_chest_highlight,
-            # "入口/小站光柱"
-            "FEATURE_ID_05": self.file_operations.toggle_entrance_arrow,
-            # "屏蔽垃圾装备"
-            "FEATURE_ID_06": self.file_operations.toggle_low_quality,
-            # "屏蔽垃圾杂物" 
-            "FEATURE_ID_07": self.file_operations.toggle_other_misc, 
-            # "照亮玩家四周"
-            "FEATURE_ID_08": self.file_operations.toggle_player_light,
-            # "马赛克护眼"
-            "FEATURE_ID_09": self.file_operations.toggle_no_mosaic_sin,
-            # "按ESC直接退回大厅"
-            "FEATURE_ID_10": self.file_operations.toggle_escape,
-            # "屏蔽地狱火炬火焰风暴特效"
-            "FEATURE_ID_11": self.file_operations.toggle_hellfire_torch,
-            # "屏蔽火焰之河岩浆特效"
-            "FEATURE_ID_12": self.file_operations.toggle_lava_river_flow,
-            # "删除开门动画,极速进站",
-            "FEATURE_ID_13": self.file_operations.toggle_load_screen_panel,
-            # "魔法箭特效"
-            "FEATURE_ID_14": self.file_operations.toggle_magic_arrow,
-            # "6BOSS钥匙皮肤"
-            "FEATURE_ID_15": self.file_operations.toggle_mephisto_key,
-            # "A2贤者之谷小站增加塔墓标记 A3拆除崔凡克议会墙屋 A4拆除混沌庇护所大门 A5拆除毁灭王座石柱"
-            "FEATURE_ID_16": self.file_operations.toggle_hd_env_presets,
-            # "变色精英怪"
-            "FEATURE_ID_17": self.file_operations.toggle_hd_global_palette_randtransforms_json,
-            # "特殊词缀装备变色"
-            "FEATURE_ID_18": self.file_operations.toggle_global_excel_affixes,
-            # "经验条变色"
-            "FEATURE_ID_19": self.file_operations.toggle_experience_bar,
-            # "咒符/符文/技能提示音"
-            "FEATURE_ID_20": self.file_operations.toggle_sound,
-            # "尼拉塞克指示"
-            "FEATURE_ID_21": self.file_operations.toggle_nihlathak_pointer,
-            # "兵营指示"
-            "FEATURE_ID_22": self.file_operations.toggle_barracks_pointer,
-            # "屏蔽动画"
-            "FEATURE_ID_23": self.file_operations.toggle_hd_local_video,
-            # "点击角色进游戏(最高难度)"
-            "FEATURE_ID_24": self.file_operations.toggle_quick_game,
-            # "更大的好友选项"
-            "FEATURE_ID_25": self.file_operations.toggle_context_menu,
-            # "危险怪物标识"
-            "FEATURE_ID_26": self.file_operations.toggle_character_enemy,
+        
+        self._handlers = {
+            # 掉落光柱
+            "FEATURE_ID_100": self.file_operations.toggle_droped_highlight, 
+            # 符文编号贴图
+            "FEATURE_ID_101": self.file_operations.toggle_rune_sprite, 
+            # 箱子高亮
+            "FEATURE_ID_102": self.file_operations.toggle_chest_highlight, 
+            # 入口/小站光柱
+            "FEATURE_ID_103": self.file_operations.toggle_entrance_arrow,
+            # 马赛克护眼
+            "FEATURE_ID_104": self.file_operations.toggle_no_mosaic_sin,
+            # 屏蔽地狱火炬火焰风暴特效
+            "FEATURE_ID_105": self.file_operations.toggle_hellfire_torch,
+            # 屏蔽火焰之河岩浆特效
+            "FEATURE_ID_106": self.file_operations.toggle_lava_river_flow,
+            # 屏蔽开门动画,极速进站
+            "FEATURE_ID_107": self.file_operations.toggle_load_screen_panel,
+            # 魔法箭特效
+            "FEATURE_ID_108": self.file_operations.toggle_magic_arrow,
+            # 6BOSS钥匙皮肤+掉落光柱
+            "FEATURE_ID_109": self.file_operations.toggle_mephisto_key,
+            # 展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱
+            "FEATURE_ID_110": self.file_operations.toggle_hd_env_presets,
+            # 经验条变色
+            "FEATURE_ID_111": self.file_operations.toggle_experience_bar,
+
+
+            # MINI方块
+            "FEATURE_ID_200": self.file_operations.toggle_mini_cube,
+            # 屏蔽垃圾装备
+            "FEATURE_ID_201": self.file_operations.toggle_low_quality,
+            # 屏蔽垃圾杂物
+            "FEATURE_ID_202": self.file_operations.toggle_other_misc, 
+            # 按ESC直接退回大厅
+            "FEATURE_ID_203": self.file_operations.toggle_escape,
+            # 变色精英怪
+            "FEATURE_ID_204": self.file_operations.toggle_hd_global_palette_randtransforms_json,
+            # 特殊词缀装备变色
+            "FEATURE_ID_205": self.file_operations.toggle_global_excel_affixes,
+            # 咒符/符文/技能结束提示音
+            "FEATURE_ID_206": self.file_operations.toggle_sound,
+            # 尼拉塞克指示
+            "FEATURE_ID_207": self.file_operations.toggle_nihlathak_pointer,
+            # 兵营指示
+            "FEATURE_ID_208": self.file_operations.toggle_barracks_pointer,
+            # 屏蔽动画
+            "FEATURE_ID_209": self.file_operations.toggle_hd_local_video,
+            # 点击角色进游戏(最高难度)
+            "FEATURE_ID_210": self.file_operations.toggle_quick_game,
+            # 更大的好友菜单
+            "FEATURE_ID_211": self.file_operations.toggle_context_menu,
+            # 怪物光源+危险标识
+            "FEATURE_ID_212": self.file_operations.toggle_character_enemy,
+            # 技能图标(附魔/速度爆发/影散/BO/刺客聚气)
+            "FEATURE_ID_213": self.file_operations.toggle_skill_logo,
+            
+            
+            # 传送门皮肤
+            "FEATURE_ID_300": self.file_operations.select_town_portal,
+            
+            
+            # 照亮范围
+            "FEATURE_ID_400": self.file_operations.modify_character_player,
         }
 
-        # 分组功能处理函数 - 使用新的 group_id (适配 jcy_model.py 的新结构)
-        # 键是 group_id (例如 "GROUP_FEATURES_01")，值是处理该组选中的函数
-        self.group_handlers = {
-            # "传送门皮肤"
-            "GROUP_FEATURES_01": self.file_operations.toggle_town_portal,
-            # "角色光源"
-            "GROUP_FEATURES_02": self.file_operations.toggle_character_player,
-
-        }
 
     def apply_settings(self):
         """
@@ -128,9 +125,9 @@ class FeatureController:
             # 只有当 current_value 存在且与 loaded_value 不同时才处理
             if current_value is not None and current_value != loaded_value:
                 changes_detected = True
-                if feature_id in self.toggle_handlers:
+                if feature_id in self._handlers:
                     # 执行实际的文件操作
-                    result = self.toggle_handlers[feature_id](current_value) # current_value 即 enable/disable
+                    result = self._handlers[feature_id](current_value) 
                     self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
 
         for feature_id, description in self.feature_config.all_features_config["function_features"].items():
@@ -139,9 +136,9 @@ class FeatureController:
             # 只有当 current_value 存在且与 loaded_value 不同时才处理
             if current_value is not None and current_value != loaded_value:
                 changes_detected = True
-                if feature_id in self.toggle_handlers:
+                if feature_id in self._handlers:
                     # 执行实际的文件操作
-                    result = self.toggle_handlers[feature_id](current_value) # current_value 即 enable/disable
+                    result = self._handlers[feature_id](current_value) 
                     self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
 
         # -------------------- 分组功能 (Radiobutton) --------------------
@@ -154,10 +151,22 @@ class FeatureController:
                 changes_detected = True
                 # 找到选中参数的描述文本
                 selected_description = next((param_dict[current_value] for param_dict in group_info["params"] if current_value in param_dict), current_value)
-                if group_id in self.group_handlers:
+                if group_id in self._handlers:
                     # 执行实际的文件操作
-                    result = self.group_handlers[group_id](current_value) # current_value 即 selected_param_key
+                    result = self._handlers[group_id](current_value) 
                     self.dialogs += f"{group_info['text']} = {selected_description} 操作文件数量 {result[0]}/{result[1]} \n"
+
+        #  -------------------- 区间功能 (Spinbox) --------------------
+        for feature_id, description in self.feature_config.all_features_config["range_features"].items():
+            current_value = self.current_states.get(feature_id)
+            loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
+            # 只有当 current_value 存在且与 loaded_value 不同时才处理
+            if current_value is not None and current_value != loaded_value:
+                changes_detected = True
+                if feature_id in self._handlers:
+                    # 执行实际的文件操作
+                    result = self._handlers[feature_id](current_value) 
+                    self.dialogs += f"{description} = {current_value} 操作文件数量 {result[0]}/{result[1]} \n"
 
         # 保存当前状态到 settings.json
         self.feature_state_manager.save_settings(self.current_states)
@@ -170,23 +179,8 @@ class FeatureController:
         else:
             messagebox.showinfo("完成", "无变化!")
 
-    def execute_feature_action(self, feature_id: str, enable: bool):
-        """
-        执行独立功能的开关操作。此方法由 jcy_view.py 直接调用。
-        它现在只更新内存中的 current_states，不执行文件操作。
-        """
-        self.current_states[feature_id] = enable
-        # 此时不进行文件操作，不累加 self.dialogs
-
-    def execute_group_action(self, group_id: str, selected_param_key: str):
-        """
-        执行分组功能的选中操作。此方法由 jcy_view.py 直接调用。
-        它现在只更新内存中的 current_states，不执行文件操作。
-        """
-        self.current_states[group_id] = selected_param_key
-        # 此时不进行文件操作，不累加 self.dialogs
-
-    
+    def execute_feature_action(self, feature_id: str, value):
+        self.current_states[feature_id] = value
 
 if __name__ == "__main__":
     root = tk.Tk()
