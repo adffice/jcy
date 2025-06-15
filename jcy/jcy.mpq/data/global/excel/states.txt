@@ -189,5 +189,5 @@ sharedstash	186																																																																	
 hidedead	187																											1	1			1																																									0
 impale	188																																																																								0
 desecrated	189																												1	1																																											0
-markbear	190	4																																					1				bloodlust_state																				markbear_off										0
-markwolf	191	5										1																											1				impregnated																				markwolf_off										0
+markbear	190	4																																					1				markbear																				markbear_off										0
+markwolf	191	5										1																											1				markwolf																				markwolf_off										0

@@ -1224,6 +1224,7 @@ class FileOperations:
         技能图标
         """
         files_skill_logo = [
+            r"data/global/excel/overlay.txt",
             r"data/hd/overlays/assassin/fade.json",
             r"data/hd/overlays/assassin/quickness.json",
             r"data/hd/overlays/common/battlecommand.json",
@@ -1776,3 +1777,36 @@ class FileOperations:
 
         return self.common_rename(files_hurricane, isEnabled)
     
+    def toggle_shrine(self, isEnabled: bool):
+        """
+        经验/宝石祭坛特效
+        """
+        files_common_shrine = [
+            r"data/hd/overlays/common/shrine_experience.json",
+            r"data/hd/overlays/common/shrine_stamina.json",
+        ]
+
+        return self.common_rename(files_common_shrine, isEnabled)
+
+    def toggle_lightningbolt_big(self, isEnabled: bool):
+        """
+        屏蔽雷云风暴吓人特效
+        """
+        files_lightningbolt_big = [
+            r"data/hd/missiles/lightningbolt_big.json",
+        ]
+
+        return self.common_rename(files_lightningbolt_big, isEnabled)
+    
+    def toggle_electric_nova(self, isEnabled: bool):
+        """
+        降低闪电新星亮度
+        """
+        files_electric_nova = [
+            r"data/hd/missiles/electric_nova.json",
+        ]
+
+        return self.common_rename(files_electric_nova, isEnabled)
+
+
+

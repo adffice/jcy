@@ -3,9 +3,6 @@
         "particles": [
             {
                 "path": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles"
-            },
-            {
-                "path": "data/hd/vfx/particles/overlays/common/baal_on_throne/baalshield.particles"
             }
         ],
         "models": [
@@ -50,53 +47,18 @@
                         "y": 14,
                         "z": 0
                     },
-                    "inheritOnlyPosition": true
-                },
-                {
-                    "type": "VfxDefinitionComponent",
-                    "name": "entity_root_VfxDefinition",
-                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
-                    "hardKillOnDestroy": true
-                }
-            ]
-        },
-        {
-            "type": "Entity",
-            "name": "entity_root",
-            "id": 2064404087,
-            "components": [
-                {
-                    "type": "TransformDefinitionComponent",
-                    "name": "entity_root_TransformDefinition",
-                    "position": {
-                        "x": -4.5,
-                        "y": 11.3,
-                        "z": 4.5
+                    "orientation": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0,
+                        "w": 1
                     },
-                    "inheritOnlyPosition": true
-                },
-                {
-                    "type": "VfxDefinitionComponent",
-                    "name": "entity_root_VfxDefinition",
-                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
-                    "hardKillOnDestroy": true
-                }
-            ]
-        },
-        {
-            "type": "Entity",
-            "name": "entity_root",
-            "id": 2064404087,
-            "components": [
-                {
-                    "type": "TransformDefinitionComponent",
-                    "name": "entity_root_TransformDefinition",
-                    "position": {
-                        "x": -4.5,
-                        "y": 17.7,
-                        "z": 4.5
+                    "scale": {
+                        "x": 1,
+                        "y": 1,
+                        "z": 1
                     },
-                    "inheritOnlyPosition": true
+                    "inheritOnlyPosition": false
                 },
                 {
                     "type": "VfxDefinitionComponent",
@@ -108,67 +70,15 @@
         },
         {
             "type": "Entity",
-            "name": "entity_root",
-            "id": 2064404087,
+            "name": "Art_circle",
+            "id": 9999996974,
             "components": [
                 {
                     "type": "TransformDefinitionComponent",
-                    "name": "entity_root_TransformDefinition",
-                    "position": {
-                        "x": 4.5,
-                        "y": 11.3,
-                        "z": -4.5
-                    },
-                    "inheritOnlyPosition": true
-                },
-                {
-                    "type": "VfxDefinitionComponent",
-                    "name": "entity_root_VfxDefinition",
-                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
-                    "hardKillOnDestroy": true
-                }
-            ]
-        },
-        {
-            "type": "Entity",
-            "name": "entity_root",
-            "id": 2064404087,
-            "components": [
-                {
-                    "type": "TransformDefinitionComponent",
-                    "name": "entity_root_TransformDefinition",
-                    "position": {
-                        "x": 4.5,
-                        "y": 17.7,
-                        "z": -4.5
-                    },
-                    "inheritOnlyPosition": true
-                },
-                {
-                    "type": "VfxDefinitionComponent",
-                    "name": "entity_root_VfxDefinition",
-                    "filename": "data/hd/vfx/particles/overlays/common/shrine_experience/vfx_shrine_experience_looping.particles",
-                    "hardKillOnDestroy": true
-                }
-            ]
-        },
-        {
-            "type": "Entity",
-            "name": "vfx_entity",
-            "id": 1731987216,
-            "components": [
-                {
-                    "type": "VfxDefinitionComponent",
-                    "name": "vfx_entity_VfxDefinition",
-                    "filename": "data/hd/vfx/particles/overlays/common/baal_on_throne/baalshield.particles",
-                    "hardKillOnDestroy": false
-                },
-                {
-                    "type": "TransformDefinitionComponent",
-                    "name": "vfx_entity_TransformDefinition",
+                    "name": "component_transform1",
                     "position": {
                         "x": 0,
-                        "y": 14,
+                        "y": 2,
                         "z": 0
                     },
                     "orientation": {
@@ -183,6 +93,12 @@
                         "z": 1
                     },
                     "inheritOnlyPosition": false
+                },
+                {
+                    "type": "VfxDefinitionComponent",
+                    "name": "entity_vfx_gousemyideaandshareyourfilthymods",
+                    "filename": "data/hd/vfx/particles/overlays/common/baal_on_throne/baalshield.particles",
+                    "hardKillOnDestroy": false
                 }
             ]
         }

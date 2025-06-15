@@ -19,6 +19,8 @@
     "FEATURE_ID_117": false,
     "FEATURE_ID_118": true,
     "FEATURE_ID_119": true,
+    "FEATURE_ID_120": true,
+    "FEATURE_ID_121": true,
     "FEATURE_ID_200": true,
     "FEATURE_ID_201": false,
     "FEATURE_ID_202": false,
@@ -35,6 +37,7 @@
     "FEATURE_ID_213": true,
     "FEATURE_ID_214": true,
     "FEATURE_ID_215": true,
+    "FEATURE_ID_216": true,
     "FEATURE_ID_300": "blue",
     "FEATURE_ID_301": "default",
     "FEATURE_ID_400": 0

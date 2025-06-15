@@ -84,6 +84,11 @@ class FeatureController:
             "FEATURE_ID_118": self.file_operations.toggle_monster_health,
             # 德鲁伊飓风术特效
             "FEATURE_ID_119": self.file_operations.toggle_hurricane,
+            # 屏蔽雷云风暴吓人特效
+            "FEATURE_ID_120": self.file_operations.toggle_lightningbolt_big,
+            # 降低闪电新星亮度
+            "FEATURE_ID_121": self.file_operations.toggle_electric_nova,
+
 
             # MINI方块
             "FEATURE_ID_200": self.file_operations.toggle_mini_cube,
@@ -117,12 +122,15 @@ class FeatureController:
             "FEATURE_ID_214": self.file_operations.toggle_diab_bridge,
             # 任务BOSS红圈引导
             "FEATURE_ID_215": self.file_operations.toggle_character_enemy_boss,
-
+            # 经验/宝石祭坛特效
+            "FEATURE_ID_216": self.file_operations.toggle_shrine,
+            
             
             # 传送门皮肤
             "FEATURE_ID_300": self.file_operations.select_town_portal,
             # 传送术皮肤
             "FEATURE_ID_301": self.file_operations.select_teleport_skin,
+
             
             # 照亮范围
             "FEATURE_ID_400": self.file_operations.modify_character_player,
