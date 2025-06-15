@@ -86,7 +86,7 @@ class FeatureConfig:
                     "default_key": "default"
                 },
                 "FEATURE_ID_303": {
-                    "text": "刺针老鼠/吹箭剥皮样式",
+                    "text": "老鼠刺针/剥皮吹箭样式",
                     "params": [
                         {"default":"原皮"},
                         {"1":"魔法箭"},
