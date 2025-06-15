@@ -75,10 +75,11 @@ class FileOperations:
 
     def toggle_mini_cube(self, isEnabled: bool):
         """
-        开/关 MINI盒子
+        INI方块
         """
         files_mini_cube = (
-            r"data/global/ui/layouts/playerinventoryexpansionlayouthd.json",
+            r"data/global/ui/layouts/minihoradriccubelayouthd.json",
+            r"data/global/ui/layouts/minihoradriccubelayout.json",
         )
 
         return self.common_rename(files_mini_cube, isEnabled)
@@ -1041,7 +1042,7 @@ class FileOperations:
 
     def toggle_quick_game(self, isEnabled: bool):
         """
-        开关 点击角色进游戏(最高难度)
+        点击角色快速建立最高难度游戏
         """
         files_quick_game = [
             r"data/global/ui/layouts/mainmenupanelhd.json",
@@ -1896,5 +1897,43 @@ class FileOperations:
 
         return self.common_rename(files_electric_nova, isEnabled)
 
+    def toogle_d2r_wiki(self, isEnabled: bool):
+        """
+        暗黑2百科
+        """
+        _files = [
+            r"data/global/ui/layouts/hudpanel_realhd.json",
+            r"data/global/ui/layouts/hudpanel_real.json",
+        ]
 
+        return self.common_rename(_files, isEnabled)
+    
+    def toggle_inventory_expansion(self, isEnabled: bool):
+        """
+        物品栏+精品词缀
+        """
+        _files = [
+            r"data/global/ui/layouts/playerinventoryexpansionlayouthd.json",
+        ]
 
+        return self.common_rename(_files, isEnabled)
+    
+    def toggle_bank_expansion(self, isEnabled: bool):
+        """
+        储物箱+精品词缀
+        """
+        _files = [
+            r"data/global/ui/layouts/bankexpansionlayouthd.json",
+        ]
+
+        return self.common_rename(_files, isEnabled)
+    
+    def toogle_cube_formula(self, isEnabled: bool):
+        """
+        方块+符文升级公式
+        """
+        _files = [
+            r"data/global/ui/layouts/horadriccubelayouthd.json",
+        ]
+
+        return self.common_rename(_files, isEnabled)

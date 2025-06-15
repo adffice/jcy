@@ -110,7 +110,7 @@ class FeatureController:
             "FEATURE_ID_208": self.file_operations.toggle_barracks_pointer,
             # 屏蔽动画
             "FEATURE_ID_209": self.file_operations.toggle_hd_local_video,
-            # 点击角色进游戏(最高难度)
+            # 点击角色快速建立最高难度游戏
             "FEATURE_ID_210": self.file_operations.toggle_quick_game,
             # 更大的好友菜单
             "FEATURE_ID_211": self.file_operations.toggle_context_menu,
@@ -124,7 +124,14 @@ class FeatureController:
             "FEATURE_ID_215": self.file_operations.toggle_character_enemy_boss,
             # 经验/宝石祭坛特效
             "FEATURE_ID_216": self.file_operations.toggle_shrine,
-            
+            # 暗黑2百科
+            "FEATURE_ID_217": self.file_operations.toogle_d2r_wiki,
+            # 物品栏+精品词缀
+            "FEATURE_ID_218": self.file_operations.toggle_inventory_expansion,
+            # 储物箱+精品词缀
+            "FEATURE_ID_219": self.file_operations.toggle_bank_expansion,
+            # 方块+符文升级公式
+            "FEATURE_ID_220": self.file_operations.toogle_cube_formula,
             
             # 传送门皮肤
             "FEATURE_ID_300": self.file_operations.select_town_portal,

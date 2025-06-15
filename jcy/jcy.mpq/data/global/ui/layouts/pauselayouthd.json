@@ -149,7 +149,7 @@
             "type": "ImageWidget", "name": "AgeDescriptorImage",
             "fields": {
                 "rect": { "x": 40, "y": 80 },
-                "filename": "PauseMenu\\descriptor-18",
+                "filename": "PauseMenu\\age-descriptor",
             }
         },
         {
@@ -159,11 +159,11 @@
                 "filename": "PauseMenu\\descriptor-violence",
             }
         },
-//新增----
+
 		{
-			"type": "TimerWidget","name": "exitgame1",
+			"type": "TimerWidget","name": "exitgame",
 			"fields": {"time": 0,"message": "PausePanelMessage:ExitGame"}
 		}
-//----
+        
     ]
 }

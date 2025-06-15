@@ -46,13 +46,17 @@ class FeatureConfig:
                 "FEATURE_ID_207": "尼拉塞克指示",
                 "FEATURE_ID_208": "兵营指示",
                 "FEATURE_ID_209": "屏蔽动画",
-                "FEATURE_ID_210": "点击角色进游戏(最高难度)",
+                "FEATURE_ID_210": "点击角色快速建立最高难度游戏",
                 "FEATURE_ID_211": "更大的好友菜单",
                 "FEATURE_ID_212": "怪物光源+危险标识",
                 "FEATURE_ID_213": "技能图标(附魔/速度爆发/影散/BO/刺客聚气/狼之印记/熊之印记)",
                 "FEATURE_ID_214": "火焰之河信标",
                 "FEATURE_ID_215": "任务BOSS红圈引导",
                 "FEATURE_ID_216": "经验/宝石祭坛特效",
+                "FEATURE_ID_217": "暗黑2百科",
+                "FEATURE_ID_218": "物品栏+精品词缀",
+                "FEATURE_ID_219": "储物箱+精品词缀",
+                "FEATURE_ID_220": "方块+符文升级公式",
                 
             },
             "group_features": {
