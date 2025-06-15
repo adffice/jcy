@@ -45,7 +45,7 @@
                     "fields": {
                         "rect": { "x": 165, "y": 600 },
                         "filename": "FrontEnd\\HD\\Final\\FrontEnd_ButtonMed",
-                        "textString": "jcy Mod  v1.0.2",
+                        "textString": "@JcyModName @JcyModVersion",
                         "onClickMessage": "PanelManager:OpenPanel:jcyModInfo",
                         "textColor": "$LightButtonTextColor",
                         "text/style": "$StyleFEButtonText",

@@ -1026,6 +1026,19 @@ class FileOperations:
         开/关 屏蔽动画
         """
         files_hd_local_video = [
+            #
+            r"data/hd/global/video/blizzardlogos.webm",
+            r"data/hd/global/video/creditsloop.webm",
+            r"data/hd/global/video/d2intro.webm",
+            r"data/hd/global/video/d2x_intro.webm",
+            r"data/hd/global/video/logoanim.webm",
+            r"data/hd/global/video/logoloop.webm",
+            r"data/hd/global/video/act2/act02start.webm",
+            r"data/hd/global/video/act3/act03start.webm",
+            r"data/hd/global/video/act4/act04end.webm",
+            r"data/hd/global/video/act4/act04start.webm",
+            r"data/hd/global/video/act5/d2x_out.webm",
+            #
             r"data/hd/local/video/act2/act02start.flac",
             r"data/hd/local/video/act3/act03start.flac",
             r"data/hd/local/video/act4/act04end.flac",
