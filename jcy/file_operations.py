@@ -485,19 +485,6 @@ class FileOperations:
 
         return self.common_rename(files_escape, isEnabled) 
 
-    def toggle_missiles_arrow(self, isEnabled: bool):
-        """
-        弓箭/弩箭/老鼠刺/剥皮吹箭->火箭特效
-        """
-        files_missiles_arrows = (
-            r"data/hd/missiles/x_bow_bolt.json",
-            r"data/hd/missiles/arrow.json",
-            r"data/hd/missiles/blowdart.json",
-            r"data/hd/missiles/spike_fiend_missle.json",
-        )
-
-        return self.common_rename(files_missiles_arrows, isEnabled)
-    
     def toggle_missiles_javelin(self, isEnabled: bool):
         """
         投掷标枪->闪电枪特效
@@ -1325,6 +1312,94 @@ class FileOperations:
             return (1, 1)
         except Exception as e:
             print(e)
+
+    def select_arrow_skin(self, radio: str):
+        """
+        箭皮肤
+        """
+        files_missiles_arrow = [
+            r"data/hd/missiles/arrow.json",
+            r"data/hd/missiles/x_bow_bolt.json",
+        ]
+
+        params = {
+            "default": r"data/hd/vfx/particles/missiles/arrow/vfx_arrow.particles",
+            "1": r"data/hd/vfx/particles/missiles/safe_arrow/safe_arrow.particles",
+            "2": r"data/hd/vfx/particles/missiles/ice_arrow/fx_ice_projectile_arrow.particles",
+            "3": r"data/hd/vfx/particles/missiles/fire_arrow/fx_fire_projectile_arrow.particles",
+        }
+
+        count = 0
+        total = len(files_missiles_arrow)
+        for file in files_missiles_arrow:
+            target_file = os.path.join(self.dir_mod, file)
+            temp_file = target_file + ".tmp"
+            try:
+                # 1.load
+                json_data = None
+                with open(target_file, 'r', encoding='utf-8') as f:
+                    json_data = json.load(f)
+                
+                # 2.modify
+                json_data["entities"][-1]["components"][0]["filename"] = params[radio]
+                
+                # 3.dump temp
+                with open(temp_file, 'w', encoding="utf-8") as f:
+                    json.dump(json_data, f, ensure_ascii=False, indent=4)
+
+                # 4.replace
+                os.replace(temp_file, target_file)
+                count += 1
+            except Exception as e:
+                print(e)
+            finally:
+                if os.path.exists(temp_file):
+                    os.remove(temp_file)
+        return (count, total)
+    
+    def select_enemy_arrow_skin(self, radio: str):
+        """
+        老鼠刺针/剥皮吹箭样式
+        """
+        files_missiles_arrow = [
+            r"data/hd/missiles/spike_fiend_missle.json",
+            r"data/hd/missiles/blowdart.json",
+        ]
+
+        params = {
+            "default": [r"data/hd/vfx/particles/missiles/spike_fiend_missle/vfx_spikefiend_missile.particles", r"data/hd/vfx/particles/missiles/blowdart/vfx_blowdart.particles"],
+            "1": r"data/hd/vfx/particles/missiles/safe_arrow/safe_arrow.particles",
+            "2": r"data/hd/vfx/particles/missiles/ice_arrow/fx_ice_projectile_arrow.particles",
+            "3": r"data/hd/vfx/particles/missiles/fire_arrow/fx_fire_projectile_arrow.particles",
+        }
+        
+        count = 0
+        total = len(files_missiles_arrow)
+        for i, file in enumerate(files_missiles_arrow):
+            target_file = os.path.join(self.dir_mod, file)
+            temp_file = target_file + ".tmp"
+            try:
+                # 1.load
+                json_data = None
+                with open(target_file, 'r', encoding='utf-8') as f:
+                    json_data = json.load(f)
+                
+                # 2.modify
+                json_data["entities"][1]["components"][-1]["filename"] = params[radio][i] if "default" == radio else params[radio]
+                
+                # 3.dump temp
+                with open(temp_file, 'w', encoding="utf-8") as f:
+                    json.dump(json_data, f, ensure_ascii=False, indent=4)
+
+                # 4.replace
+                os.replace(temp_file, target_file)
+                count += 1
+            except Exception as e:
+                print(e)
+            finally:
+                if os.path.exists(temp_file):
+                    os.remove(temp_file)
+        return (count, total)
 
     def modify_character_player(self, val: int):
         """

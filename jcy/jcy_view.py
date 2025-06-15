@@ -67,13 +67,16 @@ class FeatureView:
             # 为 Radiobutton 创建一个内部容器，以便横向排列
             radio_button_container = ttk.Frame(group_frame)
             radio_button_container.pack(fill=tk.X, padx=15, pady=5) # 容器的填充和内边距
-            for param_dict in group_info["params"]:
+            for i, param_dict in enumerate(group_info["params"]):
                 param_key = next(iter(param_dict.keys()))
                 param_description = param_dict[param_key]
                 rb = ttk.Radiobutton(radio_button_container, text=param_description, variable=group_radio_var, value=param_key,
                                      command=lambda g_id=group_id, v_var=group_radio_var: self.controller.execute_feature_action(g_id, v_var.get()))
+                #grid排列
+                row, col = divmod(i, 5)
+                rb.grid(row=row, column=col, padx=5, pady=5, sticky='w')
                 # 这里使用 side=tk.LEFT 进行横向排列，并调整 padx/pady
-                rb.pack(side=tk.LEFT, padx=5, pady=0)
+                #rb.pack(side=tk.LEFT, padx=5, pady=0)
                 self.group_radio_buttons[group_id].append(rb)
 
         #区间组

@@ -7,7 +7,6 @@
     "FEATURE_ID_105": true,
     "FEATURE_ID_106": true,
     "FEATURE_ID_107": true,
-    "FEATURE_ID_108": true,
     "FEATURE_ID_109": true,
     "FEATURE_ID_110": true,
     "FEATURE_ID_111": true,
@@ -40,5 +39,7 @@
     "FEATURE_ID_216": true,
     "FEATURE_ID_300": "blue",
     "FEATURE_ID_301": "default",
+    "FEATURE_ID_302": "2",
+    "FEATURE_ID_303": "3",
     "FEATURE_ID_400": 0
 }

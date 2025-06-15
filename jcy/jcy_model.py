@@ -19,7 +19,7 @@ class FeatureConfig:
                 "FEATURE_ID_105": "屏蔽地狱火炬火焰风暴特效",
                 "FEATURE_ID_106": "屏蔽火焰之河岩浆特效",
                 "FEATURE_ID_107": "屏蔽开门动画,极速进站",
-                "FEATURE_ID_108": "弓箭/弩箭/老鼠刺/剥皮吹箭->火箭特效",
+                # "FEATURE_ID_108": None
                 "FEATURE_ID_109": "6BOSS钥匙皮肤+掉落光柱",
                 "FEATURE_ID_110": "展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱",
                 "FEATURE_ID_111": "经验条变色",
@@ -72,6 +72,26 @@ class FeatureConfig:
                         {"default":"原版"},
                         {"ice":"冰霜"},
                         {"fire":"火焰"},
+                    ],
+                    "default_key": "default"
+                },
+                "FEATURE_ID_302": {
+                    "text": "箭皮肤",
+                    "params": [
+                        {"default":"原皮"},
+                        {"1":"魔法箭"},
+                        {"2":"冷霜箭"},
+                        {"3":"火焰箭"},
+                    ],
+                    "default_key": "default"
+                },
+                "FEATURE_ID_303": {
+                    "text": "刺针老鼠/吹箭剥皮样式",
+                    "params": [
+                        {"default":"原皮"},
+                        {"1":"魔法箭"},
+                        {"2":"冷霜箭"},
+                        {"3":"火焰箭"},
                     ],
                     "default_key": "default"
                 },

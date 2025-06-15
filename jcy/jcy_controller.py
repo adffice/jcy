@@ -60,8 +60,8 @@ class FeatureController:
             "FEATURE_ID_106": self.file_operations.toggle_lava_river_flow,
             # 屏蔽开门动画,极速进站
             "FEATURE_ID_107": self.file_operations.toggle_load_screen_panel,
-            # 弓箭/弩箭/老鼠刺/剥皮吹箭->火箭特效
-            "FEATURE_ID_108": self.file_operations.toggle_missiles_arrow,
+            # remove
+            #"FEATURE_ID_108": None
             # 6BOSS钥匙皮肤+掉落光柱
             "FEATURE_ID_109": self.file_operations.toggle_mephisto_key,
             # 展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱
@@ -130,7 +130,10 @@ class FeatureController:
             "FEATURE_ID_300": self.file_operations.select_town_portal,
             # 传送术皮肤
             "FEATURE_ID_301": self.file_operations.select_teleport_skin,
-
+            # 箭皮肤
+            "FEATURE_ID_302": self.file_operations.select_arrow_skin,
+            # 老鼠刺针/剥皮吹箭样式
+            "FEATURE_ID_303": self.file_operations.select_enemy_arrow_skin,
             
             # 照亮范围
             "FEATURE_ID_400": self.file_operations.modify_character_player,
