@@ -299,7 +299,7 @@
                         "y": 1,
                         "z": 1
                     },
-                    "power": 0,
+                    "power": 9000,
                     "radius": 2000,
                     "attenuation": 1,
                     "lightMask": 1,

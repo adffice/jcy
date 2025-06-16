@@ -10,77 +10,86 @@ class FeatureConfig:
     """
     def __init__(self, base_path):
         self.all_features_config = {
-            "display_features": { 
-                "FEATURE_ID_100": "掉落光柱",
-                "FEATURE_ID_101": "符文编号贴图",
-                "FEATURE_ID_102": "箱子高亮",
-                "FEATURE_ID_103": "入口/小站光柱",
-                "FEATURE_ID_104": "马赛克护眼",
-                "FEATURE_ID_105": "屏蔽地狱火炬火焰风暴特效",
-                "FEATURE_ID_106": "屏蔽火焰之河岩浆特效",
-                "FEATURE_ID_107": "屏蔽开门动画,极速进站",
-                # "FEATURE_ID_108": None
-                "FEATURE_ID_109": "6BOSS钥匙皮肤+掉落光柱",
-                "FEATURE_ID_110": "展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱",
-                "FEATURE_ID_111": "经验条变色",
-                "FEATURE_ID_112": "屏蔽影散隐身特效",
-                "FEATURE_ID_113": "骷髅火焰刀+圣盾特效",
-                "FEATURE_ID_114": "隐藏头盔类装备外观",
-                "FEATURE_ID_115": "投掷标枪->闪电枪特效",
-                "FEATURE_ID_116": "投掷飞刀->闪电尾特效",
-                "FEATURE_ID_117": "画面变亮",
-                "FEATURE_ID_118": "怪物血条加宽加高",
-                "FEATURE_ID_119": "德鲁伊飓风术特效",
-                "FEATURE_ID_120": "屏蔽雷云风暴吓人特效",
-                "FEATURE_ID_121": "降低闪电新星亮度",
+            "checkbutton": {
+                "101": "点击角色快速建立最高难度游戏",
+                "102": "Esc=存儲並離開",
+                "103": "更大的好友菜单",
+                "104": "特殊词缀蓝装变色(红/绿)",
+                "105": "入口/小站 箭头指引",
+                "106": "经验祭坛/宝石祭坛 特效标识",
+                "107": "暗黑2百科",
+                "108": "物品栏+精品词缀",
+                "109": "储物箱+精品词缀",
+                "110": "赫拉迪姆方塊+符文升级公式",
 
-            },
-            "function_features": { 
-                "FEATURE_ID_200": "MINI方块",
-                "FEATURE_ID_201": "屏蔽垃圾装备",
-                "FEATURE_ID_202": "屏蔽垃圾杂物",
-                "FEATURE_ID_203": "按ESC直接退回大厅",
-                "FEATURE_ID_204": "变色精英怪",
-                "FEATURE_ID_205": "特殊词缀装备变色",
-                "FEATURE_ID_206": "咒符/符文/技能结束提示音",
-                "FEATURE_ID_207": "尼拉塞克指示",
-                "FEATURE_ID_208": "兵营指示",
-                "FEATURE_ID_209": "屏蔽动画",
-                "FEATURE_ID_210": "点击角色快速建立最高难度游戏",
-                "FEATURE_ID_211": "更大的好友菜单",
-                "FEATURE_ID_212": "怪物光源+危险标识",
-                "FEATURE_ID_213": "技能图标(附魔/速度爆发/影散/BO/刺客聚气/狼之印记/熊之印记)",
-                "FEATURE_ID_214": "火焰之河信标",
-                "FEATURE_ID_215": "任务BOSS红圈引导",
-                "FEATURE_ID_216": "经验/宝石祭坛特效",
-                "FEATURE_ID_217": "暗黑2百科",
-                "FEATURE_ID_218": "物品栏+精品词缀",
-                "FEATURE_ID_219": "储物箱+精品词缀",
-                "FEATURE_ID_220": "方块+符文升级公式",
+
+                "111": "MINI方块常开 在蓝球之前",
+                "112": "画面变亮",
+                "113": "蓝色/金色/暗金色精英怪随机染色",
+                "114": "怪物光源+危险标识",
+                "115": "屏蔽 劣等的/損壞的/破舊的武器装备",
+                "116": "屏蔽 杂物道具",
+                "117": "咒符/22#+符文增加掉落光柱",
+                "118": "咒符/22#+符文增加掉落提示音 & 技能结束提示音",
+                "119": "技能图标(头顶:熊之印记/狼之印记 脚下:附魔/速度爆发+影散/BO 右侧:刺客聚气)",
+                "120": "A1兵营/A4火焰之河/A5尼拉塞克/BOSS 指引",
                 
+
+                "121": "交互对象增加蓝色火苗",
+                "122": "马赛克护眼",
+                "123": "符文编号贴图",
+                "124": "6BOSS钥匙皮肤+掉落光柱",
+                "125": "屏蔽 开场/过场/结束动画",
+                "126": "屏蔽 地狱火炬火焰风暴特效",
+                "127": "屏蔽 A4火焰之河岩浆特效",
+                "128": "屏蔽 A5督军山克死亡特效",
+                "129": "屏蔽 开门动画,极速进站",
+                "130": "展示 A2贤者之谷小站塔墓标记 & 屏蔽 A3崔凡克议会墙屋/A4混沌庇护所大门/A5毁灭王座石柱",
+
+
+                "131": "经验条变色",
+                "132": "屏蔽 影散隐身特效",
+                "133": "屏蔽 头环类装备外观",
+                "134": "屏蔽 雷云风暴吓人特效",
+                "135": "降低 闪电新星亮度",
+                "136": "怪物血条加宽加高",
+                "137": "死灵召唤骷髅 火焰刀+圣盾特效",
+                "138": "投掷标枪->闪电枪特效",
+                "139": "投掷飞刀->闪电尾特效",
+                "140": "德鲁伊飓风术 特效",
             },
-            "group_features": {
-                "FEATURE_ID_300": {
+            "radiobutton": {
+                "201": {
+                    "text": "佣兵图标位置",
+                    "params": [
+                        {"default":"原版"},
+                        {"1":"左上角缩进"},
+                        {"2":"红球之上"},
+                        {"3":"红球之上上"},
+                    ],
+                    "default_key": "default"
+                },
+                "202": {
                     "text": "传送门皮肤",
                     "params": [
                         {"default":"原版蓝门"},
-                        {"red":"原版红门"},
-                        {"blue":"双圈蓝门"},
-                        {"red2":"单圈红门"},
+                        {"1":"原版红门"},
+                        {"2":"双圈蓝门"},
+                        {"3":"单圈红门"},
                     ],
                     "default_key": "default"
                 },
-                "FEATURE_ID_301": {
+                "203": {
                     "text": "传送术皮肤",
                     "params": [
                         {"default":"原版"},
-                        {"ice":"冰霜"},
-                        {"fire":"火焰"},
+                        {"1":"冰霜"},
+                        {"2":"火焰"},
                     ],
                     "default_key": "default"
                 },
-                "FEATURE_ID_302": {
-                    "text": "箭皮肤",
+                "204": {
+                    "text": "弩/箭皮肤",
                     "params": [
                         {"default":"原皮"},
                         {"1":"魔法箭"},
@@ -89,8 +98,8 @@ class FeatureConfig:
                     ],
                     "default_key": "default"
                 },
-                "FEATURE_ID_303": {
-                    "text": "老鼠刺针/剥皮吹箭样式",
+                "205": {
+                    "text": "老鼠刺针/剥皮吹箭皮肤",
                     "params": [
                         {"default":"原皮"},
                         {"1":"魔法箭"},
@@ -100,8 +109,8 @@ class FeatureConfig:
                     "default_key": "default"
                 },
             },
-            "range_features" : {
-                "FEATURE_ID_400": "照亮范围"
+            "spinbox" : {
+                "301": "照亮范围"
             }
         }
 
@@ -111,11 +120,10 @@ class FeatureConfig:
 
         # ---初始化默认功能状态---
         self.default_feature_states = {
-            **{fid: False for fid in self.all_features_config["display_features"]},
-            **{fid: False for fid in self.all_features_config["function_features"]},
+            **{fid: False for fid in self.all_features_config["checkbutton"]}
         }
         
-        for group_id, group_info in self.all_features_config["group_features"].items(): 
+        for group_id, group_info in self.all_features_config["radiobutton"].items(): 
             if group_info["params"]: 
                 first_param_dict = group_info["params"][0]
                 first_param_key = next(iter(first_param_dict.keys()))
@@ -123,7 +131,7 @@ class FeatureConfig:
             else:
                 self.default_feature_states[group_id] = None
         
-        for fid in self.all_features_config["range_features"]:
+        for fid in self.all_features_config["spinbox"]:
             self.default_feature_states[fid] = 0
         
 
@@ -145,15 +153,11 @@ class FeatureStateManager:
                 with open(self.settings_file, 'r', encoding='utf-8') as f:
                     self.loaded_states = json.load(f)
 
-                for fid in self.config.all_features_config["display_features"]:
+                for fid in self.config.all_features_config["checkbutton"]:
                     if fid not in self.loaded_states:
                         self.loaded_states[fid] = False
 
-                for fid in self.config.all_features_config["function_features"]:
-                    if fid not in self.loaded_states:
-                        self.loaded_states[fid] = False
-
-                for group_id, group_info in self.config.all_features_config["group_features"].items():
+                for group_id, group_info in self.config.all_features_config["radiobutton"].items():
                     if group_id not in self.loaded_states: 
                         if group_info["params"]: 
                             first_param_dict = group_info["params"][0]
@@ -162,7 +166,7 @@ class FeatureStateManager:
                         else:
                             self.loaded_states[group_id] = None
 
-                for fid in self.config.all_features_config["range_features"]:
+                for fid in self.config.all_features_config["spinbox"]:
                     if fid not in self.loaded_states:
                         self.loaded_states[fid] = 0
 
@@ -184,19 +188,15 @@ class FeatureStateManager:
         try:
             # 过滤掉不是功能ID或分组名称的键，以防保存不必要的临时状态
             states_to_save = {}
-            for fid in self.config.all_features_config["display_features"]:
+            for fid in self.config.all_features_config["checkbutton"]:
                 if fid in current_states:
                     states_to_save[fid] = current_states[fid]
 
-            for fid in self.config.all_features_config["function_features"]:
-                if fid in current_states:
-                    states_to_save[fid] = current_states[fid]
-
-            for group_id in self.config.all_features_config["group_features"]:
+            for group_id in self.config.all_features_config["radiobutton"]:
                 if group_id in current_states:
                     states_to_save[group_id] = current_states[group_id]
             
-            for fid in self.config.all_features_config["range_features"]:
+            for fid in self.config.all_features_config["spinbox"]:
                 if fid in current_states:
                     states_to_save[fid] = current_states[fid]
 

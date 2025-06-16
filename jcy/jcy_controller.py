@@ -44,106 +44,108 @@ class FeatureController:
         """
         
         self._handlers = {
-            # 掉落光柱
-            "FEATURE_ID_100": self.file_operations.toggle_droped_highlight, 
-            # 符文编号贴图
-            "FEATURE_ID_101": self.file_operations.toggle_rune_sprite, 
-            # 箱子高亮
-            "FEATURE_ID_102": self.file_operations.toggle_chest_highlight, 
-            # 入口/小站光柱
-            "FEATURE_ID_103": self.file_operations.toggle_entrance_arrow,
-            # 马赛克护眼
-            "FEATURE_ID_104": self.file_operations.toggle_no_mosaic_sin,
-            # 屏蔽地狱火炬火焰风暴特效
-            "FEATURE_ID_105": self.file_operations.toggle_hellfire_torch,
-            # 屏蔽火焰之河岩浆特效
-            "FEATURE_ID_106": self.file_operations.toggle_lava_river_flow,
-            # 屏蔽开门动画,极速进站
-            "FEATURE_ID_107": self.file_operations.toggle_load_screen_panel,
-            # remove
-            #"FEATURE_ID_108": None
-            # 6BOSS钥匙皮肤+掉落光柱
-            "FEATURE_ID_109": self.file_operations.toggle_mephisto_key,
-            # 展示A2贤者之谷小站塔墓标记 屏蔽A3崔凡克议会墙屋 屏蔽A4混沌庇护所大门 屏蔽A5毁灭王座石柱
-            "FEATURE_ID_110": self.file_operations.toggle_hd_env_presets,
-            # 经验条变色
-            "FEATURE_ID_111": self.file_operations.toggle_experience_bar,
-            # 经验条变色
-            "FEATURE_ID_112": self.file_operations.toggle_fade_dummy,
-            # 骷髅火焰刀+圣盾特效
-            "FEATURE_ID_113": self.file_operations.toggle_necroskeleton,
-            # 隐藏头盔类装备外观
-            "FEATURE_ID_114": self.file_operations.toggle_circlet,
-            # 投掷标枪->闪电枪特效
-            "FEATURE_ID_115": self.file_operations.toggle_missiles_javelin,
-            # 投掷飞刀->闪电尾特效
-            "FEATURE_ID_116": self.file_operations.toggle_missiles_throw,
-            # 画面变亮
-            "FEATURE_ID_117": self.file_operations.toggle_env_vis,
-            # 怪物血条加宽加高
-            "FEATURE_ID_118": self.file_operations.toggle_monster_health,
-            # 德鲁伊飓风术特效
-            "FEATURE_ID_119": self.file_operations.toggle_hurricane,
-            # 屏蔽雷云风暴吓人特效
-            "FEATURE_ID_120": self.file_operations.toggle_lightningbolt_big,
-            # 降低闪电新星亮度
-            "FEATURE_ID_121": self.file_operations.toggle_electric_nova,
+            # "点击角色快速建立最高难度游戏",
+            "101": self.file_operations.toggle_quick_game,
+            # "Esc=存儲並離開",
+            "102": self.file_operations.toggle_escape,
+            # "更大的好友菜单",
+            "103": self.file_operations.toggle_context_menu,
+            # "特殊词缀蓝装变色(红/绿)",
+            "104": self.file_operations.toggle_global_excel_affixes,
+            # "入口/小站 箭头指引",
+            "105": self.file_operations.toggle_entrance_arrow,
+            # "经验祭坛/宝石祭坛 特效标识",
+            "106": self.file_operations.toggle_shrine,
+            # "暗黑2百科",
+            "107": self.file_operations.toogle_d2r_wiki,
+            # "物品栏+精品词缀",
+            "108": self.file_operations.toggle_inventory_expansion,
+            # "储物箱+精品词缀",
+            "109": self.file_operations.toggle_bank_expansion,
+            # "赫拉迪姆方塊+符文升级公式",
+            "110": self.file_operations.toogle_cube_formula,
 
 
-            # MINI方块
-            "FEATURE_ID_200": self.file_operations.toggle_mini_cube,
-            # 屏蔽垃圾装备
-            "FEATURE_ID_201": self.file_operations.toggle_low_quality,
-            # 屏蔽垃圾杂物
-            "FEATURE_ID_202": self.file_operations.toggle_other_misc, 
-            # 按ESC直接退回大厅
-            "FEATURE_ID_203": self.file_operations.toggle_escape,
-            # 变色精英怪
-            "FEATURE_ID_204": self.file_operations.toggle_hd_global_palette_randtransforms_json,
-            # 特殊词缀装备变色
-            "FEATURE_ID_205": self.file_operations.toggle_global_excel_affixes,
-            # 咒符/符文/技能结束提示音
-            "FEATURE_ID_206": self.file_operations.toggle_sound,
-            # 尼拉塞克指示
-            "FEATURE_ID_207": self.file_operations.toggle_nihlathak_pointer,
-            # 兵营指示
-            "FEATURE_ID_208": self.file_operations.toggle_barracks_pointer,
-            # 屏蔽动画
-            "FEATURE_ID_209": self.file_operations.toggle_hd_local_video,
-            # 点击角色快速建立最高难度游戏
-            "FEATURE_ID_210": self.file_operations.toggle_quick_game,
-            # 更大的好友菜单
-            "FEATURE_ID_211": self.file_operations.toggle_context_menu,
-            # 怪物光源+危险标识
-            "FEATURE_ID_212": self.file_operations.toggle_character_enemy,
-            # 技能图标(附魔/速度爆发/影散/BO/刺客聚气)
-            "FEATURE_ID_213": self.file_operations.toggle_skill_logo,
-            # 火焰之河信标
-            "FEATURE_ID_214": self.file_operations.toggle_diab_bridge,
-            # 任务BOSS红圈引导
-            "FEATURE_ID_215": self.file_operations.toggle_character_enemy_boss,
-            # 经验/宝石祭坛特效
-            "FEATURE_ID_216": self.file_operations.toggle_shrine,
-            # 暗黑2百科
-            "FEATURE_ID_217": self.file_operations.toogle_d2r_wiki,
-            # 物品栏+精品词缀
-            "FEATURE_ID_218": self.file_operations.toggle_inventory_expansion,
-            # 储物箱+精品词缀
-            "FEATURE_ID_219": self.file_operations.toggle_bank_expansion,
-            # 方块+符文升级公式
-            "FEATURE_ID_220": self.file_operations.toogle_cube_formula,
+            # "MINI方块常开before蓝球",
+            "111": self.file_operations.toggle_mini_cube,
+            # "画面变亮",
+            "112": self.file_operations.toggle_env_vis,
+            # "蓝怪/金怪/暗金怪随机染色",
+            "113": self.file_operations.toggle_hd_global_palette_randtransforms_json,
+            # "怪物光源+危险标识",
+            "114": self.file_operations.toggle_character_enemy,
+            # "屏蔽 劣等的/損壞的/破舊的武器装备",
+            "115": self.file_operations.toggle_low_quality,
+            # "屏蔽 杂物道具",
+            "116": self.file_operations.toggle_other_misc, 
+            # "咒符/22#+符文增加掉落光柱",
+            "117": self.file_operations.toggle_droped_highlight, 
+            # "咒符/22#+符文增加掉落提示音 & 技能结束提示音",
+            "118": self.file_operations.toggle_sound,
+            # "技能图标(头顶:熊之印记/狼之印记 脚下:附魔/速度爆发+影散/BO 右侧:刺客聚气)",
+            "119": self.file_operations.toggle_skill_logo,
+            # "A1兵营/A4火焰之河/A5尼拉塞克/BOSS 指引",
+            "120": self.file_operations.toggle_pointer,
+
+
+            # "交互对象增加蓝色火苗",
+            "121": self.file_operations.toggle_chest_highlight, 
+            # "马赛克护眼",
+            "122": self.file_operations.toggle_no_mosaic_sin,
+            # "符文编号贴图",
+            "123": self.file_operations.toggle_rune_sprite, 
+            # "6BOSS钥匙皮肤+掉落光柱",
+            "124": self.file_operations.toggle_mephisto_key,
+            # "屏蔽 开场/过场/结束动画",
+            "125": self.file_operations.toggle_hd_local_video,
+            # "屏蔽 地狱火炬火焰风暴特效",
+            "126": self.file_operations.toggle_hellfire_torch,
+            # "屏蔽 A4火焰之河岩浆特效",
+            "127": self.file_operations.toggle_lava_river_flow,
+            # "屏蔽 A5督军山克死亡特效",
+            "128": self.file_operations.toggle_shenk,
+            # "屏蔽 开门动画,极速进站",
+            "129": self.file_operations.toggle_load_screen_panel,
+            # "展示 A2贤者之谷小站塔墓标记 & 屏蔽 A3崔凡克议会墙屋/A4混沌庇护所大门/A5毁灭王座石柱",
+            "130": self.file_operations.toggle_hd_env_presets,
             
+
+            # "经验条变色",
+            "131": self.file_operations.toggle_experience_bar,
+            # "屏蔽 影散隐身特效",
+            "132": self.file_operations.toggle_fade_dummy,
+            # "屏蔽 头环类装备外观",
+            "133": self.file_operations.toggle_circlet,
+            # "屏蔽 雷云风暴吓人特效",
+            "134": self.file_operations.toggle_lightningbolt_big,
+            # "降低 闪电新星亮度",
+            "135": self.file_operations.toggle_electric_nova,
+            # "怪物血条加宽加高",
+            "136": self.file_operations.toggle_monster_health,
+            # "死灵召唤骷髅 火焰刀+圣盾特效",
+            "137": self.file_operations.toggle_necroskeleton,
+            # "投掷标枪->闪电枪特效",
+            "138": self.file_operations.toggle_missiles_javelin,
+            # "投掷飞刀->闪电尾特效",
+            "139": self.file_operations.toggle_missiles_throw,
+            # "德鲁伊飓风术 特效",
+            "140": self.file_operations.toggle_hurricane,
+            
+            
+            # 佣兵图标位置
+            "201": self.file_operations.select_hireables_panel,
             # 传送门皮肤
-            "FEATURE_ID_300": self.file_operations.select_town_portal,
+            "202": self.file_operations.select_town_portal,
             # 传送术皮肤
-            "FEATURE_ID_301": self.file_operations.select_teleport_skin,
-            # 箭皮肤
-            "FEATURE_ID_302": self.file_operations.select_arrow_skin,
+            "203": self.file_operations.select_teleport_skin,
+            # 弩/箭皮肤
+            "204": self.file_operations.select_arrow_skin,
             # 老鼠刺针/剥皮吹箭样式
-            "FEATURE_ID_303": self.file_operations.select_enemy_arrow_skin,
+            "205": self.file_operations.select_enemy_arrow_skin,
             
+
             # 照亮范围
-            "FEATURE_ID_400": self.file_operations.modify_character_player,
+            "301": self.file_operations.modify_character_player,
         }
 
 
@@ -157,18 +159,7 @@ class FeatureController:
         changes_detected = False
 
         # -------------------- 独立功能 (Checkbutton) --------------------
-        for feature_id, description in self.feature_config.all_features_config["display_features"].items():
-            current_value = self.current_states.get(feature_id)
-            loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
-            # 只有当 current_value 存在且与 loaded_value 不同时才处理
-            if current_value is not None and current_value != loaded_value:
-                changes_detected = True
-                if feature_id in self._handlers:
-                    # 执行实际的文件操作
-                    result = self._handlers[feature_id](current_value) 
-                    self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
-
-        for feature_id, description in self.feature_config.all_features_config["function_features"].items():
+        for feature_id, description in self.feature_config.all_features_config["checkbutton"].items():
             current_value = self.current_states.get(feature_id)
             loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
             # 只有当 current_value 存在且与 loaded_value 不同时才处理
@@ -180,7 +171,7 @@ class FeatureController:
                     self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
 
         # -------------------- 分组功能 (Radiobutton) --------------------
-        for group_id, group_info in self.feature_config.all_features_config["group_features"].items():
+        for group_id, group_info in self.feature_config.all_features_config["radiobutton"].items():
             current_value = self.current_states.get(group_id) # 获取选中项的 param_key
             loaded_value = self.feature_state_manager.loaded_states.get(group_id)
 
@@ -195,7 +186,7 @@ class FeatureController:
                     self.dialogs += f"{group_info['text']} = {selected_description} 操作文件数量 {result[0]}/{result[1]} \n"
 
         #  -------------------- 区间功能 (Spinbox) --------------------
-        for feature_id, description in self.feature_config.all_features_config["range_features"].items():
+        for feature_id, description in self.feature_config.all_features_config["spinbox"].items():
             current_value = self.current_states.get(feature_id)
             loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
             # 只有当 current_value 存在且与 loaded_value 不同时才处理

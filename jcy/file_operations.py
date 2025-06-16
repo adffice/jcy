@@ -3,6 +3,7 @@ import json
 import json5
 import os
 import shutil
+import re
 from jcy_model import FeatureConfig
 
 class FileOperations:
@@ -12,6 +13,14 @@ class FileOperations:
     def __init__(self, config: FeatureConfig):
         self.config = config
         self.dir_mod = config.dir_mod
+
+    def common_encode_private_use_chars(self, text):
+        r"""
+        替换所有私用区字符为 \uXXXX 形式
+        """
+        def repl(m):
+            return '\\u%04X' % ord(m.group(0))
+        return re.sub(r'[\uE000-\uF8FF]', repl, text)
 
     def common_empty_file(self, files: list, isEnabled: bool):
         """
@@ -436,31 +445,118 @@ class FileOperations:
 
     def toggle_low_quality(self, isEnabled: bool):
         """
-        开关 屏蔽垃圾道具
+        屏蔽 劣等的/損壞的/破舊的 武器装备
         """
-        files_ui = (
-            (
-                r"data/local/lng/strings/ui.filter.json",
-                r"data/local/lng/strings/ui.fully.json", 
-                r"data/local/lng/strings/ui.json",
-            ),
-        )
+        paths = [
+            r"data/local/lng/strings/ui.json",
+        ]
 
-        return self.common_swap(files_ui, isEnabled)
+        count = 0
+        total = len(paths)
+        for path in paths:
+            target_path = os.path.join(self.dir_mod, path)
+            temp_path = target_path + ".tmp"
+            try:
+                # 1.load
+                json_data = None
+                with open(target_path, 'r', encoding='utf-8-sig') as f:
+                    json_data = json.load(f)
+
+                # 2.modify
+                for i, item in enumerate(json_data):
+                    if item["id"] == 1712:
+                        item["zhTW"] = "" if isEnabled else "%0%1"
+                        item["zhCN"] = "" if isEnabled else "%0%1"
+                
+                # 3. dump & encode
+                json_string = json.dumps(json_data, ensure_ascii=False, indent=2)
+                json_string = self.common_encode_private_use_chars(json_string)
+
+                # 4.write
+                with open(temp_path, 'w', encoding="utf-8-sig") as f:
+                    f.write(json_string)
+
+                # 5.replace
+                os.replace(temp_path, target_path)
+                count += 1
+            except Exception as e:
+                print(e)
+            finally:
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+        return (count, total)
+
 
     def toggle_other_misc(self, isEnabled: bool):
         """
-        开关 屏蔽垃圾道具
+        屏蔽 杂物道具
         """
-        files_misc = (
-            (
-                r"data/local/lng/strings/item-names.filter.json",
-                r"data/local/lng/strings/item-names.fully.json", 
-                r"data/local/lng/strings/item-names.json",
-            ),
-        )
+        params = {
+            2182: {"zhTW":"小毒", "zhCN":"小毒"},
+            2184: {"zhTW":"中毒", "zhCN":"中毒"},
+            2186: {"zhTW":"大毒", "zhCN":"大毒"},
+            2183: {"zhTW":"小炸", "zhCN":"小炸"},
+            2185: {"zhTW":"中炸", "zhCN":"中炸"},
+            2187: {"zhTW":"大炸", "zhCN":"大炸"},
+            2200: {"zhTW":"回城", "zhCN":"回城"},
+            2202: {"zhTW":"鑒定", "zhCN":"鉴定"},
+            2207: {"zhTW":"耐力", "zhCN":"耐力"},
+            2208: {"zhTW":"解毒", "zhCN":"解毒"},
+            2209: {"zhTW":"小紫", "zhCN":"小紫"},
+            2211: {"zhTW":"解凍", "zhCN":"解冻"},
+            2220: {"zhTW":"弩矢", "zhCN":"弩矢"},
+            2221: {"zhTW":"鑰匙", "zhCN":"钥匙"},
+            2222: {"zhTW":"鑰匙", "zhCN":"钥匙"},
+            2266: {"zhTW":"微紅", "zhCN":"微红"},
+            2267: {"zhTW":"小紅", "zhCN":"小红"},
+            2268: {"zhTW":"中紅", "zhCN":"中红"},
+            2269: {"zhTW":"大紅", "zhCN":"大红"},
+            2270: {"zhTW":"超紅", "zhCN":"超红"},
+            2271: {"zhTW":"微藍", "zhCN":"微蓝"},
+            2272: {"zhTW":"小藍", "zhCN":"小蓝"},
+            2273: {"zhTW":"中藍", "zhCN":"中蓝"},
+            2274: {"zhTW":"大藍", "zhCN":"大蓝"},
+            2275: {"zhTW":"超藍", "zhCN":"超蓝"},
+        }
 
-        return self.common_swap(files_misc, isEnabled)
+        paths = [
+            r"data/local/lng/strings/item-names.json",
+        ]
+
+        count = 0
+        total = len(paths)
+        for path in paths:
+            target_path = os.path.join(self.dir_mod, path)
+            temp_path = target_path + ".tmp"
+            try:
+                # 1.load
+                json_data = None
+                with open(target_path, 'r', encoding='utf-8-sig') as f:
+                    json_data = json.load(f)
+
+                # 2.modify
+                for i, item in enumerate(json_data):
+                    if item["id"] in params:
+                        item["zhTW"] = "" if isEnabled else params.get(item["id"]).get("zhTW")
+                        item["zhCN"] = "" if isEnabled else params.get(item["id"]).get("zhCN")
+                
+                # 3. dump & encode
+                json_string = json.dumps(json_data, ensure_ascii=False, indent=2)
+                json_string = self.common_encode_private_use_chars(json_string)
+
+                # 4.write
+                with open(temp_path, 'w', encoding="utf-8-sig") as f:
+                    f.write(json_string)
+
+                # 5.replace
+                os.replace(temp_path, target_path)
+                count += 1
+            except Exception as e:
+                print(e)
+            finally:
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+        return (count, total)
 
     def toggle_no_mosaic_sin(self, isEnabled: bool):
         """
@@ -921,93 +1017,102 @@ class FileOperations:
 
     def toggle_hellfire_torch(self, isEnabled: bool):
         """
-        开关 屏蔽地狱火炬火焰风暴特效
-        开: 修改skill.txt文件 
-        关: 修改skill.txt文件 
+        "126": "屏蔽 地狱火炬火焰风暴特效",
         """
-        global_excel_skills_txt = {
-            "file": r"data/global/excel/skills.txt",
-            "diabwall": [
-                {"col": "ItemCltEffect", "row": "DiabWall", True: "200", False: ""}
-            ]
+        paths = [
+            r"data/global/excel/skills.txt",
+        ]
+
+        params = {
+            "DiabWall" : {"col": "ItemCltEffect", True: "200", False: ""},
         }
 
-        file_path = os.path.join(self.dir_mod, global_excel_skills_txt["file"])
-        temp_path = file_path + ".tmp"
-        file_data = global_excel_skills_txt["diabwall"]
+        count = 0
+        total = len(paths)
 
-        try:
-            original_formatted_rows = [] # 源数据列表(保持样式)
-            working_unquoted_rows = [] # 干净数据列表(操作用)
-            skills = [] # 首列=技能名称
-            # 1.读取数据
-            with open(file_path, 'r', newline='', encoding='utf-8') as f:
-                for line_num, line in enumerate(f):
-                    line = line.rstrip('/r/n') # 移除行末的换行符，避免写入时多余空行
-                    
-                    # 使用 split('/t') 分割原始行。此时，如果原始文件有引号，字段会保留引号。
-                    current_original_fields = line.split('/t') 
-                    original_formatted_rows.append(current_original_fields)
-                    
-                    # 为工作台创建一份“去引号”的副本。这使得后续的查找和修改更简单。
-                    current_unquoted_fields = [
-                        field.strip('"') if field.startswith('"') and field.endswith('"') else field 
-                        for field in current_original_fields
-                    ]
-                    working_unquoted_rows.append(current_unquoted_fields)
-                    skills.append(current_unquoted_fields[0])
-            # 2.修改数据
-            for data in file_data:
-                x = skills.index(data["row"])
-                y = working_unquoted_rows[0].index(data["col"])
+        for path in paths:
+            file_path = os.path.join(self.dir_mod, path)
+            temp_path = file_path + ".tmp"
 
-                original_value = original_formatted_rows[x][y]
-                new_value = data[isEnabled]
+            try:
+                original_formatted_rows = [] # 源数据列表(保持样式)
+                working_unquoted_rows = [] # 干净数据列表(操作用)
+                # 1.读取数据
+                with open(file_path, 'r', newline='', encoding='utf-8') as f:
+                    for line_num, line in enumerate(f):
+                        line = line.rstrip('\r\n') # 移除行末的换行符，避免写入时多余空行
+                        current_original_fields = line.split('\t') 
+                        original_formatted_rows.append(current_original_fields)
+                        # 为工作台创建一份“去引号”的副本。这使得后续的查找和修改更简单。
+                        current_unquoted_fields = [
+                            field.strip('"') if field.startswith('"') and field.endswith('"') else field 
+                            for field in current_original_fields
+                        ]
+                        working_unquoted_rows.append(current_unquoted_fields)
+                
+                # 2.修改数据
+                for i, working_unquoted_row in enumerate(working_unquoted_rows):
+                    skill = working_unquoted_row[0]
+                    if(skill in params):
+                        param = params[skill]
+                        x = i
+                        y = working_unquoted_rows[0].index(param["col"])
+                        original_value = original_formatted_rows[x][y]
+                        new_value = param[isEnabled]
+                        if original_value.startswith('"') and original_value.endswith('"'):
+                            original_formatted_rows[x][y] = f"\"{new_value}\""
+                        else:
+                            original_formatted_rows[x][y] = new_value
 
-                if original_value.startswith('"') and original_value.endswith('"'):
-                    original_formatted_rows[x][y] = f"\"{new_value}\""
-                else:
-                    original_formatted_rows[x][y] = new_value
-            # 3.将修改后的数据写回新文件
-            with open(temp_path, 'w', newline='', encoding='utf-8') as f:
-                for row_fields in original_formatted_rows:
-                    line = '/t'.join(row_fields) + '/n'
-                    # 手动将字段用制表符拼接，然后写入文件，保留原始格式
-                    f.write(line) # <-- 修正点！直接字符串拼接写入
-            
-            # 4.将临时文件重命名为原文件，覆盖原文件
-            os.replace(temp_path, file_path)
-        except Exception as e:
-            print(e)
-        finally:
-            if os.path.exists(temp_path):
-                os.remove(temp_path)
-        return (1, 1)
+                # 3.将修改后的数据写回新文件
+                with open(temp_path, 'w', newline='', encoding='utf-8') as f:
+                    for row_fields in original_formatted_rows:
+                        line = '\t'.join(row_fields) + '\n'
+                        # 手动将字段用制表符拼接，然后写入文件，保留原始格式
+                        f.write(line) # <-- 修正点！直接字符串拼接写入
+                
+                # 4.将临时文件重命名为原文件，覆盖原文件
+                os.replace(temp_path, file_path)
+                count += 1
+            except Exception as e:
+                print(e)
+            finally:
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+        return (count, total)
     
-    def toggle_nihlathak_pointer(self, isEnabled: bool):
+    def toggle_pointer(self, isEnabled: bool):
         """
-        开/关 尼拉塞克指示
+        "A1兵营/A4火焰之河/A5尼拉塞克/BOSS 指引"
         """
-        files_nihlathak_pointer = [
+        paths = [
+            #
+            r"data/hd/env/preset/act1/court/courte.json",
+            r"data/hd/env/preset/act1/court/courtn.json",
+            r"data/hd/env/preset/act1/court/courtw.json",
+            #
+            r"data/hd/env/preset/act4/diab/bridge1.json",
+            r"data/hd/env/preset/act4/diab/bridge2.json",
+            r"data/hd/env/preset/act4/diab/bridge3.json",
+            r"data/hd/env/preset/act4/diab/bridge4.json",
+            #
             r"data/hd/env/preset/expansion/wildtemple/nihle.json",
             r"data/hd/env/preset/expansion/wildtemple/nihln.json",
             r"data/hd/env/preset/expansion/wildtemple/nihls.json",
             r"data/hd/env/preset/expansion/wildtemple/nihlw.json",
+            #
+            r"data/hd/character/enemy/hephasto.json",
+            r"data/hd/character/enemy/izual.json",
+            r"data/hd/character/enemy/maggotqueen1.json",
+            r"data/hd/character/enemy/radament.json",
+            r"data/hd/character/enemy/smith.json",
+            r"data/hd/character/enemy/summoner.json",
+            r"data/hd/character/enemy/Uberandariel.json",
+            r"data/hd/character/enemy/Uberduriel.json",
+            r"data/hd/character/monsters.json",
         ]
 
-        return self.common_rename(files_nihlathak_pointer, isEnabled)
-    
-    def toggle_barracks_pointer(self, isEnabled: bool):
-        """
-        开/关 兵营指示
-        """
-        files_barracks_pointer = [
-            r"data/hd/env/preset/act1/court/courte.json",
-            r"data/hd/env/preset/act1/court/courtn.json",
-            r"data/hd/env/preset/act1/court/courtw.json",
-        ]
-
-        return self.common_rename(files_barracks_pointer, isEnabled)
+        return self.common_rename(paths, isEnabled)
 
     def toggle_hd_local_video(self, isEnabled: bool):
         """
@@ -1202,24 +1307,6 @@ class FileOperations:
 
         return self.common_rename(files_danger_enemy, isEnabled)
 
-    def toggle_character_enemy_boss(self, isEnabled: bool):
-        """
-        任务BOSS红圈引导
-        """
-        files_monster_health = [
-            r"data/hd/character/enemy/Uberandariel.json",
-            r"data/hd/character/enemy/Uberduriel.json",
-            r"data/hd/character/enemy/hephasto.json",
-            r"data/hd/character/enemy/izual.json",
-            r"data/hd/character/enemy/maggotqueen1.json",
-            r"data/hd/character/enemy/radament.json",
-            r"data/hd/character/enemy/smith.json",
-            r"data/hd/character/enemy/summoner.json",
-            r"data/hd/character/monsters.json",
-        ]
-
-        return self.common_rename(files_monster_health, isEnabled)
-
     def toggle_skill_logo(self, isEnabled: bool):
         """
         技能图标
@@ -1260,35 +1347,41 @@ class FileOperations:
         """
         params = {
             "default" :"data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal_newstuff.particles",
-            "red": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal_newstuff_newred.particles",
-            "blue": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal.particles",
-            "red2": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal_newstuff_redversion.particles"
+            "1": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal_newstuff_newred.particles",
+            "2": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal.particles",
+            "3": "data/hd/vfx/particles/objects/vfx_only/town_portal/vfx_town_portal_newstuff_redversion.particles"
         }
 
-        file = r"data/hd/objects/vfx_only/town_portal.json"
-        target_file = os.path.join(self.dir_mod, file)
-        temp_file = target_file + ".tmp"
-        try:
-            # 1.load
-            json_data = None
-            with open(target_file, 'r', encoding='utf-8') as f:
-                json_data = json.load(f)
-            
-            # 2.modify
-            json_data["entities"][0]["components"][2]["filename"] = params[radio]
-            
-            # 3.dump temp
-            with open(temp_file, 'w', encoding="utf-8") as f:
-                json.dump(json_data, f, ensure_ascii=False, indent=4)
+        paths = [
+            r"data/hd/objects/vfx_only/town_portal.json"
+        ]
+        count = 0
+        total = len(paths)
+        for path in paths:
+            target_path = os.path.join(self.dir_mod, path)
+            temp_path = target_path + ".tmp"
+            try:
+                # 1.load
+                json_data = None
+                with open(target_path, 'r', encoding='utf-8') as f:
+                    json_data = json.load(f)
+                
+                # 2.modify
+                json_data["entities"][0]["components"][2]["filename"] = params[radio]
+                
+                # 3.dump temp
+                with open(temp_path, 'w', encoding="utf-8") as f:
+                    json.dump(json_data, f, ensure_ascii=False, indent=4)
 
-            # 4.replace
-            os.replace(temp_file, target_file)
-            return (1, 1)
-        except Exception as e:
-            print(e)
-        finally:
-            if os.path.exists(temp_file):
-                os.remove(temp_file)
+                # 4.replace
+                os.replace(temp_path, target_path)
+                count += 1
+            except Exception as e:
+                print(e)
+            finally:
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+        return (count, total)
 
     def select_teleport_skin(self, radio: str):
         """
@@ -1296,33 +1389,34 @@ class FileOperations:
         """
         params = {
             "default": "data/hd/overlays/sorceress/teleport.json",
-            "ice": "data/hd/overlays/sorceress/teleport.json.lv3",
-            "fire": "data/hd/overlays/sorceress/teleport.json.lv4",
+            "1": "data/hd/overlays/sorceress/teleport.json.1",
+            "2": "data/hd/overlays/sorceress/teleport.json.2",
         }
 
-        file = r"data/hd/objects/vfx_only/town_portal.json"
-        target_file = os.path.join(self.dir_mod, file)
-        temp_file = target_file + ".tmp"
-        try:
-            src_path = os.path.join(self.dir_mod, params[radio])
-            dst_path = os.path.join(self.dir_mod, params["default"])
-            if "default" == radio:
-                os.remove(dst_path)
-            else:
-                shutil.copy2(src_path, dst_path)
-            return (1, 1)
-        except Exception as e:
-            print(e)
+        paths = [
+            r"data/hd/objects/vfx_only/town_portal.json"
+        ]
+        count = 0
+        total = len(paths)
+        for path in paths:
+            target_path = os.path.join(self.dir_mod, path)
+            temp_path = target_path + ".tmp"
+            try:
+                src_path = os.path.join(self.dir_mod, params[radio])
+                dst_path = os.path.join(self.dir_mod, params["default"])
+                if "default" == radio:
+                    os.remove(dst_path)
+                else:
+                    shutil.copy2(src_path, dst_path)
+                count += 1
+            except Exception as e:
+                print(e)
+        return (count, total)
 
     def select_arrow_skin(self, radio: str):
         """
         箭皮肤
         """
-        files_missiles_arrow = [
-            r"data/hd/missiles/arrow.json",
-            r"data/hd/missiles/x_bow_bolt.json",
-        ]
-
         params = {
             "default": r"data/hd/vfx/particles/missiles/arrow/vfx_arrow.particles",
             "1": r"data/hd/vfx/particles/missiles/safe_arrow/safe_arrow.particles",
@@ -1330,43 +1424,43 @@ class FileOperations:
             "3": r"data/hd/vfx/particles/missiles/fire_arrow/fx_fire_projectile_arrow.particles",
         }
 
+        paths = [
+            r"data/hd/missiles/arrow.json",
+            r"data/hd/missiles/x_bow_bolt.json",
+        ]
+
         count = 0
-        total = len(files_missiles_arrow)
-        for file in files_missiles_arrow:
-            target_file = os.path.join(self.dir_mod, file)
-            temp_file = target_file + ".tmp"
+        total = len(paths)
+        for path in paths:
+            target_path = os.path.join(self.dir_mod, path)
+            temp_path = target_path + ".tmp"
             try:
                 # 1.load
                 json_data = None
-                with open(target_file, 'r', encoding='utf-8') as f:
+                with open(target_path, 'r', encoding='utf-8') as f:
                     json_data = json.load(f)
                 
                 # 2.modify
                 json_data["entities"][-1]["components"][0]["filename"] = params[radio]
                 
                 # 3.dump temp
-                with open(temp_file, 'w', encoding="utf-8") as f:
+                with open(temp_path, 'w', encoding="utf-8") as f:
                     json.dump(json_data, f, ensure_ascii=False, indent=4)
 
                 # 4.replace
-                os.replace(temp_file, target_file)
+                os.replace(temp_path, target_path)
                 count += 1
             except Exception as e:
                 print(e)
             finally:
-                if os.path.exists(temp_file):
-                    os.remove(temp_file)
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
         return (count, total)
     
     def select_enemy_arrow_skin(self, radio: str):
         """
         老鼠刺针/剥皮吹箭样式
         """
-        files_missiles_arrow = [
-            r"data/hd/missiles/spike_fiend_missle.json",
-            r"data/hd/missiles/blowdart.json",
-        ]
-
         params = {
             "default": [r"data/hd/vfx/particles/missiles/spike_fiend_missle/vfx_spikefiend_missile.particles", r"data/hd/vfx/particles/missiles/blowdart/vfx_blowdart.particles"],
             "1": r"data/hd/vfx/particles/missiles/safe_arrow/safe_arrow.particles",
@@ -1374,32 +1468,37 @@ class FileOperations:
             "3": r"data/hd/vfx/particles/missiles/fire_arrow/fx_fire_projectile_arrow.particles",
         }
         
+        paths = [
+            r"data/hd/missiles/spike_fiend_missle.json",
+            r"data/hd/missiles/blowdart.json",
+        ]
+
         count = 0
-        total = len(files_missiles_arrow)
-        for i, file in enumerate(files_missiles_arrow):
-            target_file = os.path.join(self.dir_mod, file)
-            temp_file = target_file + ".tmp"
+        total = len(paths)
+        for i, path in enumerate(paths):
+            target_path = os.path.join(self.dir_mod, path)
+            temp_path = target_path + ".tmp"
             try:
                 # 1.load
                 json_data = None
-                with open(target_file, 'r', encoding='utf-8') as f:
+                with open(target_path, 'r', encoding='utf-8') as f:
                     json_data = json.load(f)
                 
                 # 2.modify
                 json_data["entities"][1]["components"][-1]["filename"] = params[radio][i] if "default" == radio else params[radio]
                 
                 # 3.dump temp
-                with open(temp_file, 'w', encoding="utf-8") as f:
+                with open(temp_path, 'w', encoding="utf-8") as f:
                     json.dump(json_data, f, ensure_ascii=False, indent=4)
 
                 # 4.replace
-                os.replace(temp_file, target_file)
+                os.replace(temp_path, target_path)
                 count += 1
             except Exception as e:
                 print(e)
             finally:
-                if os.path.exists(temp_file):
-                    os.remove(temp_file)
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
         return (count, total)
 
     def modify_character_player(self, val: int):
@@ -1445,19 +1544,6 @@ class FileOperations:
                 print(e)
         return (count, total)
     
-    def toggle_diab_bridge(self, isEnabled: bool):
-        """
-        火焰之河信标
-        """
-        files_diab_bridge = [
-            r"data/hd/env/preset/act4/diab/bridge1.json",
-            r"data/hd/env/preset/act4/diab/bridge2.json",
-            r"data/hd/env/preset/act4/diab/bridge3.json",
-            r"data/hd/env/preset/act4/diab/bridge4.json",
-        ]
-
-        return self.common_rename(files_diab_bridge, isEnabled);
-
     def toggle_fade_dummy(self, isEnabled: bool):
         """
         屏蔽影散隐身效果
@@ -1487,26 +1573,6 @@ class FileOperations:
             r"data/hd/items/armor/circlet/coronet.json",
             r"data/hd/items/armor/circlet/diadem.json",
             r"data/hd/items/armor/circlet/tiara.json",
-            r"data/hd/items/armor/helmet/assault_helmet.json", 
-            r"data/hd/items/armor/helmet/avenger_guard.json", 
-            r"data/hd/items/armor/helmet/bone_helm.json", 
-            r"data/hd/items/armor/helmet/cap_hat.json", 
-            r"data/hd/items/armor/helmet/coif_of_glory.json", 
-            r"data/hd/items/armor/helmet/crown.json", 
-            r"data/hd/items/armor/helmet/crown_of_thieves.json", 
-            r"data/hd/items/armor/helmet/duskdeep.json", 
-            r"data/hd/items/armor/helmet/fanged_helm.json", 
-            r"data/hd/items/armor/helmet/full_helm.json", 
-            r"data/hd/items/armor/helmet/great_helm.json", 
-            r"data/hd/items/armor/helmet/helm.json", 
-            r"data/hd/items/armor/helmet/horned_helm.json", 
-            r"data/hd/items/armor/helmet/jawbone_cap.json", 
-            r"data/hd/items/armor/helmet/mask.json", 
-            r"data/hd/items/armor/helmet/ondals_almighty.json", 
-            r"data/hd/items/armor/helmet/rockstopper.json", 
-            r"data/hd/items/armor/helmet/skull_cap.json", 
-            r"data/hd/items/armor/helmet/war_bonnet.json", 
-            r"data/hd/items/armor/helmet/wormskull.json",
         ]
 
         return self.common_rename(files__circlet, isEnabled)
@@ -1937,3 +2003,39 @@ class FileOperations:
         ]
 
         return self.common_rename(_files, isEnabled)
+
+    def toggle_shenk(self, isEnabled: bool):
+        """
+        # "屏蔽 A5督军山克死亡特效",
+        """
+        _files = [
+            r"data/global/excel/missiles.txt",
+        ]
+
+        return self.common_rename(_files, isEnabled)
+    
+    def select_hireables_panel(self, radio: str):
+        """
+        佣兵图标位置
+        """
+        params = {
+            "default": r"data/global/ui/layouts/hireablespanelhd.json",
+            "1": r"data/global/ui/layouts/hireablespanelhd.json.1",
+            "2": r"data/global/ui/layouts/hireablespanelhd.json.2",
+            "3": r"data/global/ui/layouts/hireablespanelhd.json.3",
+        }
+
+        paths = [
+            r"data/global/ui/layouts/hireablespanelhd.json"
+        ]
+        count = 0
+        total = len(paths)
+        for path in paths:
+            src_path = os.path.join(self.dir_mod, params[radio])
+            dst_path = os.path.join(self.dir_mod, path)
+            if "default" == radio:
+                os.remove(dst_path)
+            else:
+                shutil.copy2(src_path, dst_path)
+            count += 1
+        return (count, total)
