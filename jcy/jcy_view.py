@@ -85,9 +85,13 @@ class FeatureView:
             spin = ttk.Spinbox(spin_container, from_=0, to=9, increment=1, textvariable=var, command=lambda f=fid, v=var: self.controller.execute_feature_action(f, v.get()), state='readonly')
             spin.pack(anchor=tk.W, padx=10, pady=2)
 
-            label2_frame = ttk.LabelFrame(spin_container, text="[0, 9]")
-            label_frame.pack(padx=20, pady=5, fill=tk.X)
-
+        # --- label ---
+        default_tab = ttk.Frame(notebook)
+        notebook.add(default_tab, text=" 默认功能 ")
+        for description in self.all_features_config.get("default", []):
+            label = ttk.Label(default_tab, text=description)
+            label.pack(padx=20, pady=5, anchor='w')
+        
         # 应用设置按钮
         apply_button = ttk.Button(self.master, text="应用设置", command=self.controller.apply_settings)
         apply_button.pack(pady=10)
