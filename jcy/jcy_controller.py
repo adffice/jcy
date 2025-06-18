@@ -124,6 +124,8 @@ class FeatureController:
             "139": self.file_operations.toggle_missiles_throw,
             # "德鲁伊飓风术 特效",
             "140": self.file_operations.toggle_hurricane,
+            # "左键快速购买",
+            "141": self.file_operations.toggle_quick_buy,
             
             
             # 佣兵图标位置
@@ -165,7 +167,7 @@ class FeatureController:
                 if feature_id in self._handlers:
                     result = self._handlers[feature_id](current_value) 
                     self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
-                    
+
 
         # -------------------- 单选功能 (RadioGroup) --------------------
         for fid, info in self.feature_config.all_features_config["radiogroup"].items():

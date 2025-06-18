@@ -38,6 +38,60 @@
     },
     "children": [
         {
+            "type": "ButtonWidget",
+            "name": "Normal",
+            "fields": {
+                "rect": {
+                    "x": 2570,
+                    "y": 150
+                },
+                "filename": "FrontEnd\\HD\\Final\\FrontEnd_ButtonMed",
+                "textString": "@strCreateGameNormalText",
+                "onClickMessage": "CharacterSelect:LoadCharacter:0",
+                "textColor": "$LightButtonTextColor",
+                "text/style": "$StyleFEButtonText",
+                "hoveredFrame": 3,
+                "disabledFrame": 2,
+                "sound": "player_townportal_enter_hd"
+            }
+        },
+        {
+            "type": "ButtonWidget",
+            "name": "Nightmare",
+            "fields": {
+                "rect": {
+                    "x": 2570,
+                    "y": 290
+                },
+                "filename": "FrontEnd\\HD\\Final\\FrontEnd_ButtonMed",
+                "textString": "@strCreateGameNightmareText",
+                "onClickMessage": "CharacterSelect:LoadCharacter:1",
+                "textColor": "$LightButtonTextColor",
+                "text/style": "$StyleFEButtonText",
+                "hoveredFrame": 3,
+                "disabledFrame": 2,
+                "sound": "player_townportal_enter_hd"
+            }
+        },
+        {
+            "type": "ButtonWidget",
+            "name": "Hell",
+            "fields": {
+                "rect": {
+                    "x": 2570,
+                    "y": 430
+                },
+                "filename": "FrontEnd\\HD\\Final\\FrontEnd_ButtonMed",
+                "textString": "@strCreateGameHellText",
+                "onClickMessage": "CharacterSelect:LoadCharacter:2",
+                "textColor": "$LightButtonTextColor",
+                "text/style": "$StyleFEButtonText",
+                "hoveredFrame": 3,
+                "disabledFrame": 2,
+                "sound": "player_townportal_enter_hd"
+            }
+        },
+        {
             "type": "Camera3DWidget",
             "name": "Act1Camera",
             "fields": {

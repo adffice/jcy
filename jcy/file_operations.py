@@ -1120,17 +1120,27 @@ class FileOperations:
         """
         files_hd_local_video = [
             #
+            r"data/global/video/act2/act02start.webm",
+            r"data/global/video/act3/act03start.webm",
+            r"data/global/video/act4/act04end.webm",
+            r"data/global/video/act4/act04start.webm",
+            r"data/global/video/act5/d2x_out.webm",
+            r"data/global/video/bliznorth.webm",
+            r"data/global/video/d2intro.webm",
+            r"data/global/video/d2x_intro.webm",
+            r"data/global/video/new_bliz.webm",
+            #
+            r"data/hd/global/video/act2/act02start.webm",
+            r"data/hd/global/video/act3/act03start.webm",
+            r"data/hd/global/video/act4/act04end.webm",
+            r"data/hd/global/video/act4/act04start.webm",
+            r"data/hd/global/video/act5/d2x_out.webm",
             r"data/hd/global/video/blizzardlogos.webm",
             r"data/hd/global/video/creditsloop.webm",
             r"data/hd/global/video/d2intro.webm",
             r"data/hd/global/video/d2x_intro.webm",
             r"data/hd/global/video/logoanim.webm",
             r"data/hd/global/video/logoloop.webm",
-            r"data/hd/global/video/act2/act02start.webm",
-            r"data/hd/global/video/act3/act03start.webm",
-            r"data/hd/global/video/act4/act04end.webm",
-            r"data/hd/global/video/act4/act04start.webm",
-            r"data/hd/global/video/act5/d2x_out.webm",
             #
             r"data/hd/local/video/act2/act02start.flac",
             r"data/hd/local/video/act3/act03start.flac",
@@ -1141,6 +1151,14 @@ class FileOperations:
             r"data/hd/local/video/d2intro.flac",
             r"data/hd/local/video/d2x_intro.flac",
             r"data/hd/local/video/logoanim.flac",
+            #
+            r"data/local/video/act2/act02start.flac",
+            r"data/local/video/act3/act03start.flac",
+            r"data/local/video/act4/act04end.flac",
+            r"data/local/video/act4/act04start.flac",
+            r"data/local/video/act5/d2x_out.flac",
+            r"data/local/video/d2intro.flac",
+            r"data/local/video/d2x_intro.flac",
         ]
 
         return self.common_empty_file(files_hd_local_video, isEnabled)
@@ -2038,7 +2056,7 @@ class FileOperations:
             count += 1
         return (count, total)
     
-    def select_character_effects(self, values: list):
+    def select_character_effects(self, keys: list):
         """
         角色特效
         """
@@ -2116,7 +2134,109 @@ class FileOperations:
                         "hardKillOnDestroy": False
                     }
                 ]
-            }
+            },
+            "5": [
+                {
+                    "type": "Entity",
+                    "name": "entity_wings_shell",
+                    "id": 2343070520,
+                    "components": [
+                        {
+                            "type": "EntityAttachmentDefinitionComponent",
+                            "name": "entity_spectralflames_EntityAttachmentDefinition",
+                            "targetbone": "helmet"
+                        },
+                        {
+                            "type": "ModelDefinitionComponent",
+                            "name": "entity_wings_shell_ModelDefinition001",
+                            "filename": "data/hd/character/npc/izualghost/bottomwings_lod0.model",
+                            "visibleLayers": 1073741824,
+                            "lightMask": 19,
+                            "shadowMask": 3,
+                            "ghostShadows": False,
+                            "floorModel": False,
+                            "terrainBlendEnableYUpBlend": False,
+                            "terrainBlendMode": 1
+                        },
+                        {
+                            "type": "TransformDefinitionComponent",
+                            "name": "entity_wings_shell_TransformDefinition001",
+                            "position": {
+                                "x": 1,
+                                "y": -1.6,
+                                "z": -2
+                            },
+                            "orientation": {
+                                "x": 0.15,
+                                "y": 0,
+                                "z": -0.6,
+                                "w": 1
+                            },
+                            "scale": {
+                                "x": 0.25,
+                                "y": 0.35,
+                                "z": 0.25
+                            },
+                            "inheritOnlyPosition": False
+                        },
+                        {
+                            "type": "ObjectEffectDefinitionComponent",
+                            "name": "entity_wings_shell_ObjectEffectDefinition001",
+                            "filename": "data/hd/vfx/particles/character/enemy/willowisp1/vfx_willowisp1_neutral.particles"
+                        }
+                    ]
+                },
+                {
+                    "type": "Entity",
+                    "name": "entity_wings_shell",
+                    "id": 2343070520,
+                    "components": [
+                        {
+                            "type": "EntityAttachmentDefinitionComponent",
+                            "name": "entity_spectralflames_EntityAttachmentDefinition",
+                            "targetbone": "helmet"
+                        },
+                        {
+                            "type": "ModelDefinitionComponent",
+                            "name": "entity_wings_shell_ModelDefinition001",
+                            "filename": "data/hd/character/npc/izualghost/bottomwings_vfx_lod0.model",
+                            "visibleLayers": 1073741824,
+                            "lightMask": 19,
+                            "shadowMask": 3,
+                            "ghostShadows": False,
+                            "floorModel": False,
+                            "terrainBlendEnableYUpBlend": False,
+                            "terrainBlendMode": 1
+                        },
+                        {
+                            "type": "TransformDefinitionComponent",
+                            "name": "entity_wings_shell_TransformDefinition001",
+                            "position": {
+                                "x": -1,
+                                "y": -1.6,
+                                "z": -2
+                            },
+                            "orientation": {
+                                "x": 0.15,
+                                "y": 0,
+                                "z": 0.6,
+                                "w": 1
+                            },
+                            "scale": {
+                                "x": 0.25,
+                                "y": 0.35,
+                                "z": 0.25
+                            },
+                            "inheritOnlyPosition": False
+                        },
+                        {
+                            "type": "ObjectEffectDefinitionComponent",
+                            "name": "entity_wings_shell_ObjectEffectDefinition001",
+                            "filename": "data/hd/vfx/particles/character/enemy/willowisp1/vfx_willowisp1_neutral.particles"
+                        }
+                    ]
+                }
+            ]
         }
 
         _backup_path = r"data/hd/character/player/bak"
@@ -2150,8 +2270,14 @@ class FileOperations:
                     target_data = json.load(f)
 
                 # 2.modify
-                for value in values:
-                    backup_data["entities"].append(params.get(value))
+                for key in keys:
+                    value = params.get(key)
+                    if isinstance(value, list):
+                        backup_data["entities"].extend(value)
+                    else:
+                        backup_data["entities"].append(value)
+
+
                 backup_data["entities"].append(target_data["entities"][-1])
 
                 # 3.write
@@ -2168,3 +2294,13 @@ class FileOperations:
                     os.remove(temp_path)
 
         return (count, total)
+
+    def toggle_quick_buy(self, isEnabled:bool):
+        """
+        左键快速购买
+        """
+        _files = [
+            r"data/global/ui/layouts/vendorpanellayouthd.json",
+        ]
+
+        return self.common_rename(_files, isEnabled)
