@@ -1,297 +1,299 @@
 {
     "dependencies": {
-        "particles": [
-            {
-                "path": "data/hd/vfx/particles/items/Paladin/holyshield/fx_holyshield.particles"
-            }
-        ],
+        "particles": [],
         "models": [
             {
-                "path": "data/hd/character/player/paladin/head.model"
+                "path": "data/hd/character/player/druid/head.model"
             },
             {
-                "path": "data/hd/character/player/paladin/larm_hvy.model"
+                "path": "data/hd/character/player/druid/larm_hvy.model"
             },
             {
-                "path": "data/hd/character/player/paladin/larm_lit.model"
+                "path": "data/hd/character/player/druid/larm_lit.model"
             },
             {
-                "path": "data/hd/character/player/paladin/larm_med.model"
+                "path": "data/hd/character/player/druid/larm_med.model"
             },
             {
-                "path": "data/hd/character/player/paladin/legs_hvy.model"
+                "path": "data/hd/character/player/druid/legs_hvy.model"
             },
             {
-                "path": "data/hd/character/player/paladin/legs_lit.model"
+                "path": "data/hd/character/player/druid/legs_lit.model"
             },
             {
-                "path": "data/hd/character/player/paladin/legs_med.model"
+                "path": "data/hd/character/player/druid/legs_med.model"
             },
             {
-                "path": "data/hd/character/player/paladin/rarm_hvy.model"
+                "path": "data/hd/character/player/druid/rarm_hvy.model"
             },
             {
-                "path": "data/hd/character/player/paladin/rarm_lit.model"
+                "path": "data/hd/character/player/druid/rarm_lit.model"
             },
             {
-                "path": "data/hd/character/player/paladin/rarm_med.model"
+                "path": "data/hd/character/player/druid/rarm_med.model"
             },
             {
-                "path": "data/hd/character/player/paladin/special1_hvy.model"
+                "path": "data/hd/character/player/druid/special1_hvy.model"
             },
             {
-                "path": "data/hd/character/player/paladin/special1_lit.model"
+                "path": "data/hd/character/player/druid/special1_lit.model"
             },
             {
-                "path": "data/hd/character/player/paladin/special1_med.model"
+                "path": "data/hd/character/player/druid/special1_med.model"
             },
             {
-                "path": "data/hd/character/player/paladin/special2_hvy.model"
+                "path": "data/hd/character/player/druid/special2_hvy.model"
             },
             {
-                "path": "data/hd/character/player/paladin/special2_lit.model"
+                "path": "data/hd/character/player/druid/special2_lit.model"
             },
             {
-                "path": "data/hd/character/player/paladin/special2_med.model"
+                "path": "data/hd/character/player/druid/special2_med.model"
             },
             {
-                "path": "data/hd/character/player/paladin/torso_hvy.model"
+                "path": "data/hd/character/player/druid/torso_hvy.model"
             },
             {
-                "path": "data/hd/character/player/paladin/torso_lit.model"
+                "path": "data/hd/character/player/druid/torso_lit.model"
             },
             {
-                "path": "data/hd/character/player/paladin/torso_med.model"
-            },
-            {
-                "path": "data/hd/vfx/meshes/lit_mesh/holyShield/holyShield_Trails.model"
+                "path": "data/hd/character/player/druid/torso_med.model"
             }
         ],
         "skeletons": [
             {
-                "path": "data/hd/character/player/paladin/skeleton/paladin.skeleton"
+                "path": "data/hd/character/player/druid/skeleton/druid.skeleton"
             }
         ],
         "animations": [],
         "textures": [
             {
+                "path": "data/hd/character/common/common_fur_FLOW.texture"
+            },
+            {
+                "path": "data/hd/character/common/common_fur_HRT.texture"
+            },
+            {
+                "path": "data/hd/character/common/common_hair1_FLOW.texture"
+            },
+            {
+                "path": "data/hd/character/common/common_hair1_HRT.texture"
+            },
+            {
                 "path": "data/hd/character/common/common_ktint.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armorhvy_alb.texture"
+                "path": "data/hd/character/player/druid/textures/Armors_alb.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armorhvy_mask.texture"
+                "path": "data/hd/character/player/druid/textures/armors_mask.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armorhvy_nrm.texture"
+                "path": "data/hd/character/player/druid/textures/Armors_nrm.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armorhvy_orm.texture"
+                "path": "data/hd/character/player/druid/textures/Armors_orm.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armorlit_alb.texture"
+                "path": "data/hd/character/player/druid/textures/Body_alb.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armorlit_mask.texture"
+                "path": "data/hd/character/player/druid/textures/Body_nrm.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armorlit_nrm.texture"
+                "path": "data/hd/character/player/druid/textures/Body_orm.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armorlit_orm.texture"
+                "path": "data/hd/character/player/druid/textures/Body_SSS.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armormed_alb.texture"
+                "path": "data/hd/character/player/druid/textures/druid_armorhvy_alb.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armormed_mask.texture"
+                "path": "data/hd/character/player/druid/textures/druid_armorhvy_mask.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armormed_nrm.texture"
+                "path": "data/hd/character/player/druid/textures/druid_armorhvy_nrm.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_armormed_orm.texture"
+                "path": "data/hd/character/player/druid/textures/druid_armorhvy_orm.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_body_alb.texture"
+                "path": "data/hd/character/player/druid/textures/druid_armormed_alb.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_body_nrm.texture"
+                "path": "data/hd/character/player/druid/textures/druid_armormed_mask.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_body_orm.texture"
+                "path": "data/hd/character/player/druid/textures/druid_armormed_nrm.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_body_SSS.texture"
+                "path": "data/hd/character/player/druid/textures/druid_armormed_orm.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_face_alb.texture"
+                "path": "data/hd/character/player/druid/textures/Druid_Fur_ALB.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_face_nrm.texture"
+                "path": "data/hd/character/player/druid/textures/druid_fur_armormed_ALB.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_face_orm.texture"
+                "path": "data/hd/character/player/druid/textures/Druid_Fur_KTINT.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/paladin_face_SSS.texture"
+                "path": "data/hd/character/player/druid/textures/Druid_Hair_ALB.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/Paladin_Hair_ALB.texture"
+                "path": "data/hd/character/player/druid/textures/Druid_Hair_white_ALB.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/Paladin_Hair_FLOW.texture"
+                "path": "data/hd/character/player/druid/textures/Face_alb.texture"
             },
             {
-                "path": "data/hd/character/player/paladin/textures/Paladin_Hair_HRT.texture"
+                "path": "data/hd/character/player/druid/textures/Face_nrm.texture"
             },
             {
-                "path": "data/hd/vfx/Library/PopcornFXCore/Materials/DefaultTextures/White.texture"
+                "path": "data/hd/character/player/druid/textures/Face_orm.texture"
+            },
+            {
+                "path": "data/hd/character/player/druid/textures/Face_SSS.texture"
             }
         ],
         "physics": [],
         "json": [
             {
-                "path": "data/hd/character/player/paladin/paladin_state_machine.json"
+                "path": "data/hd/character/enemy/bear.json"
             },
             {
-                "path": "data/hd/missiles/blessedhammer.json"
+                "path": "data/hd/character/enemy/cycleoflife.json"
             },
             {
-                "path": "data/hd/missiles/holy_bolt_missile.json"
+                "path": "data/hd/character/enemy/druidbear.json"
             },
             {
-                "path": "data/hd/missiles/teethexplode.json"
+                "path": "data/hd/character/enemy/druidhawk.json"
             },
             {
-                "path": "data/hd/overlays/common/cast_undead.json"
+                "path": "data/hd/character/enemy/plaguepoppy.json"
             },
             {
-                "path": "data/hd/overlays/common/convictionback.json"
+                "path": "data/hd/character/enemy/spiritofbarbs.json"
             },
             {
-                "path": "data/hd/overlays/common/handofgod.json"
+                "path": "data/hd/character/enemy/spiritwolf.json"
             },
             {
-                "path": "data/hd/overlays/common/healing.json"
+                "path": "data/hd/character/enemy/vinecreature.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_defiance_back.json"
+                "path": "data/hd/character/enemy/wolf.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_defiance_front.json"
+                "path": "data/hd/character/player/druid/druid_state_machine.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_holyfire_back.json"
+                "path": "data/hd/missiles/expansion_arctic_blast_ice.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_holyfire_front.json"
+                "path": "data/hd/missiles/expansion_firestorm_emitter.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_might_back.json"
+                "path": "data/hd/missiles/expansion_molten_boulder_emerge.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_might_front.json"
+                "path": "data/hd/missiles/expansion_molten_boulder_roll.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_prayer_back.json"
+                "path": "data/hd/missiles/expansion_molten_fragment_d.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_prayer_front.json"
+                "path": "data/hd/missiles/expansion_rock_lava_explosion.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_resistall_back.json"
+                "path": "data/hd/missiles/expansion_rock_lava_pool.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_resistall_front.json"
+                "path": "data/hd/missiles/expansion_shockwave.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_resistcold.json"
+                "path": "data/hd/missiles/expansion_tornado.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_resistfire.json"
+                "path": "data/hd/missiles/expansion_twister.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_resistlight.json"
+                "path": "data/hd/missiles/expansion_volcano_base.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_thorns_back.json"
+                "path": "data/hd/missiles/expansion_volcano_rock.json"
             },
             {
-                "path": "data/hd/overlays/paladin/aura_thorns_front.json"
+                "path": "data/hd/missiles/ground_fire_big.json"
             },
             {
-                "path": "data/hd/overlays/paladin/blessedaimback.json"
+                "path": "data/hd/missiles/ground_fire_medium.json"
             },
             {
-                "path": "data/hd/overlays/paladin/blessedaimfront.json"
+                "path": "data/hd/missiles/ground_fire_small.json"
             },
             {
-                "path": "data/hd/overlays/paladin/cast_resistall.json"
+                "path": "data/hd/missiles/ground_firesmall.json"
             },
             {
-                "path": "data/hd/overlays/paladin/cast_resistcold.json"
+                "path": "data/hd/overlays/common/arctic_blast_cast.json"
             },
             {
-                "path": "data/hd/overlays/paladin/cast_resistfire.json"
+                "path": "data/hd/overlays/common/bear_into.json"
             },
             {
-                "path": "data/hd/overlays/paladin/cast_resistlight.json"
+                "path": "data/hd/overlays/common/bear_undo.json"
             },
             {
-                "path": "data/hd/overlays/paladin/cleansingback.json"
+                "path": "data/hd/overlays/common/druid_fire_cast_1.json"
             },
             {
-                "path": "data/hd/overlays/paladin/cleansingfront.json"
+                "path": "data/hd/overlays/common/druid_fire_cast_2.json"
             },
             {
-                "path": "data/hd/overlays/paladin/concentrationback.json"
+                "path": "data/hd/overlays/common/fire_hit.json"
             },
             {
-                "path": "data/hd/overlays/paladin/concentrationfront.json"
+                "path": "data/hd/overlays/common/wolf_into.json"
             },
             {
-                "path": "data/hd/overlays/paladin/convictionfront.json"
+                "path": "data/hd/overlays/common/wolf_undo.json"
             },
             {
-                "path": "data/hd/overlays/paladin/fanaticismback.json"
+                "path": "data/hd/overlays/druid/cyclonearmor_1front.json"
             },
             {
-                "path": "data/hd/overlays/paladin/fanaticismfront.json"
+                "path": "data/hd/overlays/druid/cyclonearmor_2front.json"
             },
             {
-                "path": "data/hd/overlays/paladin/holyfreeze.json"
+                "path": "data/hd/overlays/druid/cyclonearmor_3front.json"
             },
             {
-                "path": "data/hd/overlays/paladin/holyshockback.json"
+                "path": "data/hd/overlays/druid/feralrage_1.json"
             },
             {
-                "path": "data/hd/overlays/paladin/holyshockfront.json"
+                "path": "data/hd/overlays/druid/feralrage_1back.json"
             },
             {
-                "path": "data/hd/overlays/paladin/meditationback.json"
+                "path": "data/hd/overlays/druid/feralrage_5.json"
             },
             {
-                "path": "data/hd/overlays/paladin/meditationfront.json"
+                "path": "data/hd/overlays/druid/feralrage_5back.json"
             },
             {
-                "path": "data/hd/overlays/paladin/redemptionback.json"
+                "path": "data/hd/overlays/druid/maul_1.json"
             },
             {
-                "path": "data/hd/overlays/paladin/redemptionfront.json"
+                "path": "data/hd/overlays/druid/maul_1back.json"
             },
             {
-                "path": "data/hd/overlays/paladin/sanctuaryback.json"
+                "path": "data/hd/overlays/druid/maul_5.json"
             },
             {
-                "path": "data/hd/overlays/paladin/sanctuaryfront.json"
-            },
-            {
-                "path": "data/hd/overlays/paladin/staminaback.json"
-            },
-            {
-                "path": "data/hd/overlays/paladin/staminafront.json"
+                "path": "data/hd/overlays/druid/maul_5back.json"
             }
         ],
         "variantdata": [],
@@ -299,17 +301,17 @@
         "other": []
     },
     "type": "UnitDefinition",
-    "name": "paladin",
+    "name": "druid",
     "entities": [
         {
             "type": "Entity",
             "name": "entity_root",
-            "id": 1286083504,
+            "id": 1663322223,
             "components": [
                 {
                     "type": "UnitRootComponent",
                     "name": "component_root",
-                    "state_machine_filename": "data/hd/character/player/paladin/paladin_state_machine.json",
+                    "state_machine_filename": "data/hd/character/player/druid/druid_state_machine.json",
                     "doNotInheritRotation": false,
                     "rotationOverride": {
                         "x": 0,
@@ -325,7 +327,28 @@
                 {
                     "type": "SkeletonDefinitionComponent",
                     "name": "component_skeleton",
-                    "filename": "data/hd/character/player/paladin/skeleton/paladin.skeleton"
+                    "filename": "data/hd/character/player/druid/skeleton/druid.skeleton"
+                },
+                {
+                    "type": "TransformDefinitionComponent",
+                    "name": "entity_root_TransformDefinition",
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "orientation": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0,
+                        "w": 1
+                    },
+                    "scale": {
+                        "x": 0.95,
+                        "y": 0.95,
+                        "z": 0.95
+                    },
+                    "inheritOnlyPosition": false
                 },
                 {
                     "type": "DefinitionPreloadComponent",
@@ -334,237 +357,228 @@
                         {
                             "type": "UnitDefinitionListEntry",
                             "name": "Root_UnitDefinitionList_Entry1",
-                            "filename": "data/hd/missiles/teethexplode.json"
+                            "filename": "data/hd/missiles/expansion_molten_boulder_emerge.json"
                         },
                         {
                             "type": "UnitDefinitionListEntry",
                             "name": "Root_UnitDefinitionList_Entry2",
-                            "filename": "data/hd/missiles/holy_bolt_missile.json"
+                            "filename": "data/hd/missiles/expansion_molten_fragment_d.json"
                         },
                         {
                             "type": "UnitDefinitionListEntry",
                             "name": "Root_UnitDefinitionList_Entry3",
-                            "filename": "data/hd/missiles/blessedhammer.json"
+                            "filename": "data/hd/missiles/expansion_firestorm_emitter.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry4",
+                            "filename": "data/hd/missiles/expansion_rock_lava_explosion.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry5",
+                            "filename": "data/hd/missiles/ground_firesmall.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry6",
+                            "filename": "data/hd/missiles/ground_fire_small.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry7",
+                            "filename": "data/hd/missiles/ground_fire_medium.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry8",
+                            "filename": "data/hd/missiles/expansion_volcano_base.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry9",
+                            "filename": "data/hd/missiles/ground_fire_big.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry10",
+                            "filename": "data/hd/missiles/expansion_molten_boulder_roll.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry11",
+                            "filename": "data/hd/missiles/expansion_rock_lava_pool.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry12",
+                            "filename": "data/hd/missiles/expansion_twister.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry13",
+                            "filename": "data/hd/missiles/expansion_arctic_blast_ice.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry14",
+                            "filename": "data/hd/missiles/expansion_shockwave.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry15",
+                            "filename": "data/hd/missiles/expansion_tornado.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_UnitDefinitionList_Entry16",
+                            "filename": "data/hd/missiles/expansion_volcano_rock.json"
                         }
                     ],
                     "overlays": [
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry1",
-                            "filename": "data/hd/overlays/paladin/staminaback.json"
+                            "filename": "data/hd/overlays/druid/feralrage_1back.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry2",
-                            "filename": "data/hd/overlays/paladin/aura_holyfire_back.json"
+                            "filename": "data/hd/overlays/druid/feralrage_1.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry3",
-                            "filename": "data/hd/overlays/paladin/aura_holyfire_front.json"
+                            "filename": "data/hd/overlays/common/wolf_into.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry4",
-                            "filename": "data/hd/overlays/paladin/meditationback.json"
+                            "filename": "data/hd/overlays/druid/cyclonearmor_2front.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry5",
-                            "filename": "data/hd/overlays/paladin/aura_prayer_front.json"
+                            "filename": "data/hd/overlays/druid/maul_5.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry6",
-                            "filename": "data/hd/overlays/paladin/cast_resistall.json"
+                            "filename": "data/hd/overlays/common/wolf_undo.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry7",
-                            "filename": "data/hd/overlays/paladin/aura_prayer_back.json"
+                            "filename": "data/hd/overlays/druid/maul_1.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry8",
-                            "filename": "data/hd/overlays/paladin/fanaticismfront.json"
+                            "filename": "data/hd/overlays/common/druid_fire_cast_1.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry9",
-                            "filename": "data/hd/overlays/paladin/holyshockfront.json"
+                            "filename": "data/hd/overlays/druid/cyclonearmor_3front.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry10",
-                            "filename": "data/hd/overlays/paladin/aura_resistcold.json"
+                            "filename": "data/hd/overlays/druid/maul_5back.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry11",
-                            "filename": "data/hd/overlays/paladin/cleansingback.json"
+                            "filename": "data/hd/overlays/common/fire_hit.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry12",
-                            "filename": "data/hd/overlays/paladin/aura_resistlight.json"
+                            "filename": "data/hd/overlays/common/druid_fire_cast_2.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry13",
-                            "filename": "data/hd/overlays/paladin/blessedaimfront.json"
+                            "filename": "data/hd/overlays/common/arctic_blast_cast.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry14",
-                            "filename": "data/hd/overlays/paladin/sanctuaryfront.json"
+                            "filename": "data/hd/overlays/druid/maul_1back.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry15",
-                            "filename": "data/hd/overlays/paladin/cast_resistlight.json"
+                            "filename": "data/hd/overlays/druid/cyclonearmor_1front.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry16",
-                            "filename": "data/hd/overlays/paladin/concentrationfront.json"
+                            "filename": "data/hd/overlays/common/bear_undo.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry17",
-                            "filename": "data/hd/overlays/paladin/aura_defiance_back.json"
+                            "filename": "data/hd/overlays/common/bear_into.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry18",
-                            "filename": "data/hd/overlays/common/convictionback.json"
+                            "filename": "data/hd/overlays/druid/feralrage_5back.json"
                         },
                         {
                             "type": "OverlayDefinitionListEntry",
                             "name": "Root_OverlayDefinitionList_Entry19",
-                            "filename": "data/hd/overlays/paladin/aura_might_back.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry20",
-                            "filename": "data/hd/overlays/paladin/aura_defiance_front.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry21",
-                            "filename": "data/hd/overlays/common/handofgod.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry22",
-                            "filename": "data/hd/overlays/paladin/redemptionfront.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry23",
-                            "filename": "data/hd/overlays/paladin/concentrationback.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry24",
-                            "filename": "data/hd/overlays/paladin/aura_resistall_front.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry25",
-                            "filename": "data/hd/overlays/paladin/staminafront.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry26",
-                            "filename": "data/hd/overlays/paladin/fanaticismback.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry27",
-                            "filename": "data/hd/overlays/paladin/aura_resistall_back.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry28",
-                            "filename": "data/hd/overlays/common/cast_undead.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry29",
-                            "filename": "data/hd/overlays/paladin/redemptionback.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry30",
-                            "filename": "data/hd/overlays/paladin/aura_thorns_back.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry31",
-                            "filename": "data/hd/overlays/paladin/aura_resistfire.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry32",
-                            "filename": "data/hd/overlays/paladin/cast_resistcold.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry33",
-                            "filename": "data/hd/overlays/paladin/meditationfront.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry34",
-                            "filename": "data/hd/overlays/paladin/sanctuaryback.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry35",
-                            "filename": "data/hd/overlays/paladin/convictionfront.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry36",
-                            "filename": "data/hd/overlays/paladin/holyshockback.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry37",
-                            "filename": "data/hd/overlays/paladin/aura_thorns_front.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry38",
-                            "filename": "data/hd/overlays/paladin/cleansingfront.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry39",
-                            "filename": "data/hd/overlays/paladin/holyfreeze.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry40",
-                            "filename": "data/hd/overlays/paladin/blessedaimback.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry41",
-                            "filename": "data/hd/overlays/paladin/aura_might_front.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry42",
-                            "filename": "data/hd/overlays/common/healing.json"
-                        },
-                        {
-                            "type": "OverlayDefinitionListEntry",
-                            "name": "Root_OverlayDefinitionList_Entry43",
-                            "filename": "data/hd/overlays/paladin/cast_resistfire.json"
+                            "filename": "data/hd/overlays/druid/feralrage_5.json"
                         }
                     ],
-                    "minions": []
+                    "minions": [
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_0",
+                            "filename": "data/hd/character/enemy/bear.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_1",
+                            "filename": "data/hd/character/enemy/wolf.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_2",
+                            "filename": "data/hd/character/enemy/druidbear.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_3",
+                            "filename": "data/hd/character/enemy/spiritofbarbs.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_4",
+                            "filename": "data/hd/character/enemy/vinecreature.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_5",
+                            "filename": "data/hd/character/enemy/spiritwolf.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_6",
+                            "filename": "data/hd/character/enemy/cycleoflife.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_7",
+                            "filename": "data/hd/character/enemy/plaguepoppy.json"
+                        },
+                        {
+                            "type": "UnitDefinitionListEntry",
+                            "name": "Root_DefinitionPreloadComponent_minions_8",
+                            "filename": "data/hd/character/enemy/druidhawk.json"
+                        }
+                    ]
                 },
                 {
                     "type": "DefaultAttachmentTransformComponent",
@@ -575,8 +589,8 @@
                             "name": "entity_root_DefaultAttachmentTransform_defaultTransforms_Head",
                             "translation": {
                                 "x": 0,
-                                "y": 0,
-                                "z": 0.05
+                                "y": 0.05,
+                                "z": 0
                             },
                             "rotation": {
                                 "x": 0,
@@ -584,9 +598,28 @@
                                 "z": 0
                             },
                             "scale": {
-                                "x": 1.1,
-                                "y": 1.1,
-                                "z": 1.1
+                                "x": 1.15,
+                                "y": 1.15,
+                                "z": 1.15
+                            }
+                        },
+                        "7": {
+                            "type": "Transform",
+                            "name": "entity_root_DefaultAttachmentTransform_defaultTransforms_Shield",
+                            "translation": {
+                                "x": -0.15,
+                                "y": -0.1,
+                                "z": -0.1
+                            },
+                            "rotation": {
+                                "x": 0,
+                                "y": 5,
+                                "z": 15
+                            },
+                            "scale": {
+                                "x": 1,
+                                "y": 1,
+                                "z": 1
                             }
                         }
                     }
@@ -606,7 +639,7 @@
                     "fineTurnDamping": 0.4,
                     "runTurn180AngleThresholdController": 100,
                     "runTurn180AngleThresholdMouse": 110,
-                    "runTurn180CooldownTime": 0.1,
+                    "runTurn180CooldownTime": 0.2,
                     "runTurn180StopInterruptableTime": 0.25,
                     "runTurn180RotationLockTime": 0.1,
                     "runTurn180NoiseProtectionAngleThreshold": 30,
@@ -726,7 +759,7 @@
                             {
                                 "type": "FidgetAnimationOption",
                                 "name": "entity_root_FidgetAnimation_characterSelectSet_options_0",
-                                "stateName": "CE_Fidget01",
+                                "stateName": "CS_Fidget01",
                                 "weight": 3,
                                 "cooldownMin": 0,
                                 "cooldownMax": 0
@@ -734,7 +767,7 @@
                             {
                                 "type": "FidgetAnimationOption",
                                 "name": "entity_root_FidgetAnimation_characterSelectSet_options_1",
-                                "stateName": "CE_Fidget02",
+                                "stateName": "CS_Fidget02",
                                 "weight": 1,
                                 "cooldownMin": 0,
                                 "cooldownMax": 0
@@ -785,6 +818,31 @@
                     }
                 },
                 {
+                    "type": "LookAtAnimationControlComponent",
+                    "name": "entity_root_LookAtAnimationControl",
+                    "controlOverrides": [
+                        {
+                            "type": "LookAtControlSetup",
+                            "name": "entity_root_LookAtAnimationControl_controlOverrides_0",
+                            "mode": 5,
+                            "aimLayerName": "Aim_Head_Town",
+                            "blendInTime": 0.25,
+                            "blendOutTime": 0.25
+                        },
+                        {
+                            "type": "LookAtControlSetup",
+                            "name": "entity_root_LookAtAnimationControl_controlOverrides_1",
+                            "mode": 6,
+                            "aimLayerName": "Aim_Head_Town",
+                            "blendInTime": 0.25,
+                            "blendOutTime": 0.25
+                        }
+                    ],
+                    "aimLayerName": "Aim_Head",
+                    "blendInTime": 0.25,
+                    "blendOutTime": 0.25
+                },
+                {
                     "type": "AimLayersComponent",
                     "name": "entity_root_AimLayers",
                     "aimLayers": [
@@ -831,76 +889,18 @@
                             "aimTarget": 2
                         }
                     ]
-                },
-                {
-                    "type": "LookAtAnimationControlComponent",
-                    "name": "entity_root_LookAtAnimationControl",
-                    "controlOverrides": [
-                        {
-                            "type": "LookAtControlSetup",
-                            "name": "entity_root_LookAtAnimationControl_controlOverrides_0",
-                            "mode": 5,
-                            "aimLayerName": "Aim_Head_Town",
-                            "blendInTime": 0.25,
-                            "blendOutTime": 0.25
-                        },
-                        {
-                            "type": "LookAtControlSetup",
-                            "name": "entity_root_LookAtAnimationControl_controlOverrides_1",
-                            "mode": 6,
-                            "aimLayerName": "Aim_Head_Town",
-                            "blendInTime": 0.25,
-                            "blendOutTime": 0.25
-                        }
-                    ],
-                    "aimLayerName": "Aim_Head",
-                    "blendInTime": 0.25,
-                    "blendOutTime": 0.25
-                },
-                {
-                    "type": "EquipmentAnimationLayersComponent",
-                    "name": "entity_root_EquipmentAnimationLayers",
-                    "equipmentLayers": [
-                        {
-                            "type": "EquipmentLayerSetup",
-                            "name": "entity_root_EquipmentAnimationLayers_equipmentLayers_0",
-                            "layerName": "ShieldEquipLayer",
-                            "animationStateName": "ShieldAdditiveLayer"
-                        }
-                    ]
-                },
-                {
-                    "type": "TransformDefinitionComponent",
-                    "name": "entity_root_TransformDefinition",
-                    "position": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    },
-                    "orientation": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0,
-                        "w": 1
-                    },
-                    "scale": {
-                        "x": 0.93,
-                        "y": 0.93,
-                        "z": 0.93
-                    },
-                    "inheritOnlyPosition": false
                 }
             ]
         },
         {
             "type": "Entity",
             "name": "entity_head",
-            "id": 2530677035,
+            "id": 2924693225,
             "components": [
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_head",
-                    "filename": "data/hd/character/player/paladin/head.model",
+                    "filename": "data/hd/character/player/druid/head.model",
                     "visibleLayers": 33,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -914,7 +914,7 @@
         {
             "type": "Entity",
             "name": "entity_torso_lit",
-            "id": 2915200753,
+            "id": 3309216943,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -925,7 +925,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_torso_lit",
-                    "filename": "data/hd/character/player/paladin/torso_lit.model",
+                    "filename": "data/hd/character/player/druid/torso_lit.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -939,7 +939,7 @@
         {
             "type": "Entity",
             "name": "entity_torso_med",
-            "id": 3787367337,
+            "id": 4164606311,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -950,7 +950,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_torso_med",
-                    "filename": "data/hd/character/player/paladin/torso_med.model",
+                    "filename": "data/hd/character/player/druid/torso_med.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -964,7 +964,7 @@
         {
             "type": "Entity",
             "name": "entity_torso_hvy",
-            "id": 2059876920,
+            "id": 2437115895,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -975,7 +975,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_torso_hvy",
-                    "filename": "data/hd/character/player/paladin/torso_hvy.model",
+                    "filename": "data/hd/character/player/druid/torso_hvy.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -989,7 +989,7 @@
         {
             "type": "Entity",
             "name": "entity_legs_lit",
-            "id": 1899991661,
+            "id": 2294073132,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1000,7 +1000,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_legs_lit",
-                    "filename": "data/hd/character/player/paladin/legs_lit.model",
+                    "filename": "data/hd/character/player/druid/legs_lit.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1014,7 +1014,7 @@
         {
             "type": "Entity",
             "name": "entity_legs_med",
-            "id": 2449146874,
+            "id": 2843163065,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1025,7 +1025,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_legs_med",
-                    "filename": "data/hd/character/player/paladin/legs_med.model",
+                    "filename": "data/hd/character/player/druid/legs_med.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1039,7 +1039,7 @@
         {
             "type": "Entity",
             "name": "entity_legs_hvy",
-            "id": 1027890613,
+            "id": 1438684020,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1050,7 +1050,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_legs_hvy",
-                    "filename": "data/hd/character/player/paladin/legs_hvy.model",
+                    "filename": "data/hd/character/player/druid/legs_hvy.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1064,7 +1064,7 @@
         {
             "type": "Entity",
             "name": "entity_rarm_lit",
-            "id": 4176571755,
+            "id": 258843178,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1075,7 +1075,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_rarm_lit",
-                    "filename": "data/hd/character/player/paladin/rarm_lit.model",
+                    "filename": "data/hd/character/player/druid/rarm_lit.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1089,7 +1089,7 @@
         {
             "type": "Entity",
             "name": "entity_rarm_med",
-            "id": 414047992,
+            "id": 807998646,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1100,7 +1100,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_rarm_med",
-                    "filename": "data/hd/character/player/paladin/rarm_med.model",
+                    "filename": "data/hd/character/player/druid/rarm_med.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1114,7 +1114,7 @@
         {
             "type": "Entity",
             "name": "entity_rarm_hvy",
-            "id": 3304470707,
+            "id": 3698486641,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1125,7 +1125,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_rarm_hvy",
-                    "filename": "data/hd/character/player/paladin/rarm_hvy.model",
+                    "filename": "data/hd/character/player/druid/rarm_hvy.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1139,7 +1139,7 @@
         {
             "type": "Entity",
             "name": "entity_larm_lit",
-            "id": 3935221616,
+            "id": 17493294,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1150,7 +1150,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_larm_lit",
-                    "filename": "data/hd/character/player/paladin/larm_lit.model",
+                    "filename": "data/hd/character/player/druid/larm_lit.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1164,7 +1164,7 @@
         {
             "type": "Entity",
             "name": "entity_larm_med",
-            "id": 495578152,
+            "id": 889528807,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1175,7 +1175,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_larm_med",
-                    "filename": "data/hd/character/player/paladin/larm_med.model",
+                    "filename": "data/hd/character/player/druid/larm_med.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1189,7 +1189,7 @@
         {
             "type": "Entity",
             "name": "entity_larm_hvy",
-            "id": 3063055032,
+            "id": 3457136758,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1200,7 +1200,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_larm_hvy",
-                    "filename": "data/hd/character/player/paladin/larm_hvy.model",
+                    "filename": "data/hd/character/player/druid/larm_hvy.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1214,7 +1214,7 @@
         {
             "type": "Entity",
             "name": "entity_special1_lit",
-            "id": 2673850869,
+            "id": 3084644020,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1225,7 +1225,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_special1_lit",
-                    "filename": "data/hd/character/player/paladin/special1_lit.model",
+                    "filename": "data/hd/character/player/druid/special1_lit.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1239,7 +1239,7 @@
         {
             "type": "Entity",
             "name": "entity_special1_med",
-            "id": 3545951662,
+            "id": 3939902316,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1250,7 +1250,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_special1_med",
-                    "filename": "data/hd/character/player/paladin/special1_med.model",
+                    "filename": "data/hd/character/player/druid/special1_med.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1264,7 +1264,7 @@
         {
             "type": "Entity",
             "name": "entity_special1_hvy",
-            "id": 2141407081,
+            "id": 2535423271,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1275,7 +1275,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_special1_hvy",
-                    "filename": "data/hd/character/player/paladin/special1_hvy.model",
+                    "filename": "data/hd/character/player/druid/special1_hvy.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1289,7 +1289,7 @@
         {
             "type": "Entity",
             "name": "entity_special2_lit",
-            "id": 638620915,
+            "id": 1049479601,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1300,7 +1300,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_special2_lit",
-                    "filename": "data/hd/character/player/paladin/special2_lit.model",
+                    "filename": "data/hd/character/player/druid/special2_lit.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1314,7 +1314,7 @@
         {
             "type": "Entity",
             "name": "entity_special2_med",
-            "id": 1510787243,
+            "id": 1904803434,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1325,7 +1325,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_special2_med",
-                    "filename": "data/hd/character/player/paladin/special2_med.model",
+                    "filename": "data/hd/character/player/druid/special2_med.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1339,7 +1339,7 @@
         {
             "type": "Entity",
             "name": "entity_special2_hvy",
-            "id": 4078264123,
+            "id": 177313017,
             "components": [
                 {
                     "type": "UnitPartComponent",
@@ -1350,7 +1350,7 @@
                 {
                     "type": "ModelDefinitionComponent",
                     "name": "component_model_special2_hvy",
-                    "filename": "data/hd/character/player/paladin/special2_hvy.model",
+                    "filename": "data/hd/character/player/druid/special2_hvy.model",
                     "visibleLayers": 1,
                     "lightMask": 19,
                     "shadowMask": 3,
@@ -1358,86 +1358,6 @@
                     "floorModel": false,
                     "terrainBlendEnableYUpBlend": false,
                     "terrainBlendMode": 1
-                }
-            ]
-        },
-        {
-            "type": "Entity",
-            "name": "entity_holyshield",
-            "id": 3452340888,
-            "components": [
-                {
-                    "type": "VfxDefinitionComponent",
-                    "name": "entity_holyshield_VfxDefinition",
-                    "filename": "data/hd/vfx/particles/items/Paladin/holyshield/fx_holyshield.particles",
-                    "hardKillOnDestroy": true
-                },
-                {
-                    "type": "EntityAttachmentDefinitionComponent",
-                    "name": "entity_holyshield_EntityAttachmentDefinition",
-                    "targetbone": "shield_attach"
-                },
-                {
-                    "type": "UnitPartComponent",
-                    "name": "entity_holyshield_UnitPart",
-                    "part": "shield",
-                    "variant": "hsh"
-                },
-                {
-                    "type": "ModelPlatformTierComponent",
-                    "name": "entity_holyshield_ModelPlatformTierComponent",
-                    "visibilityTier": 0,
-                    "shadowTier": 1
-                },
-                {
-                    "type": "EnableEquipmentAnimationLayerComponent",
-                    "name": "entity_holyshield_EnableEquipmentAnimationLayer",
-                    "equipmentLayerName": "ShieldEquipLayer",
-                    "defaultEnabledWeight": 1
-                }
-            ]
-        },
-        {
-            "type": "Entity",
-            "name": "entity_pointlight",
-            "id": 2353308128,
-            "components": [
-                {
-                    "type": "TransformDefinitionComponent",
-                    "name": "entity_torso_TransformDefinition",
-                    "position": {
-                        "x": 0,
-                        "y": 50,
-                        "z": 0
-                    },
-                    "orientation": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0,
-                        "w": 1
-                    },
-                    "scale": {
-                        "x": 1,
-                        "y": 1,
-                        "z": 1
-                    },
-                    "inheritOnlyPosition": false
-                },
-                {
-                    "type": "PointLightDefinitionComponent",
-                    "name": "white_light",
-                    "color": {
-                        "x": 1,
-                        "y": 1,
-                        "z": 1
-                    },
-                    "power": 0,
-                    "radius": 2000,
-                    "attenuation": 1,
-                    "lightMask": 1,
-                    "diffuseContribution": 1,
-                    "specularContribution": 1,
-                    "isLocalLight": false
                 }
             ]
         }

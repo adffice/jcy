@@ -1506,11 +1506,9 @@ class FileOperations:
         角色光源
         """
         params = [
-            r"data/hd/character/player/wolf.json",
             r"data/hd/character/player/amazon.json",
             r"data/hd/character/player/assassin.json",
             r"data/hd/character/player/barbarian.json",
-            r"data/hd/character/player/bear.json",
             r"data/hd/character/player/druid.json",
             r"data/hd/character/player/necromancer.json",
             r"data/hd/character/player/paladin.json",
@@ -2038,4 +2036,135 @@ class FileOperations:
             else:
                 shutil.copy2(src_path, dst_path)
             count += 1
+        return (count, total)
+    
+    def select_character_effects(self, values: list):
+        """
+        角色特效
+        """
+
+        params = {
+            "1": {
+                "type": "Entity",
+                "name": "entity_root",
+                "id": 1079187010,
+                "components": [
+                    {
+                        "type": "VfxDefinitionComponent",
+                        "name": "entity_root_VfxDefinition",
+                        "filename": "data/hd/vfx/particles/overlays/paladin/aura_fanatic/aura_fanatic.particles",
+                        "hardKillOnDestroy": False
+                    }
+                ]
+            },
+            "2": {
+                "type": "Entity",
+                "name": "entity_root",
+                "id": 1079187010,
+                "components": [
+                    {
+                        "type": "VfxDefinitionComponent",
+                        "name": "entity_root_VfxDefinition",
+                        "filename": "data/hd/vfx/particles/overlays/sorceress/thunderstormcast/ThunderCastOverlayOper.particles",
+                        "hardKillOnDestroy": False
+                    }
+                ]
+            },
+            "3": {
+                "type": "Entity",
+                "name": "entity_root",
+                "id": 1079187010,
+                "components": [
+                    {
+                        "type": "VfxDefinitionComponent",
+                        "name": "entity_root_VfxDefinition",
+                        "filename": "data/hd/vfx/particles/missiles/high_priest_lightning/highpriestlightning_fx.particles",
+                        "hardKillOnDestroy": False
+                    },
+                    {
+                        "type": "TransformDefinitionComponent",
+                        "name": "TransformDefinitionComponent002",
+                        "position": {
+                            "x": 0,
+                            "y": 4,
+                            "z": 0
+                        },
+                        "orientation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0,
+                            "w": 1
+                        },
+                        "scale": {
+                            "x": 1.8,
+                            "y": 1.8,
+                            "z": 1.8
+                        },
+                        "inheritOnlyPosition": False
+                    }
+                ]
+            },
+            "4": {
+                "type": "Entity",
+                "name": "entity_VFX",
+                "id": 3636956308,
+                "components": [
+                    {
+                        "type": "VfxDefinitionComponent",
+                        "name": "entity_VFX_VfxDefinition",
+                        "filename": "data/hd/vfx/particles/overlays/monster/fingermagecurse/fingerMage_curse.particles",
+                        "hardKillOnDestroy": False
+                    }
+                ]
+            }
+        }
+
+        _backup_path = r"data/hd/character/player/bak"
+        _target_path = r"data/hd/character/player"
+
+
+        paths = [
+            r"amazon.json",
+            r"assassin.json",
+            r"barbarian.json",
+            r"druid.json",
+            r"necromancer.json",
+            r"paladin.json",
+            r"sorceress.json",
+        ]
+
+        count = 0
+        total = len(paths)
+
+        for path in paths:
+            backup_path = os.path.join(self.dir_mod, _backup_path, path)
+            target_path = os.path.join(self.dir_mod, _target_path, path)
+            temp_path = target_path + ".tmp"
+            try:
+                # 1.load
+                backup_data = None
+                with open(backup_path, 'r', encoding='utf-8') as f:
+                    backup_data = json.load(f)
+                target_data = None
+                with open(target_path, 'r', encoding='utf-8') as f:
+                    target_data = json.load(f)
+
+                # 2.modify
+                for value in values:
+                    backup_data["entities"].append(params.get(value))
+                backup_data["entities"].append(target_data["entities"][-1])
+
+                # 3.write
+                with open(temp_path, 'w', encoding="utf-8") as f:
+                    json.dump(backup_data, f, ensure_ascii=False, indent=4)
+                    
+                # 5.replace
+                os.replace(temp_path, target_path)
+                count += 1
+            except Exception as e:
+                print(e)
+            finally:
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+
         return (count, total)

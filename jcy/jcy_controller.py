@@ -64,8 +64,6 @@ class FeatureController:
             "109": self.file_operations.toggle_bank_expansion,
             # "赫拉迪姆方塊+符文升级公式",
             "110": self.file_operations.toogle_cube_formula,
-
-
             # "MINI方块常开before蓝球",
             "111": self.file_operations.toggle_mini_cube,
             # "画面变亮",
@@ -86,8 +84,6 @@ class FeatureController:
             "119": self.file_operations.toggle_skill_logo,
             # "A1兵营/A4火焰之河/A5尼拉塞克/BOSS 指引",
             "120": self.file_operations.toggle_pointer,
-
-
             # "交互对象增加蓝色火苗",
             "121": self.file_operations.toggle_chest_highlight, 
             # "马赛克护眼",
@@ -108,8 +104,6 @@ class FeatureController:
             "129": self.file_operations.toggle_load_screen_panel,
             # "展示 A2贤者之谷小站塔墓标记 & 屏蔽 A3崔凡克议会墙屋/A4混沌庇护所大门/A5毁灭王座石柱",
             "130": self.file_operations.toggle_hd_env_presets,
-            
-
             # "经验条变色",
             "131": self.file_operations.toggle_experience_bar,
             # "屏蔽 影散隐身特效",
@@ -144,8 +138,12 @@ class FeatureController:
             "205": self.file_operations.select_enemy_arrow_skin,
             
 
+            #角色特效
+            "301": self.file_operations.select_character_effects,
+
+
             # 照亮范围
-            "301": self.file_operations.modify_character_player,
+            "401": self.file_operations.modify_character_player,
         }
 
 
@@ -162,38 +160,43 @@ class FeatureController:
         for feature_id, description in self.feature_config.all_features_config["checkbutton"].items():
             current_value = self.current_states.get(feature_id)
             loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
-            # 只有当 current_value 存在且与 loaded_value 不同时才处理
             if current_value is not None and current_value != loaded_value:
                 changes_detected = True
                 if feature_id in self._handlers:
-                    # 执行实际的文件操作
                     result = self._handlers[feature_id](current_value) 
                     self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
+                    
 
-        # -------------------- 分组功能 (Radiobutton) --------------------
-        for group_id, group_info in self.feature_config.all_features_config["radiobutton"].items():
-            current_value = self.current_states.get(group_id) # 获取选中项的 param_key
-            loaded_value = self.feature_state_manager.loaded_states.get(group_id)
-
-            # 只有当 current_value 存在且与 loaded_value 不同时才处理
+        # -------------------- 单选功能 (RadioGroup) --------------------
+        for fid, info in self.feature_config.all_features_config["radiogroup"].items():
+            current_value = self.current_states.get(fid)
+            loaded_value = self.feature_state_manager.loaded_states.get(fid)
             if current_value is not None and current_value != loaded_value:
                 changes_detected = True
-                # 找到选中参数的描述文本
-                selected_description = next((param_dict[current_value] for param_dict in group_info["params"] if current_value in param_dict), current_value)
-                if group_id in self._handlers:
-                    # 执行实际的文件操作
-                    result = self._handlers[group_id](current_value) 
-                    self.dialogs += f"{group_info['text']} = {selected_description} 操作文件数量 {result[0]}/{result[1]} \n"
+                selected_description = next((param_dict[current_value] for param_dict in info["params"] if current_value in param_dict), current_value)
+                if fid in self._handlers:
+                    result = self._handlers[fid](current_value)
+                    self.dialogs += f"{info['text']} = {selected_description} 操作文件数量 {result[0]}/{result[1]} \n"
+
+
+        # -------------------- 多选功能 (CheckGroup) --------------------
+        for fid, info in self.feature_config.all_features_config["checkgroup"].items():
+            current_value = self.current_states.get(fid)
+            loaded_value = self.feature_state_manager.loaded_states.get(fid)
+            if current_value is not None and current_value != loaded_value:
+                changes_detected = True
+                if fid in self._handlers:
+                    result = self._handlers[fid](current_value)
+                    self.dialogs += f"{info['text']} 操作文件数量 {result[0]}/{result[1]} \n"
+
 
         #  -------------------- 区间功能 (Spinbox) --------------------
         for feature_id, description in self.feature_config.all_features_config["spinbox"].items():
             current_value = self.current_states.get(feature_id)
             loaded_value = self.feature_state_manager.loaded_states.get(feature_id)
-            # 只有当 current_value 存在且与 loaded_value 不同时才处理
             if current_value is not None and current_value != loaded_value:
                 changes_detected = True
                 if feature_id in self._handlers:
-                    # 执行实际的文件操作
                     result = self._handlers[feature_id](current_value) 
                     self.dialogs += f"{description} = {current_value} 操作文件数量 {result[0]}/{result[1]} \n"
 

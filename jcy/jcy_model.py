@@ -58,7 +58,7 @@ class FeatureConfig:
                 "139": "投掷飞刀->闪电尾特效",
                 "140": "德鲁伊飓风术 特效",
             },
-            "radiobutton": {
+            "radiogroup": {
                 "201": {
                     "text": "佣兵图标位置",
                     "params": [
@@ -66,8 +66,7 @@ class FeatureConfig:
                         {"1":"左上角缩进"},
                         {"2":"红球之上"},
                         {"3":"红球之上上"},
-                    ],
-                    "default_key": "default"
+                    ]
                 },
                 "202": {
                     "text": "传送门皮肤",
@@ -76,8 +75,7 @@ class FeatureConfig:
                         {"1":"原版红门"},
                         {"2":"双圈蓝门"},
                         {"3":"单圈红门"},
-                    ],
-                    "default_key": "default"
+                    ]
                 },
                 "203": {
                     "text": "传送术皮肤",
@@ -85,8 +83,7 @@ class FeatureConfig:
                         {"default":"原版"},
                         {"1":"冰霜"},
                         {"2":"火焰"},
-                    ],
-                    "default_key": "default"
+                    ]
                 },
                 "204": {
                     "text": "弩/箭皮肤",
@@ -95,8 +92,7 @@ class FeatureConfig:
                         {"1":"魔法箭"},
                         {"2":"冷霜箭"},
                         {"3":"火焰箭"},
-                    ],
-                    "default_key": "default"
+                    ]
                 },
                 "205": {
                     "text": "老鼠刺针/剥皮吹箭皮肤",
@@ -105,12 +101,22 @@ class FeatureConfig:
                         {"1":"魔法箭"},
                         {"2":"冷霜箭"},
                         {"3":"火焰箭"},
-                    ],
-                    "default_key": "default"
+                    ]
                 },
             },
+            "checkgroup":{
+                "301": {
+                    "text": "角色特效",
+                    "params": [
+                        {"1":"套装特效"},
+                        {"2":"脚下电圈特效"},
+                        {"3":"红色闪电特效"},
+                        {"4":"红色火焰特效"},
+                    ],
+                }
+            },
             "spinbox" : {
-                "301": "照亮范围"
+                "401": "照亮范围"
             },
             "default": [
                 "属性词条 添加英文缩写(IAS, FCR, FBR, FRW, ...)",
@@ -133,19 +139,11 @@ class FeatureConfig:
 
         # ---初始化默认功能状态---
         self.default_feature_states = {
-            **{fid: False for fid in self.all_features_config["checkbutton"]}
+            **{fid: False for fid in self.all_features_config["checkbutton"]},
+            **{fid: "default" for fid in self.all_features_config["radiogroup"]},
+            **{fid: [] for fid in self.all_features_config["checkgroup"]},
+            **{fid: 0 for fid in self.all_features_config["spinbox"]}
         }
-        
-        for group_id, group_info in self.all_features_config["radiobutton"].items(): 
-            if group_info["params"]: 
-                first_param_dict = group_info["params"][0]
-                first_param_key = next(iter(first_param_dict.keys()))
-                self.default_feature_states[group_id] = first_param_key
-            else:
-                self.default_feature_states[group_id] = None
-        
-        for fid in self.all_features_config["spinbox"]:
-            self.default_feature_states[fid] = 0
         
 
 class FeatureStateManager:
@@ -170,14 +168,13 @@ class FeatureStateManager:
                     if fid not in self.loaded_states:
                         self.loaded_states[fid] = False
 
-                for group_id, group_info in self.config.all_features_config["radiobutton"].items():
-                    if group_id not in self.loaded_states: 
-                        if group_info["params"]: 
-                            first_param_dict = group_info["params"][0]
-                            first_param_key = next(iter(first_param_dict.keys()))
-                            self.loaded_states[group_id] = first_param_key
-                        else:
-                            self.loaded_states[group_id] = None
+                for fid, info in self.config.all_features_config["radiogroup"].items():
+                    if fid not in self.loaded_states:
+                        self.loaded_states[fid] = "default"
+                
+                for fid, info in self.config.all_features_config["checkgroup"].items():
+                    if fid not in self.loaded_states: 
+                        self.loaded_states[fid] = []
 
                 for fid in self.config.all_features_config["spinbox"]:
                     if fid not in self.loaded_states:
@@ -199,16 +196,19 @@ class FeatureStateManager:
         保存配置文件
         """
         try:
-            # 过滤掉不是功能ID或分组名称的键，以防保存不必要的临时状态
             states_to_save = {}
             for fid in self.config.all_features_config["checkbutton"]:
                 if fid in current_states:
                     states_to_save[fid] = current_states[fid]
 
-            for group_id in self.config.all_features_config["radiobutton"]:
+            for group_id in self.config.all_features_config["radiogroup"]:
                 if group_id in current_states:
                     states_to_save[group_id] = current_states[group_id]
             
+            for fid in self.config.all_features_config["checkgroup"]:
+                if fid in current_states:
+                    states_to_save[fid] = current_states[fid]
+
             for fid in self.config.all_features_config["spinbox"]:
                 if fid in current_states:
                     states_to_save[fid] = current_states[fid]
