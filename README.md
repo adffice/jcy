@@ -3,7 +3,7 @@
 ## 代码仓库:
 * https://github.com/jcymeow/jcy
 * jcy.mpq MOD文件
-*.py 控制器程序代码
+* .py 控制器程序代码
 
 ## 基础功能:
 * 属性词条 添加英文缩写(IAS, FCR, FBR, FRW, CB, CS, ...)
