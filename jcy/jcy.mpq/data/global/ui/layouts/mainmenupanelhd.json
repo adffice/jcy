@@ -448,7 +448,7 @@
                 "anchor": {
                     "x": 0.5
                 },
-                "tooltipString": "点击角色快速建立最高难度游戏",
+                "tooltipString": "@JcyModQuickGame",
                 "onClickMessage": "CharacterSelect:LoadCharacter:2",
                 "textColor": "$LightButtonTextColor",
                 "text/style": "$StyleFEButtonText"

@@ -733,9 +733,9 @@
   },
   {
     "id": 50005,
-    "Key": "jgmodinfocheckdetail",
-    "enUS": "",
-    "zhTW": "查看MOD最新版本",
+    "Key": "JcyModQuickGame",
+    "enUS": "Click on the character to quickly create the highest difficulty game",
+    "zhTW": "點擊角色快速建立最高難度遊戲",
     "deDE": "",
     "esES": "",
     "frFR": "",
@@ -746,7 +746,7 @@
     "jaJP": "",
     "ptBR": "",
     "ruRU": "",
-    "zhCN": ""
+    "zhCN": "点击角色快速建立最高难度游戏"
   },
   {
     "id": 50006,
