@@ -87,7 +87,7 @@
   {
     "id": 3457,
     "Key": "ItemStats1d",
-    "enUS": "Durability: %i of %i",
+    "enUS": "Durability(DUR): %i of %i",
     "zhTW": "耐久度(DUR)：%i / %i",
     "deDE": "Haltbarkeit: %i von %i",
     "esES": "Durabilidad: %i de %i",
@@ -359,7 +359,7 @@
   {
     "id": 3473,
     "Key": "ModStr1a",
-    "enUS": "%+d to Strength",
+    "enUS": "%+d to Strength(STR)",
     "zhTW": "%+d 力量(STR)",
     "deDE": "%+d zu Stärke",
     "esES": "%+d de fuerza",
@@ -376,7 +376,7 @@
   {
     "id": 3474,
     "Key": "ModStr1b",
-    "enUS": "%+d to Dexterity",
+    "enUS": "%+d to Dexterity(DEX)",
     "zhTW": "%+d 敏捷(DEX)",
     "deDE": "%+d zu Geschicklichkeit",
     "esES": "%+d de destreza",
@@ -393,7 +393,7 @@
   {
     "id": 3475,
     "Key": "ModStr1c",
-    "enUS": "%+d to Vitality",
+    "enUS": "%+d to Vitality(VIT)",
     "zhTW": "%+d 體能(VIT)",
     "deDE": "%+d zu Vitalität",
     "esES": "%+d de vitalidad",
@@ -410,7 +410,7 @@
   {
     "id": 3476,
     "Key": "ModStr1d",
-    "enUS": "%+d to Energy",
+    "enUS": "%+d to Energy(ENG)",
     "zhTW": "%+d 能量(ENG)",
     "deDE": "%+d zu Energie",
     "esES": "%+d de energía",
@@ -427,7 +427,7 @@
   {
     "id": 3477,
     "Key": "ModStr1e",
-    "enUS": "%+d to Mana",
+    "enUS": "%+d to Mana(Mana)",
     "zhTW": "%+d 法力(Mana)",
     "deDE": "%+d zu Mana",
     "esES": "%+d p. de maná",
@@ -444,7 +444,7 @@
   {
     "id": 3478,
     "Key": "ModStr1f",
-    "enUS": "%+d to Maximum Damage",
+    "enUS": "%+d to Maximum Damage(MAX)",
     "zhTW": "%+d 最大傷害(MAX)",
     "deDE": "%+d zu max. Schaden",
     "esES": "%+d p. de daño máximo",
@@ -461,7 +461,7 @@
   {
     "id": 3479,
     "Key": "ModStr1g",
-    "enUS": "%+d to Minimum Damage",
+    "enUS": "%+d to Minimum Damage(MIN)",
     "zhTW": "%+d 最小傷害(MIN)",
     "deDE": "%+d zu min. Schaden",
     "esES": "%+d p. de daño mínimo",
@@ -478,7 +478,7 @@
   {
     "id": 3480,
     "Key": "ModStr1h",
-    "enUS": "%+d to Attack Rating",
+    "enUS": "%+d to Attack Rating(AR)",
     "zhTW": "%+d 準確率(AR)",
     "deDE": "%+d zu Angriffswert",
     "esES": "%+d de índice de ataque",
@@ -495,7 +495,7 @@
   {
     "id": 3481,
     "Key": "ModStr1i",
-    "enUS": "%+d Defense",
+    "enUS": "%+d Defense(DEF)",
     "zhTW": "%+d 防禦(DEF)",
     "deDE": "%+d Verteidigung",
     "esES": "%+d de defensa",
@@ -512,7 +512,7 @@
   {
     "id": 3482,
     "Key": "ModStr1j",
-    "enUS": "Fire Resist %+d%%",
+    "enUS": "Fire Resist(FR) %+d%%",
     "zhTW": "火焰抗性(FR) %+d%%",
     "deDE": "Feuerwiderstand %+d%%",
     "esES": "%+d%% de resistencia al fuego",
@@ -529,7 +529,7 @@
   {
     "id": 3483,
     "Key": "ModStr1k",
-    "enUS": "Cold Resist %+d%%",
+    "enUS": "Cold Resist(CR) %+d%%",
     "zhTW": "冰寒抗性(CR) %+d%%",
     "deDE": "Kältewiderstand %+d%%",
     "esES": "%+d%% de resistencia al frío",
@@ -546,7 +546,7 @@
   {
     "id": 3484,
     "Key": "ModStr1l",
-    "enUS": "Lightning Resist %+d%%",
+    "enUS": "Lightning Resist(LR) %+d%%",
     "zhTW": "電擊抗性(LR) %+d%%",
     "deDE": "Blitzwiderstand %+d%%",
     "esES": "%+d%% de resistencia a los rayos",
@@ -563,7 +563,7 @@
   {
     "id": 3485,
     "Key": "ModStr1m",
-    "enUS": "Magic Resist %+d%%",
+    "enUS": "Magic Resist(MR) %+d%%",
     "zhTW": "魔法抗性(MR) %+d%%",
     "deDE": "Magiewiderstand %+d%%",
     "esES": "%+d%% de resistencia a la magia",
@@ -580,7 +580,7 @@
   {
     "id": 3486,
     "Key": "ModStr1n",
-    "enUS": "Poison Resist %+d%%",
+    "enUS": "Poison Resist(PR) %+d%%",
     "zhTW": "毒素抗性(PR) %+d%%",
     "deDE": "Giftwiderstand %+d%%",
     "esES": "%+d%% de resistencia al veneno",
@@ -597,7 +597,7 @@
   {
     "id": 3487,
     "Key": "ModStr1o",
-    "enUS": "%+d to Maximum Fire Damage",
+    "enUS": "%+d to Maximum Fire Damage(Max FD)",
     "zhTW": "%+d 火焰傷害最大值(Max FD)",
     "deDE": "%+d zu max. Feuerschaden",
     "esES": "%+d p. de daño máximo de fuego",
@@ -614,7 +614,7 @@
   {
     "id": 3488,
     "Key": "ModStr1p",
-    "enUS": "%+d to Minimum Fire Damage",
+    "enUS": "%+d to Minimum Fire Damage(Min FD)",
     "zhTW": "%+d 火焰傷害最小值(Min FD)",
     "deDE": "%+d zu min. Feuerschaden",
     "esES": "%+d p. de daño mínimo de fuego",
@@ -631,7 +631,7 @@
   {
     "id": 3489,
     "Key": "ModStr1q",
-    "enUS": "%+d to Maximum Lightning Damage",
+    "enUS": "%+d to Maximum Lightning Damage(Max LD)",
     "zhTW": "%+d 電擊傷害最大值(Max LD)",
     "deDE": "%+d zu max. Blitzschaden",
     "esES": "%+d p. de daño máximo de rayos",
@@ -648,7 +648,7 @@
   {
     "id": 3490,
     "Key": "ModStr1r",
-    "enUS": "%+d to Minimum Lightning Damage",
+    "enUS": "%+d to Minimum Lightning Damage(Min LD)",
     "zhTW": "%+d 電擊傷害最小值(Min LD)",
     "deDE": "%+d zu min. Blitzschaden",
     "esES": "%+d p. de daño mínimo de rayos",
@@ -665,7 +665,7 @@
   {
     "id": 3491,
     "Key": "ModStr1s",
-    "enUS": "%+d to Maximum Cold Damage",
+    "enUS": "%+d to Maximum Cold Damage(Max CD)",
     "zhTW": "%+d 冰寒傷害最大值(Max CD)",
     "deDE": "%+d zu max. Kälteschaden",
     "esES": "%+d p. de daño máximo de frío",
@@ -682,7 +682,7 @@
   {
     "id": 3492,
     "Key": "ModStr1t",
-    "enUS": "%+d to Minimum Cold Damage",
+    "enUS": "%+d to Minimum Cold Damage(Min CD)",
     "zhTW": "%+d 冰寒傷害最小值(Min CD)",
     "deDE": "%+d zu min. Kälteschaden",
     "esES": "%+d p. de daño mínimo de frío",
@@ -699,7 +699,7 @@
   {
     "id": 3493,
     "Key": "ModStr1u",
-    "enUS": "%+d to Life",
+    "enUS": "%+d to Life(Life)",
     "zhTW": "%+d 生命(Life)",
     "deDE": "%+d zu Leben",
     "esES": "%+d p. de vida",
@@ -733,7 +733,7 @@
   {
     "id": 3497,
     "Key": "ModStr1y",
-    "enUS": "Knockback",
+    "enUS": "Knockback(KB)",
     "zhTW": "擊退(KB)",
     "deDE": "Rückstoß",
     "esES": "Repele al objetivo",
@@ -869,7 +869,7 @@
   {
     "id": 3505,
     "Key": "ModStr2g",
-    "enUS": "Increase Maximum Life %d%%",
+    "enUS": "Increase Maximum Life(Max Life) %d%%",
     "zhTW": "生命上限提高(Max Life) %d%%",
     "deDE": "Erhöht max. Leben %d%%",
     "esES": "Aumenta la vida máxima un %d%%",
@@ -886,7 +886,7 @@
   {
     "id": 3506,
     "Key": "ModStr2h",
-    "enUS": "Increase Maximum Mana %d%%",
+    "enUS": "Increase Maximum Mana(Max Mana) %d%%",
     "zhTW": "法力上限提高(Max Mana) %d%%",
     "deDE": "Erhöht max. Mana %d%%",
     "esES": "Aumenta el maná máximo un %d%%",
@@ -903,7 +903,7 @@
   {
     "id": 3507,
     "Key": "ModStr2i",
-    "enUS": "Increase Maximum Durability %d%%",
+    "enUS": "Increase Maximum Durability(Max DUR) %d%%",
     "zhTW": "耐久度上限提高(Max DUR) %d%%",
     "deDE": "Erhöht max. Haltbarkeit %d%%",
     "esES": "Aumenta la durabilidad máxima un %d%%",
@@ -954,7 +954,7 @@
   {
     "id": 3510,
     "Key": "ModStr2l",
-    "enUS": "Replenish Life %+d",
+    "enUS": "Replenish Life(Life Rep) %+d",
     "zhTW": "生命回復(Life Rep) %+d",
     "deDE": "Lebensregeneration %+d",
     "esES": "%+d de regeneración de vida",
@@ -971,7 +971,7 @@
   {
     "id": 3511,
     "Key": "ModStr2m",
-    "enUS": "Replenish Mana",
+    "enUS": "Replenish Mana(Mana Rep)",
     "zhTW": "回復法力(Mana Rep)",
     "deDE": "Manaregeneration",
     "esES": "Restaura maná",
@@ -1090,7 +1090,7 @@
   {
     "id": 3518,
     "Key": "ModStr2t",
-    "enUS": "Magic Damage Reduced by %d",
+    "enUS": "Magic Damage Reduced by(MDR) %d",
     "zhTW": "魔法傷害降低(MDR) %d",
     "deDE": "Magieschaden reduziert um %d",
     "esES": "Daño mágico reducido en %d p.",
@@ -1107,7 +1107,7 @@
   {
     "id": 3519,
     "Key": "ModStr2u",
-    "enUS": "Damage Reduced by %d",
+    "enUS": "Damage Reduced by(DR) %d",
     "zhTW": "傷害降低(DR) %d",
     "deDE": "Schaden reduziert um %d",
     "esES": "Daño reducido en %d p.",
@@ -1124,7 +1124,7 @@
   {
     "id": 3520,
     "Key": "Modstr2v",
-    "enUS": "%+d%% Enhanced Defense",
+    "enUS": "%+d%% Enhanced Defense(EDef)",
     "zhTW": "%+d%% 防禦強化(EDef)",
     "deDE": "%+d%% verbesserte Verteidigung",
     "esES": "%+d%% de defensa mejorada",
@@ -1175,7 +1175,7 @@
   {
     "id": 3523,
     "Key": "ModStr2y",
-    "enUS": "%d%% Mana stolen per hit",
+    "enUS": "%d%% Mana stolen per hit(LM)",
     "zhTW": "擊中竊取 %d%% 法力(LM)",
     "deDE": "%d%% abgesaugtes Mana pro Treffer",
     "esES": "%d%% de maná robado por golpe",
@@ -1192,7 +1192,7 @@
   {
     "id": 3524,
     "Key": "ModStr2z",
-    "enUS": "%d%% Life stolen per hit",
+    "enUS": "%d%% Life stolen per hit(LL)",
     "zhTW": "擊中竊取 %d%% 生命(LL)",
     "deDE": "%d%% abgesaugtes Leben pro Treffer",
     "esES": "%d%% de vida robada por golpe",
@@ -1209,7 +1209,7 @@
   {
     "id": 3525,
     "Key": "ModStr3a",
-    "enUS": "%+d to Amazon Skill Levels",
+    "enUS": "%+d to Amazon Skill Levels(AMA)",
     "zhTW": "%+d 亞馬遜技能等級(AMA)",
     "deDE": "%+d zu Amazonenfertigkeiten",
     "esES": "%+d a los niveles de habilidad de la amazona",
@@ -1226,7 +1226,7 @@
   {
     "id": 3526,
     "Key": "ModStr3b",
-    "enUS": "%+d to Paladin Skill Levels",
+    "enUS": "%+d to Paladin Skill Levels(PAL)",
     "zhTW": "%+d 聖騎士技能等級(PAL)",
     "deDE": "%+d zu Paladinfertigkeiten",
     "esES": "%+d a los niveles de habilidad del paladín",
@@ -1243,7 +1243,7 @@
   {
     "id": 3527,
     "Key": "ModStr3c",
-    "enUS": "%+d to Necromancer Skill Levels",
+    "enUS": "%+d to Necromancer Skill Levels(NEC)",
     "zhTW": "%+d 死靈法師技能等級(NEC)",
     "deDE": "%+d zu Totenbeschwörerfertigkeiten",
     "esES": "%+d a los niveles de habilidad del nigromante",
@@ -1260,7 +1260,7 @@
   {
     "id": 3528,
     "Key": "ModStr3d",
-    "enUS": "%+d to Sorceress Skill Levels",
+    "enUS": "%+d to Sorceress Skill Levels(SOR)",
     "zhTW": "%+d 魔法使技能等級(SOR)",
     "deDE": "%+d zu Zauberinfertigkeiten",
     "esES": "%+d a los niveles de habilidad de la hechicera",
@@ -1277,7 +1277,7 @@
   {
     "id": 3529,
     "Key": "ModStr3e",
-    "enUS": "%+d to Barbarian Skill Levels",
+    "enUS": "%+d to Barbarian Skill Levels(BAR)",
     "zhTW": "%+d 野蠻人技能等級(BAR)",
     "deDE": "%+d zu Barbarenfertigkeiten",
     "esES": "%+d a los niveles de habilidad del bárbaro",
@@ -1294,7 +1294,7 @@
   {
     "id": 3530,
     "Key": "ModStr3f",
-    "enUS": "%+d to Light Radius",
+    "enUS": "%+d to Light Radius(Light Radius)",
     "zhTW": "照亮範圍(Light Radius) %+d",
     "deDE": "%+d zu Lichtradius",
     "esES": "%+d de radio de visión",
@@ -1311,7 +1311,7 @@
   {
     "id": 3531,
     "Key": "ModStr3g",
-    "enUS": "%d%% Increased Chance of Blocking",
+    "enUS": "%d%% Increased Chance of Blocking(CTB)",
     "zhTW": "格擋機率提高(CTB) %d%%",
     "deDE": "%d%% erhöhte Blockchance",
     "esES": "+%d%% de probabilidad de bloqueo",
@@ -1328,7 +1328,7 @@
   {
     "id": 3532,
     "Key": "ModStr3h",
-    "enUS": "Requirements %+d%%",
+    "enUS": "Requirements(REQ) %+d%%",
     "zhTW": "需求(REQ) %+d%%",
     "deDE": "Anforderungen %+d%%",
     "esES": "Requisitos %+d%%",
@@ -1379,7 +1379,7 @@
   {
     "id": 3535,
     "Key": "ModStr3k",
-    "enUS": "%+d to All Skills",
+    "enUS": "%+d to All Skills(All Skills)",
     "zhTW": "%+d 所有技能(All Skills)",
     "deDE": "%+d zu allen Fertigkeiten",
     "esES": "%+d a todas las habilidades",
@@ -1396,7 +1396,7 @@
   {
     "id": 3536,
     "Key": "ModStr3l",
-    "enUS": "Freezes target",
+    "enUS": "Freezes target(FT)",
     "zhTW": "凍結目標(FT)",
     "deDE": "Friert das Ziel ein",
     "esES": "Congela al objetivo",
@@ -1413,7 +1413,7 @@
   {
     "id": 3537,
     "Key": "ModStr3m",
-    "enUS": "%+d%% Chance of Open Wounds",
+    "enUS": "%+d%% Chance of Open Wounds(OW)",
     "zhTW": "%+d%% 機率造成開放傷口(OW)",
     "deDE": "%+d%% Chance auf offene Wunden",
     "esES": "%+d%% de probabilidad de sangrado",
@@ -1498,7 +1498,7 @@
   {
     "id": 3542,
     "Key": "ModStr3r",
-    "enUS": "Poison Length Reduced by %d%%",
+    "enUS": "Poison Length Reduced by(PLR) %d%%",
     "zhTW": "中毒的時效縮短(PLR) %d%%",
     "deDE": "Giftdauer reduziert um %d%%",
     "esES": "Duración del veneno reducida un %d%%",
@@ -1515,7 +1515,7 @@
   {
     "id": 3544,
     "Key": "ModStr3v",
-    "enUS": "Heal Stamina Plus %d%%",
+    "enUS": "Heal Stamina Plus(Heal STA) %d%%",
     "zhTW": "精力恢復(Heal STA) +%d%%",
     "deDE": "Ausdauerheilung plus %d%%",
     "esES": "%d%% de regeneración de aguante",
@@ -1532,7 +1532,7 @@
   {
     "id": 3545,
     "Key": "ModStr3w",
-    "enUS": "%+d%% Damage Taken Goes To Mana",
+    "enUS": "%+d%% Damage Taken Goes To Mana(DTM)",
     "zhTW": "%+d%% 受到的傷害轉為法力(DTM)",
     "deDE": "%+d%% erlittenen Schadens geht auf Mana",
     "esES": "Un %+d%% del daño sufrido se recupera como maná",
@@ -1566,7 +1566,7 @@
   {
     "id": 3547,
     "Key": "ModStr3y",
-    "enUS": "Ignore Target's Defense",
+    "enUS": "Ignore Target's Defense(ITD)",
     "zhTW": "無視目標防禦(ITD)",
     "deDE": "Ignoriert Zielverteidigung",
     "esES": "Ignora la defensa del objetivo",
@@ -1583,7 +1583,7 @@
   {
     "id": 3548,
     "Key": "ModStr3z",
-    "enUS": "Half Poison Duration",
+    "enUS": "Half Poison Duration(HPD)",
     "zhTW": "中毒的時效減半(HPD)",
     "deDE": "Halbierte Giftdauer",
     "esES": "Mitad de duración del veneno",
@@ -1600,7 +1600,7 @@
   {
     "id": 3549,
     "Key": "ModStr4a",
-    "enUS": "Prevent Monster Heal",
+    "enUS": "Prevent Monster Heal(PMH)",
     "zhTW": "防止怪物自療(PMH)",
     "deDE": "Verhindert Monsterheilung",
     "esES": "Impide que los monstruos se curen",
@@ -1617,7 +1617,7 @@
   {
     "id": 3550,
     "Key": "ModStr4b",
-    "enUS": "Half Freeze Duration",
+    "enUS": "Half Freeze Duration(HFD)",
     "zhTW": "被凍結的時效減半(HFD)",
     "deDE": "Halbierte Einfrierungsdauer",
     "esES": "La congelación dura la mitad",
@@ -1651,7 +1651,7 @@
   {
     "id": 3553,
     "Key": "ModStr4e",
-    "enUS": "%+d%% Damage to Demons",
+    "enUS": "%+d%% Damage to Demons(DTD)",
     "zhTW": "%+d%% 對惡魔的傷害(DTD)",
     "deDE": "%+d%% Schaden gegen Dämonen",
     "esES": "%+d%% de daño contra demonios",
@@ -1668,7 +1668,7 @@
   {
     "id": 3554,
     "Key": "ModStr4f",
-    "enUS": "%+d%% Damage to Undead",
+    "enUS": "%+d%% Damage to Undead(DTU)",
     "zhTW": "%+d%% 對不死怪物的傷害(DTU)",
     "deDE": "%+d%% Schaden gegen Untote",
     "esES": "%+d%% de daño contra muertos vivientes",
@@ -1685,7 +1685,7 @@
   {
     "id": 3555,
     "Key": "ModStr4g",
-    "enUS": "Regenerate Mana %d%%",
+    "enUS": "Regenerate Mana(Reg Mana) %d%%",
     "zhTW": "法力恢復(Reg Mana) %d%%",
     "deDE": "Mana regenerieren %d%%",
     "esES": "%d%% de regeneración de maná",
@@ -1702,7 +1702,7 @@
   {
     "id": 3556,
     "Key": "ModStr4h",
-    "enUS": "%+d to Maximum Poison Damage",
+    "enUS": "%+d to Maximum Poison Damage(Max PD)",
     "zhTW": "%+d 毒素傷害最大值(Max PD)",
     "deDE": "%+d zu max. Giftschaden",
     "esES": "%+d p. de daño máximo de veneno",
@@ -1719,7 +1719,7 @@
   {
     "id": 3557,
     "Key": "ModStr4i",
-    "enUS": "%+d to Minimum Poison Damage",
+    "enUS": "%+d to Minimum Poison Damage(Min PD)",
     "zhTW": "%+d 毒素傷害最小值(Min PD)",
     "deDE": "%+d zu min. Giftschaden",
     "esES": "%+d p. de daño mínimo de veneno",
@@ -1736,7 +1736,7 @@
   {
     "id": 3558,
     "Key": "ModStr4j",
-    "enUS": "%+d to Attack Rating against Demons",
+    "enUS": "%+d to Attack Rating against Demons(ARD)",
     "zhTW": "%+d 對惡魔的準確率(ARD)",
     "deDE": "%+d zu Angriffswert gegen Dämonen",
     "esES": "%+d de índice de ataque contra demonios",
@@ -1753,7 +1753,7 @@
   {
     "id": 3559,
     "Key": "ModStr4k",
-    "enUS": "%+d to Attack Rating against Undead",
+    "enUS": "%+d to Attack Rating against Undead(ARU)",
     "zhTW": "%+d 對不死怪物的準確率(ARU)",
     "deDE": "%+d zu Angriffswert gegen Untote",
     "esES": "%+d de índice de ataque contra muertos vivientes",
@@ -1770,7 +1770,7 @@
   {
     "id": 3560,
     "Key": "ModStr4l",
-    "enUS": "Slightly Increased Attack Speed",
+    "enUS": "Slightly Increased Attack Speed(IAS)",
     "zhTW": "小幅攻擊速度提高(IAS)",
     "deDE": "Leicht erhöhte Angriffsgeschwindigkeit",
     "esES": "Ligero aumento de velocidad de ataque",
@@ -1787,7 +1787,7 @@
   {
     "id": 3561,
     "Key": "ModStr4m",
-    "enUS": "%+d%% Increased Attack Speed",
+    "enUS": "%+d%% Increased Attack Speed(IAS)",
     "zhTW": "攻擊速度(IAS) %+d%%",
     "deDE": "%+d%% erhöhte Angriffsgeschwindigkeit",
     "esES": "%+d%% de velocidad de ataque",
@@ -1804,7 +1804,7 @@
   {
     "id": 3562,
     "Key": "ModStr4n",
-    "enUS": "Greatly Increased Attack Speed",
+    "enUS": "Greatly Increased Attack Speed(IAS)",
     "zhTW": "大幅攻擊速度提高(IAS)",
     "deDE": "Stark erhöhte Angriffsgeschwindigkeit",
     "esES": "Gran aumento de velocidad de ataque",
@@ -1821,7 +1821,7 @@
   {
     "id": 3563,
     "Key": "ModStr4o",
-    "enUS": "Fast Hit Recovery",
+    "enUS": "Fast Hit Recovery(FHR)",
     "zhTW": "快速的打擊恢復(FHR)",
     "deDE": "Schnelle Erholung nach Treffer",
     "esES": "Recuperación de golpe rápida",
@@ -1838,7 +1838,7 @@
   {
     "id": 3564,
     "Key": "ModStr4p",
-    "enUS": "%+d%% Faster Hit Recovery",
+    "enUS": "%+d%% Faster Hit Recovery(FHR)",
     "zhTW": "%+d%% 打擊恢復(FHR)",
     "deDE": "%+d%% schnellere Erholung nach Treffer",
     "esES": "Recuperación de golpe un %+d%% más rápida",
@@ -1855,7 +1855,7 @@
   {
     "id": 3565,
     "Key": "ModStr4q",
-    "enUS": "Fastest Hit Recovery",
+    "enUS": "Fastest Hit Recovery(FHR)",
     "zhTW": "最快的打擊恢復(FHR)",
     "deDE": "Schnellste Erholung nach Treffer",
     "esES": "Recuperación de golpe máxima",
@@ -1872,7 +1872,7 @@
   {
     "id": 3566,
     "Key": "ModStr4r",
-    "enUS": "Fast Run/Walk",
+    "enUS": "Fast Run/Walk(FRW)",
     "zhTW": "快速的跑步 / 行走速度(FRW)",
     "deDE": "Schnelle Bewegungsgeschwindigkeit",
     "esES": "Velocidad de correr/andar rápida",
@@ -1889,7 +1889,7 @@
   {
     "id": 3567,
     "Key": "ModStr4s",
-    "enUS": "%+d%% Faster Run/Walk",
+    "enUS": "%+d%% Faster Run/Walk(FRW)",
     "zhTW": "%+d%% 跑步 / 行走速度(FRW)",
     "deDE": "%+d%% Bewegungsgeschwindigkeit",
     "esES": "Correr/andar un %+d%% más rápido",
@@ -1906,7 +1906,7 @@
   {
     "id": 3568,
     "Key": "ModStr4t",
-    "enUS": "Fastest Run/Walk",
+    "enUS": "Fastest Run/Walk(FRW)",
     "zhTW": "最快的跑步 / 行走速度(FRW)",
     "deDE": "Schnellste Bewegungsgeschwindigkeit",
     "esES": "Velocidad de correr/andar máxima",
@@ -1923,7 +1923,7 @@
   {
     "id": 3569,
     "Key": "ModStr4u",
-    "enUS": "Fast Cast Rate",
+    "enUS": "Fast Cast Rate(FCR)",
     "zhTW": "快速的施法速度(FCR)",
     "deDE": "Schnelle Zauberrate",
     "esES": "Velocidad de lanzamiento rápida",
@@ -1940,7 +1940,7 @@
   {
     "id": 3570,
     "Key": "ModStr4v",
-    "enUS": "%+d%% Faster Cast Rate",
+    "enUS": "%+d%% Faster Cast Rate(FCR)",
     "zhTW": "%+d%% 施法速度(FCR)",
     "deDE": "%+d%% schnellere Zauberrate",
     "esES": "Velocidad de lanzamiento un %+d%% más rápida",
@@ -1957,7 +1957,7 @@
   {
     "id": 3571,
     "Key": "ModStr4w",
-    "enUS": "Fastest Cast Rate",
+    "enUS": "Fastest Cast Rate(FCR)",
     "zhTW": "最快的施法速度(FCR)",
     "deDE": "Schnellste Zauberrate",
     "esES": "Velocidad de lanzamiento máxima",
@@ -1974,7 +1974,7 @@
   {
     "id": 3572,
     "Key": "ModStr4x",
-    "enUS": "Fast Block Rate",
+    "enUS": "Fast Block Rate(FBR)",
     "zhTW": "快速的格擋速度(FBR)",
     "deDE": "Schnelle Blockrate",
     "esES": "Velocidad de bloqueo rápida",
@@ -1991,7 +1991,7 @@
   {
     "id": 3573,
     "Key": "ModStr4y",
-    "enUS": "%+d%% Faster Block Rate",
+    "enUS": "%+d%% Faster Block Rate(FBR)",
     "zhTW": "%+d%% 格擋速度(FBR)",
     "deDE": "%+d%% schnellere Blockrate",
     "esES": "Velocidad de bloqueo un %+d%% más rápida",
@@ -2008,7 +2008,7 @@
   {
     "id": 3574,
     "Key": "ModStr4z",
-    "enUS": "Fastest Block Rate",
+    "enUS": "Fastest Block Rate(FBR)",
     "zhTW": "最快的格擋速度(FBR)",
     "deDE": "Schnellste Blockrate",
     "esES": "Velocidad de bloqueo máxima",
@@ -2042,7 +2042,7 @@
   {
     "id": 3576,
     "Key": "ModStr5b",
-    "enUS": "Damage %+d",
+    "enUS": "Damage(DMG) %+d",
     "zhTW": "傷害(DMG) %+d",
     "deDE": "Schaden %+d",
     "esES": "Daño: %+d p.",
@@ -2059,7 +2059,7 @@
   {
     "id": 3577,
     "Key": "ModStr5c",
-    "enUS": "%+d%% Chance of Crushing Blow",
+    "enUS": "%+d%% Chance of Crushing Blow(CB)",
     "zhTW": "%+d%% 機率造成粉碎打擊(CB)",
     "deDE": "%+d%% Chance auf vernichtenden Schlag",
     "esES": "%+d%% de probabilidad de ataque aplastante",
@@ -2093,7 +2093,7 @@
   {
     "id": 3580,
     "Key": "ModStr5f",
-    "enUS": "%+d to Mana after each Kill",
+    "enUS": "%+d to Mana after each Kill(EK)",
     "zhTW": "%+d 擊殺法力恢復(EK)",
     "deDE": "%+d zu Mana nach jedem Kill",
     "esES": "%+d p. de maná tras cada asesinato",
@@ -2110,7 +2110,7 @@
   {
     "id": 3581,
     "Key": "ModStr5g",
-    "enUS": "Fire Absorb %+d%%",
+    "enUS": "Fire Absorb(FA) %+d%%",
     "zhTW": "火焰吸收(FA) %+d%%",
     "deDE": "Feuerabsorption %+d%%",
     "esES": "%+d%% de absorción de fuego",
@@ -2127,7 +2127,7 @@
   {
     "id": 3582,
     "Key": "ModStr5h",
-    "enUS": "%+d Fire Absorb",
+    "enUS": "%+d Fire Absorb(FA)",
     "zhTW": "%+d 火焰吸收(FA)",
     "deDE": "%+d Feuerabsorption",
     "esES": "%+d de absorción de fuego",
@@ -2144,7 +2144,7 @@
   {
     "id": 3583,
     "Key": "ModStr5i",
-    "enUS": "Lightning Absorb %+d%%",
+    "enUS": "Lightning Absorb(LA) %+d%%",
     "zhTW": "電擊吸收(LA) %+d%%",
     "deDE": "Blitzabsorption %+d%%",
     "esES": "%+d%% de absorción de rayos",
@@ -2161,7 +2161,7 @@
   {
     "id": 3584,
     "Key": "ModStr5j",
-    "enUS": "%+d Lightning Absorb",
+    "enUS": "%+d Lightning Absorb(LA)",
     "zhTW": "%+d 電擊吸收(LA)",
     "deDE": "%+d Blitzabsorption",
     "esES": "%+d de absorción de rayos",
@@ -2178,7 +2178,7 @@
   {
     "id": 3585,
     "Key": "ModStr5k",
-    "enUS": "Magic Absorb %+d%%",
+    "enUS": "Magic Absorb(MA) %+d%%",
     "zhTW": "魔法吸收(MA) %+d%%",
     "deDE": "Magieabsorption %+d%%",
     "esES": "%+d%% de absorción de magia",
@@ -2195,7 +2195,7 @@
   {
     "id": 3586,
     "Key": "ModStr5l",
-    "enUS": "%+d Magic Absorb",
+    "enUS": "%+d Magic Absorb(MA)",
     "zhTW": "%+d 魔法吸收(MA)",
     "deDE": "%+d Magieabsorption",
     "esES": "%+d de absorción de magia",
@@ -2212,7 +2212,7 @@
   {
     "id": 3587,
     "Key": "ModStr5m",
-    "enUS": "Cold Absorb %+d%%",
+    "enUS": "Cold Absorb(CA) %+d%%",
     "zhTW": "冰寒吸收(CA) %+d%%",
     "deDE": "Kälteabsorption %+d%%",
     "esES": "%+d%% de absorción de frío",
@@ -2229,7 +2229,7 @@
   {
     "id": 3588,
     "Key": "ModStr5n",
-    "enUS": "%+d Cold Absorb",
+    "enUS": "%+d Cold Absorb(CA)",
     "zhTW": "%+d 冰寒吸收(CA)",
     "deDE": "%+d Kälteabsorption",
     "esES": "%+d de absorción de frío",
@@ -2280,7 +2280,7 @@
   {
     "id": 3591,
     "Key": "ModStr5q",
-    "enUS": "%+d%% Deadly Strike",
+    "enUS": "%+d%% Deadly Strike(DS)",
     "zhTW": "%+d%% 致命打擊(DS)",
     "deDE": "%+d%% Todesschlag",
     "esES": "%+d%% de azote mortal",
@@ -2331,7 +2331,7 @@
   {
     "id": 3595,
     "Key": "ModStr5u",
-    "enUS": "%+d%% to Maximum Fire Resist",
+    "enUS": "%+d%% to Maximum Fire Resist(Max FR)",
     "zhTW": "火焰抗性上限(Max FR) %+d%%",
     "deDE": "%+d%% zu max. Feuerwiderstand",
     "esES": "%+d%% de resistencia máxima al fuego",
@@ -2348,7 +2348,7 @@
   {
     "id": 3596,
     "Key": "ModStr5v",
-    "enUS": "%+d%% to Maximum Cold Resist",
+    "enUS": "%+d%% to Maximum Cold Resist(Max CR)",
     "zhTW": "冰寒抗性上限(Max CR) %+d%%",
     "deDE": "%+d%% zu max. Kältewiderstand",
     "esES": "%+d%% de resistencia máxima al frío",
@@ -2365,7 +2365,7 @@
   {
     "id": 3597,
     "Key": "ModStr5w",
-    "enUS": "%+d%% to Maximum Lightning Resist",
+    "enUS": "%+d%% to Maximum Lightning Resist(Max LR)",
     "zhTW": "電擊抗性上限(Max LR) %+d%%",
     "deDE": "%+d%% zu max. Blitzwiderstand",
     "esES": "%+d%% de resistencia máxima a los rayos",
@@ -2382,7 +2382,7 @@
   {
     "id": 3598,
     "Key": "ModStr5x",
-    "enUS": "%+d%% to Maximum Magic Resist",
+    "enUS": "%+d%% to Maximum Magic Resist(Max MR)",
     "zhTW": "魔法抗性上限(Max MR) %+d%%",
     "deDE": "%+d%% zu max. Magiewiderstand",
     "esES": "%+d%% de resistencia máxima a la magia",
@@ -2399,7 +2399,7 @@
   {
     "id": 3599,
     "Key": "ModStr5y",
-    "enUS": "%+d%% to Maximum Poison Resist",
+    "enUS": "%+d%% to Maximum Poison Resist(Max PR)",
     "zhTW": "毒素抗性上限(Max PR) %+d%%",
     "deDE": "%+d%% zu max. Giftwiderstand",
     "esES": "%+d%% de resistencia máxima al veneno",
@@ -2416,7 +2416,7 @@
   {
     "id": 3600,
     "Key": "ModStr5z",
-    "enUS": "Cannot Be Frozen",
+    "enUS": "Cannot Be Frozen(CBF)",
     "zhTW": "無法凍結(CBF)",
     "deDE": "Einfrieren nicht möglich",
     "esES": "No te pueden congelar",
@@ -2467,7 +2467,7 @@
   {
     "id": 3603,
     "Key": "ModStr6c",
-    "enUS": "%+d Life after each Demon Kill",
+    "enUS": "%+d Life after each Demon Kill(DLK)",
     "zhTW": "%+d 擊殺惡魔生命恢復(DLK)",
     "deDE": "%+d Leben nach jedem besiegten Dämonen",
     "esES": "%+d p. de vida tras cada asesinato de demonio",
@@ -2552,7 +2552,7 @@
   {
     "id": 3626,
     "Key": "improved to hit",
-    "enUS": "Improved Attack Rating",
+    "enUS": "Improved Attack Rating(AR)",
     "zhTW": "加強準確率(AR)",
     "deDE": "Verbesserter Angriffswert",
     "esES": "Índice de ataque mejorado",
@@ -2943,7 +2943,7 @@
   {
     "id": 10001,
     "Key": "ModStr5d",
-    "enUS": "%+d Maximum Stamina",
+    "enUS": "%+d Maximum Stamina(Max STA)",
     "zhTW": "%+d 精力上限(Max STA)",
     "deDE": "%+d max. Ausdauer",
     "esES": "%+d de aguante máximo",
@@ -2977,7 +2977,7 @@
   {
     "id": 10023,
     "Key": "strModEnhancedDamage",
-    "enUS": "%+d%% Enhanced Damage",
+    "enUS": "%+d%% Enhanced Damage(EDmg)",
     "zhTW": "%+d%% 傷害強化(EDmg)",
     "deDE": "%+d%% erhöhter Schaden",
     "esES": "%+d%% de daño mejorado",
@@ -2994,7 +2994,7 @@
   {
     "id": 10024,
     "Key": "strModAllResistances",
-    "enUS": "All Resistances %+d",
+    "enUS": "All Resistances(RES) %+d",
     "zhTW": "所有抗性(RES) %+d",
     "deDE": "Alle Widerstände %+d",
     "esES": "%+d a todas las resistencias",
@@ -3011,7 +3011,7 @@
   {
     "id": 10025,
     "Key": "strModAllSkillLevels",
-    "enUS": "%+d to All Skill Levels",
+    "enUS": "%+d to All Skill Levels(All Skill)",
     "zhTW": "%+d 所有技能等級(All Skill)",
     "deDE": "%+d zu allen Fertigkeitenstufen",
     "esES": "%+d a todos los niveles de habilidad",
@@ -3028,7 +3028,7 @@
   {
     "id": 10026,
     "Key": "strModFireDamage",
-    "enUS": "%+d fire damage",
+    "enUS": "%+d fire damage(FD)",
     "zhTW": "%+d 火焰傷害(FD)",
     "deDE": "%+d Feuerschaden",
     "esES": "%+d p. de daño de fuego",
@@ -3045,7 +3045,7 @@
   {
     "id": 10027,
     "Key": "strModFireDamageRange",
-    "enUS": "Adds %d-%d fire damage",
+    "enUS": "Adds %d-%d fire damage(FD)",
     "zhTW": "附加 %d - %d 火焰傷害(FD)",
     "deDE": "Fügt %d-%d Feuerschaden hinzu",
     "esES": "Añade %d-%d p. daño de fuego",
@@ -3062,7 +3062,7 @@
   {
     "id": 10028,
     "Key": "strModColdDamage",
-    "enUS": "%+d cold damage",
+    "enUS": "%+d cold damage(CD)",
     "zhTW": "%+d 冰寒傷害(CD)",
     "deDE": "%+d Kälteschaden",
     "esES": "%+d p. de daño de frío",
@@ -3079,7 +3079,7 @@
   {
     "id": 10029,
     "Key": "strModColdDamageRange",
-    "enUS": "Adds %d-%d cold damage",
+    "enUS": "Adds %d-%d cold damage(CD)",
     "zhTW": "附加 %d - %d 冰寒傷害(CD)",
     "deDE": "Fügt %d-%d Kälteschaden hinzu",
     "esES": "Añade %d-%d p. de daño de frío",
@@ -3096,7 +3096,7 @@
   {
     "id": 10030,
     "Key": "strModLightningDamage",
-    "enUS": "%+d lightning damage",
+    "enUS": "%+d lightning damage(LD)",
     "zhTW": "%+d 電擊傷害(LD)",
     "deDE": "%+d Blitzschaden",
     "esES": "%+d p. de daño de rayos",
@@ -3113,7 +3113,7 @@
   {
     "id": 10031,
     "Key": "strModLightningDamageRange",
-    "enUS": "Adds %d-%d lightning damage",
+    "enUS": "Adds %d-%d lightning damage(LD)",
     "zhTW": "附加 %d - %d 電擊傷害(LD)",
     "deDE": "Fügt %d-%d Blitzschaden hinzu",
     "esES": "Añade %d-%d p. de daño de rayos",
@@ -3130,7 +3130,7 @@
   {
     "id": 10032,
     "Key": "strModMagicDamage",
-    "enUS": "%+d magic damage",
+    "enUS": "%+d magic damage(MD)",
     "zhTW": "%+d 魔法傷害(MD)",
     "deDE": "%+d Magieschaden",
     "esES": "%+d p. de daño mágico",
@@ -3147,7 +3147,7 @@
   {
     "id": 10033,
     "Key": "strModMagicDamageRange",
-    "enUS": "Adds %d-%d magic damage",
+    "enUS": "Adds %d-%d magic damage(MD)",
     "zhTW": "附加 %d - %d 魔法傷害(MD)",
     "deDE": "Fügt %d-%d Magieschaden hinzu",
     "esES": "Añade %d-%d p. de daño mágico",
@@ -3164,7 +3164,7 @@
   {
     "id": 10034,
     "Key": "strModPoisonDamage",
-    "enUS": "%+d poison damage over %d seconds",
+    "enUS": "%+d poison damage(PD) over %d seconds",
     "zhTW": "%+d 毒素傷害(PD)，時效 %d 秒",
     "deDE": "%+d Giftschaden über %d Sek.",
     "esES": "%+d p. de daño de veneno durante %d s",
@@ -3181,7 +3181,7 @@
   {
     "id": 10035,
     "Key": "strModPoisonDamageRange",
-    "enUS": "Adds %d-%d poison damage over %d seconds",
+    "enUS": "Adds %d-%d poison damage(PD) over %d seconds",
     "zhTW": "附加 %d - %d 毒素傷害(PD)，時效 %d 秒",
     "deDE": "Fügt %d-%d Giftschaden über %d Sek. hinzu",
     "esES": "Añade %d-%d p. de daño de veneno durante %d s",
@@ -3193,12 +3193,12 @@
     "jaJP": "毒ダメージ付与（合計%d - %dダメージを%d秒間で与える）",
     "ptBR": "Adiciona %d-%d de dano venenoso ao longo de %d segundos",
     "ruRU": "+%d–%d урона от яда за %d сек.",
-    "zhCN": "+ %d-%d 毒药伤害(PD)，持续%d秒"
+    "zhCN": "+ %d-%d 毒素伤害(PD)，持续%d秒"
   },
   {
     "id": 10036,
     "Key": "strModMinDamage",
-    "enUS": "%+d damage",
+    "enUS": "%+d damage(DMG)",
     "zhTW": "%+d 傷害(DMG)",
     "deDE": "%+d Schaden",
     "esES": "%+d p. de daño",
@@ -3215,7 +3215,7 @@
   {
     "id": 10037,
     "Key": "strModMinDamageRange",
-    "enUS": "Adds %d-%d damage",
+    "enUS": "Adds %d-%d damage(DMG)",
     "zhTW": "附加 %d - %d 傷害(DMG)",
     "deDE": "Fügt %d-%d Schaden hinzu",
     "esES": "Añade %d-%d p. de daño",
@@ -3232,7 +3232,7 @@
   {
     "id": 10039,
     "Key": "ModStre9j",
-    "enUS": "Fire Damage Reduced by",
+    "enUS": "Fire Damage Reduced by(FDR)",
     "zhTW": "火焰傷害降低(FDR)",
     "deDE": "Feuerschaden reduziert um",
     "esES": "Daño de fuego reducido un",
@@ -3249,7 +3249,7 @@
   {
     "id": 10040,
     "Key": "ModStre9k",
-    "enUS": "Cold Damage Reduced by",
+    "enUS": "Cold Damage Reduced by(CDR)",
     "zhTW": "冰寒傷害降低(CDR)",
     "deDE": "Kälteschaden reduziert um",
     "esES": "Daño de frío reducido un",
@@ -3266,7 +3266,7 @@
   {
     "id": 10041,
     "Key": "ModStre9l",
-    "enUS": "Lightning Damage Reduced by",
+    "enUS": "Lightning Damage Reduced by(LDR)",
     "zhTW": "電擊傷害降低(LDR)",
     "deDE": "Blitzschaden reduziert um",
     "esES": "Daño de rayos reducido un",
@@ -3283,7 +3283,7 @@
   {
     "id": 10042,
     "Key": "ModStre9m",
-    "enUS": "Poison Damage Reduced by",
+    "enUS": "Poison Damage Reduced by(PDR)",
     "zhTW": "毒素傷害降低(PDR)",
     "deDE": "Giftschaden reduziert um",
     "esES": "Daño de veneno reducido un",
@@ -3300,7 +3300,7 @@
   {
     "id": 10043,
     "Key": "ModStre9n",
-    "enUS": "%+d Absorbs Magic Damage",
+    "enUS": "%+d Absorbs Magic Damage(MDA)",
     "zhTW": "%+d 魔法傷害吸收(MDA)",
     "deDE": "%+d absorbiert Magieschaden",
     "esES": "%+d de absorción de daño mágico",
@@ -3317,7 +3317,7 @@
   {
     "id": 10044,
     "Key": "ModStre9o",
-    "enUS": "%+d Absorbs Fire Damage",
+    "enUS": "%+d Absorbs Fire Damage(FDA)",
     "zhTW": "%+d 火焰傷害吸收(FDA)",
     "deDE": "%+d absorbiert Feuerschaden",
     "esES": "%+d de absorción de daño de fuego",
@@ -3334,7 +3334,7 @@
   {
     "id": 10045,
     "Key": "ModStre9p",
-    "enUS": "%+d Absorbs Cold Damage",
+    "enUS": "%+d Absorbs Cold Damage(CDA)",
     "zhTW": "%+d 冰寒傷害吸收(CDA)",
     "deDE": "%+d absorbiert Kälteschaden",
     "esES": "%+d de absorción de daño de frío",
@@ -3351,7 +3351,7 @@
   {
     "id": 10046,
     "Key": "ModStre9q",
-    "enUS": "%+d Absorbs Lightning Damage",
+    "enUS": "%+d Absorbs Lightning Damage(LDA)",
     "zhTW": "%+d 電擊傷害吸收(LDA)",
     "deDE": "%+d absorbiert Blitzschaden",
     "esES": "%+d de absorción de daño de rayos",
@@ -3368,7 +3368,7 @@
   {
     "id": 10047,
     "Key": "ModStre9r",
-    "enUS": "%+d Absorbs Poison Damage",
+    "enUS": "%+d Absorbs Poison Damage(PDA)",
     "zhTW": "%+d 毒素傷害吸收(PDA)",
     "deDE": "%+d absorbiert Giftschaden",
     "esES": "%+d de absorción de daño de veneno",
@@ -3861,7 +3861,7 @@
   {
     "id": 10977,
     "Key": "Moditem2allattrib",
-    "enUS": "%+d to all Attributes",
+    "enUS": "%+d to all Attributes(ATTR)",
     "zhTW": "%+d 所有屬性(ATTR)",
     "deDE": "%+d zu allen Attributen",
     "esES": "%+d a todos los atributos",
@@ -3878,7 +3878,7 @@
   {
     "id": 10978,
     "Key": "Moditem2ExpG",
-    "enUS": "%+d%% to Experience Gained",
+    "enUS": "%+d%% to Experience Gained(EXP)",
     "zhTW": "獲得的經驗值(EXP) %+d%%",
     "deDE": "%+d%% zu gesammelter Erfahrung",
     "esES": "%+d%% de experiencia obtenida",
@@ -3895,7 +3895,7 @@
   {
     "id": 10979,
     "Key": "ModitemHPaK",
-    "enUS": "%+d Life after each Kill",
+    "enUS": "%+d Life after each Kill(LK)",
     "zhTW": "%+d 擊殺生命恢復(LK)",
     "deDE": "%+d Leben nach jedem Kill",
     "esES": "%+d p. de vida tras cada asesinato",
@@ -3912,7 +3912,7 @@
   {
     "id": 10980,
     "Key": "ModitemRedVendP",
-    "enUS": "Reduces all Vendor Prices %d%%",
+    "enUS": "Reduces all Vendor Prices(-Price) %d%%",
     "zhTW": "所有商人的價格降低(-Price) %d%%",
     "deDE": "Verringert alle Händlerpreise um %d%%",
     "esES": "Reduce un %d%% todos los precios de los vendedores",
@@ -3929,7 +3929,7 @@
   {
     "id": 10981,
     "Key": "ModitemSMRIP",
-    "enUS": "Slain Monsters Rest in Peace",
+    "enUS": "Slain Monsters Rest in Peace(RIP)",
     "zhTW": "殺死的怪物就此安息(RIP)",
     "deDE": "Besiegte Monster ruhen in Frieden",
     "esES": "Los monstruos asesinados descansan en paz",
@@ -3946,7 +3946,7 @@
   {
     "id": 10982,
     "Key": "ModitemAttratvsM",
-    "enUS": "%d%% to Attack Rating versus",
+    "enUS": "%d%% to Attack Rating(AR) versus",
     "zhTW": "%d%% 準確率(AR)，針對",
     "deDE": "%d%% zu Angriffswert gegen",
     "esES": "%d%% de índice de ataque contra",
@@ -3963,7 +3963,7 @@
   {
     "id": 10983,
     "Key": "Moditemdamvsm",
-    "enUS": "%d%% to Damage versus",
+    "enUS": "%d%% to Damage(DMG) versus",
     "zhTW": "%d%% 傷害(DMG)，針對",
     "deDE": "%d%% zu Schaden gegen",
     "esES": "%d%% de daño contra",
@@ -4014,7 +4014,7 @@
   {
     "id": 10986,
     "Key": "Moditemenrescoldsk",
-    "enUS": "-%d%% to Enemy Cold Resistance",
+    "enUS": "-%d%% to Enemy Cold Resistance(-CR)",
     "zhTW": "敵人冰寒抗性(-CR) -%d%%",
     "deDE": "-%d%% zu Kältewiderstand des Gegners",
     "esES": "-%d%% de resistencia enemiga al frío",
@@ -4031,7 +4031,7 @@
   {
     "id": 10987,
     "Key": "Moditemenresfiresk",
-    "enUS": "-%d%% to Enemy Fire Resistance",
+    "enUS": "-%d%% to Enemy Fire Resistance(-FR)",
     "zhTW": "敵人火焰抗性(-FR) -%d%%",
     "deDE": "-%d%% zu Feuerwiderstand des Gegners",
     "esES": "-%d%% de resistencia enemiga al fuego",
@@ -4048,7 +4048,7 @@
   {
     "id": 10988,
     "Key": "Moditemenresltngsk",
-    "enUS": "-%d%% to Enemy Lightning Resistance",
+    "enUS": "-%d%% to Enemy Lightning Resistance(-LR)",
     "zhTW": "敵人電擊抗性(-LR) -%d%%",
     "deDE": "-%d%% zu Blitzwiderstand des Gegners",
     "esES": "-%d%% de resistencia enemiga a los rayos",
@@ -4065,7 +4065,7 @@
   {
     "id": 10989,
     "Key": "Moditemenrespoissk",
-    "enUS": "-%d%% to Enemy Poison Resistance",
+    "enUS": "-%d%% to Enemy Poison Resistance(-PR)",
     "zhTW": "敵人毒素抗性(-PR) -%d%%",
     "deDE": "-%d%% zu Giftwiderstand des Gegners",
     "esES": "-%d%% de resistencia enemiga al veneno",
@@ -4082,7 +4082,7 @@
   {
     "id": 10990,
     "Key": "ModitemdamFiresk",
-    "enUS": "%+d%% to Fire Skill Damage",
+    "enUS": "%+d%% to Fire Skill Damage(FD)",
     "zhTW": "%+d%% 火焰技能傷害(FD)",
     "deDE": "%+d%% zu Feuerfertigkeitsschaden",
     "esES": "%+d%% de daño con habilidades de fuego",
@@ -4099,7 +4099,7 @@
   {
     "id": 10991,
     "Key": "ModitemdamColdsk",
-    "enUS": "%+d%% to Cold Skill Damage",
+    "enUS": "%+d%% to Cold Skill Damage(CD)",
     "zhTW": "%+d%% 冰寒技能傷害(CD)",
     "deDE": "%+d%% zu Kältefertigkeitsschaden",
     "esES": "%+d%% de daño con habilidades de frío",
@@ -4116,7 +4116,7 @@
   {
     "id": 10992,
     "Key": "ModitemdamLtngsk",
-    "enUS": "%+d%% to Lightning Skill Damage",
+    "enUS": "%+d%% to Lightning Skill Damage(LD)",
     "zhTW": "%+d%% 閃電技能傷害(LD)",
     "deDE": "%+d%% zu Blitzfertigkeitsschaden",
     "esES": "%+d%% de daño con habilidades de rayos",
@@ -4133,7 +4133,7 @@
   {
     "id": 10993,
     "Key": "ModitemdamPoissk",
-    "enUS": "%+d%% to Poison Skill Damage",
+    "enUS": "%+d%% to Poison Skill Damage(PD)",
     "zhTW": "%+d%% 毒素技能傷害(PD)",
     "deDE": "%+d%% zu Giftfertigkeitschaden",
     "esES": "%+d%% de daño con habilidades de veneno",
@@ -4218,7 +4218,7 @@
   {
     "id": 11018,
     "Key": "ItemStats1r",
-    "enUS": "Chance to Block: %d%%",
+    "enUS": "Chance to Block(CTB): %d%%",
     "zhTW": "格擋機率(CTB)：%d%%",
     "deDE": "Blockchance: %d%%",
     "esES": "Probabilidad de bloqueo: %d%%",
@@ -4235,7 +4235,7 @@
   {
     "id": 11032,
     "Key": "ModStr1w",
-    "enUS": "%d%% Extra Gold from Monsters",
+    "enUS": "%d%% Extra Gold from Monsters(EG)",
     "zhTW": "怪物金幣掉落量提高(EG) %d%%",
     "deDE": "%d%% Extragold von Monstern",
     "esES": "%d%% de oro extra de los monstruos",
@@ -4252,7 +4252,7 @@
   {
     "id": 11033,
     "Key": "ModStr1x",
-    "enUS": "%d%% Better Chance of Getting Magic Items",
+    "enUS": "%d%% Better Chance of Getting Magic Items(MF)",
     "zhTW": "尋獲魔法物品機率提高(MF) %d%%",
     "deDE": "%d%% bessere Chance, magischen Gegenstand zu erhalten",
     "esES": "+%d%% de probabilidad de encontrar objetos mágicos",
@@ -4269,7 +4269,7 @@
   {
     "id": 11034,
     "Key": "ModStr3u",
-    "enUS": "Hit Causes Monster to Flee %+d%%",
+    "enUS": "Hit Causes Monster to Flee(Flee) %+d%%",
     "zhTW": "%+d%% 機率擊中使怪物逃跑(Flee)",
     "deDE": "Treffer schlägt Monster in die Flucht %+d%%",
     "esES": "%+d%% de probabilidad de que los monstruos huyan al golpearlos",
@@ -4286,7 +4286,7 @@
   {
     "id": 11035,
     "Key": "ModStr4c",
-    "enUS": "%d%% Bonus to Attack Rating",
+    "enUS": "%d%% Bonus to Attack Rating(AR)",
     "zhTW": "%d%% 準確率加成(AR)",
     "deDE": "%d%% Bonus zu Angriffswert",
     "esES": "%d%% de bonus al índice de ataque",
@@ -4303,7 +4303,7 @@
   {
     "id": 11036,
     "Key": "ModStr5r",
-    "enUS": "Slows Target by %d%%",
+    "enUS": "Slows Target by(Slow) %d%%",
     "zhTW": "使目標減慢(Slow) %d%%",
     "deDE": "Verlangsamt Ziel um %d%%",
     "esES": "Ralentiza al objetivo un %d%%",
@@ -4337,7 +4337,7 @@
   {
     "id": 11038,
     "Key": "ModStr6d",
-    "enUS": "Hit Blinds Target",
+    "enUS": "Hit Blinds Target(HBT)",
     "zhTW": "擊中使目標目盲(HBT)",
     "deDE": "Treffer blendet Ziel",
     "esES": "Los golpes ciegan al objetivo",
@@ -4388,7 +4388,7 @@
   {
     "id": 11158,
     "Key": "ModStre8b",
-    "enUS": "%+d to Assassin Skill Levels",
+    "enUS": "%+d to Assassin Skill Levels(ASN)",
     "zhTW": "%+d 刺客技能等級(ASN)",
     "deDE": "%+d zu Assassinenfertigkeiten",
     "esES": "%+d a los niveles de habilidad de la asesina",
@@ -4456,7 +4456,7 @@
   {
     "id": 21205,
     "Key": "ModStre8a",
-    "enUS": "%+d to Druid Skill Levels",
+    "enUS": "%+d to Druid Skill Levels(DRU)",
     "zhTW": "%+d 德魯伊技能等級(DRU)",
     "deDE": "%+d zu Druidenfertigkeiten",
     "esES": "%+d a los niveles de habilidad del druida",
@@ -4490,7 +4490,7 @@
   {
     "id": 21208,
     "Key": "ModStre8d",
-    "enUS": " to Attack Rating vs. Demons",
+    "enUS": " to Attack Rating vs. Demons(ARD)",
     "zhTW": "對惡魔的準確率(ARD)",
     "deDE": " zu Angriffswert gegen Dämonen",
     "esES": "de índice de ataque contra demonios",
@@ -4507,7 +4507,7 @@
   {
     "id": 21209,
     "Key": "ModStre8e",
-    "enUS": " to Attack Rating vs. Undead",
+    "enUS": " to Attack Rating vs. Undead(ARU)",
     "zhTW": "對不死怪物的準確率(ARU)",
     "deDE": " zu Angriffswert gegen Untote",
     "esES": "de índice de ataque contra muertos vivientes",
@@ -4524,7 +4524,7 @@
   {
     "id": 21210,
     "Key": "ModStre8f",
-    "enUS": " to Damage vs. Demons",
+    "enUS": " to Damage vs. Demons(DTD)",
     "zhTW": "對惡魔的傷害(DTD)",
     "deDE": " zu Schaden gegen Dämonen",
     "esES": "de daño contra demonios",
@@ -4541,7 +4541,7 @@
   {
     "id": 21211,
     "Key": "ModStre8g",
-    "enUS": " percent to Attack Rating",
+    "enUS": " percent to Attack Rating(AR)",
     "zhTW": "% 準確率(AR)",
     "deDE": "% zu Angriffswert",
     "esES": "% de índice de ataque",
@@ -5561,7 +5561,7 @@
   {
     "id": 23001,
     "Key": "ModStr2uPercent",
-    "enUS": "Physical Damage Received Reduced by %d%%",
+    "enUS": "Physical Damage Received Reduced by(DR) %d%%",
     "zhTW": "受到的物理傷害降低(DR) %d%%",
     "deDE": "Erlittener physischer Schaden um %d%% verringert",
     "esES": "Daño físico sufrido reducido un %d%%",
@@ -5816,7 +5816,7 @@
   {
     "id": 27351,
     "Key": "ModStr2uPercentNegative",
-    "enUS": "Physical Damage Received Increased by %d%%",
+    "enUS": "Physical Damage Received Increased by(DI) %d%%",
     "zhTW": "受到的物理傷害提高(DI) %d%%",
     "deDE": "Erlittener physischer Schaden um %d%% erhöht",
     "esES": "Daño físico sufrido aumentado un %d%%",

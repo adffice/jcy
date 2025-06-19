@@ -1243,7 +1243,7 @@
   {
     "id": 1711,
     "Key": "HiqualityFormat",
-    "enUS": "%0 %1",
+    "enUS": "%1%0",
     "zhTW": "%1%0",
     "deDE": "a0n1:%0 %1",
     "esES": "a0n1:%1 %0",
@@ -1260,7 +1260,7 @@
   {
     "id": 1712,
     "Key": "LowqualityFormat",
-    "enUS": "%0 %1",
+    "enUS": "%0%1",
     "zhTW": "%0%1",
     "deDE": "a0n1:%0 %1",
     "esES": "a0n1:%1 %0",
@@ -30398,7 +30398,7 @@
   {
     "id": 27186,
     "Key": "DiabloCloneMessageTierOne",
-    "enUS": "Terror gazes upon Sanctuary.",
+    "enUS": "[1/6]Terror gazes upon Sanctuary.",
     "zhTW": "[1/6]恐懼默默凝視聖休亞瑞。",
     "deDE": "Der Blick des Schreckens ruht auf Sanktuario.",
     "esES": "El terror ha puesto la mirada en Santuario.",
@@ -30415,7 +30415,7 @@
   {
     "id": 27187,
     "Key": "DiabloCloneMessageTierTwo",
-    "enUS": "Terror approaches Sanctuary.",
+    "enUS": "[2/6]Terror approaches Sanctuary.",
     "zhTW": "[2/6]恐懼逐漸逼近聖休亞瑞。",
     "deDE": "Der Schrecken nähert sich Sanktuario.",
     "esES": "El terror se aproxima a Santuario.",
@@ -30432,7 +30432,7 @@
   {
     "id": 27188,
     "Key": "DiabloCloneMessageTierThree",
-    "enUS": "Terror begins to form within Sanctuary.",
+    "enUS": "[3/6]Terror begins to form within Sanctuary.",
     "zhTW": "[3/6]恐懼開始滲入聖休亞瑞。",
     "deDE": "Der Schrecken manifestiert sich in Sanktuario.",
     "esES": "El terror empieza a tomar forma en Santuario.",
@@ -30449,7 +30449,7 @@
   {
     "id": 27189,
     "Key": "DiabloCloneMessageTierFour",
-    "enUS": "Terror spreads across Sanctuary.",
+    "enUS": "[4/6]Terror spreads across Sanctuary.",
     "zhTW": "[4/6]恐懼蔓延整個聖休亞瑞。",
     "deDE": "Der Schrecken breitet sich in Sanktuario aus.",
     "esES": "El terror se propaga por Santuario.",
@@ -30466,7 +30466,7 @@
   {
     "id": 27190,
     "Key": "DiabloCloneMessageTierFive",
-    "enUS": "Terror is about to be unleashed upon Sanctuary.",
+    "enUS": "[5/6]Terror is about to be unleashed upon Sanctuary.",
     "zhTW": "[5/6]恐懼即將現身聖休亞瑞。",
     "deDE": "Der Schrecken wird bald in Sanktuario entfesselt.",
     "esES": "El terror se va a desatar sobre Santuario.",
@@ -30483,7 +30483,7 @@
   {
     "id": 27191,
     "Key": "DiabloCloneSpawnMessage",
-    "enUS": "Diablo has invaded Sanctuary!",
+    "enUS": "[6/6]Diablo has invaded Sanctuary!",
     "zhTW": "[6/6]迪亞布羅入侵聖休亞瑞了！",
     "deDE": "Diablo ist in Sanktuario eingedrungen!",
     "esES": "¡Diablo ha invadido Santuario!",

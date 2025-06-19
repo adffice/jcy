@@ -53,7 +53,7 @@
   {
     "id": 1727,
     "Key": "Hiquality",
-    "enUS": "Superior",
+    "enUS": "ÿc;Superiorÿc0",
     "zhTW": "ÿc;特等ÿc0",
     "deDE": "[fs]gute[ms]guter[ns]gutes[pl]gute",
     "esES": "[fs]superior[ms]superior[fp]superiores[mp]superiores",
@@ -3453,7 +3453,7 @@
   {
     "id": 2215,
     "Key": "gld",
-    "enUS": "Gold",
+    "enUS": "G",
     "zhTW": "金",
     "deDE": "Gold",
     "esES": "de oro",
@@ -3470,7 +3470,7 @@
   {
     "id": 2248,
     "Key": "gsb",
-    "enUS": "Sapphire",
+    "enUS": "ÿc1Sapphireÿc0",
     "zhTW": "ÿc1藍寶石ÿc0",
     "deDE": "Saphir",
     "esES": "Zafiro",
@@ -3487,7 +3487,7 @@
   {
     "id": 2254,
     "Key": "gsg",
-    "enUS": "Emerald",
+    "enUS": "ÿc1Emeraldÿc0",
     "zhTW": "ÿc1綠寶石ÿc0",
     "deDE": "Smaragd",
     "esES": "Esmeralda",
@@ -3504,7 +3504,7 @@
   {
     "id": 2258,
     "Key": "gsr",
-    "enUS": "Ruby",
+    "enUS": "ÿc1Rubyÿc0",
     "zhTW": "ÿc1紅寶石ÿc0",
     "deDE": "Rubin",
     "esES": "Rubí",
@@ -3521,7 +3521,7 @@
   {
     "id": 2263,
     "Key": "gsw",
-    "enUS": "Diamond",
+    "enUS": "ÿc1Diamondÿc0",
     "zhTW": "ÿc1鑽石ÿc0",
     "deDE": "Diamant",
     "esES": "Diamante",

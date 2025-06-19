@@ -2,7 +2,7 @@
   {
     "id": 10902,
     "Key": "r16",
-    "enUS": "Io Rune",
+    "enUS": "ÿc5[x3+Flawed Topaz]\nÿc8Io Rune#16",
     "zhTW": "ÿc5[x3+瑕疵黃寶石]\nÿc8符文：埃歐#16",
     "deDE": "[fs]Io-Rune",
     "esES": "Runa Io",
@@ -19,7 +19,7 @@
   {
     "id": 10903,
     "Key": "r16L",
-    "enUS": "Io",
+    "enUS": "Io#16",
     "zhTW": "埃歐#16",
     "deDE": "Io",
     "esES": "Io",
@@ -36,7 +36,7 @@
   {
     "id": 10904,
     "Key": "r13",
-    "enUS": "Shael Rune",
+    "enUS": "ÿc5[x3+Chipped Ruby]\nÿc8Shael Rune#13",
     "zhTW": "ÿc5[x3+碎裂紅寶石]\nÿc8符文：夏#13",
     "deDE": "[fs]Shael-Rune",
     "esES": "Runa Shael",
@@ -53,7 +53,7 @@
   {
     "id": 10905,
     "Key": "r13L",
-    "enUS": "Shael",
+    "enUS": "Shael#13",
     "zhTW": "夏#13",
     "deDE": "Shael",
     "esES": "Shael",
@@ -70,7 +70,7 @@
   {
     "id": 10906,
     "Key": "r31",
-    "enUS": "Jah Rune",
+    "enUS": "ÿc5[x2+Flawless Ruby]\nÿc8Jah Rune#31",
     "zhTW": "ÿc5[x2+無瑕紅寶石]\nÿc8符文：喬#31",
     "deDE": "[fs]Jah-Rune",
     "esES": "Runa Jah",
@@ -87,7 +87,7 @@
   {
     "id": 10907,
     "Key": "r31L",
-    "enUS": "Jah",
+    "enUS": "Jah#31",
     "zhTW": "喬#31",
     "deDE": "Jah",
     "esES": "Jah",
@@ -121,7 +121,7 @@
   {
     "id": 20440,
     "Key": "r33",
-    "enUS": "Zod Rune",
+    "enUS": "Zod Rune#33",
     "zhTW": "符文：薩德#33",
     "deDE": "[fs]Zod-Rune",
     "esES": "Runa Zod",
@@ -138,7 +138,7 @@
   {
     "id": 20441,
     "Key": "r32",
-    "enUS": "Cham Rune",
+    "enUS": "ÿc5[x2+Flawless Emerald]\nÿc8Cham Rune#32",
     "zhTW": "ÿc5[x2+無瑕綠寶石]\nÿc8符文：查姆#32",
     "deDE": "[fs]Cham-Rune",
     "esES": "Runa Cham",
@@ -155,7 +155,7 @@
   {
     "id": 20443,
     "Key": "r30",
-    "enUS": "Ber Rune",
+    "enUS": "ÿc5[x2+Flawless Sapphire]\nÿc8Ber Rune#30",
     "zhTW": "ÿc5[x2+無瑕藍寶石]\nÿc8符文：貝#30",
     "deDE": "[fs]Ber-Rune",
     "esES": "Runa Ber",
@@ -172,7 +172,7 @@
   {
     "id": 20444,
     "Key": "r29",
-    "enUS": "Sur Rune",
+    "enUS": "ÿc5[x2+Flawless Amethyst]\nÿc8Sur Rune#29",
     "zhTW": "ÿc5[x2+無瑕紫寶石]\nÿc8符文：瑟#29",
     "deDE": "[fs]Sur-Rune",
     "esES": "Runa Sur",
@@ -189,7 +189,7 @@
   {
     "id": 20445,
     "Key": "r28",
-    "enUS": "Lo Rune",
+    "enUS": "ÿc5[x2+Flawless Topaz]\nÿc8Lo Rune#28",
     "zhTW": "ÿc5[x2+無瑕黃寶石]\nÿc8符文：羅#28",
     "deDE": "[fs]Lo-Rune",
     "esES": "Runa Lo",
@@ -206,7 +206,7 @@
   {
     "id": 20446,
     "Key": "r27",
-    "enUS": "Ohm Rune",
+    "enUS": "ÿc5[x2+Diamond]\nÿc8Ohm Rune#27",
     "zhTW": "ÿc5[x2+鑽石]\nÿc8符文：歐姆#27",
     "deDE": "[fs]Ohm-Rune",
     "esES": "Runa Ohm",
@@ -223,7 +223,7 @@
   {
     "id": 20447,
     "Key": "r26",
-    "enUS": "Vex Rune",
+    "enUS": "ÿc5[x2+Emerald]\nÿc8Vex Rune#26",
     "zhTW": "ÿc5[x2+綠寶石]\nÿc8符文：伐克斯#26",
     "deDE": "[fs]Vex-Rune",
     "esES": "Runa Vex",
@@ -240,7 +240,7 @@
   {
     "id": 20448,
     "Key": "r25",
-    "enUS": "Gul Rune",
+    "enUS": "ÿc5[x2+Rub]\nÿc8Gul Rune#25",
     "zhTW": "ÿc5[x2+紅寶石]\nÿc8符文：古爾#25",
     "deDE": "[fs]Gul-Rune",
     "esES": "Runa Gul",
@@ -257,7 +257,7 @@
   {
     "id": 20449,
     "Key": "r24",
-    "enUS": "Ist Rune",
+    "enUS": "ÿc5[x2+Sapphire]\nÿc8Ist Rune#24",
     "zhTW": "ÿc5[x2+藍寶石]\nÿc8符文：伊司特#24",
     "deDE": "[fs]Ist-Rune",
     "esES": "Runa Ist",
@@ -274,7 +274,7 @@
   {
     "id": 20450,
     "Key": "r23",
-    "enUS": "Mal Rune",
+    "enUS": "ÿc5[x2+Amethyst]\nÿc8Mal Rune#23",
     "zhTW": "ÿc5[x2+紫寶石]\nÿc8符文：馬爾#23",
     "deDE": "[fs]Mal-Rune",
     "esES": "Runa Mal",
@@ -291,7 +291,7 @@
   {
     "id": 20451,
     "Key": "r22",
-    "enUS": "Um Rune",
+    "enUS": "ÿc5[x2+Topaz]\nÿc8Um Rune#22",
     "zhTW": "ÿc5[x2+黃寶石]\nÿc8符文：烏姆#22",
     "deDE": "[fs]Um-Rune",
     "esES": "Runa Um",
@@ -308,7 +308,7 @@
   {
     "id": 20452,
     "Key": "r21",
-    "enUS": "Pul Rune",
+    "enUS": "ÿc5[x2+Flawed Diamond]\nÿc8Pul Rune#21",
     "zhTW": "ÿc5[x2+瑕疵鑽石]\nÿc8符文：普爾#21",
     "deDE": "[fs]Pul-Rune",
     "esES": "Runa Pul",
@@ -325,7 +325,7 @@
   {
     "id": 20453,
     "Key": "r20",
-    "enUS": "Lem Rune",
+    "enUS": "ÿc5[x3+Flawed Emerald]\nÿc8Lem Rune#20",
     "zhTW": "ÿc5[x3+瑕疵綠寶石]\nÿc8符文：藍姆#20",
     "deDE": "[fs]Lem-Rune",
     "esES": "Runa Lem",
@@ -342,7 +342,7 @@
   {
     "id": 20454,
     "Key": "r19",
-    "enUS": "Fal Rune",
+    "enUS": "ÿc5[x3+Flawed Ruby]\nÿc8Fal Rune#19",
     "zhTW": "ÿc5[x3+瑕疵紅寶石]\nÿc8符文：法爾#19",
     "deDE": "[fs]Fal-Rune",
     "esES": "Runa Fal",
@@ -359,7 +359,7 @@
   {
     "id": 20455,
     "Key": "r18",
-    "enUS": "Ko Rune",
+    "enUS": "ÿc5[x3+Flawed Sapphire]\nÿc8Ko Rune#18",
     "zhTW": "ÿc5[x3+瑕疵藍寶石]\nÿc8符文：科#18",
     "deDE": "[fs]Ko-Rune",
     "esES": "Runa Ko",
@@ -376,7 +376,7 @@
   {
     "id": 20456,
     "Key": "r17",
-    "enUS": "Lum Rune",
+    "enUS": "ÿc5[x3+Flawed Amethyst]\nÿc8Lum Rune#17",
     "zhTW": "ÿc5[x3+瑕疵紫寶石]\nÿc8符文：盧姆#17",
     "deDE": "[fs]Lum-Rune",
     "esES": "Runa Lum",
@@ -393,7 +393,7 @@
   {
     "id": 20458,
     "Key": "r15",
-    "enUS": "Hel Rune",
+    "enUS": "ÿc5[x3+Chipped Diamond]\nÿc8Hel Rune#15",
     "zhTW": "ÿc5[x3+碎裂鑽石]\nÿc8符文：海爾#15",
     "deDE": "[fs]Hel-Rune",
     "esES": "Runa Hel",
@@ -410,7 +410,7 @@
   {
     "id": 20459,
     "Key": "r14",
-    "enUS": "Dol Rune",
+    "enUS": "ÿc5[x3+Chipped Emerald]\nÿc8Dol Rune#14",
     "zhTW": "ÿc5[x3+碎裂綠寶石]\nÿc8符文：多爾#14",
     "deDE": "[fs]Dol-Rune",
     "esES": "Runa Dol",
@@ -427,7 +427,7 @@
   {
     "id": 20461,
     "Key": "r12",
-    "enUS": "Sol Rune",
+    "enUS": "ÿc5[x3+Chipped Sapphire]\nÿc8Sol Rune#12",
     "zhTW": "ÿc5[x3+碎裂藍寶石]\nÿc8符文：索爾#12",
     "deDE": "[fs]Sol-Rune",
     "esES": "Runa Sol",
@@ -444,7 +444,7 @@
   {
     "id": 20462,
     "Key": "r11",
-    "enUS": "Amn Rune",
+    "enUS": "ÿc5[x3+Chipped Amethyst]\nÿc8Amn Rune#11",
     "zhTW": "ÿc5[x3+碎裂紫寶石]\nÿc8符文：安姆#11",
     "deDE": "[fs]Amn-Rune",
     "esES": "Runa Amn",
@@ -461,7 +461,7 @@
   {
     "id": 20463,
     "Key": "r10",
-    "enUS": "Thul Rune",
+    "enUS": "ÿc5[x3+Chipped Topaz]\nÿc8Thul Rune#10",
     "zhTW": "ÿc5[x3+碎裂黃寶石]\nÿc8符文：書爾#10",
     "deDE": "[fs]Thul-Rune",
     "esES": "Runa Thul",
@@ -478,7 +478,7 @@
   {
     "id": 20464,
     "Key": "r09",
-    "enUS": "Ort Rune",
+    "enUS": "Ort Rune#09",
     "zhTW": "符文：歐特#09",
     "deDE": "[fs]Ort-Rune",
     "esES": "Runa Ort",
@@ -495,7 +495,7 @@
   {
     "id": 20465,
     "Key": "r08",
-    "enUS": "Ral Rune",
+    "enUS": "Ral Rune#08",
     "zhTW": "符文：拉爾#08",
     "deDE": "[fs]Ral-Rune",
     "esES": "Runa Ral",
@@ -512,7 +512,7 @@
   {
     "id": 20466,
     "Key": "r07",
-    "enUS": "Tal Rune",
+    "enUS": "Tal Rune#07",
     "zhTW": "符文：塔爾#07",
     "deDE": "[fs]Tal-Rune",
     "esES": "Runa Tal",
@@ -529,7 +529,7 @@
   {
     "id": 20467,
     "Key": "r06",
-    "enUS": "Ith Rune",
+    "enUS": "Ith Rune#06",
     "zhTW": "符文：伊司#06",
     "deDE": "[fs]Ith-Rune",
     "esES": "Runa Ith",
@@ -546,7 +546,7 @@
   {
     "id": 20468,
     "Key": "r05",
-    "enUS": "Eth Rune",
+    "enUS": "Eth Rune#05",
     "zhTW": "符文：愛斯#05",
     "deDE": "[fs]Eth-Rune",
     "esES": "Runa Eth",
@@ -563,7 +563,7 @@
   {
     "id": 20469,
     "Key": "r04",
-    "enUS": "Nef Rune",
+    "enUS": "Nef Rune#04",
     "zhTW": "符文：那夫#04",
     "deDE": "[fs]Nef-Rune",
     "esES": "Runa Nef",
@@ -580,7 +580,7 @@
   {
     "id": 20470,
     "Key": "r03",
-    "enUS": "Tir Rune",
+    "enUS": "Tir Rune#03",
     "zhTW": "符文：特爾#03",
     "deDE": "[fs]Tir-Rune",
     "esES": "Runa Tir",
@@ -597,7 +597,7 @@
   {
     "id": 20471,
     "Key": "r02",
-    "enUS": "Eld Rune",
+    "enUS": "Eld Rune#02",
     "zhTW": "符文：艾德#02",
     "deDE": "[fs]Eld-Rune",
     "esES": "Runa Eld",
@@ -614,7 +614,7 @@
   {
     "id": 20472,
     "Key": "r01",
-    "enUS": "El Rune",
+    "enUS": "El Rune#01",
     "zhTW": "符文：艾爾#01",
     "deDE": "[fs]El-Rune",
     "esES": "Runa El",
@@ -631,7 +631,7 @@
   {
     "id": 20473,
     "Key": "r33L",
-    "enUS": "Zod",
+    "enUS": "Zod#33",
     "zhTW": "薩德#33",
     "deDE": "Zod",
     "esES": "Zod",
@@ -648,7 +648,7 @@
   {
     "id": 20474,
     "Key": "r32L",
-    "enUS": "Cham",
+    "enUS": "Cham#32",
     "zhTW": "查姆#32",
     "deDE": "Cham",
     "esES": "Cham",
@@ -665,7 +665,7 @@
   {
     "id": 20476,
     "Key": "r30L",
-    "enUS": "Ber",
+    "enUS": "Ber#30",
     "zhTW": "貝#30",
     "deDE": "Ber",
     "esES": "Ber",
@@ -682,7 +682,7 @@
   {
     "id": 20477,
     "Key": "r29L",
-    "enUS": "Sur",
+    "enUS": "Sur#29",
     "zhTW": "瑟#29",
     "deDE": "Sur",
     "esES": "Sur",
@@ -699,7 +699,7 @@
   {
     "id": 20478,
     "Key": "r28L",
-    "enUS": "Lo",
+    "enUS": "Lo#28",
     "zhTW": "羅#28",
     "deDE": "Lo",
     "esES": "Lo",
@@ -716,7 +716,7 @@
   {
     "id": 20479,
     "Key": "r27L",
-    "enUS": "Ohm",
+    "enUS": "Ohm#27",
     "zhTW": "歐姆#27",
     "deDE": "Ohm",
     "esES": "Ohm",
@@ -733,7 +733,7 @@
   {
     "id": 20480,
     "Key": "r26L",
-    "enUS": "Vex",
+    "enUS": "Vex#26",
     "zhTW": "伐克斯#26",
     "deDE": "Vex",
     "esES": "Vex",
@@ -750,7 +750,7 @@
   {
     "id": 20481,
     "Key": "r25L",
-    "enUS": "Gul",
+    "enUS": "Gul#25",
     "zhTW": "古爾#25",
     "deDE": "Gul",
     "esES": "Gul",
@@ -767,7 +767,7 @@
   {
     "id": 20482,
     "Key": "r24L",
-    "enUS": "Ist",
+    "enUS": "Ist#24",
     "zhTW": "伊司特#24",
     "deDE": "Ist",
     "esES": "Ist",
@@ -784,7 +784,7 @@
   {
     "id": 20483,
     "Key": "r23L",
-    "enUS": "Mal",
+    "enUS": "Mal#23",
     "zhTW": "馬爾#23",
     "deDE": "Mal",
     "esES": "Mal",
@@ -801,7 +801,7 @@
   {
     "id": 20484,
     "Key": "r22L",
-    "enUS": "Um",
+    "enUS": "Um#22",
     "zhTW": "烏姆#22",
     "deDE": "Um",
     "esES": "Um",
@@ -818,7 +818,7 @@
   {
     "id": 20485,
     "Key": "r21L",
-    "enUS": "Pul",
+    "enUS": "Pul#21",
     "zhTW": "普爾#21",
     "deDE": "Pul",
     "esES": "Pul",
@@ -835,7 +835,7 @@
   {
     "id": 20486,
     "Key": "r20L",
-    "enUS": "Lem",
+    "enUS": "Lem#20",
     "zhTW": "藍姆#20",
     "deDE": "Lem",
     "esES": "Lem",
@@ -852,7 +852,7 @@
   {
     "id": 20487,
     "Key": "r19L",
-    "enUS": "Fal",
+    "enUS": "Fal#19",
     "zhTW": "法爾#19",
     "deDE": "Fal",
     "esES": "Fal",
@@ -869,7 +869,7 @@
   {
     "id": 20488,
     "Key": "r18L",
-    "enUS": "Ko",
+    "enUS": "Ko#18",
     "zhTW": "科#18",
     "deDE": "Ko",
     "esES": "Ko",
@@ -886,7 +886,7 @@
   {
     "id": 20489,
     "Key": "r17L",
-    "enUS": "Lum",
+    "enUS": "Lum#17",
     "zhTW": "盧姆#17",
     "deDE": "Lum",
     "esES": "Lum",
@@ -903,7 +903,7 @@
   {
     "id": 20491,
     "Key": "r15L",
-    "enUS": "Hel",
+    "enUS": "Hel#15",
     "zhTW": "海爾#15",
     "deDE": "Hel",
     "esES": "Hel",
@@ -920,7 +920,7 @@
   {
     "id": 20492,
     "Key": "r14L",
-    "enUS": "Dol",
+    "enUS": "Dol#14",
     "zhTW": "多爾#14",
     "deDE": "Dol",
     "esES": "Dol",
@@ -937,7 +937,7 @@
   {
     "id": 20494,
     "Key": "r12L",
-    "enUS": "Sol",
+    "enUS": "Sol#12",
     "zhTW": "索爾#12",
     "deDE": "Sol",
     "esES": "Sol",
@@ -954,7 +954,7 @@
   {
     "id": 20495,
     "Key": "r11L",
-    "enUS": "Amn",
+    "enUS": "Amn#11",
     "zhTW": "安姆#11",
     "deDE": "Amn",
     "esES": "Amn",
@@ -971,7 +971,7 @@
   {
     "id": 20496,
     "Key": "r10L",
-    "enUS": "Thul",
+    "enUS": "Thul#10",
     "zhTW": "書爾#10",
     "deDE": "Thul",
     "esES": "Thul",
@@ -988,7 +988,7 @@
   {
     "id": 20497,
     "Key": "r09L",
-    "enUS": "Ort",
+    "enUS": "Ort#09",
     "zhTW": "歐特#09",
     "deDE": "Ort",
     "esES": "Ort",
@@ -1005,7 +1005,7 @@
   {
     "id": 20498,
     "Key": "r08L",
-    "enUS": "Ral",
+    "enUS": "Ral#08",
     "zhTW": "拉爾#08",
     "deDE": "Ral",
     "esES": "Ral",
@@ -1022,7 +1022,7 @@
   {
     "id": 20499,
     "Key": "r07L",
-    "enUS": "Tal",
+    "enUS": "Tal#07",
     "zhTW": "塔爾#07",
     "deDE": "Tal",
     "esES": "Tal",
@@ -1039,7 +1039,7 @@
   {
     "id": 20500,
     "Key": "r06L",
-    "enUS": "Ith",
+    "enUS": "Ith#06",
     "zhTW": "伊司#06",
     "deDE": "Ith",
     "esES": "Ith",
@@ -1056,7 +1056,7 @@
   {
     "id": 20501,
     "Key": "r05L",
-    "enUS": "Eth",
+    "enUS": "Eth#05",
     "zhTW": "愛斯#05",
     "deDE": "Eth",
     "esES": "Eth",
@@ -1073,7 +1073,7 @@
   {
     "id": 20502,
     "Key": "r04L",
-    "enUS": "Nef",
+    "enUS": "Nef#04",
     "zhTW": "那夫#04",
     "deDE": "Nef",
     "esES": "Nef",
@@ -1090,7 +1090,7 @@
   {
     "id": 20503,
     "Key": "r03L",
-    "enUS": "Tir",
+    "enUS": "Tir#03",
     "zhTW": "特爾#03",
     "deDE": "Tir",
     "esES": "Tir",
@@ -1107,7 +1107,7 @@
   {
     "id": 20504,
     "Key": "r02L",
-    "enUS": "Eld",
+    "enUS": "Eld#02",
     "zhTW": "艾德#02",
     "deDE": "Eld",
     "esES": "Eld",
@@ -1124,7 +1124,7 @@
   {
     "id": 20505,
     "Key": "r01L",
-    "enUS": "El",
+    "enUS": "El#01",
     "zhTW": "艾爾#01",
     "deDE": "El",
     "esES": "El",
@@ -1209,7 +1209,7 @@
   {
     "id": 20510,
     "Key": "Runeword4",
-    "enUS": "Beast",
+    "enUS": "[MAX:270ED/40STR]\nBeast",
     "zhTW": "[MAX:270ED/40STR]\n野獸",
     "deDE": "Bestie",
     "esES": "Bestia",
@@ -1277,7 +1277,7 @@
   {
     "id": 20514,
     "Key": "Runeword8",
-    "enUS": "Bone",
+    "enUS": "[MAX:150Mana]\nBone",
     "zhTW": "[MAX:150Mana]\n骸骨",
     "deDE": "Knochen",
     "esES": "Hueso",
@@ -1294,7 +1294,7 @@
   {
     "id": 20515,
     "Key": "Runeword9",
-    "enUS": "Bramble",
+    "enUS": "[MAX:21 Thorns/50PD]\nBramble",
     "zhTW": "[MAX:21荊棘/50PD]\n刺藤",
     "deDE": "Dornen",
     "esES": "Zarza",
@@ -1311,7 +1311,7 @@
   {
     "id": 20516,
     "Key": "Runeword10",
-    "enUS": "Brand",
+    "enUS": "[MAX:340ED/330DTD]\nBrand",
     "zhTW": "[MAX:340ED/330DTD]\n烙印",
     "deDE": "Brand",
     "esES": "Tizón",
@@ -1328,7 +1328,7 @@
   {
     "id": 20517,
     "Key": "Runeword11",
-    "enUS": "Breath of the Dying",
+    "enUS": "[MAX:400ED/15LL]\nBreath of the Dying",
     "zhTW": "[MAX:400ED/15LL]\n死亡呼吸",
     "deDE": "Odem der Sterbenden",
     "esES": "Aliento de los muertos",
@@ -1362,7 +1362,7 @@
   {
     "id": 20519,
     "Key": "Runeword13",
-    "enUS": "Call to Arms",
+    "enUS": "[MAX:290ED/6/6/4]\nCall to Arms",
     "zhTW": "[MAX:290ED/6/6/4]\n戰爭召喚",
     "deDE": "Ruf zu den Waffen",
     "esES": "Llamada a las armas",
@@ -1413,7 +1413,7 @@
   {
     "id": 20522,
     "Key": "Runeword16",
-    "enUS": "Chaos",
+    "enUS": "[MAX:340ED]\nChaos",
     "zhTW": "[MAX:340ED]\n混沌",
     "deDE": "Chaos",
     "esES": "Caos",
@@ -1430,7 +1430,7 @@
   {
     "id": 20523,
     "Key": "Runeword17",
-    "enUS": "Crescent Moon",
+    "enUS": "[MAX:220ED/11MA]\nCrescent Moon",
     "zhTW": "[MAX:220ED/11MA]\n新月",
     "deDE": "Mondsichel",
     "esES": "Luna creciente",
@@ -1481,7 +1481,7 @@
   {
     "id": 20526,
     "Key": "Runeword20",
-    "enUS": "Death",
+    "enUS": "[MAX:385ED]\nDeath",
     "zhTW": "[MAX:385ED]\n死神",
     "deDE": "Tod",
     "esES": "Muerte",
@@ -1566,7 +1566,7 @@
   {
     "id": 20532,
     "Key": "Runeword26",
-    "enUS": "Doom",
+    "enUS": "[MAX:370ED/-60CR]\nDoom",
     "zhTW": "[MAX:370ED/-60CR]\n末日",
     "deDE": "Verdammnis",
     "esES": "Fatalidad",
@@ -1583,7 +1583,7 @@
   {
     "id": 20533,
     "Key": "Runeword27",
-    "enUS": "Dragon",
+    "enUS": "[MAX:5ATTR]\nDragon",
     "zhTW": "[MAX:5ATTR]\n飛龍",
     "deDE": "Drachen",
     "esES": "Dragón",
@@ -1617,7 +1617,7 @@
   {
     "id": 20535,
     "Key": "Runeword29",
-    "enUS": "Dream",
+    "enUS": "[MAX:30FHR/220DEF/20RES/25MF]\nDream",
     "zhTW": "[MAX:30FHR/220DEF/20RES/25MF]\n夢境",
     "deDE": "Traum",
     "esES": "Sueño",
@@ -1634,7 +1634,7 @@
   {
     "id": 20536,
     "Key": "Runeword30",
-    "enUS": "Duress",
+    "enUS": "[MAX:20EDmg/200EDef]\nDuress",
     "zhTW": "[MAX:20EDmg/200EDef]\n強制",
     "deDE": "Nötigung",
     "esES": "Coacción",
@@ -1651,7 +1651,7 @@
   {
     "id": 20537,
     "Key": "Runeword31",
-    "enUS": "Edge",
+    "enUS": "[MAX:380DTD/10ATTR]\nEdge",
     "zhTW": "[MAX:380DTD/10ATTR]\n邊緣",
     "deDE": "Schneide",
     "esES": "Filo",
@@ -1685,7 +1685,7 @@
   {
     "id": 20539,
     "Key": "Runeword33",
-    "enUS": "Enigma",
+    "enUS": "[MAX:775DEF]\nEnigma",
     "zhTW": "[MAX:775DEF]\n謎團",
     "deDE": "Rätsel",
     "esES": "Enigma",
@@ -1736,7 +1736,7 @@
   {
     "id": 20542,
     "Key": "Runeword36",
-    "enUS": "Eternity",
+    "enUS": "[MAX:310ED]\nEternity",
     "zhTW": "[MAX:310ED]\n永恆",
     "deDE": "Ewigkeit",
     "esES": "Eternidad",
@@ -1753,7 +1753,7 @@
   {
     "id": 20543,
     "Key": "Runeword37",
-    "enUS": "Exile",
+    "enUS": "[MAX:16 Defiance/260ED]\nExile",
     "zhTW": "[MAX:16反抗/260ED]\n流亡",
     "deDE": "Exil",
     "esES": "Exilio",
@@ -1770,7 +1770,7 @@
   {
     "id": 20544,
     "Key": "Runeword38",
-    "enUS": "Faith",
+    "enUS": "[MAX:15 Fanaticism/2Skill]\nFaith",
     "zhTW": "[MAX:15狂熱/2Skill]\n信心",
     "deDE": "Glaube",
     "esES": "Fe",
@@ -1787,7 +1787,7 @@
   {
     "id": 20545,
     "Key": "Runeword39",
-    "enUS": "Famine",
+    "enUS": "[MAX:370ED]\nFamine",
     "zhTW": "[MAX:370ED]\n饑荒",
     "deDE": "Hungersnot",
     "esES": "Hambruna",
@@ -1804,7 +1804,7 @@
   {
     "id": 20546,
     "Key": "Runeword40",
-    "enUS": "Flickering Flame",
+    "enUS": "[MAX:8 Resist Fire/-15FR/75Mana]\nFlickering Flame",
     "zhTW": "[MAX:8抗火/-15FR/75Mana]\n閃爍火焰",
     "deDE": "Flamme",
     "esES": "Llama trémula",
@@ -1821,7 +1821,7 @@
   {
     "id": 20547,
     "Key": "Runeword41",
-    "enUS": "Fortitude",
+    "enUS": "[MAX:1.5Life(LV)/30RES]\nFortitude",
     "zhTW": "[MAX:1.5Life(LV)/30RES]\n剛毅",
     "deDE": "Stärke",
     "esES": "Fortaleza",
@@ -1889,7 +1889,7 @@
   {
     "id": 20551,
     "Key": "Runeword45",
-    "enUS": "Gloom",
+    "enUS": "[MAX:260ED]\nGloom",
     "zhTW": "[MAX:260ED]\n幽暗",
     "deDE": "Düsternis",
     "esES": "Melancolía",
@@ -1923,7 +1923,7 @@
   {
     "id": 20553,
     "Key": "Runeword47",
-    "enUS": "Grief",
+    "enUS": "[MAX:40IAS/400DMG/-25PR/15LK]\nGrief",
     "zhTW": "[MAX:40IAS/400DMG/-25PR/15LK]\n悔恨",
     "deDE": "Trauer",
     "esES": "Dolor",
@@ -1940,7 +1940,7 @@
   {
     "id": 20554,
     "Key": "Runeword48",
-    "enUS": "Hand of Justice",
+    "enUS": "[MAX:330ED]\nHand of Justice",
     "zhTW": "[MAX:330ED]\n正義之手",
     "deDE": "Hand der Gerechtigkeit",
     "esES": "Mano justiciera",
@@ -1957,7 +1957,7 @@
   {
     "id": 20555,
     "Key": "Runeword49",
-    "enUS": "Harmony",
+    "enUS": "[MAX:275ED/6 Valkyrie]\nHarmony",
     "zhTW": "[MAX:275ED/6女武神]\n和諧",
     "deDE": "Harmonie",
     "esES": "Armonía",
@@ -1991,7 +1991,7 @@
   {
     "id": 20557,
     "Key": "Runeword51",
-    "enUS": "Heart of the Oak",
+    "enUS": "[MAX:40RES]\nHeart of the Oak",
     "zhTW": "[MAX:40RES]\n橡樹之心",
     "deDE": "Herz der Eiche",
     "esES": "Corazón de roble",
@@ -2127,7 +2127,7 @@
   {
     "id": 20565,
     "Key": "Runeword59",
-    "enUS": "Ice",
+    "enUS": "[MAX:210ED/30CD]\nIce",
     "zhTW": "[MAX:210ED/30CD]\n寒冰",
     "deDE": "Eis",
     "esES": "Hielo",
@@ -2144,7 +2144,7 @@
   {
     "id": 20566,
     "Key": "Runeword60",
-    "enUS": "Infinity",
+    "enUS": "[MAX:325ED/-55LR]\nInfinity",
     "zhTW": "[MAX:325ED/-55LR]\n無限",
     "deDE": "Unendlichkeit",
     "esES": "Infinito",
@@ -2178,7 +2178,7 @@
   {
     "id": 20568,
     "Key": "Runeword62",
-    "enUS": "Insight",
+    "enUS": "[MAX:17 Meditation/260ED/250AR/6 Critical Strike]\nInsight",
     "zhTW": "[MAX:17冥想/260ED/250AR/6致命攻勢]\n靈光",
     "deDE": "Einsicht",
     "esES": "Perspicacia",
@@ -2246,7 +2246,7 @@
   {
     "id": 20572,
     "Key": "Runeword66",
-    "enUS": "Kingslayer",
+    "enUS": "[MAX:270ED]\nKingslayer",
     "zhTW": "[MAX:270ED]\n弒王者",
     "deDE": "Königsmord",
     "esES": "Regicida",
@@ -2297,7 +2297,7 @@
   {
     "id": 20575,
     "Key": "Runeword69",
-    "enUS": "Last Wish",
+    "enUS": "[MAX:375ED/70CB]\nLast Wish",
     "zhTW": "[MAX:375ED/70CB]\n最後遺願",
     "deDE": "Letzter Wunsch",
     "esES": "Último deseo",
@@ -2331,7 +2331,7 @@
   {
     "id": 20577,
     "Key": "Runeword71",
-    "enUS": "Lawbringer",
+    "enUS": "[MAX:18 Sanctuary/250 Defense vs. Missile]\nLawbringer",
     "zhTW": "[MAX:18庇護/250遠程防禦]\n執法者",
     "deDE": "Gesetzesbringer",
     "esES": "Jurista",
@@ -2535,7 +2535,7 @@
   {
     "id": 20589,
     "Key": "Runeword84",
-    "enUS": "Mist",
+    "enUS": "[MAX:12 Concentration/375ED]\nMist",
     "zhTW": "[MAX:12專注/375ED]\n迷霧",
     "deDE": "Nebel",
     "esES": "Bruma",
@@ -2654,7 +2654,7 @@
   {
     "id": 20596,
     "Key": "Runeword91",
-    "enUS": "Oath",
+    "enUS": "[MAX:340ED/15MA]\nOath",
     "zhTW": "[MAX:340ED/15MA]\n誓約",
     "deDE": "Eid",
     "esES": "Juramento",
@@ -2671,7 +2671,7 @@
   {
     "id": 20597,
     "Key": "Runeword92",
-    "enUS": "Obedience",
+    "enUS": "[MAX:300DEF/30RES]\nObedience",
     "zhTW": "[MAX:300DEF/30RES]\n遵從",
     "deDE": "Gehorsam",
     "esES": "Obediencia",
@@ -2705,7 +2705,7 @@
   {
     "id": 20599,
     "Key": "Runeword94",
-    "enUS": "Obsession",
+    "enUS": "[MAX:25MaxLife/30RegMana/70RES]\nObsession",
     "zhTW": "[MAX:25MaxLife/30RegMana/70RES]\n執念",
     "deDE": "Besessenheit",
     "esES": "Obsesión",
@@ -2722,7 +2722,7 @@
   {
     "id": 20600,
     "Key": "Runeword95",
-    "enUS": "Passion",
+    "enUS": "[MAX:210ED/80AR]\nPassion",
     "zhTW": "[MAX:210ED/80AR]\n熱情",
     "deDE": "Leidenschaft",
     "esES": "Pasión",
@@ -2756,7 +2756,7 @@
   {
     "id": 20602,
     "Key": "Runeword97",
-    "enUS": "Pattern",
+    "enUS": "[MAX:80ED]\nPattern",
     "zhTW": "[MAX:80ED]\n圖紋",
     "deDE": "Prasseln",
     "esES": "Patrón",
@@ -2790,7 +2790,7 @@
   {
     "id": 20604,
     "Key": "Runeword99",
-    "enUS": "Voice of Reason",
+    "enUS": "[MAX:350DTD/375DTU]\nVoice of Reason",
     "zhTW": "[MAX:350DTD/375DTU]\n理性之聲",
     "deDE": "Stimme der Vernunft",
     "esES": "Voz de la razón",
@@ -2858,7 +2858,7 @@
   {
     "id": 20608,
     "Key": "Runeword103",
-    "enUS": "Phoenix",
+    "enUS": "[MAX:15 Redemption/400ED/400 Defense vs. Missile/21FA]\nPhoenix",
     "zhTW": "[MAX:15救贖/400ED/400遠程防禦/21FA]\n鳳凰",
     "deDE": "Phönix",
     "esES": "Fénix",
@@ -2909,8 +2909,8 @@
   {
     "id": 20611,
     "Key": "Runeword106",
-    "enUS": "Plague",
-    "zhTW": "[MAX:17淨化/2Skill/320ED]\n瘟疫",
+    "enUS": "[MAX:17淨化/2Skill/320ED]\nPlague",
+    "zhTW": "[MAX:17 Cleansing/2Skill/320ED]\n瘟疫",
     "deDE": "Pest",
     "esES": "Peste",
     "frFR": "Peste",
@@ -2960,7 +2960,7 @@
   {
     "id": 20614,
     "Key": "Runeword109",
-    "enUS": "Pride",
+    "enUS": "[MAX:20 Concentration/300AR]\nPride",
     "zhTW": "[MAX:20專注/300AR]\n驕傲",
     "deDE": "Stolz",
     "esES": "Orgullo",
@@ -2977,7 +2977,7 @@
   {
     "id": 20615,
     "Key": "Runeword110",
-    "enUS": "Principle",
+    "enUS": "[MAX:150Life]\nPrinciple",
     "zhTW": "[MAX:150Life]\n原則",
     "deDE": "Prinzip",
     "esES": "Principio",
@@ -3011,7 +3011,7 @@
   {
     "id": 20617,
     "Key": "Runeword112",
-    "enUS": "Prudence",
+    "enUS": "[MAX:170ED/35RES]\nPrudence",
     "zhTW": "[MAX:170ED/35RES]\n謹慎",
     "deDE": "Besonnenheit",
     "esES": "Prudencia",
@@ -3096,7 +3096,7 @@
   {
     "id": 20622,
     "Key": "Runeword117",
-    "enUS": "Rain",
+    "enUS": "[MAX:150Mana]\nRain",
     "zhTW": "[MAX:150Mana]\n降雨",
     "deDE": "Regen",
     "esES": "Lluvia",
@@ -3164,7 +3164,7 @@
   {
     "id": 20626,
     "Key": "Runeword121",
-    "enUS": "Rift",
+    "enUS": "[MAX:10ATTR]\nRift",
     "zhTW": "[MAX:10ATTR]\n裂隙",
     "deDE": "Zerrissenheit",
     "esES": "Grieta",
@@ -3181,7 +3181,7 @@
   {
     "id": 20627,
     "Key": "Runeword122",
-    "enUS": "Sanctuary",
+    "enUS": "[MAX:160ED/70RES]\nSanctuary",
     "zhTW": "[MAX:160ED/70RES]\n聖堂",
     "deDE": "Zuflucht",
     "esES": "Santuario",
@@ -3317,7 +3317,7 @@
   {
     "id": 20635,
     "Key": "Runeword130",
-    "enUS": "Spirit",
+    "enUS": "[MAX:35FCR/112Mana/8MA]\nSpirit",
     "zhTW": "[MAX:35FCR/112Mana/8MA]\n精神",
     "deDE": "Geist",
     "esES": "Espíritu",
@@ -3334,7 +3334,7 @@
   {
     "id": 20636,
     "Key": "Runeword131",
-    "enUS": "Splendor",
+    "enUS": "[MAX:100ED]\nSplendor",
     "zhTW": "[MAX:100ED]\n燦爛",
     "deDE": "Pracht",
     "esES": "Esplendor",
@@ -3436,7 +3436,7 @@
   {
     "id": 20642,
     "Key": "Runeword137",
-    "enUS": "Stone",
+    "enUS": "[MAX:290ED]\nStone",
     "zhTW": "[MAX:290ED]\n石塊",
     "deDE": "Stein",
     "esES": "Roca",
@@ -3674,7 +3674,7 @@
   {
     "id": 20656,
     "Key": "Runeword151",
-    "enUS": "Unbending Will",
+    "enUS": "[MAX:30IAS/350ED/10LL]\nUnbending Will",
     "zhTW": "[MAX:30IAS/350ED/10LL]\n不屈意志",
     "deDE": "Unbeugsamer Wille",
     "esES": "Voluntad de hierro",
@@ -3878,7 +3878,7 @@
   {
     "id": 20668,
     "Key": "Runeword163",
-    "enUS": "Wind",
+    "enUS": "[MAX:160ED]\nWind",
     "zhTW": "[MAX:160ED]\n輕風",
     "deDE": "Wind",
     "esES": "Viento",
@@ -3912,7 +3912,7 @@
   {
     "id": 20670,
     "Key": "Runeword165",
-    "enUS": "Wisdom",
+    "enUS": "[MAX:25AR/8LM]\nWisdom",
     "zhTW": "[MAX:25AR/8LM]\n智慧",
     "deDE": "Weisheit",
     "esES": "Sabiduría",
@@ -3963,7 +3963,7 @@
   {
     "id": 20673,
     "Key": "Runeword168",
-    "enUS": "Wrath",
+    "enUS": "[MAX:300DTU]\nWrath",
     "zhTW": "[MAX:300DTU]\n憤怒",
     "deDE": "Wut",
     "esES": "Ira",
@@ -4031,7 +4031,7 @@
   {
     "id": 27361,
     "Key": "Runeword172",
-    "enUS": "Hustle",
+    "enUS": "[MAX:200ED]\nHustle",
     "zhTW": "[MAX:200ED]\n催促",
     "deDE": "Hetze",
     "esES": "Apremio",
@@ -4048,7 +4048,7 @@
   {
     "id": 27362,
     "Key": "Runeword173",
-    "enUS": "Mosaic",
+    "enUS": "[MAX:250ED/15CD/15LD/15FD]\nMosaic",
     "zhTW": "[MAX:250ED/15CD/15LD/15FD]\n嵌飾",
     "deDE": "Mosaik",
     "esES": "Mosaico",
@@ -4065,7 +4065,7 @@
   {
     "id": 27363,
     "Key": "Runeword174",
-    "enUS": "Metamorphosis",
+    "enUS": "[MAX:80ED]\nMetamorphosis",
     "zhTW": "[MAX:80ED]\n變化",
     "deDE": "Metamorphose",
     "esES": "Metamorfosis",
@@ -4082,7 +4082,7 @@
   {
     "id": 27364,
     "Key": "Runeword175",
-    "enUS": "Ground",
+    "enUS": "[MAX:100ED/60LR/15LA]\nGround",
     "zhTW": "[MAX:100ED/60LR/15LA]\n接地",
     "deDE": "Boden",
     "esES": "Tierra",
@@ -4099,7 +4099,7 @@
   {
     "id": 27365,
     "Key": "Runeword176",
-    "enUS": "Temper",
+    "enUS": "[MAX:100ED/60FR/15FA]\nTemper",
     "zhTW": "[MAX:100ED/60FR/15FA]\n和緩",
     "deDE": "Temperament",
     "esES": "Temperamento",
@@ -4116,7 +4116,7 @@
   {
     "id": 27366,
     "Key": "Runeword177",
-    "enUS": "Hearth",
+    "enUS": "[MAX:100ED/60CR/15CA]\nHearth",
     "zhTW": "[MAX:100ED/60CR/15CA]\n火爐",
     "deDE": "Heim",
     "esES": "Hogar",
@@ -4133,7 +4133,7 @@
   {
     "id": 27367,
     "Key": "Runeword178",
-    "enUS": "Cure",
+    "enUS": "[MAX:100ED/60PR]\nCure",
     "zhTW": "[MAX:100ED/60PR]\n治癒",
     "deDE": "Heilung",
     "esES": "Cura",
@@ -4150,7 +4150,7 @@
   {
     "id": 27368,
     "Key": "Runeword179",
-    "enUS": "Bulwark",
+    "enUS": "[MAX:100ED/6LL/15DR]\nBulwark",
     "zhTW": "[MAX:100ED/6LL/15DR]\n壁壘",
     "deDE": "Bollwerk",
     "esES": "Baluarte",

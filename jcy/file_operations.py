@@ -465,6 +465,7 @@ class FileOperations:
                 # 2.modify
                 for i, item in enumerate(json_data):
                     if item["id"] == 1712:
+                        item["enUS"] = "" if isEnabled else "%0%1"
                         item["zhTW"] = "" if isEnabled else "%0%1"
                         item["zhCN"] = "" if isEnabled else "%0%1"
                 
@@ -492,31 +493,31 @@ class FileOperations:
         屏蔽 杂物道具
         """
         params = {
-            2182: {"zhTW":"小毒", "zhCN":"小毒"},
-            2184: {"zhTW":"中毒", "zhCN":"中毒"},
-            2186: {"zhTW":"大毒", "zhCN":"大毒"},
-            2183: {"zhTW":"小炸", "zhCN":"小炸"},
-            2185: {"zhTW":"中炸", "zhCN":"中炸"},
-            2187: {"zhTW":"大炸", "zhCN":"大炸"},
-            2200: {"zhTW":"回城", "zhCN":"回城"},
-            2202: {"zhTW":"鑒定", "zhCN":"鉴定"},
-            2207: {"zhTW":"耐力", "zhCN":"耐力"},
-            2208: {"zhTW":"解毒", "zhCN":"解毒"},
-            2209: {"zhTW":"小紫", "zhCN":"小紫"},
-            2211: {"zhTW":"解凍", "zhCN":"解冻"},
-            2220: {"zhTW":"弩矢", "zhCN":"弩矢"},
-            2221: {"zhTW":"鑰匙", "zhCN":"钥匙"},
-            2222: {"zhTW":"鑰匙", "zhCN":"钥匙"},
-            2266: {"zhTW":"微紅", "zhCN":"微红"},
-            2267: {"zhTW":"小紅", "zhCN":"小红"},
-            2268: {"zhTW":"中紅", "zhCN":"中红"},
-            2269: {"zhTW":"大紅", "zhCN":"大红"},
-            2270: {"zhTW":"超紅", "zhCN":"超红"},
-            2271: {"zhTW":"微藍", "zhCN":"微蓝"},
-            2272: {"zhTW":"小藍", "zhCN":"小蓝"},
-            2273: {"zhTW":"中藍", "zhCN":"中蓝"},
-            2274: {"zhTW":"大藍", "zhCN":"大蓝"},
-            2275: {"zhTW":"超藍", "zhCN":"超蓝"},
+            2182: {"zhTW":"小毒", "zhCN":"小毒", "enUS": "Strangling Gas Potion"},
+            2184: {"zhTW":"中毒", "zhCN":"中毒", "enUS": "Choking Gas Potion"},
+            2186: {"zhTW":"大毒", "zhCN":"大毒", "enUS": "Rancid Gas Potion"},
+            2183: {"zhTW":"小炸", "zhCN":"小炸", "enUS": "Fulminating Potion"},
+            2185: {"zhTW":"中炸", "zhCN":"中炸", "enUS": "Exploding Potion"},
+            2187: {"zhTW":"大炸", "zhCN":"大炸", "enUS": "Oil Potion"},
+            2200: {"zhTW":"回城", "zhCN":"回城", "enUS": "Scroll of Town Portal"},
+            2202: {"zhTW":"鑒定", "zhCN":"鉴定", "enUS": "Scroll of Identify"},
+            2207: {"zhTW":"耐力", "zhCN":"耐力", "enUS": "Stamina Potion"},
+            2208: {"zhTW":"解毒", "zhCN":"解毒", "enUS": "Antidote Potion"},
+            2209: {"zhTW":"小紫", "zhCN":"小紫", "enUS": "Rejuvenation Potion"},
+            2211: {"zhTW":"解凍", "zhCN":"解冻", "enUS": "Thawing Potion"},
+            2220: {"zhTW":"弩矢", "zhCN":"弩矢", "enUS": "Bolts"},
+            2221: {"zhTW":"鑰匙", "zhCN":"钥匙", "enUS": "Key"},
+            2222: {"zhTW":"鑰匙", "zhCN":"钥匙", "enUS": "Key"},
+            2266: {"zhTW":"微紅", "zhCN":"微红", "enUS": "Minor Healing Potion"},
+            2267: {"zhTW":"小紅", "zhCN":"小红", "enUS": "Light Healing Potion"},
+            2268: {"zhTW":"中紅", "zhCN":"中红", "enUS": "Healing Potion"},
+            2269: {"zhTW":"大紅", "zhCN":"大红", "enUS": "Greater Healing Potion"},
+            2270: {"zhTW":"超紅", "zhCN":"超红", "enUS": "Super Healing Potion"},
+            2271: {"zhTW":"微藍", "zhCN":"微蓝", "enUS": "Minor Mana Potion"},
+            2272: {"zhTW":"小藍", "zhCN":"小蓝", "enUS": "Light Mana Potion"},
+            2273: {"zhTW":"中藍", "zhCN":"中蓝", "enUS": "Mana Potion"},
+            2274: {"zhTW":"大藍", "zhCN":"大蓝", "enUS": "Greater Mana Potion"},
+            2275: {"zhTW":"超藍", "zhCN":"超蓝", "enUS": "Super Mana Potion"},
         }
 
         paths = [
@@ -539,6 +540,7 @@ class FileOperations:
                     if item["id"] in params:
                         item["zhTW"] = "" if isEnabled else params.get(item["id"]).get("zhTW")
                         item["zhCN"] = "" if isEnabled else params.get(item["id"]).get("zhCN")
+                        item["enUS"] = "" if isEnabled else params.get(item["id"]).get("enUS")
                 
                 # 3. dump & encode
                 json_string = json.dumps(json_data, ensure_ascii=False, indent=2)
