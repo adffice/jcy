@@ -5,9 +5,8 @@ __pycache__
 build/
 dist/
 image/
+doc/
 jcy Mod 控制器.spec
 jcy Mod 控制器.exe
 package.bat
 startup.bat
-file.md
-jcy.md
