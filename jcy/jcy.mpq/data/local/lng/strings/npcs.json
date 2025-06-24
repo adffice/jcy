@@ -683,19 +683,19 @@
   {
     "id": 50002,
     "Key": "JcyModVersion",
-    "enUS": "v1.0.4b",
-    "zhTW": "v1.0.4b",
+    "enUS": "v1.0.4c",
+    "zhTW": "v1.0.4c",
     "deDE": "",
     "esES": "",
     "frFR": "",
     "itIT": "",
-    "koKR": "v1.0.4b",
+    "koKR": "v1.0.4c",
     "plPL": "",
     "esMX": "",
     "jaJP": "",
     "ptBR": "",
     "ruRU": "",
-    "zhCN": "v1.0.4b"
+    "zhCN": "v1.0.4c"
   },
   {
     "id": 50003,
@@ -717,19 +717,19 @@
   {
     "id": 50004,
     "Key": "JcyModDate",
-    "enUS": "20250618",
-    "zhTW": "20250618",
+    "enUS": "20250620",
+    "zhTW": "20250620",
     "deDE": "",
     "esES": "",
     "frFR": "",
     "itIT": "",
-    "koKR": "20250618",
+    "koKR": "20250620",
     "plPL": "",
     "esMX": "",
     "jaJP": "",
     "ptBR": "",
     "ruRU": "",
-    "zhCN": "20250618"
+    "zhCN": "20250620"
   },
   {
     "id": 50005,
