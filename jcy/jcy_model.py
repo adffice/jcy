@@ -26,7 +26,7 @@ class FeatureConfig:
                 "113": "蓝色/金色/暗金色精英怪随机染色",
                 "114": "怪物光源+危险标识",
                 "115": "屏蔽 劣等的/損壞的/破舊的武器装备",
-                "116": "屏蔽 杂物道具",
+
                 "117": "咒符/22#+符文增加掉落光柱",
                 "118": "咒符/22#+符文增加掉落提示音 & 技能结束提示音",
                 "119": "技能图标(头顶:熊之印记/狼之印记 脚下:附魔/速度爆发+影散/BO 右侧:刺客聚气)",
@@ -114,6 +114,9 @@ class FeatureConfig:
             "spinbox" : {
                 "401": "照亮范围"
             },
+            "checktable": {
+                "501": "道具屏蔽"
+            }
         }
 
         self.base_path = base_path
@@ -125,7 +128,8 @@ class FeatureConfig:
             **{fid: False for fid in self.all_features_config["checkbutton"]},
             **{fid: "default" for fid in self.all_features_config["radiogroup"]},
             **{fid: [] for fid in self.all_features_config["checkgroup"]},
-            **{fid: 0 for fid in self.all_features_config["spinbox"]}
+            **{fid: 0 for fid in self.all_features_config["spinbox"]},
+            **{fid: False for fid in self.all_features_config["checktable"]}
         }
         
 
@@ -163,6 +167,10 @@ class FeatureStateManager:
                     if fid not in self.loaded_states:
                         self.loaded_states[fid] = 0
 
+                for fid in self.config.all_features_config["checktable"]:
+                    if fid not in self.loaded_states:
+                        self.loaded_states[fid] = {}
+
             except json.JSONDecodeError:
                 messagebox.showerror("错误", "配置文件损坏，已重置为默认设置。")
                 self.loaded_states = self.config.default_feature_states.copy()
@@ -193,6 +201,10 @@ class FeatureStateManager:
                     states_to_save[fid] = current_states[fid]
 
             for fid in self.config.all_features_config["spinbox"]:
+                if fid in current_states:
+                    states_to_save[fid] = current_states[fid]
+            
+            for fid in self.config.all_features_config["checktable"]:
                 if fid in current_states:
                     states_to_save[fid] = current_states[fid]
 

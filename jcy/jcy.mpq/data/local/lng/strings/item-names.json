@@ -4371,8 +4371,8 @@
   {
     "id": 2182,
     "Key": "gpl",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Strangling Gas Potion",
+    "zhTW": "小毒",
     "deDE": "Erstickungsgaselixier",
     "esES": "[fs]Poción de gas sofocante",
     "frFR": "[fs]Cartouche de gaz de strangulation",
@@ -4383,13 +4383,13 @@
     "jaJP": "有毒ガス・ポーション",
     "ptBR": "Poção de Gás Asfixiante",
     "ruRU": "Асфиксический газ",
-    "zhCN": ""
+    "zhCN": "小毒"
   },
   {
     "id": 2183,
     "Key": "opl",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Fulminating Potion",
+    "zhTW": "小炸",
     "deDE": "Knallelixier",
     "esES": "[fs]Poción fulminante",
     "frFR": "[fs]Potion fulminante",
@@ -4400,13 +4400,13 @@
     "jaJP": "火炎ポーション",
     "ptBR": "Poção Fulminante",
     "ruRU": "Гремучее зелье",
-    "zhCN": ""
+    "zhCN": "小炸"
   },
   {
     "id": 2184,
     "Key": "gpm",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Choking Gas Potion",
+    "zhTW": "中毒",
     "deDE": "Würgegaselixier",
     "esES": "[fs]Poción de gas estrangulante",
     "frFR": "[fs]Cartouche de gaz asphyxiant",
@@ -4417,13 +4417,13 @@
     "jaJP": "窒息ガス・ポーション",
     "ptBR": "Poção de Gás Sufocante",
     "ruRU": "Удушающий газ",
-    "zhCN": ""
+    "zhCN": "中毒"
   },
   {
     "id": 2185,
     "Key": "opm",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Exploding Potion",
+    "zhTW": "中炸",
     "deDE": "Explosivelixier",
     "esES": "[fs]Poción explosiva",
     "frFR": "[fs]Potion explosive",
@@ -4434,13 +4434,13 @@
     "jaJP": "炸裂ポーション",
     "ptBR": "Poção Explosiva",
     "ruRU": "Взрывчатое зелье",
-    "zhCN": ""
+    "zhCN": "中炸"
   },
   {
     "id": 2186,
     "Key": "gps",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Rancid Gas Potion",
+    "zhTW": "大毒",
     "deDE": "Stinkgaselixier",
     "esES": "[fs]Poción de gas rancio",
     "frFR": "[fs]Cartouche de gaz rance",
@@ -4451,13 +4451,13 @@
     "jaJP": "腐食ガス・ポーション",
     "ptBR": "Poção de Gás Rançoso",
     "ruRU": "Едкий газ",
-    "zhCN": ""
+    "zhCN": "大毒"
   },
   {
     "id": 2187,
     "Key": "ops",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Oil Potion",
+    "zhTW": "大炸",
     "deDE": "Ölelixier",
     "esES": "[fs]Poción de aceite",
     "frFR": "[fs]Huile",
@@ -4468,7 +4468,7 @@
     "jaJP": "オイル・ポーション",
     "ptBR": "Poção Inflamável",
     "ruRU": "Масло",
-    "zhCN": ""
+    "zhCN": "大炸"
   },
   {
     "id": 2188,
@@ -4660,8 +4660,8 @@
   {
     "id": 2200,
     "Key": "tsc",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Scroll of Town Portal",
+    "zhTW": "回城",
     "deDE": "Schriftrolle des Stadtportals",
     "esES": "Pergamino del portal de la ciudad",
     "frFR": "Parchemin de portail de retour en ville",
@@ -4672,7 +4672,7 @@
     "jaJP": "タウン・ポータルの巻物",
     "ptBR": "Pergaminho do Portal da Cidade",
     "ruRU": "Свиток возвращения",
-    "zhCN": ""
+    "zhCN": "回城"
   },
   {
     "id": 2201,
@@ -4694,8 +4694,8 @@
   {
     "id": 2202,
     "Key": "isc",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Scroll of Identify",
+    "zhTW": "鑒定",
     "deDE": "Schriftrolle der Identifikation",
     "esES": "Pergamino de identificación",
     "frFR": "Parchemin d’identification",
@@ -4706,13 +4706,13 @@
     "jaJP": "鑑定の巻物",
     "ptBR": "Pergaminho de Identificação",
     "ruRU": "Свиток распознания",
-    "zhCN": ""
+    "zhCN": "鉴定"
   },
   {
     "id": 2207,
     "Key": "vps",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Stamina Potion",
+    "zhTW": "耐力",
     "deDE": "Ausdauerelixier",
     "esES": "Poción de aguante",
     "frFR": "Potion d’endurance",
@@ -4723,13 +4723,13 @@
     "jaJP": "スタミナ・ポーション",
     "ptBR": "Poção de Vigor",
     "ruRU": "Зелье выносливости",
-    "zhCN": ""
+    "zhCN": "耐力"
   },
   {
     "id": 2208,
     "Key": "yps",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Antidote Potion",
+    "zhTW": "解毒",
     "deDE": "Gegengiftelixier",
     "esES": "Poción antídoto",
     "frFR": "Antidote",
@@ -4740,13 +4740,13 @@
     "jaJP": "解毒のポーション",
     "ptBR": "Poção de Antídoto",
     "ruRU": "Противоядие",
-    "zhCN": ""
+    "zhCN": "解毒"
   },
   {
     "id": 2209,
     "Key": "rvs",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Rejuvenation Potion",
+    "zhTW": "小紫",
     "deDE": "Regenerationstrank",
     "esES": "Poción rejuvenecedora",
     "frFR": "Potion de rajeunissement",
@@ -4757,7 +4757,7 @@
     "jaJP": "回復のポーション",
     "ptBR": "Poção de Rejuvenescimento",
     "ruRU": "Зелье восстановления",
-    "zhCN": ""
+    "zhCN": "小紫"
   },
   {
     "id": 2210,
@@ -4779,8 +4779,8 @@
   {
     "id": 2211,
     "Key": "wms",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Thawing Potion",
+    "zhTW": "解凍",
     "deDE": "Auftauelixier",
     "esES": "Poción descongelante",
     "frFR": "Potion de dégel",
@@ -4791,7 +4791,7 @@
     "jaJP": "解氷のポーション",
     "ptBR": "Poção Descongelante",
     "ruRU": "Зелье оттаивания",
-    "zhCN": ""
+    "zhCN": "解冻"
   },
   {
     "id": 2212,
@@ -4915,8 +4915,8 @@
   {
     "id": 2220,
     "Key": "cqv",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Bolts",
+    "zhTW": "弩矢",
     "deDE": "Bolzen",
     "esES": "[fp]Saetas",
     "frFR": "[mp]Traits",
@@ -4927,13 +4927,13 @@
     "jaJP": "ボルト",
     "ptBR": "Setas",
     "ruRU": "[pl]арбалетные болты",
-    "zhCN": ""
+    "zhCN": "弩矢"
   },
   {
     "id": 2221,
     "Key": "Key",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Key",
+    "zhTW": "鑰匙",
     "deDE": "Schlüssel",
     "esES": "[fs]Llave",
     "frFR": "[fs]Clé",
@@ -4944,13 +4944,13 @@
     "jaJP": "鍵",
     "ptBR": "Chave",
     "ruRU": "[ms]ключ",
-    "zhCN": ""
+    "zhCN": "钥匙"
   },
   {
     "id": 2222,
     "Key": "key",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Key",
+    "zhTW": "鑰匙",
     "deDE": "Schlüssel",
     "esES": "[fs]Llave",
     "frFR": "[fs]Clé",
@@ -4961,7 +4961,7 @@
     "jaJP": "鍵",
     "ptBR": "Chave",
     "ruRU": "[ms]ключ",
-    "zhCN": ""
+    "zhCN": "钥匙"
   },
   {
     "id": 2223,
@@ -5119,8 +5119,8 @@
   {
     "id": 2236,
     "Key": "gcv",
-    "enUS": "ÿc5[+#11x3]\nÿc1Chipped Amethystÿc0",
-    "zhTW": "ÿc5[+#11x3]\nÿc1碎裂紫寶石ÿc0",
+    "enUS": "ÿc5[+#11x3]\nÿc1Chipped Amethystÿc0",
+    "zhTW": "ÿc5[+#11x3]\nÿc1碎裂紫寶石ÿc0",
     "deDE": "lädierter Amethyst",
     "esES": "Amatista fragmentada",
     "frFR": "Améthyste abîmée",
@@ -5131,13 +5131,13 @@
     "jaJP": "欠けたアメジスト",
     "ptBR": "Ametista Lascada",
     "ruRU": "Надколотый аметист",
-    "zhCN": "ÿc5[+#11x3]\nÿc1碎裂的紫宝石ÿc0"
+    "zhCN": "ÿc5[+#11x3]\nÿc1碎裂的紫宝石ÿc0"
   },
   {
     "id": 2237,
     "Key": "gfv",
-    "enUS": "ÿc5[+#17x3]\nÿc1Flawed Amethystÿc0",
-    "zhTW": "ÿc5[+#17x3]\nÿc1瑕疵紫寶石ÿc0",
+    "enUS": "ÿc5[+#17x3]\nÿc1Flawed Amethystÿc0",
+    "zhTW": "ÿc5[+#17x3]\nÿc1瑕疵紫寶石ÿc0",
     "deDE": "fehlerhafter Amethyst",
     "esES": "Amatista estropeada",
     "frFR": "Améthyste imparfaite",
@@ -5148,13 +5148,13 @@
     "jaJP": "傷のあるアメジスト",
     "ptBR": "Ametista Imperfeita",
     "ruRU": "Мутный аметист",
-    "zhCN": "ÿc5[+#17x3]\nÿc1有瑕疵的紫宝石ÿc0"
+    "zhCN": "ÿc5[+#17x3]\nÿc1有瑕疵的紫宝石ÿc0"
   },
   {
     "id": 2238,
     "Key": "gsv",
-    "enUS": "ÿc1Amethystÿc0",
-    "zhTW": "ÿc1紫寶石ÿc0",
+    "enUS": "ÿc1Amethystÿc0",
+    "zhTW": "ÿc1紫寶石ÿc0",
     "deDE": "Amethyst",
     "esES": "Amatista",
     "frFR": "Améthyste",
@@ -5165,7 +5165,7 @@
     "jaJP": "アメジスト",
     "ptBR": "Ametista",
     "ruRU": "Аметист",
-    "zhCN": "ÿc1紫宝石ÿc0"
+    "zhCN": "ÿc1紫宝石ÿc0"
   },
   {
     "id": 2239,
@@ -5204,8 +5204,8 @@
   {
     "id": 2241,
     "Key": "gcy",
-    "enUS": "ÿc5[+#10x3]\nÿc1Chipped Topazÿc0",
-    "zhTW": "ÿc5[+#10x3]\nÿc1碎裂黃寶石ÿc0",
+    "enUS": "ÿc5[+#10x3]\nÿc1Chipped Topazÿc0",
+    "zhTW": "ÿc5[+#10x3]\nÿc1碎裂黃寶石ÿc0",
     "deDE": "lädierter Topas",
     "esES": "Topacio fragmentado",
     "frFR": "Topaze abîmée",
@@ -5216,13 +5216,13 @@
     "jaJP": "欠けたトパーズ",
     "ptBR": "Topázio Lascado",
     "ruRU": "Надколотый топаз",
-    "zhCN": "ÿc5[+#10x3]\nÿc1碎裂的黄宝石ÿc0"
+    "zhCN": "ÿc5[+#10x3]\nÿc1碎裂的黄宝石ÿc0"
   },
   {
     "id": 2242,
     "Key": "gfy",
-    "enUS": "ÿc5[+#16x3]\nÿc1Flawed Topazÿc0",
-    "zhTW": "ÿc5[+#16x3]\nÿc1瑕疵黃寶石ÿc0",
+    "enUS": "ÿc5[+#16x3]\nÿc1Flawed Topazÿc0",
+    "zhTW": "ÿc5[+#16x3]\nÿc1瑕疵黃寶石ÿc0",
     "deDE": "fehlerhafter Topas",
     "esES": "Topacio estropeado",
     "frFR": "Topaze imparfaite",
@@ -5233,13 +5233,13 @@
     "jaJP": "傷のあるトパーズ",
     "ptBR": "Topázio Imperfeito",
     "ruRU": "Мутный топаз",
-    "zhCN": "ÿc5[+#16x3]\nÿc1有瑕疵的黄宝石ÿc0"
+    "zhCN": "ÿc5[+#16x3]\nÿc1有瑕疵的黄宝石ÿc0"
   },
   {
     "id": 2243,
     "Key": "gsy",
-    "enUS": "ÿc1Topazÿc0",
-    "zhTW": "ÿc1黃寶石ÿc0",
+    "enUS": "ÿc1Topazÿc0",
+    "zhTW": "ÿc1黃寶石ÿc0",
     "deDE": "Topas",
     "esES": "Topacio",
     "frFR": "Topaze",
@@ -5250,7 +5250,7 @@
     "jaJP": "トパーズ",
     "ptBR": "Topázio",
     "ruRU": "Топаз",
-    "zhCN": "ÿc1黄宝石ÿc0"
+    "zhCN": "ÿc1黄宝石ÿc0"
   },
   {
     "id": 2244,
@@ -5289,8 +5289,8 @@
   {
     "id": 2246,
     "Key": "gcb",
-    "enUS": "ÿc5[+#12x3]\nÿc1Chipped Sapphireÿc0",
-    "zhTW": "ÿc5[+#12x3]\nÿc1碎裂藍寶石ÿc0",
+    "enUS": "ÿc5[+#12x3]\nÿc1Chipped Sapphireÿc0",
+    "zhTW": "ÿc5[+#12x3]\nÿc1碎裂藍寶石ÿc0",
     "deDE": "lädierter Saphir",
     "esES": "Zafiro fragmentado",
     "frFR": "Saphir abîmé",
@@ -5301,13 +5301,13 @@
     "jaJP": "欠けたサファイア",
     "ptBR": "Safira Lascada",
     "ruRU": "Надколотый сапфир",
-    "zhCN": "ÿc5[+#12x3]\nÿc1碎裂的蓝宝石ÿc0"
+    "zhCN": "ÿc5[+#12x3]\nÿc1碎裂的蓝宝石ÿc0"
   },
   {
     "id": 2247,
     "Key": "gfb",
-    "enUS": "ÿc5[+#18x3]\nÿc1Flawed Sapphireÿc0",
-    "zhTW": "ÿc5[+#18x3]\nÿc1瑕疵藍寶石ÿc0",
+    "enUS": "ÿc5[+#18x3]\nÿc1Flawed Sapphireÿc0",
+    "zhTW": "ÿc5[+#18x3]\nÿc1瑕疵藍寶石ÿc0",
     "deDE": "fehlerhafter Saphir",
     "esES": "Zafiro estropeado",
     "frFR": "Saphir imparfait",
@@ -5318,7 +5318,7 @@
     "jaJP": "傷のあるサファイア",
     "ptBR": "Safira Imperfeita",
     "ruRU": "Мутный сапфир",
-    "zhCN": "ÿc5[+#18x3]\nÿc1有瑕疵的蓝宝石ÿc0"
+    "zhCN": "ÿc5[+#18x3]\nÿc1有瑕疵的蓝宝石ÿc0"
   },
   {
     "id": 2249,
@@ -5357,8 +5357,8 @@
   {
     "id": 2251,
     "Key": "gcg",
-    "enUS": "ÿc5[+#14x3]\nÿc1Chipped Emeraldÿc0",
-    "zhTW": "ÿc5[+#14x3]\nÿc1碎裂綠寶石ÿc0",
+    "enUS": "ÿc5[+#14x3]\nÿc1Chipped Emeraldÿc0",
+    "zhTW": "ÿc5[+#14x3]\nÿc1碎裂綠寶石ÿc0",
     "deDE": "lädierter Smaragd",
     "esES": "Esmeralda fragmentada",
     "frFR": "Émeraude abîmée",
@@ -5369,13 +5369,13 @@
     "jaJP": "欠けたエメラルド",
     "ptBR": "Esmeralda Lascada",
     "ruRU": "Надколотый изумруд",
-    "zhCN": "ÿc5[+#14x3]\nÿc1碎裂的绿宝石ÿc0"
+    "zhCN": "ÿc5[+#14x3]\nÿc1碎裂的绿宝石ÿc0"
   },
   {
     "id": 2252,
     "Key": "gfg",
-    "enUS": "ÿc1Flawed Emeraldÿc0",
-    "zhTW": "ÿc1瑕疵綠寶石ÿc0",
+    "enUS": "ÿc1Flawed Emeraldÿc0",
+    "zhTW": "ÿc1瑕疵綠寶石ÿc0",
     "deDE": "fehlerhafter Smaragd",
     "esES": "Esmeralda estropeada",
     "frFR": "Émeraude imparfaite",
@@ -5386,7 +5386,7 @@
     "jaJP": "傷のあるエメラルド",
     "ptBR": "Esmeralda Imperfeita",
     "ruRU": "Мутный изумруд",
-    "zhCN": "ÿc1有瑕疵的绿宝石ÿc0"
+    "zhCN": "ÿc1有瑕疵的绿宝石ÿc0"
   },
   {
     "id": 2253,
@@ -5425,8 +5425,8 @@
   {
     "id": 2256,
     "Key": "gcr",
-    "enUS": "ÿc5[+#13x3]\nÿc1Chipped Rubyÿc0",
-    "zhTW": "ÿc5[+#13x3]\nÿc1碎裂紅寶石ÿc0",
+    "enUS": "ÿc5[+#13x3]\nÿc1Chipped Rubyÿc0",
+    "zhTW": "ÿc5[+#13x3]\nÿc1碎裂紅寶石ÿc0",
     "deDE": "lädierter Rubin",
     "esES": "Rubí fragmentado",
     "frFR": "Rubis abîmé",
@@ -5437,13 +5437,13 @@
     "jaJP": "欠けたルビー",
     "ptBR": "Rubi Lascado",
     "ruRU": "Надколотый рубин",
-    "zhCN": "ÿc5[+#13x3]\nÿc1碎裂的红宝石ÿc0"
+    "zhCN": "ÿc5[+#13x3]\nÿc1碎裂的红宝石ÿc0"
   },
   {
     "id": 2257,
     "Key": "gfr",
-    "enUS": "ÿc5[+#19x3]\nÿc1Flawed Rubyÿc0",
-    "zhTW": "ÿc5[+#19x3]\nÿc1瑕疵紅寶石ÿc0",
+    "enUS": "ÿc5[+#19x3]\nÿc1Flawed Rubyÿc0",
+    "zhTW": "ÿc5[+#19x3]\nÿc1瑕疵紅寶石ÿc0",
     "deDE": "fehlerhafter Rubin",
     "esES": "Rubí estropeado",
     "frFR": "Rubis imparfait",
@@ -5454,7 +5454,7 @@
     "jaJP": "傷のあるルビー",
     "ptBR": "Rubi Imperfeito",
     "ruRU": "Мутный рубин",
-    "zhCN": "ÿc5[+#19x3]\nÿc1有瑕疵的红宝石ÿc0"
+    "zhCN": "ÿc5[+#19x3]\nÿc1有瑕疵的红宝石ÿc0"
   },
   {
     "id": 2259,
@@ -5493,8 +5493,8 @@
   {
     "id": 2261,
     "Key": "gcw",
-    "enUS": "ÿc5[+#15x3]\nÿc1Chipped Diamondÿc0",
-    "zhTW": "ÿc5[+#15x3]\nÿc1碎裂鑽石ÿc0",
+    "enUS": "ÿc5[+#15x3]\nÿc1Chipped Diamondÿc0",
+    "zhTW": "ÿc5[+#15x3]\nÿc1碎裂鑽石ÿc0",
     "deDE": "lädierter Diamant",
     "esES": "Diamante fragmentado",
     "frFR": "Diamant abîmé",
@@ -5505,13 +5505,13 @@
     "jaJP": "欠けたダイヤモンド",
     "ptBR": "Diamante Lascado",
     "ruRU": "Надколотый бриллиант",
-    "zhCN": "ÿc5[+#15x3]\nÿc1碎裂的钻石ÿc0"
+    "zhCN": "ÿc5[+#15x3]\nÿc1碎裂的钻石ÿc0"
   },
   {
     "id": 2262,
     "Key": "gfw",
-    "enUS": "ÿc1Flawed Diamondÿc0",
-    "zhTW": "ÿc1瑕疵鑽石ÿc0",
+    "enUS": "ÿc1Flawed Diamondÿc0",
+    "zhTW": "ÿc1瑕疵鑽石ÿc0",
     "deDE": "fehlerhafter Diamant",
     "esES": "Diamante estropeado",
     "frFR": "Diamant imparfait",
@@ -5522,7 +5522,7 @@
     "jaJP": "傷のあるダイヤモンド",
     "ptBR": "Diamante Imperfeito",
     "ruRU": "Мутный бриллиант",
-    "zhCN": "ÿc1有瑕疵的钻石ÿc0"
+    "zhCN": "ÿc1有瑕疵的钻石ÿc0"
   },
   {
     "id": 2264,
@@ -5561,8 +5561,8 @@
   {
     "id": 2266,
     "Key": "hp1",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Minor Healing Potion",
+    "zhTW": "微紅",
     "deDE": "schwacher Heiltrank",
     "esES": "Poción de salud menor",
     "frFR": "Potion de vie mineure",
@@ -5573,13 +5573,13 @@
     "jaJP": "ライフ・ポーション（極小）",
     "ptBR": "Poção de Cura Menor",
     "ruRU": "Слабое зелье исцеления",
-    "zhCN": ""
+    "zhCN": "微红"
   },
   {
     "id": 2267,
     "Key": "hp2",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Light Healing Potion",
+    "zhTW": "小紅",
     "deDE": "leichter Heiltrank",
     "esES": "Poción de salud ligera",
     "frFR": "Potion de vie moyenne",
@@ -5590,13 +5590,13 @@
     "jaJP": "ライフ・ポーション（小）",
     "ptBR": "Poção de Cura Leve",
     "ruRU": "Малое зелье исцеления",
-    "zhCN": ""
+    "zhCN": "小红"
   },
   {
     "id": 2268,
     "Key": "hp3",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Healing Potion",
+    "zhTW": "中紅",
     "deDE": "Heiltrank",
     "esES": "Poción de salud",
     "frFR": "Potion de vie",
@@ -5607,13 +5607,13 @@
     "jaJP": "ライフ・ポーション（中）",
     "ptBR": "Poção de Cura",
     "ruRU": "Зелье исцеления",
-    "zhCN": ""
+    "zhCN": "中红"
   },
   {
     "id": 2269,
     "Key": "hp4",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Greater Healing Potion",
+    "zhTW": "大紅",
     "deDE": "guter Heiltrank",
     "esES": "Poción de salud superior",
     "frFR": "Potion de vie supérieure",
@@ -5624,13 +5624,13 @@
     "jaJP": "ライフ・ポーション（大）",
     "ptBR": "Poção de Cura Superior",
     "ruRU": "Мощное зелье исцеления",
-    "zhCN": ""
+    "zhCN": "大红"
   },
   {
     "id": 2270,
     "Key": "hp5",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Super Healing Potion",
+    "zhTW": "超紅",
     "deDE": "starker Heiltrank",
     "esES": "Superpoción de salud",
     "frFR": "Super potion de vie",
@@ -5641,13 +5641,13 @@
     "jaJP": "ライフ・ポーション（特大）",
     "ptBR": "Poção de Cura Especial",
     "ruRU": "Сверхмощное зелье исцеления",
-    "zhCN": ""
+    "zhCN": "超红"
   },
   {
     "id": 2271,
     "Key": "mp1",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Minor Mana Potion",
+    "zhTW": "微藍",
     "deDE": "schwacher Manatrank",
     "esES": "Poción de maná menor",
     "frFR": "Potion de mana mineure",
@@ -5658,13 +5658,13 @@
     "jaJP": "マナ・ポーション（極小）",
     "ptBR": "Poção de Mana Menor",
     "ruRU": "Слабое зелье маны",
-    "zhCN": ""
+    "zhCN": "微蓝"
   },
   {
     "id": 2272,
     "Key": "mp2",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Light Mana Potion",
+    "zhTW": "小藍",
     "deDE": "leichter Manatrank",
     "esES": "Poción de maná ligera",
     "frFR": "Potion de mana moyenne",
@@ -5675,13 +5675,13 @@
     "jaJP": "マナ・ポーション（小）",
     "ptBR": "Poção de Mana Leve",
     "ruRU": "Малое зелье маны",
-    "zhCN": ""
+    "zhCN": "小蓝"
   },
   {
     "id": 2273,
     "Key": "mp3",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Mana Potion",
+    "zhTW": "中藍",
     "deDE": "Manatrank",
     "esES": "Poción de maná",
     "frFR": "Potion de mana",
@@ -5692,13 +5692,13 @@
     "jaJP": "マナ・ポーション（中）",
     "ptBR": "Poção de Mana",
     "ruRU": "Зелье маны",
-    "zhCN": ""
+    "zhCN": "中蓝"
   },
   {
     "id": 2274,
     "Key": "mp4",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Greater Mana Potion",
+    "zhTW": "大藍",
     "deDE": "guter Manatrank",
     "esES": "Poción de maná superior",
     "frFR": "Potion de mana supérieure",
@@ -5709,13 +5709,13 @@
     "jaJP": "マナ・ポーション（大）",
     "ptBR": "Poção de Mana Superior",
     "ruRU": "Мощное зелье маны",
-    "zhCN": ""
+    "zhCN": "大蓝"
   },
   {
     "id": 2275,
     "Key": "mp5",
-    "enUS": "",
-    "zhTW": "",
+    "enUS": "Super Mana Potion",
+    "zhTW": "超藍",
     "deDE": "starker Manatrank",
     "esES": "Superpoción de maná",
     "frFR": "Super potion de mana",
@@ -5726,13 +5726,13 @@
     "jaJP": "マナ・ポーション（特大）",
     "ptBR": "Poção de Mana Especial",
     "ruRU": "Сверхмощное зелье маны",
-    "zhCN": ""
+    "zhCN": "超蓝"
   },
   {
     "id": 2277,
     "Key": "skc",
-    "enUS": "ÿc1Chipped Skullÿc0",
-    "zhTW": "ÿc1碎裂骷髏石ÿc0",
+    "enUS": "ÿc1Chipped Skullÿc0",
+    "zhTW": "ÿc1碎裂骷髏石ÿc0",
     "deDE": "lädierter Schädel",
     "esES": "Cráneo fragmentado",
     "frFR": "Crâne abîmé",
@@ -5743,13 +5743,13 @@
     "jaJP": "欠けた頭蓋骨",
     "ptBR": "Caveira Lascada",
     "ruRU": "Надколотый череп",
-    "zhCN": "ÿc1碎裂的头骨宝石ÿc0"
+    "zhCN": "ÿc1碎裂的头骨宝石ÿc0"
   },
   {
     "id": 2278,
     "Key": "skf",
-    "enUS": "ÿc1Flawed Skullÿc0",
-    "zhTW": "ÿc1瑕疵骷髏石ÿc0",
+    "enUS": "ÿc1Flawed Skullÿc0",
+    "zhTW": "ÿc1瑕疵骷髏石ÿc0",
     "deDE": "fehlerhafter Schädel",
     "esES": "Cráneo estropeado",
     "frFR": "Crâne imparfait",
@@ -5760,13 +5760,13 @@
     "jaJP": "傷のある頭蓋骨",
     "ptBR": "Caveira Imperfeita",
     "ruRU": "Поврежденный череп",
-    "zhCN": "ÿc1有瑕疵的头骨宝石ÿc0"
+    "zhCN": "ÿc1有瑕疵的头骨宝石ÿc0"
   },
   {
     "id": 2279,
     "Key": "sku",
-    "enUS": "ÿc1Skullÿc0",
-    "zhTW": "ÿc1骷髏石ÿc0",
+    "enUS": "ÿc1Skullÿc0",
+    "zhTW": "ÿc1骷髏石ÿc0",
     "deDE": "Schädel",
     "esES": "Cráneo",
     "frFR": "Crâne",
@@ -5777,7 +5777,7 @@
     "jaJP": "頭蓋骨",
     "ptBR": "Caveira",
     "ruRU": "Череп",
-    "zhCN": "ÿc1头骨宝石ÿc0"
+    "zhCN": "ÿc1头骨宝石ÿc0"
   },
   {
     "id": 2280,

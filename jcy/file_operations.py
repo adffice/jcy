@@ -7,6 +7,9 @@ import re
 from jcy_model import FeatureConfig
 
 class FileOperations:
+
+    UE01A = ""
+
     """
     负责处理所有文件相关的操作，如复制和删除。
     """
@@ -2303,3 +2306,66 @@ class FileOperations:
         ]
 
         return self.common_rename(_files, isEnabled)
+    
+    def load_filter_config(self):
+        """
+        读取道具过滤配置&相应item-names数据
+        """
+        # 0.data
+        data = []
+
+        # 1.load settings.json
+        settings_path = os.path.join(self.dir_mod, "settings.json")
+        settings_dict = None
+        with open(settings_path, 'r', encoding="utf-8") as f:
+            settings_dict = json.load(f)
+        item_filter_states = settings_dict.get("501", {})
+        
+        # 2.load item-names.json 
+        item_name_dict = {}
+        item_names_path = os.path.join(self.dir_mod, r"data/local/lng/strings/item-names.original.json")
+        item_names_data = None
+        with open(item_names_path, 'r', encoding='utf-8-sig') as f:
+            item_names_data = json.load(f)
+        for i, item in enumerate(item_names_data):
+            item_name_dict[str(item["id"])] = item
+
+        # mix
+        for id in item_filter_states:
+            item_name = item_name_dict[id]
+            data.append([
+                id,
+                id,
+                item_name["enUS"],
+                item_name["zhCN"],
+                item_name["zhTW"],
+            ])
+        
+        return data
+    
+    def modify_item_names(self, data):
+        """
+        修改 道具屏蔽
+        """
+        # 1.load item-names.json 
+        item_name_dict = {}
+        item_names_path = os.path.join(self.dir_mod, r"data/local/lng/strings/item-names.json")
+        item_names_data = None
+        with open(item_names_path, 'r', encoding='utf-8-sig') as f:
+            item_names_data = json.load(f)
+        for i, item in enumerate(item_names_data):
+            item_name_dict[str(item["id"])] = item
+
+        # 2.modify
+        for id, filter in data.items():
+            item_name = item_name_dict[id]
+            item_name["enUS"] = self.UE01A + item_name["enUS"].removeprefix(self.UE01A) if filter else item_name["enUS"].removeprefix(self.UE01A)
+            item_name["zhCN"] = self.UE01A + item_name["zhCN"].removeprefix(self.UE01A) if filter else item_name["zhCN"].removeprefix(self.UE01A)
+            item_name["zhTW"] = self.UE01A + item_name["zhTW"].removeprefix(self.UE01A) if filter else item_name["zhTW"].removeprefix(self.UE01A)
+            
+        # 3.write
+        with open(item_names_path, 'w', encoding='utf-8-sig') as f:
+            json.dump(item_names_data, f, ensure_ascii=False, indent=2)
+
+        return (1, 1)
+    

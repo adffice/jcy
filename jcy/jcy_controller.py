@@ -1,8 +1,9 @@
-import tkinter as tk
-import sys
+import copy
+import json
 import os
 import shutil
-import json
+import sys
+import tkinter as tk
 from tkinter import messagebox
 
 # 从拆分后的 Model 和 View 文件中导入
@@ -19,14 +20,15 @@ class FeatureController:
         self.file_operations = FileOperations(self.feature_config)
         self.feature_state_manager = FeatureStateManager(self.feature_config)
 
+        self.current_states = {}
+        # 初始化 UI（内部需要用到 current_states）
         self.feature_view = FeatureView(master, self.feature_config.all_features_config, self)
 
-        self.current_states = {}
         self._setup_feature_handlers()
         self.dialogs = "" 
 
         self.feature_state_manager.load_settings()
-        self.current_states.update(self.feature_state_manager.loaded_states)
+        self.current_states = copy.deepcopy(self.feature_state_manager.loaded_states)
         self.feature_view.update_ui_state(self.current_states)
 
     def _get_base_path(self):
@@ -146,6 +148,9 @@ class FeatureController:
 
             # 照亮范围
             "401": self.file_operations.modify_character_player,
+
+            # 道具屏蔽
+            "501": self.file_operations.modify_item_names,
         }
 
 
@@ -202,10 +207,22 @@ class FeatureController:
                     result = self._handlers[feature_id](current_value) 
                     self.dialogs += f"{description} = {current_value} 操作文件数量 {result[0]}/{result[1]} \n"
 
+        # -- 屏蔽道具 --
+        for fid, info in self.feature_config.all_features_config["checktable"].items():
+            current_value = self.current_states.get(fid)
+            loaded_value = self.feature_state_manager.loaded_states.get(fid)
+            if current_value is not None and current_value != loaded_value:
+                changes_detected = True
+                if fid in self._handlers:
+                    result = self._handlers[fid](current_value)
+                    self.dialogs += f"{info} 操作文件数量 {result[0]}/{result[1]} \n"
+        
+
         # 保存当前状态到 settings.json
         self.feature_state_manager.save_settings(self.current_states)
         # 核心：保存后，立即更新 loaded_states，使其反映当前已保存的状态
-        self.feature_state_manager.loaded_states.update(self.current_states) # 使用 update 方法
+        # self.feature_state_manager.loaded_states.update(self.current_states) # 使用 update 方法
+        self.feature_state_manager.loaded_states = copy.deepcopy(self.current_states)
 
         # 显示结果
         if changes_detected:
