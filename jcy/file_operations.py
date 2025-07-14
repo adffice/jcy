@@ -123,81 +123,6 @@ class FileOperations:
 
         return self.common_rename(files_droped_highlight, isEnabled)
 
-    def toggle_rune_sprite(self, isEnabled: bool):
-        """
-        开关 符文贴图
-        """
-        files_rune_sprite = (
-            r"data/hd/global/ui/items/misc/rune/amn_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/amn_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/ber_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/ber_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/cham_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/cham_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/dol_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/dol_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/eld_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/eld_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/el_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/el_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/eth_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/eth_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/fal_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/fal_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/gul_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/gul_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/hel_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/hel_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/io_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/io_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/ist_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/ist_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/ith_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/ith_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/jah_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/jah_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/ko_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/ko_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/lem_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/lem_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/lo_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/lo_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/lum_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/lum_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/mal_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/mal_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/nef_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/nef_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/ohm_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/ohm_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/ort_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/ort_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/pul_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/pul_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/ral_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/ral_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/shael_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/shael_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/sol_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/sol_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/sur_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/sur_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/tal_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/tal_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/thul_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/thul_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/tir_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/tir_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/um_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/um_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/vex_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/vex_rune.sprite",
-            r"data/hd/global/ui/items/misc/rune/zod_rune.lowend.sprite",
-            r"data/hd/global/ui/items/misc/rune/zod_rune.sprite",
-        )
-
-        return self.common_rename(files_rune_sprite, isEnabled)
-
     def toggle_chest_highlight(self, isEnabled: bool):
         """
         开关 箱子高亮
@@ -471,79 +396,6 @@ class FileOperations:
                         item["enUS"] = "" if isEnabled else "%0%1"
                         item["zhTW"] = "" if isEnabled else "%0%1"
                         item["zhCN"] = "" if isEnabled else "%0%1"
-                
-                # 3. dump & encode
-                json_string = json.dumps(json_data, ensure_ascii=False, indent=2)
-                json_string = self.common_encode_private_use_chars(json_string)
-
-                # 4.write
-                with open(temp_path, 'w', encoding="utf-8-sig") as f:
-                    f.write(json_string)
-
-                # 5.replace
-                os.replace(temp_path, target_path)
-                count += 1
-            except Exception as e:
-                print(e)
-            finally:
-                if os.path.exists(temp_path):
-                    os.remove(temp_path)
-        return (count, total)
-
-
-    def toggle_other_misc(self, isEnabled: bool):
-        """
-        屏蔽 杂物道具
-        """
-        params = {
-            2182: {"zhTW":"小毒", "zhCN":"小毒", "enUS": "Strangling Gas Potion"},
-            2184: {"zhTW":"中毒", "zhCN":"中毒", "enUS": "Choking Gas Potion"},
-            2186: {"zhTW":"大毒", "zhCN":"大毒", "enUS": "Rancid Gas Potion"},
-            2183: {"zhTW":"小炸", "zhCN":"小炸", "enUS": "Fulminating Potion"},
-            2185: {"zhTW":"中炸", "zhCN":"中炸", "enUS": "Exploding Potion"},
-            2187: {"zhTW":"大炸", "zhCN":"大炸", "enUS": "Oil Potion"},
-            2200: {"zhTW":"回城", "zhCN":"回城", "enUS": "Scroll of Town Portal"},
-            2202: {"zhTW":"鑒定", "zhCN":"鉴定", "enUS": "Scroll of Identify"},
-            2207: {"zhTW":"耐力", "zhCN":"耐力", "enUS": "Stamina Potion"},
-            2208: {"zhTW":"解毒", "zhCN":"解毒", "enUS": "Antidote Potion"},
-            2209: {"zhTW":"小紫", "zhCN":"小紫", "enUS": "Rejuvenation Potion"},
-            2211: {"zhTW":"解凍", "zhCN":"解冻", "enUS": "Thawing Potion"},
-            2220: {"zhTW":"弩矢", "zhCN":"弩矢", "enUS": "Bolts"},
-            2221: {"zhTW":"鑰匙", "zhCN":"钥匙", "enUS": "Key"},
-            2222: {"zhTW":"鑰匙", "zhCN":"钥匙", "enUS": "Key"},
-            2266: {"zhTW":"微紅", "zhCN":"微红", "enUS": "Minor Healing Potion"},
-            2267: {"zhTW":"小紅", "zhCN":"小红", "enUS": "Light Healing Potion"},
-            2268: {"zhTW":"中紅", "zhCN":"中红", "enUS": "Healing Potion"},
-            2269: {"zhTW":"大紅", "zhCN":"大红", "enUS": "Greater Healing Potion"},
-            2270: {"zhTW":"超紅", "zhCN":"超红", "enUS": "Super Healing Potion"},
-            2271: {"zhTW":"微藍", "zhCN":"微蓝", "enUS": "Minor Mana Potion"},
-            2272: {"zhTW":"小藍", "zhCN":"小蓝", "enUS": "Light Mana Potion"},
-            2273: {"zhTW":"中藍", "zhCN":"中蓝", "enUS": "Mana Potion"},
-            2274: {"zhTW":"大藍", "zhCN":"大蓝", "enUS": "Greater Mana Potion"},
-            2275: {"zhTW":"超藍", "zhCN":"超蓝", "enUS": "Super Mana Potion"},
-        }
-
-        paths = [
-            r"data/local/lng/strings/item-names.json",
-        ]
-
-        count = 0
-        total = len(paths)
-        for path in paths:
-            target_path = os.path.join(self.dir_mod, path)
-            temp_path = target_path + ".tmp"
-            try:
-                # 1.load
-                json_data = None
-                with open(target_path, 'r', encoding='utf-8-sig') as f:
-                    json_data = json.load(f)
-
-                # 2.modify
-                for i, item in enumerate(json_data):
-                    if item["id"] in params:
-                        item["zhTW"] = "" if isEnabled else params.get(item["id"]).get("zhTW")
-                        item["zhCN"] = "" if isEnabled else params.get(item["id"]).get("zhCN")
-                        item["enUS"] = "" if isEnabled else params.get(item["id"]).get("enUS")
                 
                 # 3. dump & encode
                 json_string = json.dumps(json_data, ensure_ascii=False, indent=2)
@@ -2369,3 +2221,98 @@ class FileOperations:
 
         return (1, 1)
     
+    def select_rune_skin(self, radio: str):
+        """
+        符文皮肤
+        """
+        path = r"data/hd/global/ui/items/misc/rune"
+        files = (
+            r"amn_rune.lowend.sprite",
+            r"amn_rune.sprite",
+            r"ber_rune.lowend.sprite",
+            r"ber_rune.sprite",
+            r"cham_rune.lowend.sprite",
+            r"cham_rune.sprite",
+            r"dol_rune.lowend.sprite",
+            r"dol_rune.sprite",
+            r"eld_rune.lowend.sprite",
+            r"eld_rune.sprite",
+            r"el_rune.lowend.sprite",
+            r"el_rune.sprite",
+            r"eth_rune.lowend.sprite",
+            r"eth_rune.sprite",
+            r"fal_rune.lowend.sprite",
+            r"fal_rune.sprite",
+            r"gul_rune.lowend.sprite",
+            r"gul_rune.sprite",
+            r"hel_rune.lowend.sprite",
+            r"hel_rune.sprite",
+            r"io_rune.lowend.sprite",
+            r"io_rune.sprite",
+            r"ist_rune.lowend.sprite",
+            r"ist_rune.sprite",
+            r"ith_rune.lowend.sprite",
+            r"ith_rune.sprite",
+            r"jah_rune.lowend.sprite",
+            r"jah_rune.sprite",
+            r"ko_rune.lowend.sprite",
+            r"ko_rune.sprite",
+            r"lem_rune.lowend.sprite",
+            r"lem_rune.sprite",
+            r"lo_rune.lowend.sprite",
+            r"lo_rune.sprite",
+            r"lum_rune.lowend.sprite",
+            r"lum_rune.sprite",
+            r"mal_rune.lowend.sprite",
+            r"mal_rune.sprite",
+            r"nef_rune.lowend.sprite",
+            r"nef_rune.sprite",
+            r"ohm_rune.lowend.sprite",
+            r"ohm_rune.sprite",
+            r"ort_rune.lowend.sprite",
+            r"ort_rune.sprite",
+            r"pul_rune.lowend.sprite",
+            r"pul_rune.sprite",
+            r"ral_rune.lowend.sprite",
+            r"ral_rune.sprite",
+            r"shael_rune.lowend.sprite",
+            r"shael_rune.sprite",
+            r"sol_rune.lowend.sprite",
+            r"sol_rune.sprite",
+            r"sur_rune.lowend.sprite",
+            r"sur_rune.sprite",
+            r"tal_rune.lowend.sprite",
+            r"tal_rune.sprite",
+            r"thul_rune.lowend.sprite",
+            r"thul_rune.sprite",
+            r"tir_rune.lowend.sprite",
+            r"tir_rune.sprite",
+            r"um_rune.lowend.sprite",
+            r"um_rune.sprite",
+            r"vex_rune.lowend.sprite",
+            r"vex_rune.sprite",
+            r"zod_rune.lowend.sprite",
+            r"zod_rune.sprite",
+        )
+
+        count = 0
+        total = len(files)
+
+        if(radio == "default"):
+            for file in files:
+                try:
+                    dst = os.path.join(self.dir_mod, path, file)
+                    os.remove(dst)
+                    count += 1
+                except Exception as e:
+                    print(e)
+        else:
+            for file in files:
+                try:
+                    src = os.path.join(self.dir_mod, path, radio, file)
+                    dst = os.path.join(self.dir_mod, path, file)
+                    shutil.copy2(src, dst)
+                    count += 1
+                except Exception as e:
+                    print(e)
+        return (count, total)

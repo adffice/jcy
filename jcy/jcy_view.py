@@ -13,7 +13,7 @@ class FeatureView:
         self.all_features_config = all_features_config
         self.controller = controller
 
-        master.title("jcy MOD 控制器 v1.0.4c")
+        master.title("jcy MOD 控制器 v1.0.6")
         master.geometry("600x700")
 
         self.feature_vars = {} 
