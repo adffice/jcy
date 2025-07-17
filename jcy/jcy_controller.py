@@ -54,8 +54,6 @@ class FeatureController:
             "103": self.file_operations.toggle_context_menu,
             # "特殊词缀蓝装变色(红/绿)",
             "104": self.file_operations.toggle_global_excel_affixes,
-            # "入口/小站 箭头指引",
-            "105": self.file_operations.toggle_entrance_arrow,
             # "经验祭坛/宝石祭坛 特效标识",
             "106": self.file_operations.toggle_shrine,
             # "暗黑2百科",
@@ -76,8 +74,6 @@ class FeatureController:
             "114": self.file_operations.toggle_character_enemy,
             # "屏蔽 劣等的/損壞的/破舊的武器装备",
             "115": self.file_operations.toggle_low_quality,
-
-
             # "咒符/22#+符文增加掉落光柱",
             "117": self.file_operations.toggle_droped_highlight, 
             # "咒符/22#+符文增加掉落提示音 & 技能结束提示音",
@@ -90,7 +86,6 @@ class FeatureController:
             "121": self.file_operations.toggle_chest_highlight, 
             # "马赛克护眼",
             "122": self.file_operations.toggle_no_mosaic_sin,
-
             # "6BOSS钥匙皮肤+掉落光柱",
             "124": self.file_operations.toggle_mephisto_key,
             # "屏蔽 开场/过场/结束动画",
@@ -127,6 +122,10 @@ class FeatureController:
             "140": self.file_operations.toggle_hurricane,
             # "左键快速购买",
             "141": self.file_operations.toggle_quick_buy,
+            # "入口 箭头指引",
+            "142": self.file_operations.toggle_roomtiles_arrow,
+            # "小站 箭头指引",
+            "143": self.file_operations.toggle_waypoint_arrow,
             
             
             # 佣兵图标位置

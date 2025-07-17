@@ -309,33 +309,19 @@ class FileOperations:
 
         return self.common_rename(files_chest_highlight, isEnabled)
 
-    def toggle_entrance_arrow(self, isEnabled: bool):
+    def toggle_roomtiles_arrow(self, isEnabled: bool):
         """
-        开关 入口/小站八方箭头
+        开关 入口八方箭头
         """
         files_entrance_arrow = (
             r"data/hd/objects/env_pillars/Arcane_tome.json",
             r"data/hd/objects/env_pillars/Seven_tombs_receptacle.json",
             r"data/hd/objects/env_stone/Stone_alpha.json",
-            r"data/hd/objects/waypoint_portals/sewer_waypoint.json",
-            r"data/hd/objects/waypoint_portals/temple_waypoint.json",
-            r"data/hd/objects/waypoint_portals/travincal_waypoint.json",
-            r"data/hd/objects/waypoint_portals/waypoint_act_2.json",
-            r"data/hd/objects/waypoint_portals/waypoint_act_3.json",
-            r"data/hd/objects/waypoint_portals/waypoint_baal.json",
-            r"data/hd/objects/waypoint_portals/waypoint_cellar.json",
-            r"data/hd/objects/waypoint_portals/waypoint_exp.json",
-            r"data/hd/objects/waypoint_portals/waypoint_ice_cave.json",
-            r"data/hd/objects/waypoint_portals/waypoint_inside_act_1.json",
-            r"data/hd/objects/waypoint_portals/waypoint_outside_act_1.json",
-            r"data/hd/objects/waypoint_portals/waypoint_outside_act_4.json",
-            r"data/hd/objects/waypoint_portals/waypoint_wilderness.json",
-            r"data/hd/roomtiles/act_5_temple_down.json",
+            r"data/hd/objects/env_wood/inifuss_tree.json",
             r"data/hd/roomtiles/act_1_catacombs_down.json",
             r"data/hd/roomtiles/act_1_crypt_down.json",
             r"data/hd/roomtiles/act_1_jail_down.json",
             r"data/hd/roomtiles/act_1_jail_up.json",
-            r"data/hd/roomtiles/act_1_tower_to_crypt.json",
             r"data/hd/roomtiles/act_1_wilderness_to_cave_cliff_l.json",
             r"data/hd/roomtiles/act_1_wilderness_to_cave_cliff_r.json",
             r"data/hd/roomtiles/act_1_wilderness_to_cave_floor_l.json",
@@ -367,6 +353,29 @@ class FileOperations:
             r"data/hd/roomtiles/act_5_ice_caves_down_floor.json",
             r"data/hd/roomtiles/act_5_ice_caves_down_l.json",
             r"data/hd/roomtiles/act_5_ice_caves_down_r.json",
+            r"data/hd/roomtiles/act_5_temple_down.json",
+        )
+
+        return self.common_rename(files_entrance_arrow, isEnabled)
+
+    def toggle_waypoint_arrow(self, isEnabled: bool):
+        """
+        开关 小站八方箭头
+        """
+        files_entrance_arrow = (
+            r"data/hd/objects/waypoint_portals/sewer_waypoint.json",
+            r"data/hd/objects/waypoint_portals/temple_waypoint.json",
+            r"data/hd/objects/waypoint_portals/travincal_waypoint.json",
+            r"data/hd/objects/waypoint_portals/waypoint_act_2.json",
+            r"data/hd/objects/waypoint_portals/waypoint_act_3.json",
+            r"data/hd/objects/waypoint_portals/waypoint_baal.json",
+            r"data/hd/objects/waypoint_portals/waypoint_cellar.json",
+            r"data/hd/objects/waypoint_portals/waypoint_exp.json",
+            r"data/hd/objects/waypoint_portals/waypoint_ice_cave.json",
+            r"data/hd/objects/waypoint_portals/waypoint_inside_act_1.json",
+            r"data/hd/objects/waypoint_portals/waypoint_outside_act_1.json",
+            r"data/hd/objects/waypoint_portals/waypoint_outside_act_4.json",
+            r"data/hd/objects/waypoint_portals/waypoint_wilderness.json",
         )
 
         return self.common_rename(files_entrance_arrow, isEnabled)
