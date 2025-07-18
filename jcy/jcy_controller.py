@@ -5,16 +5,30 @@ import shutil
 import sys
 import tkinter as tk
 from tkinter import messagebox
-
-# 从拆分后的 Model 和 View 文件中导入
 from jcy_model import FeatureConfig, FeatureStateManager
 from file_operations import FileOperations
 from jcy_view import FeatureView
 
+import sys
+import ctypes
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+
+if not is_admin():
+    # 重新以管理员权限启动自己
+    ctypes.windll.shell32.ShellExecuteW(
+        None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    sys.exit(0)
+
 class FeatureController:
     def __init__(self, master):
         self.master = master
-        self.base_path = self._get_base_path()
+        self.base_path = self.get_data_file_path("")
+        self.resource_path = self.get_resource_path("")
 
         self.feature_config = FeatureConfig(self.base_path)
         self.file_operations = FileOperations(self.feature_config)
@@ -31,15 +45,22 @@ class FeatureController:
         self.current_states = copy.deepcopy(self.feature_state_manager.loaded_states)
         self.feature_view.update_ui_state(self.current_states)
 
-    def _get_base_path(self):
-        """获取应用程序的根目录。"""
+    def get_resource_path(self, relative_path):
+        """获取资源文件的绝对路径，适配打包和开发环境"""
         if getattr(sys, 'frozen', False):
-            # 当应用程序被打包成 exe 时
-            return os.path.dirname(sys.executable)
+            base_path = sys._MEIPASS
         else:
-            # 当从 Python 脚本运行时
-            return os.path.dirname(os.path.abspath(__file__))
+            base_path = os.path.abspath(".")
+        return os.path.join(base_path, relative_path)
 
+    def get_data_file_path(self, relative_path):
+        """获取运行时外部数据文件路径，通常在exe同目录或指定文件夹"""
+        if getattr(sys, 'frozen', False):
+            base_path = os.path.dirname(sys.executable)
+        else:
+            base_path = os.path.abspath(".")
+        return os.path.join(base_path, relative_path)
+    
     def _setup_feature_handlers(self):
         """
         设置功能ID与对应的操作方法的映射。
@@ -171,7 +192,8 @@ class FeatureController:
                 changes_detected = True
                 if feature_id in self._handlers:
                     result = self._handlers[feature_id](current_value) 
-                    self.dialogs += f"{description} = {"开启" if current_value else "关闭"} 操作文件数量 {result[0]}/{result[1]} \n"
+                    self.dialogs += f"{description} = {'开启' if current_value else '关闭'} 操作文件数量 {result[0]}/{result[1]} \n"
+
 
 
         # -------------------- 单选功能 (RadioGroup) --------------------
@@ -233,6 +255,9 @@ class FeatureController:
     def execute_feature_action(self, feature_id: str, value):
         self.current_states[feature_id] = value
 
+if not getattr(sys, 'frozen', False):
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    
 if __name__ == "__main__":
     root = tk.Tk()
     app = FeatureController(root)

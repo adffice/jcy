@@ -1,8 +1,32 @@
 import tkinter as tk
-from tkinter import ttk
-from tkinter import messagebox
+from tkinter import ttk, messagebox, filedialog
 import json
 import os
+import subprocess
+import threading
+import win32gui
+import win32process
+import time
+import base64
+import uuid
+import hashlib
+from cryptography.fernet import Fernet, InvalidToken
+from tkinter import scrolledtext
+from PIL import Image, ImageTk
+
+CONFIG_FILE = "accounts.json"
+
+REGION_DOMAIN_MAP = {
+    "kr": "kr.actual.battle.net",
+    "us": "us.actual.battle.net",
+    "eu": "eu.actual.battle.net"
+}
+
+REGION_NAME_MAP = {
+    "kr": "亚服",
+    "us": "美服",
+    "eu": "欧服"
+}
 
 class FeatureView:
     """
@@ -13,8 +37,8 @@ class FeatureView:
         self.all_features_config = all_features_config
         self.controller = controller
 
-        master.title("jcy MOD 控制器 v1.0.6")
-        master.geometry("600x700")
+        master.title("jcy控制器_v1.0.8")
+        master.geometry("750x700")
 
         self.feature_vars = {} 
         self.group_radio_buttons = {} 
@@ -23,8 +47,12 @@ class FeatureView:
     def _create_ui(self):
         # 创建 Notebook 
         notebook = ttk.Notebook(self.master)
+        notebook.bind("<<NotebookTabChanged>>", self.on_tab_changed)
         notebook.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
+        # D2R多开器
+        launcher_tab = D2RLauncherApp(notebook, resource_path=self.controller.resource_path)
+        notebook.add(launcher_tab, text="D2R多开器")
         
         # --- checkbutton ---
         tab = None
@@ -90,9 +118,45 @@ class FeatureView:
         checktable.pack(fill="both", expand=True, padx=10, pady=10)
         self.feature_vars["501"] = checktable
 
+        # -- Donate --
+        donate_tab = ttk.Frame(notebook)
+        notebook.add(donate_tab, text="免责声明")
+
+        image_path = os.path.join(self.controller.resource_path, "assets", "donate_wechat.png")
+        try:
+            image = Image.open(image_path)
+            image = image.resize((200, 200))
+            photo = ImageTk.PhotoImage(image)
+            label_img = tk.Label(donate_tab, image=photo)
+            label_img.image = photo  # 防止垃圾回收
+            label_img.pack(pady=10)
+        except Exception as e:
+            tk.Label(donate_tab, text="无法加载二维码图片").pack()
+
+        disclaimer_text = """
+本Mod为Diablo爱好者制作，请您酌情考虑使用。如果您使用后导致账号被Ban，本人概不负责！如果您很介意这一点，建议您不要使用！
+本Mod完全免费使用。添加收款码仅为接受用户自愿打赏，不会为任何打赏提供额外功能或优先服务，所有功能对所有用户公开且无条件。
+如果您是相关权利方并认为本项目中的内容侵犯了您的权益，请联系我们，我们将在第一时间内进行删除或调整。
+Email: CMCC_1020@163.com
+感谢支持!
+        """.strip()
+
+        text_box = scrolledtext.ScrolledText(donate_tab, wrap='word', height=15)
+        text_box.insert('1.0', disclaimer_text)
+        text_box.configure(state='disabled')
+        text_box.pack(fill='both', expand=True, padx=10, pady=10)
+
         # 应用设置按钮
-        apply_button = ttk.Button(self.master, text="应用设置", command=self.controller.apply_settings)
-        apply_button.pack(pady=10)
+        self.apply_button = ttk.Button(self.master, text="应用设置", command=self.controller.apply_settings)
+        self.apply_button.pack(pady=5, ipady=5)
+
+    def on_tab_changed(self, event):
+        notebook = event.widget
+        selected = notebook.tab(notebook.select(), "text")
+        if selected in ("D2R多开器", "免责声明"):
+            self.apply_button.config(state='disabled')  # 禁用按钮
+        else:
+            self.apply_button.config(state='normal')    # 启用按钮
 
     def update_ui_state(self, current_states: dict):
         """
@@ -276,3 +340,385 @@ class TableWithCheckbox(tk.Frame):
             if self.on_change:
                 self.on_change(self.get())  # 获取当前表格勾选状态并传回 controller
         return callback
+
+class D2RLauncherApp(tk.Frame):
+    """
+    D2R多开器
+    """
+    def __init__(self, master=None, resource_path=None):
+        super().__init__(master)  # 继承 Frame
+        self.master = master
+        self.resource_path = resource_path
+        self.pack(fill="both", expand=True)
+
+        self.machine_key = self.get_machine_key()
+        self.fernet = Fernet(self.machine_key)
+        self.accounts = []
+        self.load_config()
+        self.build_ui()
+
+    def load_config(self):
+        if os.path.exists(CONFIG_FILE):
+            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                self.global_config = data.get("global", {
+                    "d2r_path": "",
+                    "region": "kr.actual.battle.net",
+                    "launch_interval": 5
+                })
+                encrypted_accounts = data.get("accounts", [])
+                self.accounts = [self.decrypt_account_data(acc) for acc in encrypted_accounts]  # 解密后加载
+        else:
+            self.global_config = {
+                "d2r_path": "",
+                "region": "kr.actual.battle.net",
+                "launch_interval": 5
+            }
+            self.accounts = []
+
+    def save_config(self):
+        self.sync_ui_to_config()
+        self.global_config["region"] = self.region_var.get()  
+        data = {
+            "global": self.global_config,
+            "accounts": [self.encrypt_account_data(acc) for acc in self.accounts]
+        }
+        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+    def build_ui(self):
+        # 全局设置区
+        frame_global = ttk.LabelFrame(self, text="全局设置")
+        frame_global.pack(fill="x", padx=10, pady=5)
+
+        # 游戏路径
+        ttk.Label(frame_global, text="游戏路径:").grid(row=0, column=0, sticky="w")
+        self.entry_path = ttk.Entry(frame_global, width=60)
+        self.entry_path.grid(row=0, column=1, padx=5)
+        self.entry_path.insert(0, self.global_config.get("d2r_path", ""))
+
+        btn_browse = ttk.Button(frame_global, text="浏览", command=self.select_d2r_path)
+        btn_browse.grid(row=0, column=2, padx=5)
+
+        # 区服
+        ttk.Label(frame_global, text="区服:").grid(row=1, column=0, sticky="w")
+        self.region_var = tk.StringVar(value=self.global_config.get("region", "kr"))
+
+        col = 1
+        for key, label in REGION_NAME_MAP.items():
+            ttk.Radiobutton(frame_global, text=label, variable=self.region_var, value=key).grid(
+                row=1, column=col, sticky="nsew", padx=5
+            )
+            col += 1
+
+        for i in range(col):
+            frame_global.columnconfigure(i, weight=1)
+
+        ttk.Label(frame_global, text="启动间隔(秒):").grid(row=2, column=0, sticky="w")
+        self.entry_interval = ttk.Entry(frame_global, width=5)
+        self.entry_interval.grid(row=2, column=1, sticky="w")
+        self.entry_interval.insert(0, str(self.global_config.get("launch_interval", 5)))
+
+        # 账号列表区
+        self.frame_accounts = ttk.LabelFrame(self, text="账号列表")
+        self.frame_accounts.pack(fill="both", expand=True, padx=10, pady=5)
+
+        self.account_vars = []  # 每个账号行对应的控件变量，用于保存状态
+        self.draw_account_table()
+
+        # 底部按钮区
+        frame_bottom = ttk.Frame(self)
+        frame_bottom.pack(pady=10)
+
+        btn_add = ttk.Button(frame_bottom, text="添加账号", command=lambda: self.edit_account(None))
+        btn_add.pack(side="left", padx=5)
+
+        btn_save = ttk.Button(frame_bottom, text="保存多开器配置", command=self.on_save)
+        btn_save.pack(side="left", padx=5)
+
+        btn_launch_all = ttk.Button(frame_bottom, text="启动勾选账号", command=self.launch_all_accounts)
+        btn_launch_all.pack(side="left", padx=5)
+
+    def select_d2r_path(self):
+        path = filedialog.askopenfilename(title="选择 D2R.exe", filetypes=[("D2R.exe", "D2R.exe")])
+        if path:
+            self.entry_path.delete(0, tk.END)
+            self.entry_path.insert(0, path)
+
+    def draw_account_table(self):
+        # 清理旧控件
+        for widget in self.frame_accounts.winfo_children():
+            widget.destroy()
+        self.account_vars.clear()
+
+        # 设置列宽度和居中
+        # 设置列权重，允许列拉伸
+        for col in range(11):
+            self.frame_accounts.grid_columnconfigure(col, weight=1)
+
+        headers = ["启用", "昵称", "用户名", "Mod", "窗口", "静音", "编辑", "启动", "上移", "下移", "删除"]
+        for col, h in enumerate(headers):
+            ttk.Label(self.frame_accounts, text=h, font=("Arial", 10, "bold"), anchor='center').grid(row=0, column=col, padx=3, pady=3, sticky='nsew')
+
+        for idx, acc in enumerate(self.accounts):
+            row = idx + 1
+            var_enabled = tk.BooleanVar(value=acc.get("enabled", False))
+            chk_enabled = ttk.Checkbutton(self.frame_accounts, variable=var_enabled)
+            chk_enabled.grid(row=row, column=0, sticky='nsew')
+            
+            self.account_vars.append(var_enabled)
+
+            lbl_nick = ttk.Label(self.frame_accounts, text=acc.get("nickname", ""), width=15, anchor='center')
+            lbl_nick.grid(row=row, column=1, sticky='nsew')
+
+            lbl_user = ttk.Label(self.frame_accounts, text=acc.get("username", ""), width=20, anchor='center')
+            lbl_user.grid(row=row, column=2, sticky='nsew')
+
+            lbl_mod = ttk.Label(self.frame_accounts, text=acc.get("mod", ""), width=15, anchor='center')
+            lbl_mod.grid(row=row, column=3, sticky='nsew')
+
+            lbl_win = ttk.Label(self.frame_accounts, text="✅" if acc.get("windowed") else "❌", anchor='center')
+            lbl_win.grid(row=row, column=4, sticky='nsew')
+
+            lbl_mute = ttk.Label(self.frame_accounts, text="✅" if acc.get("mute") else "❌", anchor='center')
+            lbl_mute.grid(row=row, column=5, sticky='nsew')
+
+            btn_edit = ttk.Button(self.frame_accounts, text="编辑", width=6, command=lambda i=idx: self.edit_account(i))
+            btn_edit.grid(row=row, column=6, sticky='nsew', padx=1)
+
+            btn_launch = ttk.Button(self.frame_accounts, text="启动", width=6, command=lambda i=idx: self.launch_account(i))
+            btn_launch.grid(row=row, column=7, sticky='nsew', padx=1)
+
+            btn_up = ttk.Button(self.frame_accounts, text="↑", width=3, command=lambda i=idx: self.move_account(i, -1))
+            btn_up.grid(row=row, column=8, sticky='nsew', padx=1)
+
+            btn_down = ttk.Button(self.frame_accounts, text="↓", width=3, command=lambda i=idx: self.move_account(i, 1))
+            btn_down.grid(row=row, column=9, sticky='nsew', padx=1)
+
+            btn_del = ttk.Button(self.frame_accounts, text="删除", width=6, command=lambda i=idx: self.delete_account(i))
+            btn_del.grid(row=row, column=10, sticky='nsew', padx=1)
+
+    def sync_ui_to_config(self):
+        self.global_config["d2r_path"] = self.entry_path.get()
+        self.global_config["region"] = self.region_var.get()
+        try:
+            self.global_config["launch_interval"] = int(self.entry_interval.get())
+        except ValueError:
+            self.global_config["launch_interval"] = 5
+
+        for idx, var_enabled in enumerate(self.account_vars):
+            self.accounts[idx]["enabled"] = var_enabled.get()
+
+    def on_save(self):
+        self.sync_ui_to_config()
+        self.save_config()
+        messagebox.showinfo("提示", "配置已保存")
+
+    def edit_account(self, idx=None):
+        """
+        idx=None 表示添加新账号，idx有值表示编辑已有账号
+        """
+        if idx is None:
+            account = {
+                "enabled": False,
+                "nickname": "",
+                "username": "",
+                "password": "",
+                "windowed": False,
+                "mute": False,
+                "mod": ""
+            }
+        else:
+            account = self.accounts[idx]
+
+        win = tk.Toplevel(self)
+        win.title("添加账号" if idx is None else "编辑账号")
+        win.geometry("350x300+150+150")
+
+        labels = ["启用", "昵称", "用户名", "密码", "窗口模式", "静音", "Mod"]
+        vars_ = {}
+
+        vars_["enabled"] = tk.BooleanVar(value=account.get("enabled", False))
+        vars_["nickname"] = tk.StringVar(value=account.get("nickname", ""))
+        vars_["username"] = tk.StringVar(value=account.get("username", ""))
+        vars_["password"] = tk.StringVar(value=account.get("password", ""))
+        vars_["windowed"] = tk.BooleanVar(value=account.get("windowed", False))
+        vars_["mute"] = tk.BooleanVar(value=account.get("mute", False))
+        vars_["mod"] = tk.StringVar(value=account.get("mod", ""))
+
+        for i, label in enumerate(labels):
+            tk.Label(win, text=label).grid(row=i, column=0, sticky="w", padx=5, pady=5)
+
+        tk.Checkbutton(win, variable=vars_["enabled"]).grid(row=0, column=1, sticky="w")
+        tk.Entry(win, textvariable=vars_["nickname"]).grid(row=1, column=1)
+        tk.Entry(win, textvariable=vars_["username"]).grid(row=2, column=1)
+        tk.Entry(win, textvariable=vars_["password"], show="*").grid(row=3, column=1)
+        tk.Checkbutton(win, variable=vars_["windowed"]).grid(row=4, column=1, sticky="w")
+        tk.Checkbutton(win, variable=vars_["mute"]).grid(row=5, column=1, sticky="w")
+        tk.Entry(win, textvariable=vars_["mod"]).grid(row=6, column=1)
+
+        def save():
+            data = {
+                "enabled": vars_["enabled"].get(),
+                "nickname": vars_["nickname"].get(),
+                "username": vars_["username"].get(),
+                "password": vars_["password"].get(),
+                "windowed": vars_["windowed"].get(),
+                "mute": vars_["mute"].get(),
+                "mod": vars_["mod"].get(),
+            }
+            if idx is None:
+                self.accounts.append(data)
+            else:
+                self.accounts[idx] = data
+            self.save_config()  
+            self.draw_account_table()
+            win.destroy()
+
+        tk.Button(win, text="保存", command=save).grid(row=7, column=0, columnspan=2, pady=10)
+
+        win.transient(self)
+        win.grab_set()
+        self.wait_window(win)
+
+    def move_account(self, idx, direction):
+        new_idx = idx + direction
+        if 0 <= new_idx < len(self.accounts):
+            self.accounts[idx], self.accounts[new_idx] = self.accounts[new_idx], self.accounts[idx]
+            self.draw_account_table()
+
+    def delete_account(self, idx):
+        if messagebox.askyesno("确认", "确定删除该账号？"):
+            del self.accounts[idx]
+            self.save_config()
+            self.draw_account_table()
+
+    def launch_account(self, idx):
+        acc = self.accounts[idx]
+        nickname = acc.get("nickname", f"账号{idx+1}")
+        print(f"准备启动账号: {nickname} ({acc.get('username')})")
+
+        # 线程启动
+        threading.Thread(target=self._handle_and_launch, args=(acc,), daemon=True).start()
+
+    def _handle_and_launch(self, acc):
+        self.release_mutex()  # 你的 handle64.exe 操作
+        d2r_path = self.global_config.get("d2r_path", "")
+        if not d2r_path or not os.path.exists(d2r_path):
+            messagebox.showerror("错误", f"游戏路径不存在：{d2r_path}")
+            return
+        region_key = self.global_config.get("region", "kr")
+        region_domain = REGION_DOMAIN_MAP.get(region_key, "kr.actual.battle.net")
+
+        args = [
+            d2r_path,
+            "-username", acc.get("username", ""),
+            "-password", acc.get("password", ""),
+            "-address", region_domain
+        ]
+
+        if acc.get("windowed"):
+            args.append("-w")
+        if acc.get("mute"):
+            args.append("-ns")
+        if acc.get("mod"):
+            args += ["-mod", acc["mod"], "-txt"]
+
+        try:
+            proc = subprocess.Popen(args)
+            print(f"启动成功: PID {proc.pid}")
+
+            time.sleep(3)  # 等待窗口创建
+            self.rename_d2r_window_by_pid(proc.pid, region_key, acc.get("nickname", ""), acc.get("mod", ""))
+        except Exception as e:
+            print(f"启动失败: {e}")
+
+    def release_mutex(self):
+        try:
+            path = os.path.join(self.resource_path, "bin", "handle64.exe")
+            cmd_list = [path, "-a", "Check For Other Instances", "-nobanner"]
+            print(f"执行命令: {' '.join(cmd_list)}")
+
+            result = subprocess.run(cmd_list, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=5)
+            output_lines = result.stdout.splitlines()
+
+            for line in output_lines:
+                parts = line.split()
+                if len(parts) >= 6:
+                    pid, handle = parts[2], parts[5]
+                    subprocess.run([path, "-p", pid, "-c", handle, "-y"], stdout=subprocess.DEVNULL)
+            print("释放互斥体成功")
+        except subprocess.TimeoutExpired:
+            print("调用 handle64 超时")
+        except Exception as e:
+            print(f"释放互斥体失败: {e}")
+
+    def launch_all_accounts(self):
+        self.sync_ui_to_config()
+        self.save_config()
+
+        def launcher():
+            for idx, acc in enumerate(self.accounts):
+                if acc.get("enabled"):
+                    self.launch_account(idx)
+                    time.sleep(self.global_config.get("launch_interval", 5))
+
+        threading.Thread(target=launcher, daemon=True).start()
+
+    def rename_d2r_window_by_pid(self, pid, region_key, nickname, mod):
+        region_name = REGION_NAME_MAP.get(region_key, region_key)
+        title = f"{region_name}.{nickname}"
+        if mod:
+            title += f".{mod}"
+
+        def callback(hwnd, _):
+            try:
+                _, window_pid = win32process.GetWindowThreadProcessId(hwnd)
+                if window_pid == pid:
+                    win32gui.SetWindowText(hwnd, title)
+                    return False  # 找到后停止枚举
+            except Exception:
+                pass
+            return True
+
+        win32gui.EnumWindows(callback, None)
+
+    def encrypt_account_data(self, account: dict) -> dict:
+        encrypted = account.copy()
+        for key in ['username', 'password']:
+            val = encrypted.get(key, "")
+            if val and not val.startswith("gAAAA"):  # 判断是否已经加密
+                encrypted[key] = self.encrypt(val)
+        return encrypted
+    
+    def decrypt_account_data(self, account: dict) -> dict:
+        decrypted = account.copy()
+        for key in ['username', 'password']:
+            decrypted[key] = self.decrypt(decrypted.get(key, ""))
+        return decrypted
+
+    def get_machine_key(self) -> bytes:
+        """
+        获取本机唯一密钥（基于 MAC 地址派生）
+        """
+        node = uuid.getnode()
+        raw = str(node).encode()
+        sha = hashlib.sha256(raw).digest()
+        return base64.urlsafe_b64encode(sha[:32])  # Fernet 需要 32-byte base64 key
+
+    def encrypt(self, text: str) -> str:
+        """
+        加密文本（UTF-8） → base64编码密文
+        """
+        f = Fernet(self.get_machine_key())
+        return f.encrypt(text.encode()).decode()
+
+    def decrypt(self, token: str) -> str:
+        """
+        解密 base64密文 → 原始文本；解密失败返回原始字符串
+        """
+        f = Fernet(self.get_machine_key())
+        try:
+            return f.decrypt(token.encode()).decode()
+        except InvalidToken:
+            return token  # 可能是明文
