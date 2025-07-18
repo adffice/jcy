@@ -589,9 +589,10 @@ class D2RLauncherApp(tk.Frame):
 
     def delete_account(self, idx):
         if messagebox.askyesno("确认", "确定删除该账号？"):
-            del self.accounts[idx]
-            self.save_config()
-            self.draw_account_table()
+            if 0 <= idx < len(self.accounts):
+                del self.accounts[idx]
+                self.draw_account_table()
+                self.save_config()
 
     def launch_account(self, idx):
         acc = self.accounts[idx]
