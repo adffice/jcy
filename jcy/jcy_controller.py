@@ -169,6 +169,8 @@ class FeatureController:
 
             # 照亮范围
             "401": self.file_operations.modify_character_player,
+            # 22#+符文名称大小
+            "402": self.file_operations.modify_rune_rectangle,
 
             # 道具屏蔽
             "501": self.file_operations.modify_item_names,

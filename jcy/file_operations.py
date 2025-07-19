@@ -1423,6 +1423,49 @@ class FileOperations:
                 print(e)
         return (count, total)
     
+    def modify_rune_rectangle(self, val: int):
+        """
+        符文名称大小
+        """
+        params = [
+            r"data/local/lng/strings/item-runes.json",
+        ]
+
+        count = 0
+        total = len(params)
+
+        try:
+            # 0.var
+            target_file = os.path.join(self.dir_mod, params[0])
+            temp_file = target_file + ".tmp"
+            # 1.load
+            json_data = None
+            with open(target_file, 'r', encoding='utf-8-sig') as f:
+                json_data = json.load(f)
+            
+            # 2.modify
+            pattern = re.compile(r"^r(2[2-9]|3[0-3])$")
+            for object in json_data:
+                if pattern.match(object["Key"]):
+                    object["enUS"] = ("\n"*val) + object["enUS"].replace("\n", "").replace("=","").replace("ÿc8","\nÿc8") + ("\n"*val)
+                    object["zhCN"] = ("\n"*val) + object["zhCN"].replace("\n", "").replace("=","").replace("ÿc8","\nÿc8") + ("\n"*val)
+                    object["zhTW"] = ("\n"*val) + object["zhTW"].replace("\n", "").replace("=","").replace("ÿc8","\nÿc8") + ("\n"*val)
+                    if(val > 0) :
+                        object["enUS"] = object["enUS"] + ("="*(2*val+10))
+                        object["zhCN"] = object["zhCN"] + ("="*(2*val+10))
+                        object["zhTW"] = object["zhTW"] + ("="*(2*val+10))
+            
+            # 3.dump temp
+            with open(temp_file, 'w', encoding="utf-8-sig") as f:
+                json.dump(json_data, f, ensure_ascii=False, indent=2)
+
+            # 4.replace
+            os.replace(temp_file, target_file)
+            count += 1
+        except Exception as e:
+            print(e)
+        return (count, total)
+    
     def toggle_fade_dummy(self, isEnabled: bool):
         """
         屏蔽影散隐身效果

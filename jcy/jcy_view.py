@@ -37,7 +37,7 @@ class FeatureView:
         self.all_features_config = all_features_config
         self.controller = controller
 
-        master.title("jcy控制器_v1.0.8")
+        master.title("jcy控制器_v1.0.9")
         master.geometry("750x700")
 
         self.feature_vars = {} 
@@ -102,6 +102,7 @@ class FeatureView:
             spin = ttk.Spinbox(spin_container, from_=0, to=9, increment=1, textvariable=var, command=lambda f=fid, v=var: self.controller.execute_feature_action(f, v.get()), state='readonly')
             spin.pack(anchor=tk.W, padx=10, pady=2)
 
+
         # --- checktable ---
         filter_tab = ttk.Frame(notebook)
         notebook.add(filter_tab, text=" 道具屏蔽 ")
@@ -117,6 +118,7 @@ class FeatureView:
         )
         checktable.pack(fill="both", expand=True, padx=10, pady=10)
         self.feature_vars["501"] = checktable
+
 
         # -- Donate --
         donate_tab = ttk.Frame(notebook)
