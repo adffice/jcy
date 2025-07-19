@@ -2,20 +2,21 @@
 
 ## 简介
 * 本Mod以Will_v2.8为基础,整合了各类加油包,通过控制器配置调整,丰俭由人
-* "Mods/jcy/jcy Mod 控制器.exe", 运行修改后, 点击"应用设置"保存配置. 重启游戏生效 
+* "Mods/jcy/jcy 控制器.exe", 运行修改后, 点击"应用设置"保存配置. 重启游戏生效 
 * 如有疑虑可直接删除该程序, 不影响默认MOD功能, 或可从代码仓库获取源码打包
 * 仓库地址 https://github.com/jcymeow/jcy
 
 ## 使用
 * 下载全部附件,解压任意文件即可
 * 相对路径 Diablo II Resurrected\Mods\jcy\jcy.mpq
+* 相对路径 Diablo II Resurrected\Mods\jcy\accounts.json记得备份
 * 旧版本的mod全部删除, 粘贴新版本, 请勿覆盖使用.
 * 参数 `-mod jcy -txt`
 
 ## 版本
 * v1.0.9
     增加 "22#+符文名称大小"
-    
+
 * v1.0.8
     增加 "D2R多开器"
 
