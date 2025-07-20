@@ -8,7 +8,7 @@ from tkinter import messagebox
 from jcy_model import FeatureConfig, FeatureStateManager
 from file_operations import FileOperations
 from jcy_view import FeatureView
-from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH
+from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH, ensure_appdata_files
 import pystray
 from PIL import Image
 import threading
@@ -26,6 +26,8 @@ if not is_admin():
     ctypes.windll.shell32.ShellExecuteW(
         None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     sys.exit(0)
+
+ensure_appdata_files()
 
 class FeatureController:
     def __init__(self, master):
