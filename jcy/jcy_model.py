@@ -3,6 +3,7 @@ import os
 import shutil
 import sys
 from tkinter import messagebox
+from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH
 
 class FeatureConfig:
     """
@@ -137,7 +138,7 @@ class FeatureConfig:
 
         self.base_path = base_path
         self.dir_mod = os.path.join(self.base_path, "jcy.mpq")
-        self.settings_file = os.path.join(self.dir_mod, "settings.json")
+        self.settings_file = SETTINGS_PATH
 
         # ---初始化默认功能状态---
         self.default_feature_states = {
@@ -155,7 +156,7 @@ class FeatureStateManager:
     """
     def __init__(self, config: FeatureConfig):
         self.config = config
-        self.settings_file = config.settings_file
+        self.settings_file = SETTINGS_PATH
         self.loaded_states = {}
 
     def load_settings(self):

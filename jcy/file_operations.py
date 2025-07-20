@@ -4,6 +4,7 @@ import json5
 import os
 import shutil
 import re
+from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH
 from jcy_model import FeatureConfig
 
 class FileOperations:
@@ -2219,7 +2220,7 @@ class FileOperations:
         data = []
 
         # 1.load settings.json
-        settings_path = os.path.join(self.dir_mod, "settings.json")
+        settings_path = SETTINGS_PATH
         settings_dict = None
         with open(settings_path, 'r', encoding="utf-8") as f:
             settings_dict = json.load(f)

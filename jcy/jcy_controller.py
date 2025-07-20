@@ -8,7 +8,10 @@ from tkinter import messagebox
 from jcy_model import FeatureConfig, FeatureStateManager
 from file_operations import FileOperations
 from jcy_view import FeatureView
-
+from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH
+import pystray
+from PIL import Image
+import threading
 import sys
 import ctypes
 
@@ -37,6 +40,8 @@ class FeatureController:
         self.current_states = {}
         # 初始化 UI（内部需要用到 current_states）
         self.feature_view = FeatureView(master, self.feature_config.all_features_config, self)
+        ico = self.get_resource_path("assets/bear.ico")
+        self.setup_tray_icon(master, icon_image_path=ico)
 
         self._setup_feature_handlers()
         self.dialogs = "" 
@@ -257,10 +262,50 @@ class FeatureController:
     def execute_feature_action(self, feature_id: str, value):
         self.current_states[feature_id] = value
 
+    def setup_tray_icon(self, app_window, icon_image_path="icon.ico"):
+        if not os.path.exists(icon_image_path):
+            print(f"托盘图标文件未找到: {icon_image_path}")
+            return
+
+        image = Image.open(icon_image_path)
+
+        def on_show_window(icon, item):
+            app_window.after(0, lambda: app_window.deiconify())
+
+        def on_exit(icon, item):
+            icon.stop()
+            app_window.after(0, app_window.destroy)
+
+        menu = pystray.Menu(
+            pystray.MenuItem("显示主界面", on_show_window),
+            pystray.MenuItem("退出", on_exit)
+        )
+
+        self.tray_icon = pystray.Icon("D2R多开器", image, "D2R多开器", menu)
+
+        # 不用给 visible 赋值，run() 默认会显示图标
+        # 启动托盘图标线程
+        def run_tray():
+            self.tray_icon.run()
+
+        threading.Thread(target=run_tray, daemon=True).start()
+
+        # 窗口关闭事件改成隐藏，不退出
+        def on_closing():
+            app_window.withdraw()
+
+        app_window.protocol("WM_DELETE_WINDOW", on_closing)
+
+
 if not getattr(sys, 'frozen', False):
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     
 if __name__ == "__main__":
     root = tk.Tk()
     app = FeatureController(root)
+
+    # 设置窗口左上角图标（logo）
+    ico_path = app.get_resource_path("assets/bear.ico")
+    root.iconbitmap(ico_path)
+
     root.mainloop()

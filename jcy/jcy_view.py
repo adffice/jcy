@@ -10,11 +10,12 @@ import time
 import base64
 import uuid
 import hashlib
+from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH
 from cryptography.fernet import Fernet, InvalidToken
 from tkinter import scrolledtext
 from PIL import Image, ImageTk
 
-CONFIG_FILE = "accounts.json"
+CONFIG_FILE = ACCOUNTS_PATH
 
 REGION_DOMAIN_MAP = {
     "kr": "kr.actual.battle.net",
@@ -441,6 +442,9 @@ class D2RLauncherApp(tk.Frame):
         btn_launch_all = ttk.Button(frame_bottom, text="启动勾选账号", command=self.launch_all_accounts)
         btn_launch_all.pack(side="left", padx=5)
 
+        btn_launch_all = ttk.Button(frame_bottom, text="全部关闭", command=self.close_all)
+        btn_launch_all.pack(side="left", padx=5)
+
     def select_d2r_path(self):
         path = filedialog.askopenfilename(title="选择 D2R.exe", filetypes=[("D2R.exe", "D2R.exe")])
         if path:
@@ -667,6 +671,10 @@ class D2RLauncherApp(tk.Frame):
                     time.sleep(self.global_config.get("launch_interval", 5))
 
         threading.Thread(target=launcher, daemon=True).start()
+
+    def close_all(self):
+        if messagebox.askyesno("确认", "确定关闭所有D2R窗口?"):
+            subprocess.run(["taskkill", "/IM", "D2R.exe", "/F"], shell=True)
 
     def rename_d2r_window_by_pid(self, pid, region_key, nickname, mod):
         region_name = REGION_NAME_MAP.get(region_key, region_key)
