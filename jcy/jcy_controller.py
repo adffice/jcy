@@ -8,7 +8,7 @@ import sys
 import threading
 import time
 import tkinter as tk
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from tkinter import messagebox
 
 import win32con
@@ -327,19 +327,41 @@ class TerrorZoneFetcher:
         self.output_file = os.path.join(APP_DATA_PATH, "terror_zone.json")
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
 
-    def fetch_once_with_retry(self, max_retries=5):
+    def fetch_once_with_retry(self, max_retries=9):
+        """
+        爬取TZ最新数据
+        """
         for attempt in range(1, max_retries + 1):
             try:
                 print(f"[尝试] 第 {attempt} 次抓取")
                 response = requests.get(self.base_url, timeout=10)
                 response.raise_for_status()
                 json_data = response.json()
-                print("[成功] 恐怖区域数据抓取成功")
-                return json_data
+
+                # 1. 检查 status 和 data
+                if json_data.get("status") != "ok" or not json_data.get("data"):
+                    print(f"[失败] 数据格式异常: {json_data}")
+                else:
+                    # 2. 解析时间戳（UTC时间）
+                    tz_time = json_data["data"][0]["time"]
+                    target_hour = datetime.fromtimestamp(tz_time, tz=timezone.utc).hour
+
+                    # 3. 当前 UTC 时间 + 1
+                    current_hour = datetime.now(timezone.utc).hour
+                    expected_hour = (current_hour + 1) % 24
+
+                    # 4. 判断是否为“下一个小时”
+                    if target_hour == expected_hour:
+                        print("[成功] 恐怖区域数据抓取成功（为下一个小时）")
+                        return json_data
+                    else:
+                        print(f"[失败] 数据未更新：目标小时={target_hour}，当前+1={expected_hour}")
             except Exception as e:
-                print(f"[失败] 第 {attempt} 次抓取失败: {e}")
-                time.sleep(random.randint(3, 10))
-        print("[错误] 所有尝试均失败")
+                print(f"[异常] 第 {attempt} 次抓取失败: {e}")
+
+            time.sleep(random.randint(3, 10))
+
+        print("[错误] 所有尝试均失败或数据未更新")
         return None
 
     def _run_fetch_loop(self, callback):
