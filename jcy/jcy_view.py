@@ -1,33 +1,22 @@
-import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
+import base64
+import hashlib
 import json
 import os
 import subprocess
 import threading
+import time
+import tkinter as tk
+import uuid
+import win32api
+import win32con
 import win32gui
 import win32process
-import time
-import base64
-import uuid
-import hashlib
-from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH
+
 from cryptography.fernet import Fernet, InvalidToken
-from tkinter import scrolledtext
+from jcy_constants import APP_FULL_NAME, APP_SIZE, REGION_DOMAIN_MAP, REGION_NAME_MAP, TERROR_ZONE
+from jcy_paths import APP_DATA_PATH, ACCOUNTS_PATH
 from PIL import Image, ImageTk
-
-CONFIG_FILE = ACCOUNTS_PATH
-
-REGION_DOMAIN_MAP = {
-    "kr": "kr.actual.battle.net",
-    "us": "us.actual.battle.net",
-    "eu": "eu.actual.battle.net"
-}
-
-REGION_NAME_MAP = {
-    "kr": "亚服",
-    "us": "美服",
-    "eu": "欧服"
-}
+from tkinter import filedialog, messagebox, scrolledtext, ttk
 
 class FeatureView:
     """
@@ -38,22 +27,30 @@ class FeatureView:
         self.all_features_config = all_features_config
         self.controller = controller
 
-        master.title("jcy控制器_v1.1.0")
-        master.geometry("750x700")
+        master.title(APP_FULL_NAME)
+        master.geometry(APP_SIZE)
 
         self.feature_vars = {} 
         self.group_radio_buttons = {} 
+        self.tz_tab = None
         self._create_ui()
 
     def _create_ui(self):
+        # 创建并 pack "应用设置" 按钮到窗口底部
+        self.apply_button = ttk.Button(self.master, text="应用设置", command=self.controller.apply_settings)
+        self.apply_button.pack(side=tk.BOTTOM, pady=5, ipady=5) # 确保它在底部
+
         # 创建 Notebook 
         notebook = ttk.Notebook(self.master)
-        notebook.bind("<<NotebookTabChanged>>", self.on_tab_changed)
         notebook.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
-        # D2R多开器
+        # --- D2R多开器 ---
         launcher_tab = D2RLauncherApp(notebook, resource_path=self.controller.resource_path)
         notebook.add(launcher_tab, text="D2R多开器")
+
+        # --- Terror Zone ---
+        self.tz_tab = TerrorZoneUI(notebook, fetcher = self.controller.terror_zone_fetcher)
+        notebook.add(self.tz_tab, text="恐怖区域")
         
         # --- checkbutton ---
         tab = None
@@ -128,7 +125,7 @@ class FeatureView:
         image_path = os.path.join(self.controller.resource_path, "assets", "donate_wechat.png")
         try:
             image = Image.open(image_path)
-            image = image.resize((200, 200))
+            image = image.resize((330, 440))
             photo = ImageTk.PhotoImage(image)
             label_img = tk.Label(donate_tab, image=photo)
             label_img.image = photo  # 防止垃圾回收
@@ -149,15 +146,18 @@ Email: CMCC_1020@163.com
         text_box.configure(state='disabled')
         text_box.pack(fill='both', expand=True, padx=10, pady=10)
 
-        # 应用设置按钮
-        self.apply_button = ttk.Button(self.master, text="应用设置", command=self.controller.apply_settings)
-        self.apply_button.pack(pady=5, ipady=5)
+        
+
+        # 绑定事件
+        notebook.bind("<<NotebookTabChanged>>", self.on_tab_changed)
 
     def on_tab_changed(self, event):
         notebook = event.widget
         selected = notebook.tab(notebook.select(), "text")
-        if selected in ("D2R多开器", "免责声明"):
+        if selected in ("D2R多开器", "恐怖区域", "免责声明"):
             self.apply_button.config(state='disabled')  # 禁用按钮
+            if selected == "恐怖区域":
+                self.tz_tab.load_and_display_data()
         else:
             self.apply_button.config(state='normal')    # 启用按钮
 
@@ -361,8 +361,8 @@ class D2RLauncherApp(tk.Frame):
         self.build_ui()
 
     def load_config(self):
-        if os.path.exists(CONFIG_FILE):
-            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+        if os.path.exists(ACCOUNTS_PATH):
+            with open(ACCOUNTS_PATH, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 self.global_config = data.get("global", {
                     "d2r_path": "",
@@ -386,7 +386,7 @@ class D2RLauncherApp(tk.Frame):
             "global": self.global_config,
             "accounts": [self.encrypt_account_data(acc) for acc in self.accounts]
         }
-        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+        with open(ACCOUNTS_PATH, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
     def build_ui(self):
@@ -436,10 +436,10 @@ class D2RLauncherApp(tk.Frame):
         btn_add = ttk.Button(frame_bottom, text="添加账号", command=lambda: self.edit_account(None))
         btn_add.pack(side="left", padx=5)
 
-        btn_save = ttk.Button(frame_bottom, text="保存多开器配置", command=self.on_save)
+        btn_save = ttk.Button(frame_bottom, text="保存设置", command=self.on_save)
         btn_save.pack(side="left", padx=5)
 
-        btn_launch_all = ttk.Button(frame_bottom, text="启动勾选账号", command=self.launch_all_accounts)
+        btn_launch_all = ttk.Button(frame_bottom, text="一键多开", command=self.launch_all_accounts)
         btn_launch_all.pack(side="left", padx=5)
 
         btn_launch_all = ttk.Button(frame_bottom, text="全部关闭", command=self.close_all)
@@ -733,3 +733,213 @@ class D2RLauncherApp(tk.Frame):
             return f.decrypt(token.encode()).decode()
         except InvalidToken:
             return token  # 可能是明文
+        
+class SysTrayIcon:
+    """
+    托盘程序
+    """
+    QUIT = 'QUIT'
+    SPECIAL_ACTIONS = {QUIT}
+    FIRST_ID = 1023
+
+    def __init__(self, root, icon, hover_text="托盘运行中", menu_options=None):
+        self.root = root
+        self.icon = icon
+        self.hover_text = hover_text
+        self.menu_options = menu_options or (("退出程序", self.QUIT),)
+
+        self.hicon = win32gui.LoadImage(
+            None, icon,
+            win32con.IMAGE_ICON, 0, 0,
+            win32con.LR_LOADFROMFILE | win32con.LR_DEFAULTSIZE
+        )
+        self._next_action_id = self.FIRST_ID
+        self._menu_actions_by_id = {}
+        self._menu_options_by_id = {}
+        self._create_window_class()
+
+    def _create_window_class(self):
+        message_map = {
+            win32con.WM_DESTROY: self.on_destroy,
+            win32con.WM_COMMAND: self.on_command,
+            win32con.WM_USER + 20: self.on_notify,
+        }
+
+        wc = win32gui.WNDCLASS()
+        self.class_name = "SysTrayApp_" + str(os.getpid())
+        hinst = wc.hInstance = win32api.GetModuleHandle(None)
+        wc.lpszClassName = self.class_name
+        wc.lpfnWndProc = message_map
+        win32gui.RegisterClass(wc)
+
+        self.hwnd = win32gui.CreateWindow(
+            self.class_name,
+            self.class_name,
+            win32con.WS_OVERLAPPED | win32con.WS_SYSMENU,
+            0, 0, win32con.CW_USEDEFAULT, win32con.CW_USEDEFAULT,
+            0, 0, hinst, None
+        )
+        win32gui.UpdateWindow(self.hwnd)
+        self._refresh_icon()
+
+    def _refresh_icon(self):
+        flags = win32gui.NIF_ICON | win32gui.NIF_MESSAGE | win32gui.NIF_TIP
+        nid = (self.hwnd, 0, flags, win32con.WM_USER + 20, self.hicon, self.hover_text)
+        try:
+            win32gui.Shell_NotifyIcon(win32gui.NIM_MODIFY, nid)
+        except win32gui.error:
+            win32gui.Shell_NotifyIcon(win32gui.NIM_ADD, nid)
+
+    def on_notify(self, hwnd, msg, wparam, lparam):
+        if lparam == win32con.WM_RBUTTONUP:
+            self._show_menu()
+        elif lparam == win32con.WM_MOUSEMOVE:
+            # 不做任何操作，避免图标消失
+            pass
+        return True
+
+    def _show_main_window(self):
+        try:
+            print("托盘双击还原窗口, root:", self.root)
+            if self.root.state() == 'withdrawn':
+                self.root.deiconify()
+                # self.root.after(10, lambda: self.root.lift())
+                self.root.focus_force()
+            else:
+                self.root.focus_force()
+        except Exception as e:
+            print("还原窗口时异常:", e)
+
+    def _show_menu(self):
+        menu = win32gui.CreatePopupMenu()
+        for option_text, option_action in self.menu_options[::-1]:
+            item_id = self._next_action_id
+            self._next_action_id += 1
+            win32gui.AppendMenu(menu, win32con.MF_STRING, item_id, option_text)
+            self._menu_actions_by_id[item_id] = option_action
+
+        pos = win32gui.GetCursorPos()
+        win32gui.SetForegroundWindow(self.hwnd)
+        win32gui.TrackPopupMenu(menu, win32con.TPM_LEFTALIGN, pos[0], pos[1], 0, self.hwnd, None)
+        win32gui.PostMessage(self.hwnd, win32con.WM_NULL, 0, 0)
+
+    def on_command(self, hwnd, msg, wparam, lparam):
+        action_id = win32gui.LOWORD(wparam)
+        action = self._menu_actions_by_id.get(action_id)
+        if action == self.QUIT:
+            self.quit()
+        return True
+
+    def on_destroy(self, hwnd, msg, wparam, lparam):
+        try:
+            nid = (self.hwnd, 0)
+            win32gui.Shell_NotifyIcon(win32gui.NIM_DELETE, nid)
+        except Exception:
+            pass
+        win32gui.PostQuitMessage(0)
+        return None
+
+    def quit(self):
+        try:
+            nid = (self.hwnd, 0)
+            win32gui.Shell_NotifyIcon(win32gui.NIM_DELETE, nid)
+        except Exception:
+            pass
+        # self.root.quit()
+        self.root.after(0, self.root.quit)
+        win32gui.DestroyWindow(self.hwnd)
+
+    def show_balloon(self, title, msg, timeout=5000):
+        timeout = int(timeout)
+        flags = win32gui.NIF_INFO | win32gui.NIF_MESSAGE | win32gui.NIF_ICON | win32gui.NIF_TIP
+
+        nid = (
+            self.hwnd,
+            0,
+            flags,
+            win32con.WM_USER + 20,
+            self.hicon,
+            self.hover_text,  # tooltip
+            msg,              # info
+            timeout,          # timeout in ms
+            title,            # infoTitle
+            win32gui.NIIF_INFO
+        )
+
+        try:
+            win32gui.Shell_NotifyIcon(win32gui.NIM_MODIFY, nid)
+        except win32gui.error:
+            # 可能尚未添加图标
+            nid_add = (
+                self.hwnd,
+                0,
+                win32gui.NIF_ICON | win32gui.NIF_MESSAGE | win32gui.NIF_TIP,
+                win32con.WM_USER + 20,
+                self.hicon,
+                self.hover_text
+            )
+            win32gui.Shell_NotifyIcon(win32gui.NIM_ADD, nid_add)
+            win32gui.Shell_NotifyIcon(win32gui.NIM_MODIFY, nid)
+
+    def run(self):
+        win32gui.PumpMessages()
+
+class TerrorZoneUI(tk.Frame):
+    def __init__(self, master=None, json_filename="terror_zone.json", lang="zhCN", fetcher=None):
+        super().__init__(master)
+        self.master = master
+        self.lang = lang
+        self.json_path = os.path.join(APP_DATA_PATH, json_filename)
+        self.fetcher = fetcher  # TerrorZoneFetcher实例
+        self.pack(fill=tk.BOTH, expand=True)
+        
+        self.create_widgets()
+        self.load_and_display_data()
+
+    def create_widgets(self):
+        self.tree = ttk.Treeview(self, columns=("time", "name"), show="headings")
+        self.tree.heading("time", text="时间")
+        self.tree.heading("name", text="恐怖地带")
+        self.tree.column("time", width=150, anchor=tk.CENTER)
+        self.tree.column("name", width=350, anchor=tk.W)
+        self.tree.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+    def load_and_display_data(self):
+        if not os.path.isfile(self.json_path):
+            return
+
+        try:
+            with open(self.json_path, "r", encoding="utf-8") as f:
+                full_data = json.load(f)
+            data_list = full_data.get("data", [])
+
+            self.tree.delete(*self.tree.get_children())
+
+            for item in data_list:
+                if isinstance(item, dict):
+                    zone_key = item.get("zone")
+                    raw_time = item.get("time")
+                    formatted_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(raw_time)) if raw_time else "未知时间"
+                    if not zone_key:
+                        continue
+                    zone_info = TERROR_ZONE.get(zone_key)
+                    if isinstance(zone_info, dict):
+                        name = zone_info.get(self.lang, "未知名称")
+                    else:
+                        name = "未知名称"
+                    self.tree.insert("", "end", values=(formatted_time, name))
+        except Exception as e:
+            messagebox.showerror("错误", f"加载数据失败: {e}")
+
+    def manual_refresh(self):
+        if not self.fetcher:
+            messagebox.showerror("错误", "未初始化数据获取器")
+            return
+        
+        def do_fetch():
+            try:
+                self.fetcher.fetch_manual(ui_refresh_func=lambda data: self.master.after(0, self.load_and_display_data))
+            except Exception as e:
+                self.master.after(0, lambda: messagebox.showerror("错误", f"刷新失败: {e}"))
+        
+        threading.Thread(target=do_fetch, daemon=True).start()

@@ -1,9 +1,11 @@
 import json
 import os
-import shutil
-import sys
 from tkinter import messagebox
-from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH
+
+from jcy_constants import MOD_DIR
+from jcy_paths import SETTINGS_PATH
+
+
 
 class FeatureConfig:
     """
@@ -137,7 +139,7 @@ class FeatureConfig:
         }
 
         self.base_path = base_path
-        self.dir_mod = os.path.join(self.base_path, "jcy.mpq")
+        self.dir_mod = os.path.join(self.base_path, MOD_DIR)
         self.settings_file = SETTINGS_PATH
 
         # ---初始化默认功能状态---
@@ -229,3 +231,4 @@ class FeatureStateManager:
                 json.dump(states_to_save, f, indent=4)
         except Exception as e:
             messagebox.showerror("错误", f"保存配置文件失败：{e}")
+

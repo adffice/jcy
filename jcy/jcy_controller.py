@@ -1,32 +1,65 @@
 import copy
+import ctypes
 import json
 import os
-import shutil
+import random
+import requests
 import sys
-import tkinter as tk
-from tkinter import messagebox
-from jcy_model import FeatureConfig, FeatureStateManager
-from file_operations import FileOperations
-from jcy_view import FeatureView
-from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH, ensure_appdata_files
-import pystray
-from PIL import Image
 import threading
-import sys
-import ctypes
+import time
+import tkinter as tk
+from datetime import datetime, timedelta
+from tkinter import messagebox
+
+import win32con
+import win32gui
+
+from file_operations import FileOperations
+from jcy_constants import APP_FULL_NAME, ERROR_ALREADY_EXISTS, MUTEX_NAME, TERROR_ZONE, LANG
+from jcy_model import FeatureConfig, FeatureStateManager
+from jcy_paths import APP_DATA_PATH, ensure_appdata_files
+from jcy_view import FeatureView, SysTrayIcon
+
 
 def is_admin():
+    """
+    UAC检查
+    """
     try:
         return ctypes.windll.shell32.IsUserAnAdmin()
     except:
         return False
+    
+def bring_to_front():
+    """
+    唤出已有实例
+    """
+    hwnd = win32gui.FindWindow(None, APP_FULL_NAME)  # 标题必须匹配
+    if hwnd:
+        win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)  # 恢复窗口
+        win32gui.SetForegroundWindow(hwnd)              # 前置窗口
+        return True
+    return False
 
+
+# ---- UAC ----
 if not is_admin():
     # 重新以管理员权限启动自己
     ctypes.windll.shell32.ShellExecuteW(
         None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     sys.exit(0)
 
+# ---- 单例 ----
+kernel32 = ctypes.windll.kernel32
+mutex = kernel32.CreateMutexW(None, False, MUTEX_NAME)
+
+last_error = kernel32.GetLastError()
+if ERROR_ALREADY_EXISTS == last_error:
+    print("已有实例运行中, 显示实例窗口...")
+    bring_to_front()
+    sys.exit(0)
+
+# ---- 初始化配置文件 ----
 ensure_appdata_files()
 
 class FeatureController:
@@ -39,18 +72,25 @@ class FeatureController:
         self.file_operations = FileOperations(self.feature_config)
         self.feature_state_manager = FeatureStateManager(self.feature_config)
 
+        # ---- 同步APP信息到JSON ----
+        self.file_operations.sync_app_data()
+
         self.current_states = {}
+
+        # 新增：
+        self.terror_zone_fetcher = TerrorZoneFetcher()
+
         # 初始化 UI（内部需要用到 current_states）
         self.feature_view = FeatureView(master, self.feature_config.all_features_config, self)
-        ico = self.get_resource_path("assets/bear.ico")
-        self.setup_tray_icon(master, icon_image_path=ico)
-
+                
         self._setup_feature_handlers()
         self.dialogs = "" 
 
         self.feature_state_manager.load_settings()
         self.current_states = copy.deepcopy(self.feature_state_manager.loaded_states)
         self.feature_view.update_ui_state(self.current_states)
+
+        
 
     def get_resource_path(self, relative_path):
         """获取资源文件的绝对路径，适配打包和开发环境"""
@@ -183,7 +223,6 @@ class FeatureController:
             "501": self.file_operations.modify_item_names,
         }
 
-
     def apply_settings(self):
         """
         应用所有功能设置，执行文件操作。
@@ -264,50 +303,140 @@ class FeatureController:
     def execute_feature_action(self, feature_id: str, value):
         self.current_states[feature_id] = value
 
-    def setup_tray_icon(self, app_window, icon_image_path="icon.ico"):
-        if not os.path.exists(icon_image_path):
-            print(f"托盘图标文件未找到: {icon_image_path}")
+def start_win32_tray(root, ico_path):
+    tray = SysTrayIcon(
+        root=root,
+        icon=ico_path,
+        hover_text=APP_FULL_NAME,
+        menu_options=[
+            ("退出程序", SysTrayIcon.QUIT),
+        ]
+    )
+    # 在新线程运行托盘事件循环
+    threading.Thread(target=tray.run, daemon=True).start()
+    return tray
+
+
+class TerrorZoneFetcher:
+    def __init__(self, n_times_per_hour=5):
+        self.base_url = "https://asia.d2tz.info/terror_zone?mode=online"
+        self.running = False
+        self.first = True
+        self.thread = None
+        self.n_times_per_hour = n_times_per_hour
+        self.output_file = os.path.join(APP_DATA_PATH, "terror_zone.json")
+        os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
+
+    def fetch_once_with_retry(self, max_retries=5):
+        for attempt in range(1, max_retries + 1):
+            try:
+                print(f"[尝试] 第 {attempt} 次抓取")
+                response = requests.get(self.base_url, timeout=10)
+                response.raise_for_status()
+                json_data = response.json()
+                print("[成功] 恐怖区域数据抓取成功")
+                return json_data
+            except Exception as e:
+                print(f"[失败] 第 {attempt} 次抓取失败: {e}")
+                time.sleep(random.randint(3, 10))
+        print("[错误] 所有尝试均失败")
+        return None
+
+    def _run_fetch_loop(self, callback):
+        print("[启动] 恐怖区域自动抓取线程已启动")
+        self.running = True
+
+        while self.running:
+            if self.first:
+                self.first = False
+                print("[首次] 程序启动，立即执行一次抓取")
+            else:
+                now = datetime.now()
+                target = now.replace(minute=0, second=30, microsecond=0)
+                if now > target:
+                    # 超过当前小时，推到下一个小时
+                    next_hour = (now + timedelta(hours=1)).replace(minute=0, second=30, microsecond=0)
+                    target = next_hour
+
+                wait_seconds = (target - now).total_seconds()
+                print(f"[等待] 距离下次整点触发还有 {int(wait_seconds)} 秒")
+                time.sleep(wait_seconds)
+
+                delay = random.randint(30, 90)
+                print(f"[延迟] 随机延迟 {delay} 秒后开始抓取")
+                time.sleep(delay)
+
+            data = self.fetch_once_with_retry(max_retries=5)
+
+            if data:
+                try:
+                    with open(self.output_file, "w", encoding="utf-8") as f:
+                        json.dump(data, f, ensure_ascii=False, indent=2)
+                    print(f"[保存] 数据已保存到 {self.output_file}")
+                except Exception as e:
+                    print(f"[错误] 保存数据失败: {e}")
+
+                if callback:
+                    callback(data)
+            else:
+                print("[提示] 当前时间点抓取失败，等待下个整点再尝试")
+
+    def start_auto_fetch_thread(self, callback):
+        if self.thread and self.thread.is_alive():
+            print("[提示] 自动抓取线程已在运行")
             return
 
-        image = Image.open(icon_image_path)
+        self.thread = threading.Thread(target=self._run_fetch_loop, args=(callback,), daemon=True)
+        self.thread.start()
 
-        def on_show_window(icon, item):
-            app_window.after(0, lambda: app_window.deiconify())
-
-        def on_exit(icon, item):
-            icon.stop()
-            app_window.after(0, app_window.destroy)
-
-        menu = pystray.Menu(
-            pystray.MenuItem("显示主界面", on_show_window),
-            pystray.MenuItem("退出", on_exit)
-        )
-
-        self.tray_icon = pystray.Icon("D2R多开器", image, "D2R多开器", menu)
-
-        # 不用给 visible 赋值，run() 默认会显示图标
-        # 启动托盘图标线程
-        def run_tray():
-            self.tray_icon.run()
-
-        threading.Thread(target=run_tray, daemon=True).start()
-
-        # 窗口关闭事件改成隐藏，不退出
-        def on_closing():
-            app_window.withdraw()
-
-        app_window.protocol("WM_DELETE_WINDOW", on_closing)
-
+    def stop(self):
+        self.running = False
 
 if not getattr(sys, 'frozen', False):
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = FeatureController(root)
 
-    # 设置窗口左上角图标（logo）
     ico_path = app.get_resource_path("assets/bear.ico")
     root.iconbitmap(ico_path)
+    
+    def on_closing():
+        if messagebox.askokcancel("退出", "确定要退出程序吗？"):
+            root.destroy()
+        else:
+            # 取消关闭，不做操作
+            pass
+
+    root.protocol("WM_DELETE_WINDOW", on_closing)
+
+    # 先创建托盘对象
+    tray = start_win32_tray(root, ico_path)
+
+    # 跨线程通知函数
+    def show_notification_from_thread(title, message):
+        root.after(0, lambda: tray.show_balloon(title, message))
+
+    # 恐怖区域数据更新回调
+    def notify_fetch_success(data):
+        print("[通知] 恐怖区域数据更新成功！")
+        try:
+            rec = data["data"][0]
+            raw_time = rec.get("time")
+            zone_key = rec.get("zone")
+            formatted_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(raw_time)) if raw_time else "未知时间"
+            
+            zone_info = TERROR_ZONE.get(zone_key, {})
+            zone_name = zone_info.get(LANG, "未知区域") if zone_info else f"未知区域（{zone_key}）"
+            message = f"{formatted_time} {zone_name}"
+        except Exception as e:
+            print("[通知构造异常]", e)
+            message = "恐怖区域数据更新成功，但部分信息解析失败。"
+
+        show_notification_from_thread("恐怖区域已更新", message)
+
+    # 启动自动获取恐怖区域数据的后台线程
+    app.terror_zone_fetcher.start_auto_fetch_thread(notify_fetch_success)
 
     root.mainloop()

@@ -1,15 +1,14 @@
-import csv
 import json
-import json5
 import os
 import shutil
 import re
-from jcy_paths import SETTINGS_PATH, ACCOUNTS_PATH
+from jcy_paths import SETTINGS_PATH
 from jcy_model import FeatureConfig
+from jcy_constants import UE01A, APP_VERSION, APP_DATE
 
 class FileOperations:
 
-    UE01A = ""
+    
 
     """
     负责处理所有文件相关的操作，如复制和删除。
@@ -2264,9 +2263,9 @@ class FileOperations:
         # 2.modify
         for id, filter in data.items():
             item_name = item_name_dict[id]
-            item_name["enUS"] = self.UE01A + item_name["enUS"].removeprefix(self.UE01A) if filter else item_name["enUS"].removeprefix(self.UE01A)
-            item_name["zhCN"] = self.UE01A + item_name["zhCN"].removeprefix(self.UE01A) if filter else item_name["zhCN"].removeprefix(self.UE01A)
-            item_name["zhTW"] = self.UE01A + item_name["zhTW"].removeprefix(self.UE01A) if filter else item_name["zhTW"].removeprefix(self.UE01A)
+            item_name["enUS"] = UE01A + item_name["enUS"].removeprefix(UE01A) if filter else item_name["enUS"].removeprefix(UE01A)
+            item_name["zhCN"] = UE01A + item_name["zhCN"].removeprefix(UE01A) if filter else item_name["zhCN"].removeprefix(UE01A)
+            item_name["zhTW"] = UE01A + item_name["zhTW"].removeprefix(UE01A) if filter else item_name["zhTW"].removeprefix(UE01A)
             
         # 3.write
         with open(item_names_path, 'w', encoding='utf-8-sig') as f:
@@ -2369,3 +2368,37 @@ class FileOperations:
                 except Exception as e:
                     print(e)
         return (count, total)
+    
+    def sync_app_data(self):
+        """
+        APP_VERSION -> npcs.json.50002
+        APP_DATE -> npcs.json.50004
+        """
+        npcs = os.path.join(self.dir_mod, r"data/local/lng/strings/npcs.json")
+
+        try:
+            json_data = None
+            with open(npcs, 'r', encoding='utf-8-sig') as f:
+                json_data = json.load(f)
+
+            for npc in json_data:
+                if npc["id"] == 50002:
+                    npc["enUS"] = APP_VERSION
+                    npc["zhTW"] = APP_VERSION
+                    npc["koKR"] = APP_VERSION
+                    npc["zhCN"] = APP_VERSION
+
+                if npc["id"] == 50004:
+                    npc["enUS"] = APP_DATE
+                    npc["zhTW"] = APP_DATE
+                    npc["koKR"] = APP_DATE
+                    npc["zhCN"] = APP_DATE
+
+                if npc["id"] > 50004:
+                    break;
+
+            with open(npcs, 'w', encoding='utf-8-sig') as f:
+                json.dump(json_data, f, ensure_ascii=False, indent=2)
+            return (1, 1)
+        except Exception as e:
+            print(e)
