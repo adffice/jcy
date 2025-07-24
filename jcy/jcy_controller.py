@@ -10,15 +10,13 @@ import time
 import tkinter as tk
 from datetime import datetime, timedelta, timezone
 from tkinter import messagebox
-
-import win32con
-import win32gui
+from win11toast import toast
 
 from file_operations import FileOperations
 from jcy_constants import APP_FULL_NAME, ERROR_ALREADY_EXISTS, MUTEX_NAME, TERROR_ZONE, LANG
 from jcy_model import FeatureConfig, FeatureStateManager
 from jcy_paths import APP_DATA_PATH, ensure_appdata_files
-from jcy_view import FeatureView, SysTrayIcon
+from jcy_view import FeatureView
 
 
 def is_admin():
@@ -30,18 +28,6 @@ def is_admin():
     except:
         return False
     
-def bring_to_front():
-    """
-    唤出已有实例
-    """
-    hwnd = win32gui.FindWindow(None, APP_FULL_NAME)  # 标题必须匹配
-    if hwnd:
-        win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)  # 恢复窗口
-        win32gui.SetForegroundWindow(hwnd)              # 前置窗口
-        return True
-    return False
-
-
 # ---- UAC ----
 if not is_admin():
     # 重新以管理员权限启动自己
@@ -49,15 +35,13 @@ if not is_admin():
         None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     sys.exit(0)
 
-# ---- 单例 ----
+# ---- 单例检查（最终版）----
 kernel32 = ctypes.windll.kernel32
 mutex = kernel32.CreateMutexW(None, False, MUTEX_NAME)
-
-last_error = kernel32.GetLastError()
-if ERROR_ALREADY_EXISTS == last_error:
+if kernel32.GetLastError() == ERROR_ALREADY_EXISTS:
     print("已有实例运行中, 显示实例窗口...")
-    bring_to_front()
-    sys.exit(0)
+    sys.exit(0)  # 直接退出，不提示
+
 
 # ---- 初始化配置文件 ----
 ensure_appdata_files()
@@ -303,20 +287,6 @@ class FeatureController:
     def execute_feature_action(self, feature_id: str, value):
         self.current_states[feature_id] = value
 
-def start_win32_tray(root, ico_path):
-    tray = SysTrayIcon(
-        root=root,
-        icon=ico_path,
-        hover_text=APP_FULL_NAME,
-        menu_options=[
-            ("退出程序", SysTrayIcon.QUIT),
-        ]
-    )
-    # 在新线程运行托盘事件循环
-    threading.Thread(target=tray.run, daemon=True).start()
-    return tray
-
-
 class TerrorZoneFetcher:
     def __init__(self, n_times_per_hour=5):
         self.base_url = "https://asia.d2tz.info/terror_zone?mode=online"
@@ -388,7 +358,7 @@ class TerrorZoneFetcher:
                 print(f"[延迟] 随机延迟 {delay} 秒后开始抓取")
                 time.sleep(delay)
 
-            data = self.fetch_once_with_retry(max_retries=5)
+            data = self.fetch_once_with_retry()
 
             if data:
                 try:
@@ -433,13 +403,6 @@ if __name__ == "__main__":
 
     root.protocol("WM_DELETE_WINDOW", on_closing)
 
-    # 先创建托盘对象
-    tray = start_win32_tray(root, ico_path)
-
-    # 跨线程通知函数
-    def show_notification_from_thread(title, message):
-        root.after(0, lambda: tray.show_balloon(title, message))
-
     # 恐怖区域数据更新回调
     def notify_fetch_success(data):
         print("[通知] 恐怖区域数据更新成功！")
@@ -456,7 +419,7 @@ if __name__ == "__main__":
             print("[通知构造异常]", e)
             message = "恐怖区域数据更新成功，但部分信息解析失败。"
 
-        show_notification_from_thread("恐怖区域已更新", message)
+        toast("恐怖区域已更新", message)
 
     # 启动自动获取恐怖区域数据的后台线程
     app.terror_zone_fetcher.start_auto_fetch_thread(notify_fetch_success)

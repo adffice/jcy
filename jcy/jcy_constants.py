@@ -15,13 +15,13 @@ LANG = "zhCN"
 APP_NAME = "jcy控制器"
 
 # MOD版本
-APP_VERSION = "v1.1.1"
+APP_VERSION = "v1.1.1c"
 
 # 控制器全称
 APP_FULL_NAME = f"{APP_NAME}_{APP_VERSION}"
 
 # 发布日期
-APP_DATE = "20250723"
+APP_DATE = "20250724"
 
 # APP大小
 APP_SIZE = "750x700"

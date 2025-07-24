@@ -7,8 +7,6 @@ import threading
 import time
 import tkinter as tk
 import uuid
-import win32api
-import win32con
 import win32gui
 import win32process
 
@@ -682,17 +680,17 @@ class D2RLauncherApp(tk.Frame):
         if mod:
             title += f".{mod}"
 
-        def callback(hwnd, _):
+        def callback(hwnd, lParam):
             try:
                 _, window_pid = win32process.GetWindowThreadProcessId(hwnd)
-                if window_pid == pid:
+                if window_pid == lParam:  # 使用 lParam 传递 pid
                     win32gui.SetWindowText(hwnd, title)
-                    return False  # 找到后停止枚举
-            except Exception:
-                pass
-            return True
+                    return False  # 找到目标窗口后停止枚举
+            except Exception as e:
+                print(f"窗口处理失败: {e}")
+            return True  # 继续枚举其他窗口
 
-        win32gui.EnumWindows(callback, None)
+        win32gui.EnumWindows(callback, pid)  # 把 pid 作为 lParam 传入
 
     def encrypt_account_data(self, account: dict) -> dict:
         encrypted = account.copy()
@@ -734,156 +732,6 @@ class D2RLauncherApp(tk.Frame):
         except InvalidToken:
             return token  # 可能是明文
         
-class SysTrayIcon:
-    """
-    托盘程序
-    """
-    QUIT = 'QUIT'
-    SPECIAL_ACTIONS = {QUIT}
-    FIRST_ID = 1023
-
-    def __init__(self, root, icon, hover_text="托盘运行中", menu_options=None):
-        self.root = root
-        self.icon = icon
-        self.hover_text = hover_text
-        self.menu_options = menu_options or (("退出程序", self.QUIT),)
-
-        self.hicon = win32gui.LoadImage(
-            None, icon,
-            win32con.IMAGE_ICON, 0, 0,
-            win32con.LR_LOADFROMFILE | win32con.LR_DEFAULTSIZE
-        )
-        self._next_action_id = self.FIRST_ID
-        self._menu_actions_by_id = {}
-        self._menu_options_by_id = {}
-        self._create_window_class()
-
-    def _create_window_class(self):
-        message_map = {
-            win32con.WM_DESTROY: self.on_destroy,
-            win32con.WM_COMMAND: self.on_command,
-            win32con.WM_USER + 20: self.on_notify,
-        }
-
-        wc = win32gui.WNDCLASS()
-        self.class_name = "SysTrayApp_" + str(os.getpid())
-        hinst = wc.hInstance = win32api.GetModuleHandle(None)
-        wc.lpszClassName = self.class_name
-        wc.lpfnWndProc = message_map
-        win32gui.RegisterClass(wc)
-
-        self.hwnd = win32gui.CreateWindow(
-            self.class_name,
-            self.class_name,
-            win32con.WS_OVERLAPPED | win32con.WS_SYSMENU,
-            0, 0, win32con.CW_USEDEFAULT, win32con.CW_USEDEFAULT,
-            0, 0, hinst, None
-        )
-        win32gui.UpdateWindow(self.hwnd)
-        self._refresh_icon()
-
-    def _refresh_icon(self):
-        flags = win32gui.NIF_ICON | win32gui.NIF_MESSAGE | win32gui.NIF_TIP
-        nid = (self.hwnd, 0, flags, win32con.WM_USER + 20, self.hicon, self.hover_text)
-        try:
-            win32gui.Shell_NotifyIcon(win32gui.NIM_MODIFY, nid)
-        except win32gui.error:
-            win32gui.Shell_NotifyIcon(win32gui.NIM_ADD, nid)
-
-    def on_notify(self, hwnd, msg, wparam, lparam):
-        if lparam == win32con.WM_RBUTTONUP:
-            self._show_menu()
-        elif lparam == win32con.WM_MOUSEMOVE:
-            # 不做任何操作，避免图标消失
-            pass
-        return True
-
-    def _show_main_window(self):
-        try:
-            print("托盘双击还原窗口, root:", self.root)
-            if self.root.state() == 'withdrawn':
-                self.root.deiconify()
-                # self.root.after(10, lambda: self.root.lift())
-                self.root.focus_force()
-            else:
-                self.root.focus_force()
-        except Exception as e:
-            print("还原窗口时异常:", e)
-
-    def _show_menu(self):
-        menu = win32gui.CreatePopupMenu()
-        for option_text, option_action in self.menu_options[::-1]:
-            item_id = self._next_action_id
-            self._next_action_id += 1
-            win32gui.AppendMenu(menu, win32con.MF_STRING, item_id, option_text)
-            self._menu_actions_by_id[item_id] = option_action
-
-        pos = win32gui.GetCursorPos()
-        win32gui.SetForegroundWindow(self.hwnd)
-        win32gui.TrackPopupMenu(menu, win32con.TPM_LEFTALIGN, pos[0], pos[1], 0, self.hwnd, None)
-        win32gui.PostMessage(self.hwnd, win32con.WM_NULL, 0, 0)
-
-    def on_command(self, hwnd, msg, wparam, lparam):
-        action_id = win32gui.LOWORD(wparam)
-        action = self._menu_actions_by_id.get(action_id)
-        if action == self.QUIT:
-            self.quit()
-        return True
-
-    def on_destroy(self, hwnd, msg, wparam, lparam):
-        try:
-            nid = (self.hwnd, 0)
-            win32gui.Shell_NotifyIcon(win32gui.NIM_DELETE, nid)
-        except Exception:
-            pass
-        win32gui.PostQuitMessage(0)
-        return None
-
-    def quit(self):
-        try:
-            nid = (self.hwnd, 0)
-            win32gui.Shell_NotifyIcon(win32gui.NIM_DELETE, nid)
-        except Exception:
-            pass
-        # self.root.quit()
-        self.root.after(0, self.root.quit)
-        win32gui.DestroyWindow(self.hwnd)
-
-    def show_balloon(self, title, msg, timeout=5000):
-        timeout = int(timeout)
-        flags = win32gui.NIF_INFO | win32gui.NIF_MESSAGE | win32gui.NIF_ICON | win32gui.NIF_TIP
-
-        nid = (
-            self.hwnd,
-            0,
-            flags,
-            win32con.WM_USER + 20,
-            self.hicon,
-            self.hover_text,  # tooltip
-            msg,              # info
-            timeout,          # timeout in ms
-            title,            # infoTitle
-            win32gui.NIIF_INFO
-        )
-
-        try:
-            win32gui.Shell_NotifyIcon(win32gui.NIM_MODIFY, nid)
-        except win32gui.error:
-            # 可能尚未添加图标
-            nid_add = (
-                self.hwnd,
-                0,
-                win32gui.NIF_ICON | win32gui.NIF_MESSAGE | win32gui.NIF_TIP,
-                win32con.WM_USER + 20,
-                self.hicon,
-                self.hover_text
-            )
-            win32gui.Shell_NotifyIcon(win32gui.NIM_ADD, nid_add)
-            win32gui.Shell_NotifyIcon(win32gui.NIM_MODIFY, nid)
-
-    def run(self):
-        win32gui.PumpMessages()
-
 class TerrorZoneUI(tk.Frame):
     def __init__(self, master=None, json_filename="terror_zone.json", lang="zhCN", fetcher=None):
         super().__init__(master)
