@@ -1,4 +1,5 @@
 import base64
+import webbrowser
 import hashlib
 import json
 import os
@@ -391,6 +392,12 @@ class D2RLauncherApp(tk.Frame):
         # 全局设置区
         frame_global = ttk.LabelFrame(self, text="全局设置")
         frame_global.pack(fill="x", padx=10, pady=5)
+        # ?
+        help_icon_path = os.path.join(self.resource_path, "assets", "help.png")
+        self.help_img = tk.PhotoImage(file=help_icon_path)  # 防止被GC回收
+        lbl_help = tk.Label(frame_global, image=self.help_img, cursor="hand2")
+        lbl_help.grid(row=0, column=3, padx=2)
+        lbl_help.bind("<Button-1>", lambda e: self.open_help_link())
 
         # 游戏路径
         ttk.Label(frame_global, text="游戏路径:").grid(row=0, column=0, sticky="w")
@@ -731,6 +738,10 @@ class D2RLauncherApp(tk.Frame):
             return f.decrypt(token.encode()).decode()
         except InvalidToken:
             return token  # 可能是明文
+        
+    def open_help_link(self):
+        url = "https://bbs.d.163.com/forum.php?mod=viewthread&tid=175119207&page=5#pid218155737"
+        webbrowser.open(url)
         
 class TerrorZoneUI(tk.Frame):
     def __init__(self, master=None, json_filename="terror_zone.json", lang="zhCN", fetcher=None):
