@@ -3,7 +3,7 @@
   "name": "minihoradriccubelayout",
   "fields":
   {
-    "priority": 99,
+    "priority": -100,
     "rect":
     {
       "x": 590,
@@ -29,7 +29,6 @@
           "y": -336,
           "scale": 2.1
         },
-        // "filename": "PANEL\\jgmod\\HoradricCube_BG_mini"
         "filename": "PANEL\\Horadric_Cube\\Flourish",
         "frame": 27
       }
