@@ -74,7 +74,7 @@
                             "y": 600
                         },
                         "filename": "FrontEnd\\HD\\Final\\FrontEnd_ButtonMed",
-                        "textString": "@JcyModName @JcyModVersion",
+                        "textString": "jcy Mod @JcyModVersion",
                         "onClickMessage": "PanelManager:OpenPanel:jcyModInfo",
                         "textColor": "$LightButtonTextColor",
                         "text/style": "$StyleFEButtonText",

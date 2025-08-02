@@ -25,7 +25,7 @@
                             "pointSize": "$MediumLargeFontSize",
                             "spacing": "$ReducedSpacing",
                         },
-                        "text": "@JcyModName", // English only due to compliance
+                        "text": "jcy Mod", // English only due to compliance
                     }
                 },
                 {
@@ -33,7 +33,7 @@
                     "fields": {
                         "rect": { "x": 50, "y": 130, "width": 1450, "height": 130 },
                         "style": "$StyleModalDialogDescription",
-                        "text": "@JcyModAuthor", // English only due to compliance
+                        "text": "jcymeow", // English only due to compliance
                     }
                 },
                 {
