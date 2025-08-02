@@ -668,7 +668,7 @@
         },
         "filename": "items\\misc\\book\\identify_book",
         "tooltipString": "@jghelp50099diablowiki",
-        "onClickMessage": "PanelManager:TogglePanel:OnlineGameSettingsPanel",
+        "onClickMessage": "PanelManager:TogglePanel:OnlineGameSettingPanel",
         "focusIndicatorVisible": true,
         "hoveredFrame": 0,
         "pressedFrame": 0
