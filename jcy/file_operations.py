@@ -2371,8 +2371,8 @@ class FileOperations:
     
     def sync_app_data(self):
         """
-        APP_VERSION -> npcs.json.50002
-        APP_DATE -> npcs.json.50004
+        APP_VERSION -> npcs.json.50001
+        APP_DATE -> npcs.json.50002
         """
         npcs = os.path.join(self.dir_mod, r"data/local/lng/strings/npcs.json")
 
@@ -2382,20 +2382,18 @@ class FileOperations:
                 json_data = json.load(f)
 
             for npc in json_data:
-                if npc["id"] == 50002:
+                if npc["id"] == 50001:
                     npc["enUS"] = APP_VERSION
                     npc["zhTW"] = APP_VERSION
-                    npc["koKR"] = APP_VERSION
                     npc["zhCN"] = APP_VERSION
 
-                if npc["id"] == 50004:
+                if npc["id"] == 50002:
                     npc["enUS"] = APP_DATE
                     npc["zhTW"] = APP_DATE
-                    npc["koKR"] = APP_DATE
                     npc["zhCN"] = APP_DATE
 
-                if npc["id"] > 50004:
-                    break;
+                if npc["id"] > 50002:
+                    break
 
             with open(npcs, 'w', encoding='utf-8-sig') as f:
                 json.dump(json_data, f, ensure_ascii=False, indent=2)
