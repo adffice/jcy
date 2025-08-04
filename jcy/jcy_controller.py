@@ -11,6 +11,7 @@ import tkinter as tk
 from datetime import datetime, timedelta, timezone
 from tkinter import messagebox
 from win11toast import toast
+import subprocess
 
 from file_operations import FileOperations
 from jcy_constants import APP_FULL_NAME, ERROR_ALREADY_EXISTS, MUTEX_NAME, TERROR_ZONE, LANG
@@ -286,6 +287,10 @@ class FeatureController:
 
     def execute_feature_action(self, feature_id: str, value):
         self.current_states[feature_id] = value
+    
+    def open_appdata(self):
+        os.makedirs(APP_DATA_PATH, exist_ok=True)  # 确保目录存在
+        subprocess.Popen(f'explorer "{APP_DATA_PATH}"')  # 打开目录（Windows）
 
 class TerrorZoneFetcher:
     def __init__(self, n_times_per_hour=5):

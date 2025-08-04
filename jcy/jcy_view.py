@@ -35,9 +35,17 @@ class FeatureView:
         self._create_ui()
 
     def _create_ui(self):
-        # 创建并 pack "应用设置" 按钮到窗口底部
-        self.apply_button = ttk.Button(self.master, text="应用设置", command=self.controller.apply_settings)
-        self.apply_button.pack(side=tk.BOTTOM, pady=5, ipady=5) # 确保它在底部
+        # 创建底部按钮容器
+        button_frame = ttk.Frame(self.master)
+        button_frame.pack(side=tk.BOTTOM, pady=5)
+
+        # 创建并加入“配置路径”按钮
+        self.appdata_button = ttk.Button(button_frame, text="配置路径", command=self.controller.open_appdata)
+        self.appdata_button.pack(side=tk.LEFT, padx=10, ipady=5)
+
+        # 创建并加入“应用设置”按钮
+        self.apply_button = ttk.Button(button_frame, text="应用设置", command=self.controller.apply_settings)
+        self.apply_button.pack(side=tk.LEFT, padx=10, ipady=5)
 
         # 创建 Notebook 
         notebook = ttk.Notebook(self.master)
