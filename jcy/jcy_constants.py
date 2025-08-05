@@ -15,13 +15,13 @@ LANG = "zhCN"
 APP_NAME = "jcy控制器"
 
 # MOD版本
-APP_VERSION = "v1.1.2"
+APP_VERSION = "v1.1.2c"
 
 # 控制器全称
 APP_FULL_NAME = f"{APP_NAME}_{APP_VERSION}"
 
 # 发布日期
-APP_DATE = "20250801"
+APP_DATE = "20250806"
 
 # APP大小
 APP_SIZE = "750x700"
@@ -54,6 +54,11 @@ REGION_NAME_MAP = {
 
 # Unicode私有区字符 for 屏蔽道具
 UE01A = "" * 41
+
+TERROR_ZONE_API = (
+    "https://asia.d2tz.info/terror_zone?mode=online",
+    "https://api.d2tz.info/terror_zone?mode=online",
+)
 
 # 恐怖地带
 TERROR_ZONE = {

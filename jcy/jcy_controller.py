@@ -14,7 +14,7 @@ from win11toast import toast
 import subprocess
 
 from file_operations import FileOperations
-from jcy_constants import APP_FULL_NAME, ERROR_ALREADY_EXISTS, MUTEX_NAME, TERROR_ZONE, LANG
+from jcy_constants import APP_FULL_NAME, ERROR_ALREADY_EXISTS, MUTEX_NAME, TERROR_ZONE_API, TERROR_ZONE, LANG
 from jcy_model import FeatureConfig, FeatureStateManager
 from jcy_paths import APP_DATA_PATH, ensure_appdata_files
 from jcy_view import FeatureView
@@ -294,7 +294,6 @@ class FeatureController:
 
 class TerrorZoneFetcher:
     def __init__(self, n_times_per_hour=5):
-        self.base_url = "https://asia.d2tz.info/terror_zone?mode=online"
         self.running = False
         self.first = True
         self.thread = None
@@ -306,10 +305,12 @@ class TerrorZoneFetcher:
         """
         爬取TZ最新数据
         """
+        randint = random.randint(0, 1)
         for attempt in range(1, max_retries + 1):
             try:
-                print(f"[尝试] 第 {attempt} 次抓取")
-                response = requests.get(self.base_url, timeout=10)
+                api = TERROR_ZONE_API[randint % 2]
+                print(f"[尝试] 第 {attempt} 次抓取 {api}")
+                response = requests.get(api, timeout=10)
                 response.raise_for_status()
                 json_data = response.json()
 
@@ -334,6 +335,7 @@ class TerrorZoneFetcher:
             except Exception as e:
                 print(f"[异常] 第 {attempt} 次抓取失败: {e}")
 
+            randint += 1
             time.sleep(random.randint(3, 10))
 
         print("[错误] 所有尝试均失败或数据未更新")

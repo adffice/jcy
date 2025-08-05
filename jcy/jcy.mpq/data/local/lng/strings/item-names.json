@@ -82,7 +82,7 @@
     "jaJP": "カリムの目",
     "ptBR": "Olho de Khalim",
     "ruRU": "Глаз Халима",
-    "zhCN": "卡林姆的眼球"
+    "zhCN": "卡林姆的晶体"
   },
   {
     "id": 1065,
@@ -99,7 +99,7 @@
     "jaJP": "カリムの脳",
     "ptBR": "Cérebro de Khalim",
     "ruRU": "Мозг Халима",
-    "zhCN": "卡林姆的大脑"
+    "zhCN": "卡林姆的智慧"
   },
   {
     "id": 1066,
@@ -116,7 +116,7 @@
     "jaJP": "カリムの心臓",
     "ptBR": "Coração de Khalim",
     "ruRU": "Сердце Халима",
-    "zhCN": "卡林姆的心脏"
+    "zhCN": "卡林姆的生命核心"
   },
   {
     "id": 1751,
@@ -881,7 +881,7 @@
     "jaJP": "ボーン・ヘルム",
     "ptBR": "[ms]Elmo Ósseo",
     "ruRU": "[ms]костяной шлем",
-    "zhCN": "骨盔|普"
+    "zhCN": "钙白质盔|普"
   },
   {
     "id": 1974,
@@ -898,7 +898,7 @@
     "jaJP": "ボーン・シールド",
     "ptBR": "[ms]Escudo Ósseo",
     "ruRU": "[ms]костяной щит",
-    "zhCN": "骨盾|普轻"
+    "zhCN": "钙白盾|普轻"
   },
   {
     "id": 1975,
@@ -1136,7 +1136,7 @@
     "jaJP": "ボーン・ワンド",
     "ptBR": "[fs]Varinha Óssea",
     "ruRU": "[ms]костяной жезл",
-    "zhCN": "白骨魔杖|普"
+    "zhCN": "钙白体魔杖|普"
   },
   {
     "id": 1989,
@@ -8191,7 +8191,7 @@
     "jaJP": "スパイン",
     "ptBR": "Espinha",
     "ruRU": "[ms]хребет",
-    "zhCN": "脊柱"
+    "zhCN": "支柱"
   },
   {
     "id": 2537,
@@ -8718,7 +8718,7 @@
     "jaJP": "肉",
     "ptBR": "Carne",
     "ruRU": "[pl]латы",
-    "zhCN": "血肉"
+    "zhCN": "外壳"
   },
   {
     "id": 2569,
@@ -8820,7 +8820,7 @@
     "jaJP": "ナッシャー",
     "ptBR": "O Triturador",
     "ruRU": "Острый клык",
-    "zhCN": "[MAX:70ED]\n血肉撕咬"
+    "zhCN": "[MAX:70ED]\n外壳撕咬"
   },
   {
     "id": 2575,
@@ -8854,7 +8854,7 @@
     "jaJP": "ブレイドボーン",
     "ptBR": "Laminosso",
     "ruRU": "Косторез",
-    "zhCN": "[MAX:50ED]\n刃骨"
+    "zhCN": "[MAX:50ED]\n钙白锋刃"
   },
   {
     "id": 2577,
@@ -9024,7 +9024,7 @@
     "jaJP": "グレイヴンスパイン",
     "ptBR": "Tumbespinha",
     "ruRU": "Узорный хребет",
-    "zhCN": "[MAX:50Mana]\n脊骨雕塑"
+    "zhCN": "[MAX:50Mana]\n支柱雕塑"
   },
   {
     "id": 2587,
@@ -9160,7 +9160,7 @@
     "jaJP": "ブラッドライズ",
     "ptBR": "Sanguinolência",
     "ruRU": "Кипящая кровь",
-    "zhCN": "血色飞星"
+    "zhCN": "赤色飞星"
   },
   {
     "id": 2595,
@@ -9211,7 +9211,7 @@
     "jaJP": "ボーンスナップ",
     "ptBR": "Ossarada",
     "ruRU": "Крушитель костей",
-    "zhCN": "[MAX:300ED]\n碎骨"
+    "zhCN": "[MAX:300ED]\n钙白碎裂"
   },
   {
     "id": 2598,
@@ -9262,7 +9262,7 @@
     "jaJP": "ブラッド・クレセント",
     "ptBR": "Crescente Sangrento",
     "ruRU": "Кровавый месяц",
-    "zhCN": "[MAX:80ED]\n血色新月"
+    "zhCN": "[MAX:80ED]\n赤色新月"
   },
   {
     "id": 2601,
@@ -9585,7 +9585,7 @@
     "jaJP": "ブラッドシーフ",
     "ptBR": "Ladrão de Sangue",
     "ruRU": "Кровавый вор",
-    "zhCN": "[MAX:70ED/12LL]\n血贼"
+    "zhCN": "[MAX:70ED/12LL]\n精华搬运者"
   },
   {
     "id": 2620,
@@ -9619,7 +9619,7 @@
     "jaJP": "タナー・ゴアロッド",
     "ptBR": "Sanguinário de Tannr",
     "ruRU": "Кровавая пика Таннра",
-    "zhCN": "[MAX:100ED]\n皮匠的血刺枪"
+    "zhCN": "[MAX:100ED]\n皮匠的刺枪"
   },
   {
     "id": 2622,
@@ -9857,7 +9857,7 @@
     "jaJP": "レイヴン・クロー",
     "ptBR": "Garra Corvídea",
     "ruRU": "Коготь ворона",
-    "zhCN": "[MAX:70ED]\n血鸦之爪"
+    "zhCN": "[MAX:70ED]\n赤鸦之爪"
   },
   {
     "id": 2636,
@@ -10316,7 +10316,7 @@
     "jaJP": "ボーンフレッシュ",
     "ptBR": "Carneosso",
     "ruRU": "Содранная плоть",
-    "zhCN": "[MAX:120ED]\n骨肉分离"
+    "zhCN": "[MAX:120ED]\n钙白与肉质分离"
   },
   {
     "id": 2663,
@@ -10571,7 +10571,7 @@
     "jaJP": "ブラッドフィスト",
     "ptBR": "Punhos Sangrentos",
     "ruRU": "Кровавый кулак",
-    "zhCN": "[MAX:防御88(UP*2)/20ED]\n染血拳套"
+    "zhCN": "[MAX:防御88(UP*2)/20ED]\n战损拳套"
   },
   {
     "id": 2678,
@@ -10656,7 +10656,7 @@
     "jaJP": "ゴアフット",
     "ptBR": "Pisa-sangue",
     "ruRU": "Кровавая поступь",
-    "zhCN": "[MAX:30ED]\n践血"
+    "zhCN": "[MAX:30ED]\n鏖战裹脚"
   },
   {
     "id": 2683,
@@ -11693,7 +11693,7 @@
     "jaJP": "タンクレドの背骨",
     "ptBR": "Espinha de Tancred",
     "ruRU": "Хребет Танкреда",
-    "zhCN": "[MAX:基本防御161]\n坦克雷的脊柱"
+    "zhCN": "[MAX:基本防御161]\n坦克雷的支柱"
   },
   {
     "id": 10154,
@@ -12203,7 +12203,7 @@
     "jaJP": "アルカナズ・フレッシュ",
     "ptBR": "Carne de Arcanna",
     "ruRU": "Плоть Арканны",
-    "zhCN": "[MAX:基本防御107]\n阿卡娜的血肉"
+    "zhCN": "[MAX:基本防御107]\n阿卡娜的外壳"
   },
   {
     "id": 10911,
@@ -13053,7 +13053,7 @@
     "jaJP": "リッチ・ワンド",
     "ptBR": "[fs]Varinha do Lich",
     "ruRU": "[ms]жезл лича",
-    "zhCN": "尸妖魔杖|精"
+    "zhCN": "邪妖魔杖|精"
   },
   {
     "id": 20214,
@@ -13240,7 +13240,7 @@
     "jaJP": "オーガ・モール",
     "ptBR": "[ms]Malho Ogro",
     "ruRU": "[fs]устрашающая кувалда",
-    "zhCN": "食人魔锤|精"
+    "zhCN": "食肉魔锤|精"
   },
   {
     "id": 20225,
@@ -13512,7 +13512,7 @@
     "jaJP": "ボーン・ナイフ",
     "ptBR": "[fs]Faca Óssea",
     "ruRU": "[ms]костяной нож",
-    "zhCN": "骨刀|精"
+    "zhCN": "钙白刀|精"
   },
   {
     "id": 20241,
@@ -13818,7 +13818,7 @@
     "jaJP": "オーガ・アックス",
     "ptBR": "[ms]Machado Ogro",
     "ruRU": "[ms]топор людоеда",
-    "zhCN": "食人魔斧|精"
+    "zhCN": "食肉魔斧|精"
   },
   {
     "id": 20259,
@@ -15093,7 +15093,7 @@
     "jaJP": "ゾンビ・ヘッド",
     "ptBR": "[fs]Cabeça Zumbi",
     "ruRU": "[fs]голова зомби",
-    "zhCN": "僵尸头骨|普轻"
+    "zhCN": "邪身头骨|普轻"
   },
   {
     "id": 20334,
@@ -15110,7 +15110,7 @@
     "jaJP": "アンラヴェラー・ヘッド",
     "ptBR": "[fs]Cabeça de Desfiador",
     "ruRU": "[fs]голова развоплотителя",
-    "zhCN": "剖尸者头骨|普轻"
+    "zhCN": "剖壳者头骨|普轻"
   },
   {
     "id": 20335,
@@ -15450,7 +15450,7 @@
     "jaJP": "ボーンウィーブ",
     "ptBR": "[fs]Osteotrama",
     "ruRU": "[fs]плетеная кость",
-    "zhCN": "骨织甲|精中[底③④:505/E757]"
+    "zhCN": "钙白织甲|精中[底③④:505/E757]"
   },
   {
     "id": 20355,
@@ -15722,7 +15722,7 @@
     "jaJP": "ヴァンパイアボーン・グローブ",
     "ptBR": "[fp]Luvas Vampíricas",
     "ruRU": "[pl]вампирьи перчатки",
-    "zhCN": "吸血鬼骨手套|精"
+    "zhCN": "吸能鬼钙白手套|精"
   },
   {
     "id": 20371,
@@ -15773,7 +15773,7 @@
     "jaJP": "オーガ・ガントレット",
     "ptBR": "[fp]Manoplas Ogras",
     "ruRU": "[pl]устрашающие рукавицы",
-    "zhCN": "食人魔护手|精"
+    "zhCN": "食肉魔护手|精"
   },
   {
     "id": 20374,
@@ -15824,7 +15824,7 @@
     "jaJP": "ボーンウィーブ・ブーツ",
     "ptBR": "[fp]Botas de Osteotrama",
     "ruRU": "[pl]латно-костяные сапоги",
-    "zhCN": "骸骨链靴|精"
+    "zhCN": "钙白体链靴|精"
   },
   {
     "id": 20377,
@@ -15892,7 +15892,7 @@
     "jaJP": "ヴァンパイアファング・ベルト",
     "ptBR": "[ms]Cinto de Presa Vampírica",
     "ruRU": "[ms]вампирский пояс",
-    "zhCN": "吸血鬼牙腰带|精"
+    "zhCN": "吸能鬼牙腰带|精"
   },
   {
     "id": 20381,
@@ -15960,7 +15960,7 @@
     "jaJP": "ボーン・ビセッジ",
     "ptBR": "[ms]Semblante Ósseo",
     "ruRU": "[fs]костяная личина",
-    "zhCN": "白骨面甲|精[底③:157/E235]"
+    "zhCN": "钙白体面甲|精[底③:157/E235]"
   },
   {
     "id": 20385,
@@ -16164,7 +16164,7 @@
     "jaJP": "スレイヤー・ガード",
     "ptBR": "[fs]Proteção Homicida",
     "ruRU": "[ms]экзекуторский убор",
-    "zhCN": "杀戮者头盔|扩"
+    "zhCN": "重煞者头盔|扩"
   },
   {
     "id": 20397,
@@ -16402,7 +16402,7 @@
     "jaJP": "ブラッド・スピリット",
     "ptBR": "[ms]Espírito Sanguíneo",
     "ruRU": "[ms]кровавый дух",
-    "zhCN": "鲜血之灵|精"
+    "zhCN": "精华之灵|精"
   },
   {
     "id": 20411,
@@ -16436,7 +16436,7 @@
     "jaJP": "カーネッジ・ヘルム",
     "ptBR": "[ms]Elmo da Carnificina",
     "ruRU": "[ms]мясницкий шлем",
-    "zhCN": "屠戮盔|精"
+    "zhCN": "克害盔|精"
   },
   {
     "id": 20413,
@@ -16657,7 +16657,7 @@
     "jaJP": "ブラッドロード・スカル",
     "ptBR": "[fs]Caveira de Senhor Sangrento",
     "ruRU": "[ms]владыческий череп",
-    "zhCN": "血王颅骨|精轻"
+    "zhCN": "精华领主颅骨|精轻"
   },
   {
     "id": 20433,
@@ -16895,7 +16895,7 @@
     "jaJP": "の目",
     "ptBR": "Olho",
     "ruRU": "[ms]глаз",
-    "zhCN": "眼球"
+    "zhCN": "晶体"
   },
   {
     "id": 20685,
@@ -16946,7 +16946,7 @@
     "jaJP": "の心臓",
     "ptBR": "Coração",
     "ruRU": "[ns]сердце",
-    "zhCN": "心脏"
+    "zhCN": "生命核心"
   },
   {
     "id": 21286,
@@ -17116,7 +17116,7 @@
     "jaJP": "ボーンスレイヤー・ブレイド",
     "ptBR": "Lâmina Osteocida",
     "ruRU": "Клинок костебоя",
-    "zhCN": "[MAX:220ED]\n碎骨者之刃"
+    "zhCN": "[MAX:220ED]\n钙白体破碎者之刃"
   },
   {
     "id": 21296,
@@ -17303,7 +17303,7 @@
     "jaJP": "フレッシュレンダー",
     "ptBR": "Rasga-carne",
     "ruRU": "Плоторез",
-    "zhCN": "[MAX:200ED]\n血肉撕裂者"
+    "zhCN": "[MAX:200ED]\n外壳撕裂者"
   },
   {
     "id": 21307,
@@ -17388,7 +17388,7 @@
     "jaJP": "ブラッドツリー・スタンプ",
     "ptBR": "Tronco Sangrento",
     "ruRU": "Пень кровавого древа",
-    "zhCN": "[MAX:220ED]\n龙血木桩"
+    "zhCN": "[MAX:220ED]\n赤色木桩"
   },
   {
     "id": 21312,
@@ -17422,7 +17422,7 @@
     "jaJP": "ブラッドレター",
     "ptBR": "Sangria",
     "ruRU": "Кровопускатель",
-    "zhCN": "[MAX:3旋风斩/4利刃精通]\n放血者"
+    "zhCN": "[MAX:3旋风斩/4利刃精通]\n击破者"
   },
   {
     "id": 21314,
@@ -17660,7 +17660,7 @@
     "jaJP": "スパインリッパー",
     "ptBR": "Rasga-espinha",
     "ruRU": "Хребтолом",
-    "zhCN": "[MAX:240ED]\n裂脊者 "
+    "zhCN": "[MAX:240ED]\n裂柱者 "
   },
   {
     "id": 21328,
@@ -17728,7 +17728,7 @@
     "jaJP": "インペイラー",
     "ptBR": "O Empalador",
     "ruRU": "Пронзатель",
-    "zhCN": "[MAX:170ED]\n穿刺者"
+    "zhCN": "[MAX:170ED]\n洞穿者"
   },
   {
     "id": 21332,
@@ -18102,7 +18102,7 @@
     "jaJP": "ヴァンパイア・ゲイズ",
     "ptBR": "Olhar Vampírico",
     "ruRU": "Взгляд вампира",
-    "zhCN": "[MAX:8LM/8LL/20DR/15MDR]\n吸血鬼的凝视"
+    "zhCN": "[MAX:8LM/8LL/20DR/15MDR]\n吸能鬼的凝视"
   },
   {
     "id": 21355,
@@ -18136,7 +18136,7 @@
     "jaJP": "ゴア・ライダー",
     "ptBR": "Carnífice Errante",
     "ruRU": "Кровавый наездник",
-    "zhCN": "[MAX:防御213(UP)/200ED]\n血骑士"
+    "zhCN": "[MAX:防御213(UP)/200ED]\n绯红骑士"
   },
   {
     "id": 21357,
@@ -18425,7 +18425,7 @@
     "jaJP": "ピットブラッド・サースト",
     "ptBR": "Sede de Sangue",
     "ruRU": "Кровавая жажда",
-    "zhCN": "深渊嗜血者"
+    "zhCN": "深渊嗜战者"
   },
   {
     "id": 21374,
@@ -18629,7 +18629,7 @@
     "jaJP": "ゴア・リッパー",
     "ptBR": "Estripador Sanguinário",
     "ruRU": "Потрошитель",
-    "zhCN": "血肉碎裂者"
+    "zhCN": "外壳碎裂者"
   },
   {
     "id": 21386,
@@ -18799,7 +18799,7 @@
     "jaJP": "フレッシュボーン",
     "ptBR": "Osso Cárneo",
     "ruRU": "Плоть на костях",
-    "zhCN": "皮肉骨"
+    "zhCN": "钙白皮肉"
   },
   {
     "id": 21396,
@@ -18833,7 +18833,7 @@
     "jaJP": "ブラッド・コメット",
     "ptBR": "Cometa Sangrento",
     "ruRU": "Кровавая комета",
-    "zhCN": "血色彗星"
+    "zhCN": "赤色彗星"
   },
   {
     "id": 21398,
@@ -18850,7 +18850,7 @@
     "jaJP": "ボーンヒュー",
     "ptBR": "Corte Ósseo",
     "ruRU": "Косторуб",
-    "zhCN": "[MAX:320ED]\n斩骨"
+    "zhCN": "[MAX:320ED]\n钙白斩切"
   },
   {
     "id": 21399,
@@ -19258,7 +19258,7 @@
     "jaJP": "ブラッド・チャリス",
     "ptBR": "Cálice de Sangue",
     "ruRU": "Кровавая чаша",
-    "zhCN": "鲜血圣杯"
+    "zhCN": "精华圣杯"
   },
   {
     "id": 21423,
@@ -19326,7 +19326,7 @@
     "jaJP": "エンサングナイター",
     "ptBR": "O Sanguinário",
     "ruRU": "Окровавливатель",
-    "zhCN": "放血者"
+    "zhCN": "击破者"
   },
   {
     "id": 21427,
@@ -19462,7 +19462,7 @@
     "jaJP": "エリオンズ・ボーンハンドル",
     "ptBR": "Ossada de Erion",
     "ruRU": "Костяная рукоять Эриона",
-    "zhCN": "埃里昂的骨柄剑"
+    "zhCN": "埃里昂的钙白柄剑"
   },
   {
     "id": 21435,
@@ -19717,7 +19717,7 @@
     "jaJP": "ブラッドムーン",
     "ptBR": "Sangreluna",
     "ruRU": "Кровавая луна",
-    "zhCN": "[MAX:260ED/15LL/13LK]\n血月"
+    "zhCN": "[MAX:260ED/15LL/13LK]\n赤月"
   },
   {
     "id": 21450,
@@ -20006,7 +20006,7 @@
     "jaJP": "フレッシュリッパー",
     "ptBR": "Lacera-carne",
     "ruRU": "Шкуродер",
-    "zhCN": "[MAX:300ED]\n血肉割裂者"
+    "zhCN": "[MAX:300ED]\n外壳割裂者"
   },
   {
     "id": 21467,
@@ -20040,7 +20040,7 @@
     "jaJP": "ブラッド・レイン",
     "ptBR": "Chuva de Sangue",
     "ruRU": "Кровавый дождь",
-    "zhCN": "血雨"
+    "zhCN": "赤雨"
   },
   {
     "id": 21469,
@@ -20227,7 +20227,7 @@
     "jaJP": "ルーン・スレイヤー",
     "ptBR": "Homicida Rúnico",
     "ruRU": "Рунический убийца",
-    "zhCN": "符文斩杀者"
+    "zhCN": "符文重煞者"
   },
   {
     "id": 21480,
@@ -20363,7 +20363,7 @@
     "jaJP": "ボーンスカルペル",
     "ptBR": "Disseca-ossos",
     "ruRU": "Костяной скальпель",
-    "zhCN": "骨刀"
+    "zhCN": "钙白刀"
   },
   {
     "id": 21488,
@@ -20380,7 +20380,7 @@
     "jaJP": "ラビット・スレイヤー",
     "ptBR": "Homicida Coelheiro",
     "ruRU": "Убийца кроликов",
-    "zhCN": "兔子杀戮者"
+    "zhCN": "兔子重煞者"
   },
   {
     "id": 21489,
@@ -20516,7 +20516,7 @@
     "jaJP": "カーネッジ・リーバー",
     "ptBR": "Arauto da Carnificina",
     "ruRU": "Вестник бойни",
-    "zhCN": "屠绝"
+    "zhCN": "克害"
   },
   {
     "id": 21497,
@@ -20703,7 +20703,7 @@
     "jaJP": "ブラッド・レイヴンの猛襲",
     "ptBR": "Investida da Rapina Sangrenta",
     "ruRU": "Рывок Кровавого Ворона",
-    "zhCN": "[MAX:4弓弩/230ED/300AR]\n血鸦的冲锋"
+    "zhCN": "[MAX:4弓弩/230ED/300AR]\n赤鸦的冲锋"
   },
   {
     "id": 21509,
@@ -20975,7 +20975,7 @@
     "jaJP": "スピリット・シュラウド",
     "ptBR": "Mortalha Espiritual",
     "ruRU": "Призрачный покров",
-    "zhCN": "[MAX:11MDR]\n覆灵尸衣"
+    "zhCN": "[MAX:11MDR]\n覆灵裹身布"
   },
   {
     "id": 21525,
@@ -20992,7 +20992,7 @@
     "jaJP": "鞭打たれし者の皮",
     "ptBR": "Pele do Açoitado",
     "ruRU": "Кожа освежеванного",
-    "zhCN": "剥皮魔之皮"
+    "zhCN": "剥离者之皮"
   },
   {
     "id": 21526,
@@ -21281,7 +21281,7 @@
     "jaJP": "グールハイド",
     "ptBR": "Couro Carniçal",
     "ruRU": "Шкура упыря",
-    "zhCN": "[MAX:5LM/190ED]\n食尸鬼皮"
+    "zhCN": "[MAX:5LM/190ED]\n食腐鬼皮"
   },
   {
     "id": 21543,
@@ -21502,7 +21502,7 @@
     "jaJP": "ボーンフレイム",
     "ptBR": "Ósseochama",
     "ruRU": "Костяной огонь",
-    "zhCN": "[MAX:3NEC/150ED/30RES]\n骨焰"
+    "zhCN": "[MAX:3NEC/150ED/30RES]\n钙白火焰"
   },
   {
     "id": 21556,
@@ -21706,7 +21706,7 @@
     "jaJP": "ボーンシェイド",
     "ptBR": "Sombra Óssea",
     "ruRU": "Костяная тень",
-    "zhCN": "[MAX:2/3/3/5/5]\n白骨阴魂"
+    "zhCN": "[MAX:2/3/3/5/5]\n钙白体阴魂"
   },
   {
     "id": 21568,
@@ -22148,7 +22148,7 @@
     "jaJP": "ノスフェラトゥのコイル",
     "ptBR": "Cinto de Nosferatu",
     "ruRU": "Витой пояс Носферату",
-    "zhCN": "[MAX:防御63/7LL]\n吸血圣王之圈"
+    "zhCN": "[MAX:防御63/7LL]\n吸能圣王之圈"
   },
   {
     "id": 21594,
@@ -22811,7 +22811,7 @@
     "jaJP": "鞭打たれし者の皮",
     "ptBR": "Pele do Açoitado",
     "ruRU": "Кожа освежеванного",
-    "zhCN": "[MAX:7LL/190ED/25REP]\n剥皮魔之皮"
+    "zhCN": "[MAX:7LL/190ED/25REP]\n剥离者之皮"
   },
   {
     "id": 21634,
@@ -23134,7 +23134,7 @@
     "jaJP": "ヘルスレイヤー",
     "ptBR": "Homicida Infernal",
     "ruRU": "Адский истребитель",
-    "zhCN": "[MAX:20火球术]\n地狱屠戮者"
+    "zhCN": "[MAX:20火球术]\n地狱重煞者"
   },
   {
     "id": 21653,
@@ -25225,7 +25225,7 @@
     "jaJP": "タル・ラシャの外装",
     "ptBR": "Bandagens de Tal Rasha",
     "ruRU": "Одеяния Тал Раши",
-    "zhCN": "塔·拉夏的裹尸布"
+    "zhCN": "塔·拉夏的裹身布"
   },
   {
     "id": 21816,
@@ -26092,7 +26092,7 @@
     "jaJP": "骨食み",
     "ptBR": "O Rompimento de Ossos",
     "ruRU": "Перелом костей",
-    "zhCN": "ÿc4[MAX:10DI]\n白骨裂纹"
+    "zhCN": "ÿc4[MAX:10DI]\n钙白体裂纹"
   },
   {
     "id": 27350,
@@ -26109,6 +26109,108 @@
     "jaJP": "黒き裂目",
     "ptBR": "A Fratura Sombria",
     "ruRU": "Черная расщелина",
-    "zhCN": "ÿc4[MAX:-45MR]\n漆黑裂痕"
+    "zhCN": "漆黑裂痕"
+  },
+  {
+    "id": 27387,
+    "Key": "Warlord's Glory",
+    "enUS": "Warlord's Glory",
+    "zhTW": "戰爭領主的榮耀",
+    "deDE": "",
+    "esES": "",
+    "frFR": "",
+    "itIT": "",
+    "koKR": "",
+    "plPL": "",
+    "esMX": "",
+    "jaJP": "",
+    "ptBR": "",
+    "ruRU": "",
+    "zhCN": "战争领主的荣耀"
+  },
+  {
+    "id": 27388,
+    "Key": "Warlord's Lust",
+    "enUS": "Warlord's Lust",
+    "zhTW": "戰爭領主的慾望",
+    "deDE": "",
+    "esES": "",
+    "frFR": "",
+    "itIT": "",
+    "koKR": "",
+    "plPL": "",
+    "esMX": "",
+    "jaJP": "",
+    "ptBR": "",
+    "ruRU": "",
+    "zhCN": "战争领主的欲望"
+  },
+  {
+    "id": 27389,
+    "Key": "Warlord's Conquest",
+    "enUS": "Warlord's Conquest",
+    "zhTW": "戰爭領主的征服",
+    "deDE": "",
+    "esES": "",
+    "frFR": "",
+    "itIT": "",
+    "koKR": "",
+    "plPL": "",
+    "esMX": "",
+    "jaJP": "",
+    "ptBR": "",
+    "ruRU": "",
+    "zhCN": "战争领主的征服"
+  },
+  {
+    "id": 27390,
+    "Key": "Warlord's Mantle",
+    "enUS": "Warlord's Mantle",
+    "zhTW": "戰爭領主的鬥篷",
+    "deDE": "",
+    "esES": "",
+    "frFR": "",
+    "itIT": "",
+    "koKR": "",
+    "plPL": "",
+    "esMX": "",
+    "jaJP": "",
+    "ptBR": "",
+    "ruRU": "",
+    "zhCN": "战争领主的斗篷"
+  },
+  {
+    "id": 27391,
+    "Key": "Warlord's Crushers",
+    "enUS": "Warlord's Crushers",
+    "zhTW": "戰爭領主的輾壓者",
+    "deDE": "",
+    "esES": "",
+    "frFR": "",
+    "itIT": "",
+    "koKR": "",
+    "plPL": "",
+    "esMX": "",
+    "jaJP": "",
+    "ptBR": "",
+    "ruRU": "",
+    "zhCN": "战争领主的碾压者"
+  },
+  {
+    "id": 27392,
+    "Key": "Warlord's Authority",
+    "enUS": "Warlord's Authority",
+    "zhTW": "戰爭領主的權威",
+    "deDE": "",
+    "esES": "",
+    "frFR": "",
+    "itIT": "",
+    "koKR": "",
+    "plPL": "",
+    "esMX": "",
+    "jaJP": "",
+    "ptBR": "",
+    "ruRU": "",
+    "zhCN": "战争领主的权威"
   }
 ]
