@@ -1,21 +1,26 @@
 import base64
+import ctypes
 import webbrowser
 import hashlib
 import json
 import os
 import subprocess
+import sys
 import threading
 import time
+import threading
 import tkinter as tk
 import uuid
+import win32con
 import win32gui
 import win32process
 
 from cryptography.fernet import Fernet, InvalidToken
-from jcy_constants import APP_FULL_NAME, APP_SIZE, REGION_DOMAIN_MAP, REGION_NAME_MAP, TERROR_ZONE
+from jcy_constants import APP_FULL_NAME, APP_SIZE, WM_SHOW_WINDOW, REGION_DOMAIN_MAP, REGION_NAME_MAP, TERROR_ZONE
 from jcy_paths import APP_DATA_PATH, ACCOUNTS_PATH
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageWin
 from tkinter import filedialog, messagebox, scrolledtext, ttk
+
 
 class FeatureView:
     """
@@ -29,10 +34,24 @@ class FeatureView:
         master.title(APP_FULL_NAME)
         master.geometry(APP_SIZE)
 
+        # 新增的退出控制变量
+        self.is_quitting = False
+        self.tray_icon_running = threading.Event()
+        
         self.feature_vars = {} 
         self.group_radio_buttons = {} 
         self.tz_tab = None
+        self.tray_icon = None
+        
         self._create_ui()
+        self._create_tray_icon()  
+        
+        self._tray_cleanup_lock = threading.Lock()
+        self._tray_cleanup_done = False
+
+        # 绑定窗口销毁事件
+        master.protocol('WM_DELETE_WINDOW', self.minimize_to_tray)
+        master.bind("<Destroy>", self._on_destroy)
 
     def _create_ui(self):
         # 创建底部按钮容器
@@ -141,11 +160,11 @@ class FeatureView:
             tk.Label(donate_tab, text="无法加载二维码图片").pack()
 
         disclaimer_text = """
-本Mod为Diablo爱好者制作，请您酌情考虑使用。如果您使用后导致账号被Ban，本人概不负责！如果您很介意这一点，建议您不要使用！
-本Mod完全免费使用。添加收款码仅为接受用户自愿打赏，不会为任何打赏提供额外功能或优先服务，所有功能对所有用户公开且无条件。
-如果您是相关权利方并认为本项目中的内容侵犯了您的权益，请联系我们，我们将在第一时间内进行删除或调整。
-Email: CMCC_1020@163.com
-感谢支持!
+            本Mod为Diablo爱好者制作，请您酌情考虑使用。如果您使用后导致账号被Ban，本人概不负责！如果您很介意这一点，建议您不要使用！
+            本Mod完全免费使用。添加收款码仅为接受用户自愿打赏，不会为任何打赏提供额外功能或优先服务，所有功能对所有用户公开且无条件。
+            如果您是相关权利方并认为本项目中的内容侵犯了您的权益，请联系我们，我们将在第一时间内进行删除或调整。
+            Email: CMCC_1020@163.com
+            感谢支持!
         """.strip()
 
         text_box = scrolledtext.ScrolledText(donate_tab, wrap='word', height=15)
@@ -153,20 +172,175 @@ Email: CMCC_1020@163.com
         text_box.configure(state='disabled')
         text_box.pack(fill='both', expand=True, padx=10, pady=10)
 
-        
-
         # 绑定事件
         notebook.bind("<<NotebookTabChanged>>", self.on_tab_changed)
 
+    def _create_tray_icon(self):
+        """创建支持双击的系统托盘图标"""
+        try:
+            from PIL import Image
+            import pystray
+            
+            icon_path = os.path.join(self.controller.resource_path, "assets", "bear.ico")
+            if not os.path.exists(icon_path):
+                icon_path = os.path.join(self.controller.resource_path, "assets", "bear.png")
+            
+            image = Image.open(icon_path)
+            
+            # 创建菜单项
+            menu_items = [
+                pystray.MenuItem('显示主界面', self.restore_from_tray),
+                pystray.MenuItem('退出', self._quit_app)
+            ]
+            
+            # 创建托盘图标
+            self.tray_icon = pystray.Icon(
+                APP_FULL_NAME,
+                icon=image,
+                menu=pystray.Menu(*menu_items)
+            )
+            
+            # 添加双击支持 (Windows特定实现)
+            if sys.platform == 'win32':
+                def win32_double_click(icon, item):
+                    self.restore_from_tray()
+                
+                # 修改内部菜单结构以支持双击
+                self.tray_icon._menu = pystray.Menu(
+                    pystray.MenuItem(
+                        '__DOUBLE_CLICK__', 
+                        win32_double_click, 
+                        default=True, 
+                        visible=False
+                    ),
+                    *menu_items
+                )
+            
+            self.tray_icon_running.set()
+            self.tray_thread = threading.Thread(
+                target=self._run_tray_icon,
+                daemon=True
+            )
+            self.tray_thread.start()
+            
+        except ImportError:
+            print("警告：pystray 未安装，系统托盘功能不可用")
+        except Exception as e:
+            print(f"创建托盘图标失败: {e}")
+
+    def _run_tray_icon(self):
+        """运行托盘图标的线程函数"""
+        try:
+            while self.tray_icon_running.is_set():
+                try:
+                    self.tray_icon.run()
+                    break
+                except Exception as e:
+                    print(f"托盘图标运行错误: {e}")
+                    time.sleep(1)
+        finally:
+            # 确保资源清理
+            with self._tray_cleanup_lock:
+                self._tray_cleanup_done = True
+
+    def _on_destroy(self, event):
+        """窗口销毁时的清理工作"""
+        if event.widget == self.master:
+            self._cleanup_tray_icon()
+
+    def _cleanup_tray_icon(self):
+        """清理托盘图标资源"""
+        with self._tray_cleanup_lock:
+            if self._tray_cleanup_done:
+                return
+            
+            self.is_quitting = True
+            self.tray_icon_running.clear()
+            
+            if self.tray_icon:
+                try:
+                    # 仅停止图标，不尝试加入线程
+                    self.tray_icon.stop()
+                except:
+                    pass
+            
+            self._tray_cleanup_done = True
+
+    def _quit_app(self, icon=None, item=None):
+        """退出应用程序"""
+        self._cleanup_tray_icon()
+        
+        # 使用after来在主线程中安全执行退出
+        self.master.after(100, self._final_quit)
+
+    def _final_quit(self):
+        """最终退出处理"""
+        try:
+            self.master.destroy()
+        except:
+            pass
+        os._exit(0)
+
+    def minimize_to_tray(self):
+        """最小化到托盘"""
+        if not self.is_quitting and hasattr(self, 'tray_icon') and self.tray_icon:
+            self.master.withdraw()
+            try:
+                if hasattr(self.tray_icon, 'notify'):
+                    self.tray_icon.notify("程序已最小化到托盘", APP_FULL_NAME)
+            except:
+                pass
+    
+    def wnd_proc(self, hwnd, msg, wParam, lParam):
+        """在窗口类中定义消息处理"""
+    
+        if msg == WM_SHOW_WINDOW:
+            self.restore_from_tray()  
+            return 0
+
+    def restore_from_tray(self, icon=None, item=None):
+        """从托盘恢复窗口（兼容菜单点击和双击）"""
+        if not self.is_quitting:
+            try:
+                # 确保在主线程执行UI操作
+                self.master.after(0, self._do_restore_window)
+            except:
+                pass
+
+    def _do_restore_window(self):
+        """实际执行窗口恢复操作"""
+        try:
+            if not self.master.winfo_viewable():
+                self.master.deiconify()
+            self.master.lift()
+            if self.master.state() == 'iconic':
+                self.master.state('normal')
+        except tk.TclError:
+            pass
+
     def on_tab_changed(self, event):
-        notebook = event.widget
-        selected = notebook.tab(notebook.select(), "text")
-        if selected in ("D2R多开器", "恐怖区域", "免责声明"):
-            self.apply_button.config(state='disabled')  # 禁用按钮
-            if selected == "恐怖区域":
-                self.tz_tab.load_and_display_data()
-        else:
-            self.apply_button.config(state='normal')    # 启用按钮
+        """修改后的标签页切换回调"""
+        if hasattr(self, 'is_quitting') and self.is_quitting:
+            return
+            
+        try:
+            notebook = event.widget
+            selected = notebook.tab(notebook.select(), "text")
+            
+            if selected in ("D2R多开器", "恐怖区域", "免责声明"):
+                try:
+                    self.apply_button.config(state='disabled')
+                except tk.TclError:
+                    pass
+                if selected == "恐怖区域":
+                    self.tz_tab.load_and_display_data()
+            else:
+                try:
+                    self.apply_button.config(state='normal')
+                except tk.TclError:
+                    pass
+        except tk.TclError:
+            pass
 
     def update_ui_state(self, current_states: dict):
         """

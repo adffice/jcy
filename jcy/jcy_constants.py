@@ -8,6 +8,9 @@ MUTEX_NAME = "Global\\D2R_MOD_JCY_MUTEX"
 # 互斥错误 183, 表示互斥体已存在（即已有实例）
 ERROR_ALREADY_EXISTS = 183
 
+# 自定义消息ID(通知已有实例, restore窗口)
+WM_SHOW_WINDOW = 0x5000
+
 # 语言
 LANG = "zhCN"
 
@@ -15,13 +18,13 @@ LANG = "zhCN"
 APP_NAME = "jcy控制器"
 
 # MOD版本
-APP_VERSION = "v1.1.2c"
+APP_VERSION = "v1.1.3"
 
 # 控制器全称
 APP_FULL_NAME = f"{APP_NAME}_{APP_VERSION}"
 
 # 发布日期
-APP_DATE = "20250806"
+APP_DATE = "20250809"
 
 # APP大小
 APP_SIZE = "750x700"

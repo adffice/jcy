@@ -14,11 +14,10 @@ from win11toast import toast
 import subprocess
 
 from file_operations import FileOperations
-from jcy_constants import APP_FULL_NAME, ERROR_ALREADY_EXISTS, MUTEX_NAME, TERROR_ZONE_API, TERROR_ZONE, LANG
+from jcy_constants import APP_FULL_NAME, MUTEX_NAME, ERROR_ALREADY_EXISTS, WM_SHOW_WINDOW, TERROR_ZONE_API, TERROR_ZONE, LANG
 from jcy_model import FeatureConfig, FeatureStateManager
 from jcy_paths import APP_DATA_PATH, ensure_appdata_files
 from jcy_view import FeatureView
-
 
 def is_admin():
     """
@@ -36,15 +35,36 @@ if not is_admin():
         None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     sys.exit(0)
 
-# ---- 单例检查（最终版）----
+# ---- 单例检查----
+
+
 kernel32 = ctypes.windll.kernel32
+user32 = ctypes.windll.user32
+
 mutex = kernel32.CreateMutexW(None, False, MUTEX_NAME)
 if kernel32.GetLastError() == ERROR_ALREADY_EXISTS:
     print("已有实例运行中, 显示实例窗口...")
-    sys.exit(0)  # 直接退出，不提示
+
+    # 查找已有实例的主窗口
+    hwnd = user32.FindWindowW(None, APP_FULL_NAME)  
+    
+    if hwnd:
+        # 发送自定义消息通知已有实例显示窗口
+        user32.SendMessageW(hwnd, WM_SHOW_WINDOW, 0, 0)
+        
+        # 激活已有实例窗口
+        user32.ShowWindow(hwnd, 1)  # SW_SHOWNORMAL
+
+    sys.exit(0)
 
 
 # ---- 初始化配置文件 ----
+# ---- TODO:
+# ---- 检查配置文件是否存在,不存在则使用默认配置文件 -> 结束 
+# ---- 配置文件存在,则与默认配置文件进行对比, 版本一致 -> 结束 
+# ---- 版本不一致, 合并配置文件, 用户配置文件.更新版本号以及相比默认配置文件缺少的项 
+# ---- 配置文件不一样的项目,需要按照用户配置文件,对Mod包进行初始化(修改) 
+# ---- UI要进行提示,版本升级中... 
 ensure_appdata_files()
 
 class FeatureController:
@@ -401,15 +421,6 @@ if __name__ == "__main__":
     ico_path = app.get_resource_path("assets/bear.ico")
     root.iconbitmap(ico_path)
     
-    def on_closing():
-        if messagebox.askokcancel("退出", "确定要退出程序吗？"):
-            root.destroy()
-        else:
-            # 取消关闭，不做操作
-            pass
-
-    root.protocol("WM_DELETE_WINDOW", on_closing)
-
     # 恐怖区域数据更新回调
     def notify_fetch_success(data):
         print("[通知] 恐怖区域数据更新成功！")
