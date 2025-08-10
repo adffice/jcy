@@ -1,40 +1,85 @@
 import os
+from pathlib import Path
 import json
 import sys
 import shutil
-from jcy_constants import APP_DATA_DIR, SETTINGS_FILE, ACCOUNTS_FILE
+from jcy_constants import APP_DATA_DIR, SETTINGS_FILE, ACCOUNTS_FILE, VERSION_FILE, APP_VERSION
 
-# 获取用户的 Local AppData 路径
-APP_DATA_PATH = os.path.join(os.getenv("LOCALAPPDATA"), APP_DATA_DIR)
-# Mod配置
-SETTINGS_PATH = os.path.join(APP_DATA_PATH, SETTINGS_FILE)
-# 多开器&账号配置
-ACCOUNTS_PATH = os.path.join(APP_DATA_PATH, ACCOUNTS_FILE)
+# 路径定义
+APP_DATA_PATH = Path(os.getenv("LOCALAPPDATA")) / APP_DATA_DIR
+SETTINGS_PATH = APP_DATA_PATH / SETTINGS_FILE
+ACCOUNTS_PATH = APP_DATA_PATH / ACCOUNTS_FILE
+VERSION_PATH = APP_DATA_PATH / VERSION_FILE
 
-def resource_path(relative_path):
+def resource_path(relative_path: str) -> Path:
+    """获取资源的绝对路径（适配打包和开发模式）"""
+    if getattr(sys, '_MEIPASS', None):
+        base_path = Path(sys._MEIPASS)
+    else:
+        base_path = Path(__file__).parent
+    return base_path / relative_path
+
+def ensure_appdata_files() -> bool:
+    """返回是否执行了初始化"""
+    initialized = False
+    
+    if not VERSION_PATH.exists():
+        update_config_version()
+        print("[DEBUG] 创建新版本文件")
+        initialized = True
+    
+    if not SETTINGS_PATH.exists():
+        shutil.copy(resource_path("assets/settings.json"), SETTINGS_PATH)
+        print("[DEBUG] 初始化默认配置")
+        initialized = True
+        
+    return initialized
+
+def check_config_version() -> bool:
+    """增强版版本检查"""
+    if not VERSION_PATH.exists():
+        print("[DEBUG] 版本文件不存在")
+        return False
+        
+    saved_version = VERSION_PATH.read_text().strip()
+    print(f"[DEBUG] 版本检查: 保存版本={saved_version} 当前版本={APP_VERSION}")
+    return saved_version == APP_VERSION
+
+def update_config_version():
+    """更新配置文件版本记录"""
+    VERSION_PATH.write_text(APP_VERSION, encoding='utf-8')
+
+def load_default_config() -> dict:
+    """从assets加载默认配置"""
+    default_path = resource_path("assets/settings.json")
+    with open(default_path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def merge_configs(default: dict, user: dict) -> tuple[dict, dict]:
     """
-    获取打包后资源的路径：
-    - 开发环境：直接使用相对路径
-    - 打包环境（PyInstaller）：使用 _MEIPASS 临时目录
+    安全合并配置
+    Returns:
+        tuple: (merged_config, diff_dict)
     """
-    if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, relative_path)
-    return relative_path
+    diff = {'added': [], 'modified': []}
+    merged = default.copy()
+    
+    # 识别新增/修改项
+    for key in set(default) | set(user):
+        if key not in user:
+            diff['added'].append(key)
+        elif user[key] != default.get(key):
+            diff['modified'].append(key)
+            merged[key] = user[key]  # 保留用户设置
+    
+    return merged, diff
 
-def ensure_appdata_files():
-    """
-    确保 AppData 目录中存在 settings.json 和 accounts.json：
-    - settings.json：若不存在则从 assets/ 中复制默认配置
-    - accounts.json：若不存在则创建一个空字典文件
-    """
-    os.makedirs(APP_DATA_PATH, exist_ok=True)
-
-    # settings.json不存在,则使用默认文件
-    if not os.path.exists(SETTINGS_PATH):
-        default_settings = resource_path("assets/settings.json")
-        shutil.copy(default_settings, SETTINGS_PATH)
-
-    # 若不存在 accounts.json，则初始化为空字典
-    if not os.path.exists(ACCOUNTS_PATH):
-        with open(ACCOUNTS_PATH, "w", encoding="utf-8") as f:
-            json.dump({}, f, ensure_ascii=False, indent=2)
+# 导出所有需要的符号
+__all__ = [
+    'APP_DATA_PATH',
+    'ensure_appdata_files',
+    'check_config_version',
+    'update_config_version',
+    'load_default_config',
+    'merge_configs'
+]

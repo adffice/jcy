@@ -16,19 +16,17 @@ import subprocess
 from file_operations import FileOperations
 from jcy_constants import APP_FULL_NAME, MUTEX_NAME, ERROR_ALREADY_EXISTS, WM_SHOW_WINDOW, TERROR_ZONE_API, TERROR_ZONE, LANG
 from jcy_model import FeatureConfig, FeatureStateManager
-from jcy_paths import APP_DATA_PATH, ensure_appdata_files
+from jcy_paths import APP_DATA_PATH, SETTINGS_PATH, ensure_appdata_files, check_config_version, update_config_version, load_default_config, merge_configs
 from jcy_view import FeatureView
 
+# ---- UAC ----
 def is_admin():
-    """
-    UAC检查
-    """
+    """UAC检查"""
     try:
         return ctypes.windll.shell32.IsUserAnAdmin()
     except:
         return False
     
-# ---- UAC ----
 if not is_admin():
     # 重新以管理员权限启动自己
     ctypes.windll.shell32.ShellExecuteW(
@@ -36,42 +34,28 @@ if not is_admin():
     sys.exit(0)
 
 # ---- 单例检查----
-
-
 kernel32 = ctypes.windll.kernel32
 user32 = ctypes.windll.user32
-
 mutex = kernel32.CreateMutexW(None, False, MUTEX_NAME)
 if kernel32.GetLastError() == ERROR_ALREADY_EXISTS:
     print("已有实例运行中, 显示实例窗口...")
-
     # 查找已有实例的主窗口
     hwnd = user32.FindWindowW(None, APP_FULL_NAME)  
-    
     if hwnd:
         # 发送自定义消息通知已有实例显示窗口
         user32.SendMessageW(hwnd, WM_SHOW_WINDOW, 0, 0)
-        
         # 激活已有实例窗口
         user32.ShowWindow(hwnd, 1)  # SW_SHOWNORMAL
-
     sys.exit(0)
-
-
-# ---- 初始化配置文件 ----
-# ---- TODO:
-# ---- 检查配置文件是否存在,不存在则使用默认配置文件 -> 结束 
-# ---- 配置文件存在,则与默认配置文件进行对比, 版本一致 -> 结束 
-# ---- 版本不一致, 合并配置文件, 用户配置文件.更新版本号以及相比默认配置文件缺少的项 
-# ---- 配置文件不一样的项目,需要按照用户配置文件,对Mod包进行初始化(修改) 
-# ---- UI要进行提示,版本升级中... 
-ensure_appdata_files()
 
 class FeatureController:
     def __init__(self, master):
         self.master = master
         self.base_path = self.get_data_file_path("")
         self.resource_path = self.get_resource_path("")
+
+        # 确保配置目录存在
+        os.makedirs(APP_DATA_PATH, exist_ok=True)
 
         self.feature_config = FeatureConfig(self.base_path)
         self.file_operations = FileOperations(self.feature_config)
@@ -85,6 +69,9 @@ class FeatureController:
         # 新增：
         self.terror_zone_fetcher = TerrorZoneFetcher()
 
+        # 确保配置文件存在
+        if not os.path.exists(SETTINGS_PATH):
+            self._initialize_default_config()  # 新增方法
         # 初始化 UI（内部需要用到 current_states）
         self.feature_view = FeatureView(master, self.feature_config.all_features_config, self)
                 
@@ -95,7 +82,84 @@ class FeatureController:
         self.current_states = copy.deepcopy(self.feature_state_manager.loaded_states)
         self.feature_view.update_ui_state(self.current_states)
 
+        # 初始化调用
+        print("[DEBUG] 初始化配置系统...")
+        need_upgrade = ensure_appdata_files() or not check_config_version()
+        print(f"[DEBUG] 需要升级: {need_upgrade}")
         
+        if need_upgrade:
+            self._upgrade_config()
+        else:
+            print("[DEBUG] 配置已是最新版本")
+
+    def _initialize_default_config(self):
+        """初始化默认配置"""
+        default_config = load_default_config()
+        with open(SETTINGS_PATH, 'w', encoding='utf-8') as f:
+            json.dump(default_config, f, indent=2)
+        self.feature_state_manager.load_settings()  # 重新加载
+
+    def _upgrade_config(self):
+        """执行完整的配置升级流程"""
+        # 显示开始通知
+        toast("版本升级", "正在升级配置文件...", audio={'silent': True})
+        
+        # 加载配置
+        default_config = load_default_config()
+        user_config = self.feature_state_manager.loaded_states
+        
+        # 合并配置
+        merged_config, diff = merge_configs(default_config, user_config)
+        print(f"[升级] 配置差异: {diff}")
+        
+        # 应用差异到Mod
+        self._apply_config_diff(diff)
+        
+        # 更新内存状态并保存完整配置
+        self.current_states = merged_config  # 使用完整合并配置
+        self.feature_state_manager.loaded_states = copy.deepcopy(merged_config)
+        self.feature_state_manager.save_settings(merged_config)  # 明确传入合并后的配置
+        
+        # 更新UI
+        self.feature_view.update_ui_state(merged_config)
+        
+        # 显示完成通知
+        toast("升级完成", f"已按照用户配置更新Mod文件", audio={'silent': True})
+
+    def _apply_config_diff(self, diff: dict):
+        """实际应用配置差异到Mod文件"""
+        # 处理新增配置项
+        for feature_id in diff['added']:
+            if handler := self._handlers.get(feature_id):
+                default_value = self._get_default_value(feature_id)
+                print(f"[升级] 应用新增配置 {feature_id} = {default_value}")
+                handler(default_value)
+        
+        # 处理修改项（保持用户设置）
+        for feature_id in diff['modified']:
+            if handler := self._handlers.get(feature_id):
+                user_value = self.feature_state_manager.loaded_states[feature_id]
+                print(f"[升级] 保持用户配置 {feature_id} = {user_value}")
+                handler(user_value)
+        
+        # 强制保存配置
+        self.feature_state_manager.save_settings(
+            self.feature_state_manager.loaded_states
+        )
+
+    def _get_default_value(self, feature_id: str):
+        """获取功能的默认值"""
+        # 根据feature_config实现具体逻辑
+        config = self.feature_config.all_features_config
+        if feature_id in config["checkbutton"]:
+            return False
+        elif feature_id in config["radiogroup"]:
+            return list(config["radiogroup"][feature_id]["params"][0].keys())[0]
+        elif feature_id in config["spinbox"]:
+            return config["spinbox"][feature_id]["from_"]
+        elif feature_id == "501":  # 道具屏蔽
+            return {}
+        return None
 
     def get_resource_path(self, relative_path):
         """获取资源文件的绝对路径，适配打包和开发环境"""

@@ -1,7 +1,7 @@
 import json
 import os
 from tkinter import messagebox
-
+from pathlib import Path
 from jcy_constants import MOD_DIR
 from jcy_paths import SETTINGS_PATH
 
@@ -201,34 +201,27 @@ class FeatureStateManager:
             self.loaded_states = self.config.default_feature_states.copy()
             self.save_settings(self.loaded_states) 
 
-    def save_settings(self, current_states):
-        """
-        保存配置文件
-        """
+    def save_settings(self, config: dict = None):
+        """确保保存完整配置"""
+        save_config = config if config is not None else self.loaded_states
+        save_path = SETTINGS_PATH
+        
+        print(f"[保存] 正在写入配置到 {save_path}")
+        print(f"[保存] 包含的键: {list(save_config.keys())}")
+        
         try:
-            states_to_save = {}
-            for fid in self.config.all_features_config["checkbutton"]:
-                if fid in current_states:
-                    states_to_save[fid] = current_states[fid]
-
-            for group_id in self.config.all_features_config["radiogroup"]:
-                if group_id in current_states:
-                    states_to_save[group_id] = current_states[group_id]
-            
-            for fid in self.config.all_features_config["checkgroup"]:
-                if fid in current_states:
-                    states_to_save[fid] = current_states[fid]
-
-            for fid in self.config.all_features_config["spinbox"]:
-                if fid in current_states:
-                    states_to_save[fid] = current_states[fid]
-            
-            for fid in self.config.all_features_config["checktable"]:
-                if fid in current_states:
-                    states_to_save[fid] = current_states[fid]
-
-            with open(self.settings_file, 'w', encoding='utf-8') as f:
-                json.dump(states_to_save, f, indent=4)
+            with open(save_path, 'w', encoding='utf-8') as f:
+                json.dump(save_config, f, indent=2, ensure_ascii=False)
+            print("[保存] 配置写入成功")
         except Exception as e:
-            messagebox.showerror("错误", f"保存配置文件失败：{e}")
+            print(f"[错误] 保存失败: {str(e)}")
+            raise
 
+    def get_default_value(self, feature_id: str):
+        """获取功能的默认值"""
+        # 根据feature_config实现具体逻辑
+        if feature_id in self.feature_config.all_features_config["checkbutton"]:
+            return False
+        elif feature_id in self.feature_config.all_features_config["radiogroup"]:
+            return list(self.feature_config.all_features_config["radiogroup"][feature_id]["params"][0].keys())[0]
+        # ...其他类型处理...

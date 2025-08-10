@@ -41,6 +41,9 @@ SETTINGS_FILE = "settings.json"
 # 账号文件
 ACCOUNTS_FILE = "accounts.json"
 
+# 版本文件
+VERSION_FILE = ".version"
+
 # 区服地址
 REGION_DOMAIN_MAP = {
     "kr": "kr.actual.battle.net",
