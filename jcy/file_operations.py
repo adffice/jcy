@@ -2201,6 +2201,53 @@ class FileOperations:
 
         return (count, total)
 
+    def select_entry_effects(self, keys: list):
+        """词条特效"""
+
+        count = 0
+        handler_abbr = "1" in keys
+        handler_color = "2" in keys
+
+        # load item.jcy.json
+        item_jcy_data = None
+        item_jcy_json = os.path.join(self.dir_mod, r"data/local/lng/strings/items.jcy.json")
+        with open(item_jcy_json, 'r', encoding='utf-8') as f:
+            item_jcy_data = json.load(f)
+
+        try:
+            # item-modifiers.templet.json -> item-modifiers.json
+            item_modifiers_data = None
+            item_modifiers_templet = os.path.join(self.dir_mod, r"data/local/lng/strings/item-modifiers.templet.json")
+            with open(item_modifiers_templet, 'r', encoding='utf-8-sig') as f:
+                item_modifiers_data = json.load(f)
+
+            for item in item_modifiers_data:
+                id = str(item["id"])
+                data = item_jcy_data.get(id)
+                if data is not None:
+                    abbr = data.get("abbr")
+                    if abbr is not None:
+                        item["enUS"] = item["enUS"].replace(r"{{abbr}}", abbr if handler_abbr else "")
+                        item["zhCN"] = item["zhCN"].replace(r"{{abbr}}", abbr if handler_abbr else "")
+                        item["zhTW"] = item["zhTW"].replace(r"{{abbr}}", abbr if handler_abbr else "")
+                    color = data.get("color")
+                    if color is not None:
+                        item["enUS"] = item["enUS"].replace(r"{{color0}}", color[0] if handler_color else "").replace(r"{{color1}}", color[1] if handler_color else "")
+                        item["zhCN"] = item["zhCN"].replace(r"{{color0}}", color[0] if handler_color else "").replace(r"{{color1}}", color[1] if handler_color else "")
+                        item["zhTW"] = item["zhTW"].replace(r"{{color0}}", color[0] if handler_color else "").replace(r"{{color1}}", color[1] if handler_color else "")
+            
+            item_modifiers_templet_tmp = os.path.join(self.dir_mod, r"data/local/lng/strings/item-modifiers.templet.json.tmp")
+            with open(item_modifiers_templet_tmp, 'w', encoding="utf-8-sig") as f:
+                json.dump(item_modifiers_data, f, ensure_ascii=False, indent=2)
+
+            item_modifiers_json = os.path.join(self.dir_mod, r"data/local/lng/strings/item-modifiers.json")
+            os.replace(item_modifiers_templet_tmp, item_modifiers_json)
+            count += 1
+        except Exception as e:
+            print(e)
+
+        return (count, 1)
+
     def toggle_quick_buy(self, isEnabled:bool):
         """
         左键快速购买
