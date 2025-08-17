@@ -16,7 +16,7 @@ import subprocess
 from file_operations import FileOperations
 from jcy_constants import APP_FULL_NAME, MUTEX_NAME, ERROR_ALREADY_EXISTS, WM_SHOW_WINDOW, TERROR_ZONE_API, TERROR_ZONE, LANG
 from jcy_model import FeatureConfig, FeatureStateManager
-from jcy_paths import APP_DATA_PATH, SETTINGS_PATH, ensure_appdata_files, check_config_version, update_config_version, load_default_config, merge_configs
+from jcy_paths import APP_DATA_PATH, SETTINGS_PATH, ensure_appdata_files, load_default_config, merge_configs
 from jcy_view import FeatureView
 
 # ---- UAC ----
@@ -84,7 +84,7 @@ class FeatureController:
 
         # 初始化调用
         print("[DEBUG] 初始化配置系统...")
-        need_upgrade = ensure_appdata_files() or not check_config_version()
+        need_upgrade = ensure_appdata_files()
         print(f"[DEBUG] 需要升级: {need_upgrade}")
         
         if need_upgrade:

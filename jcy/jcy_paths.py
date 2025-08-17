@@ -25,8 +25,14 @@ def ensure_appdata_files() -> bool:
     
     if not VERSION_PATH.exists():
         update_config_version()
-        print("[DEBUG] 创建新版本文件")
+        print(f"[DEBUG] 创建版本文件 {APP_VERSION}")
         initialized = True
+    else:
+        saved_version = VERSION_PATH.read_text().strip()
+        if saved_version != APP_VERSION:
+            update_config_version()
+            print(f"[DEBUG] 更新版本文件 {saved_version} -> {APP_VERSION}")
+            initialized = True
     
     if not SETTINGS_PATH.exists():
         shutil.copy(resource_path("assets/settings.json"), SETTINGS_PATH)
@@ -34,16 +40,6 @@ def ensure_appdata_files() -> bool:
         initialized = True
         
     return initialized
-
-def check_config_version() -> bool:
-    """增强版版本检查"""
-    if not VERSION_PATH.exists():
-        print("[DEBUG] 版本文件不存在")
-        return False
-        
-    saved_version = VERSION_PATH.read_text().strip()
-    print(f"[DEBUG] 版本检查: 保存版本={saved_version} 当前版本={APP_VERSION}")
-    return saved_version == APP_VERSION
 
 def update_config_version():
     """更新配置文件版本记录"""
