@@ -1,9 +1,7 @@
 import json
-import os
 from tkinter import messagebox
-from pathlib import Path
-from jcy_constants import MOD_DIR
-from jcy_paths import SETTINGS_PATH
+from jcy_constants import *
+from jcy_paths import *
 
 
 
@@ -11,7 +9,7 @@ class FeatureConfig:
     """
     管理所有功能配置、默认状态以及与功能相关的资源文件路径。
     """
-    def __init__(self, base_path):
+    def __init__(self):
         self.all_features_config = {
             "checkbutton": {
                 "101": "点击角色快速建立最高难度游戏",
@@ -145,10 +143,6 @@ class FeatureConfig:
             }
         }
 
-        self.base_path = base_path
-        self.dir_mod = os.path.join(self.base_path, MOD_DIR)
-        self.settings_file = SETTINGS_PATH
-
         # ---初始化默认功能状态---
         self.default_feature_states = {
             **{fid: False for fid in self.all_features_config["checkbutton"]},
@@ -165,60 +159,53 @@ class FeatureStateManager:
     """
     def __init__(self, config: FeatureConfig):
         self.config = config
-        self.settings_file = SETTINGS_PATH
         self.loaded_states = {}
 
     def load_settings(self):
         """
         读取配置文件
         """
-        if os.path.exists(self.settings_file):
-            try:
-                with open(self.settings_file, 'r', encoding='utf-8') as f:
-                    self.loaded_states = json.load(f)
+        try:
+            with open(USER_SETTINGS_PATH, 'r', encoding='utf-8') as f:
+                self.loaded_states = json.load(f)
 
-                for fid in self.config.all_features_config["checkbutton"]:
-                    if fid not in self.loaded_states:
-                        self.loaded_states[fid] = False
+            for fid in self.config.all_features_config["checkbutton"]:
+                if fid not in self.loaded_states:
+                    self.loaded_states[fid] = False
 
-                for fid, info in self.config.all_features_config["radiogroup"].items():
-                    if fid not in self.loaded_states:
-                        self.loaded_states[fid] = "default"
-                
-                for fid, info in self.config.all_features_config["checkgroup"].items():
-                    if fid not in self.loaded_states: 
-                        self.loaded_states[fid] = []
+            for fid, info in self.config.all_features_config["radiogroup"].items():
+                if fid not in self.loaded_states:
+                    self.loaded_states[fid] = "default"
+            
+            for fid, info in self.config.all_features_config["checkgroup"].items():
+                if fid not in self.loaded_states: 
+                    self.loaded_states[fid] = []
 
-                for fid in self.config.all_features_config["spinbox"]:
-                    if fid not in self.loaded_states:
-                        self.loaded_states[fid] = 0
+            for fid in self.config.all_features_config["spinbox"]:
+                if fid not in self.loaded_states:
+                    self.loaded_states[fid] = 0
 
-                for fid in self.config.all_features_config["checktable"]:
-                    if fid not in self.loaded_states:
-                        self.loaded_states[fid] = {}
+            for fid in self.config.all_features_config["checktable"]:
+                if fid not in self.loaded_states:
+                    self.loaded_states[fid] = {}
 
-            except json.JSONDecodeError:
-                messagebox.showerror("错误", "配置文件损坏，已重置为默认设置。")
-                self.loaded_states = self.config.default_feature_states.copy()
-            except Exception as e:
-                messagebox.showerror("错误", f"读取配置文件失败：{e}\n已重置为默认设置。")
-                self.loaded_states = self.config.default_feature_states.copy()
-        else:
-            # 首次加载时保存默认设置
+        except json.JSONDecodeError:
+            messagebox.showerror("错误", "配置文件损坏，已重置为默认设置。")
             self.loaded_states = self.config.default_feature_states.copy()
-            self.save_settings(self.loaded_states) 
+        except Exception as e:
+            messagebox.showerror("错误", f"读取配置文件失败：{e}\n已重置为默认设置。")
+            self.loaded_states = self.config.default_feature_states.copy()
+
 
     def save_settings(self, config: dict = None):
         """确保保存完整配置"""
-        save_config = config if config is not None else self.loaded_states
-        save_path = SETTINGS_PATH
         
-        print(f"[保存] 正在写入配置到 {save_path}")
-        print(f"[保存] 包含的键: {list(save_config.keys())}")
+        print(f"[保存] 正在写入配置到 {USER_SETTINGS_PATH}")
+        print(f"[保存] 包含的键: {list(config.keys())}")
         
         try:
-            with open(save_path, 'w', encoding='utf-8') as f:
-                json.dump(save_config, f, indent=2, ensure_ascii=False)
+            with open(USER_SETTINGS_PATH, 'w', encoding='utf-8') as f:
+                json.dump(config, f, indent=2, ensure_ascii=False)
             print("[保存] 配置写入成功")
         except Exception as e:
             print(f"[错误] 保存失败: {str(e)}")

@@ -4,6 +4,7 @@ import json
 import os
 import random
 import requests
+import shutil
 import sys
 import threading
 import time
@@ -14,9 +15,9 @@ from win11toast import toast
 import subprocess
 
 from file_operations import FileOperations
-from jcy_constants import APP_FULL_NAME, MUTEX_NAME, ERROR_ALREADY_EXISTS, WM_SHOW_WINDOW, TERROR_ZONE_API, TERROR_ZONE, LANG
+from jcy_constants import *
 from jcy_model import FeatureConfig, FeatureStateManager
-from jcy_paths import APP_DATA_PATH, SETTINGS_PATH, ensure_appdata_files, load_default_config, merge_configs
+from jcy_paths import *
 from jcy_view import FeatureView
 
 # ---- UAC ----
@@ -51,79 +52,63 @@ if kernel32.GetLastError() == ERROR_ALREADY_EXISTS:
 class FeatureController:
     def __init__(self, master):
         self.master = master
-        self.base_path = self.get_data_file_path("")
-        self.resource_path = self.get_resource_path("")
-
-        # 确保配置目录存在
-        os.makedirs(APP_DATA_PATH, exist_ok=True)
-
-        self.feature_config = FeatureConfig(self.base_path)
+        self.current_states = {}
+        self.dialogs = "" 
+        self.feature_config = FeatureConfig()
         self.file_operations = FileOperations(self.feature_config)
         self.feature_state_manager = FeatureStateManager(self.feature_config)
 
-        # ---- 同步APP信息到JSON ----
+        # 无配置文件,以默认文件为准
+        if not os.path.exists(USER_SETTINGS_PATH):
+            os.makedirs(os.path.dirname(USER_SETTINGS_PATH), exist_ok=True)
+            shutil.copyfile(DEFAULT_SETTINGS_PATH, USER_SETTINGS_PATH)
+
+        # 同步APP信息到JSON
         self.file_operations.sync_app_data()
 
-        self.current_states = {}
-
-        # 新增：
-        self.terror_zone_fetcher = TerrorZoneFetcher()
-
-        # 确保配置文件存在
-        if not os.path.exists(SETTINGS_PATH):
-            self._initialize_default_config()  # 新增方法
-        # 初始化 UI（内部需要用到 current_states）
-        self.feature_view = FeatureView(master, self.feature_config.all_features_config, self)
-                
+        # 注册控制器方法
         self._setup_feature_handlers()
-        self.dialogs = "" 
 
-        self.feature_state_manager.load_settings()
-        self.current_states = copy.deepcopy(self.feature_state_manager.loaded_states)
-        self.feature_view.update_ui_state(self.current_states)
-
-        # 初始化调用
+        # 升级检查
         print("[DEBUG] 初始化配置系统...")
         need_upgrade = ensure_appdata_files()
         print(f"[DEBUG] 需要升级: {need_upgrade}")
-        
         if need_upgrade:
             self._upgrade_config()
         else:
             print("[DEBUG] 配置已是最新版本")
 
-    def _initialize_default_config(self):
-        """初始化默认配置"""
-        default_config = load_default_config()
-        with open(SETTINGS_PATH, 'w', encoding='utf-8') as f:
-            json.dump(default_config, f, indent=2)
-        self.feature_state_manager.load_settings()  # 重新加载
+        
+        # 恐怖区域更新
+        self.terror_zone_fetcher = TerrorZoneFetcher()
+        # 初始化 UI（内部需要用到 current_states）
+        self.feature_config.all_features_config
+        self.feature_view = FeatureView(master, self.feature_config.all_features_config, self)
+
+        # ???
+        self.feature_state_manager.load_settings()
+        self.current_states = copy.deepcopy(self.feature_state_manager.loaded_states)
+        self.feature_view.update_ui_state(self.current_states)
 
     def _upgrade_config(self):
         """执行完整的配置升级流程"""
-        # 显示开始通知
         toast("版本升级", "正在升级配置文件...", audio={'silent': True})
         
         # 加载配置
         default_config = load_default_config()
-        user_config = self.feature_state_manager.loaded_states
+        user_config = load_user_config()
         
         # 合并配置
         merged_config, diff = merge_configs(default_config, user_config)
         print(f"[升级] 配置差异: {diff}")
         
+        # 保存合并后的配置文件
+        self.feature_state_manager.save_settings(merged_config)
+        self.feature_state_manager.load_settings()
+
         # 应用差异到Mod
         self._apply_config_diff(diff)
         
-        # 更新内存状态并保存完整配置
-        self.current_states = merged_config  # 使用完整合并配置
-        self.feature_state_manager.loaded_states = copy.deepcopy(merged_config)
-        self.feature_state_manager.save_settings(merged_config)  # 明确传入合并后的配置
-        
-        # 更新UI
-        self.feature_view.update_ui_state(merged_config)
-        
-        # 显示完成通知
         toast("升级完成", f"已按照用户配置更新Mod文件", audio={'silent': True})
 
     def _apply_config_diff(self, diff: dict):
@@ -138,14 +123,12 @@ class FeatureController:
         # 处理修改项（保持用户设置）
         for feature_id in diff['modified']:
             if handler := self._handlers.get(feature_id):
-                user_value = self.feature_state_manager.loaded_states[feature_id]
+                user_value = self.feature_state_manager.loaded_states.get(
+                    feature_id,
+                    self._get_default_value(feature_id)
+                )
                 print(f"[升级] 保持用户配置 {feature_id} = {user_value}")
                 handler(user_value)
-        
-        # 强制保存配置
-        self.feature_state_manager.save_settings(
-            self.feature_state_manager.loaded_states
-        )
 
     def _get_default_value(self, feature_id: str):
         """获取功能的默认值"""
@@ -161,21 +144,7 @@ class FeatureController:
             return {}
         return None
 
-    def get_resource_path(self, relative_path):
-        """获取资源文件的绝对路径，适配打包和开发环境"""
-        if getattr(sys, 'frozen', False):
-            base_path = sys._MEIPASS
-        else:
-            base_path = os.path.abspath(".")
-        return os.path.join(base_path, relative_path)
 
-    def get_data_file_path(self, relative_path):
-        """获取运行时外部数据文件路径，通常在exe同目录或指定文件夹"""
-        if getattr(sys, 'frozen', False):
-            base_path = os.path.dirname(sys.executable)
-        else:
-            base_path = os.path.abspath(".")
-        return os.path.join(base_path, relative_path)
     
     def _setup_feature_handlers(self):
         """
@@ -374,8 +343,7 @@ class FeatureController:
         self.current_states[feature_id] = value
     
     def open_appdata(self):
-        os.makedirs(APP_DATA_PATH, exist_ok=True)  # 确保目录存在
-        subprocess.Popen(f'explorer "{APP_DATA_PATH}"')  # 打开目录（Windows）
+        subprocess.Popen(f'explorer "{CONFIG_PATH}"')  # 打开目录（Windows）
 
 class TerrorZoneFetcher:
     def __init__(self, n_times_per_hour=5):
@@ -383,8 +351,6 @@ class TerrorZoneFetcher:
         self.first = True
         self.thread = None
         self.n_times_per_hour = n_times_per_hour
-        self.output_file = os.path.join(APP_DATA_PATH, "terror_zone.json")
-        os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
 
     def fetch_once_with_retry(self, max_retries=9):
         """
@@ -443,7 +409,7 @@ class TerrorZoneFetcher:
                     target = next_hour
 
                 wait_seconds = (target - now).total_seconds()
-                print(f"[等待] 距离下次整点触发还有 {int(wait_seconds)} 秒")
+                print(f"[等待] 距离下次整点触发还有 {wait_seconds} 秒")
                 time.sleep(wait_seconds)
 
                 delay = random.randint(30, 90)
@@ -454,9 +420,9 @@ class TerrorZoneFetcher:
 
             if data:
                 try:
-                    with open(self.output_file, "w", encoding="utf-8") as f:
+                    with open(TERROR_ZONE_PATH, "w", encoding="utf-8") as f:
                         json.dump(data, f, ensure_ascii=False, indent=2)
-                    print(f"[保存] 数据已保存到 {self.output_file}")
+                    print(f"[保存] 数据已保存到 {TERROR_ZONE_PATH}")
                 except Exception as e:
                     print(f"[错误] 保存数据失败: {e}")
 
@@ -481,10 +447,10 @@ if not getattr(sys, 'frozen', False):
 
 if __name__ == "__main__":
     root = tk.Tk()
+
     app = FeatureController(root)
 
-    ico_path = app.get_resource_path("assets/bear.ico")
-    root.iconbitmap(ico_path)
+    root.iconbitmap(LOGO_PATH)
     
     # 恐怖区域数据更新回调
     def notify_fetch_success(data):
@@ -495,8 +461,8 @@ if __name__ == "__main__":
             zone_key = rec.get("zone")
             formatted_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(raw_time)) if raw_time else "未知时间"
             
-            zone_info = TERROR_ZONE.get(zone_key, {})
-            zone_name = zone_info.get(LANG, "未知区域") if zone_info else f"未知区域（{zone_key}）"
+            zone_info = TERROR_ZONE_DICT.get(zone_key, {})
+            zone_name = zone_info.get(LANG, zone_info.get(ENUS)) if zone_info else f"未知区域（{zone_key}）"
             message = f"{formatted_time} {zone_name}"
         except Exception as e:
             print("[通知构造异常]", e)

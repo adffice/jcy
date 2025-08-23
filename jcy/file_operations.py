@@ -2,20 +2,17 @@ import json
 import os
 import shutil
 import re
-from jcy_paths import SETTINGS_PATH
+from jcy_constants import *
 from jcy_model import FeatureConfig
-from jcy_constants import UE01A, APP_VERSION, APP_DATE
+from jcy_paths import *
+
 
 class FileOperations:
-
-    
-
     """
     负责处理所有文件相关的操作，如复制和删除。
     """
     def __init__(self, config: FeatureConfig):
         self.config = config
-        self.dir_mod = config.dir_mod
 
     def common_encode_private_use_chars(self, text):
         r"""
@@ -34,7 +31,7 @@ class FileOperations:
         count = 0
 
         for file in files:
-            target_file = os.path.join(self.dir_mod, file)
+            target_file = os.path.join(MOD_PATH, file)
             try:
                 if isEnabled:
                     with open(target_file, 'w') as f:
@@ -56,7 +53,7 @@ class FileOperations:
         count = 0
         for file in files:
             try:
-                target_file = os.path.join(self.dir_mod, file)
+                target_file = os.path.join(MOD_PATH, file)
                 temp_file = target_file + ".tmp"
                 os.replace(temp_file, target_file) if isEnabled else os.replace(target_file, temp_file)
                 count += 1
@@ -76,9 +73,9 @@ class FileOperations:
 
         for file in files:
             try:
-                true_file = os.path.join(self.dir_mod, file[0]) 
-                false_file = os.path.join(self.dir_mod, file[1]) 
-                target_file = os.path.join(self.dir_mod, file[2])
+                true_file = os.path.join(MOD_PATH, file[0]) 
+                false_file = os.path.join(MOD_PATH, file[1]) 
+                target_file = os.path.join(MOD_PATH, file[2])
                 shutil.copy2(true_file if isEnabled else false_file, target_file)
                 count += 1
             except Exception as e:
@@ -103,17 +100,14 @@ class FileOperations:
         files_droped_highlight = (
             r"data/hd/items/misc/charm/charm_large.json",
             r"data/hd/items/misc/charm/charm_small.json",
-            r"data/hd/items/misc/gem/perfect_diamond.json",
             r"data/hd/items/misc/rune/ber_rune.json",
             r"data/hd/items/misc/rune/cham_rune.json",
             r"data/hd/items/misc/rune/gul_rune.json",
             r"data/hd/items/misc/rune/ist_rune.json",
             r"data/hd/items/misc/rune/jah_rune.json",
-            r"data/hd/items/misc/rune/lem_rune.json",
             r"data/hd/items/misc/rune/lo_rune.json",
             r"data/hd/items/misc/rune/mal_rune.json",
             r"data/hd/items/misc/rune/ohm_rune.json",
-            r"data/hd/items/misc/rune/pul_rune.json",
             r"data/hd/items/misc/rune/sur_rune.json",
             r"data/hd/items/misc/rune/um_rune.json",
             r"data/hd/items/misc/rune/vex_rune.json",
@@ -391,7 +385,7 @@ class FileOperations:
         count = 0
         total = len(paths)
         for path in paths:
-            target_path = os.path.join(self.dir_mod, path)
+            target_path = os.path.join(MOD_PATH, path)
             temp_path = target_path + ".tmp"
             try:
                 # 1.load
@@ -897,7 +891,7 @@ class FileOperations:
         total = len(paths)
 
         for path in paths:
-            file_path = os.path.join(self.dir_mod, path)
+            file_path = os.path.join(MOD_PATH, path)
             temp_path = file_path + ".tmp"
 
             try:
@@ -1239,7 +1233,7 @@ class FileOperations:
         count = 0
         total = len(paths)
         for path in paths:
-            target_path = os.path.join(self.dir_mod, path)
+            target_path = os.path.join(MOD_PATH, path)
             temp_path = target_path + ".tmp"
             try:
                 # 1.load
@@ -1280,11 +1274,11 @@ class FileOperations:
         count = 0
         total = len(paths)
         for path in paths:
-            target_path = os.path.join(self.dir_mod, path)
+            target_path = os.path.join(MOD_PATH, path)
             temp_path = target_path + ".tmp"
             try:
-                src_path = os.path.join(self.dir_mod, params[radio])
-                dst_path = os.path.join(self.dir_mod, params["default"])
+                src_path = os.path.join(MOD_PATH, params[radio])
+                dst_path = os.path.join(MOD_PATH, params["default"])
                 if "default" == radio:
                     os.remove(dst_path)
                 else:
@@ -1313,7 +1307,7 @@ class FileOperations:
         count = 0
         total = len(paths)
         for path in paths:
-            target_path = os.path.join(self.dir_mod, path)
+            target_path = os.path.join(MOD_PATH, path)
             temp_path = target_path + ".tmp"
             try:
                 # 1.load
@@ -1357,7 +1351,7 @@ class FileOperations:
         count = 0
         total = len(paths)
         for i, path in enumerate(paths):
-            target_path = os.path.join(self.dir_mod, path)
+            target_path = os.path.join(MOD_PATH, path)
             temp_path = target_path + ".tmp"
             try:
                 # 1.load
@@ -1382,7 +1376,7 @@ class FileOperations:
                     os.remove(temp_path)
         return (count, total)
 
-    def modify_character_player(self, val: int):
+    def modify_character_player(self, val: str):
         """
         角色光源
         """
@@ -1402,7 +1396,7 @@ class FileOperations:
         for param in params:
             try:
                 # 0.var
-                target_file = os.path.join(self.dir_mod, param)
+                target_file = os.path.join(MOD_PATH, param)
                 temp_file = target_file + ".tmp"
                 # 1.load
                 json_data = None
@@ -1436,7 +1430,7 @@ class FileOperations:
 
         try:
             # 0.var
-            target_file = os.path.join(self.dir_mod, params[0])
+            target_file = os.path.join(MOD_PATH, params[0])
             temp_file = target_file + ".tmp"
             # 1.load
             json_data = None
@@ -1953,8 +1947,8 @@ class FileOperations:
         count = 0
         total = len(paths)
         for path in paths:
-            src_path = os.path.join(self.dir_mod, params[radio])
-            dst_path = os.path.join(self.dir_mod, path)
+            src_path = os.path.join(MOD_PATH, params[radio])
+            dst_path = os.path.join(MOD_PATH, path)
             if "default" == radio:
                 os.remove(dst_path)
             else:
@@ -2163,8 +2157,8 @@ class FileOperations:
         total = len(paths)
 
         for path in paths:
-            backup_path = os.path.join(self.dir_mod, _backup_path, path)
-            target_path = os.path.join(self.dir_mod, _target_path, path)
+            backup_path = os.path.join(MOD_PATH, _backup_path, path)
+            target_path = os.path.join(MOD_PATH, _target_path, path)
             temp_path = target_path + ".tmp"
             try:
                 # 1.load
@@ -2210,14 +2204,14 @@ class FileOperations:
 
         # load item.jcy.json
         item_jcy_data = None
-        item_jcy_json = os.path.join(self.dir_mod, r"data/local/lng/strings/items.jcy.json")
+        item_jcy_json = os.path.join(MOD_PATH, r"data/local/lng/strings/items.jcy.json")
         with open(item_jcy_json, 'r', encoding='utf-8') as f:
             item_jcy_data = json.load(f)
 
         try:
             # item-modifiers.templet.json -> item-modifiers.json
             item_modifiers_data = None
-            item_modifiers_templet = os.path.join(self.dir_mod, r"data/local/lng/strings/item-modifiers.templet.json")
+            item_modifiers_templet = os.path.join(MOD_PATH, r"data/local/lng/strings/item-modifiers.templet.json")
             with open(item_modifiers_templet, 'r', encoding='utf-8-sig') as f:
                 item_modifiers_data = json.load(f)
 
@@ -2236,11 +2230,11 @@ class FileOperations:
                         item["zhCN"] = item["zhCN"].replace(r"{{color0}}", color[0] if handler_color else "").replace(r"{{color1}}", color[1] if handler_color else "")
                         item["zhTW"] = item["zhTW"].replace(r"{{color0}}", color[0] if handler_color else "").replace(r"{{color1}}", color[1] if handler_color else "")
             
-            item_modifiers_templet_tmp = os.path.join(self.dir_mod, r"data/local/lng/strings/item-modifiers.templet.json.tmp")
+            item_modifiers_templet_tmp = os.path.join(MOD_PATH, r"data/local/lng/strings/item-modifiers.templet.json.tmp")
             with open(item_modifiers_templet_tmp, 'w', encoding="utf-8-sig") as f:
                 json.dump(item_modifiers_data, f, ensure_ascii=False, indent=2)
 
-            item_modifiers_json = os.path.join(self.dir_mod, r"data/local/lng/strings/item-modifiers.json")
+            item_modifiers_json = os.path.join(MOD_PATH, r"data/local/lng/strings/item-modifiers.json")
             os.replace(item_modifiers_templet_tmp, item_modifiers_json)
             count += 1
         except Exception as e:
@@ -2266,15 +2260,14 @@ class FileOperations:
         data = []
 
         # 1.load settings.json
-        settings_path = SETTINGS_PATH
         settings_dict = None
-        with open(settings_path, 'r', encoding="utf-8") as f:
+        with open(USER_SETTINGS_PATH, 'r', encoding="utf-8") as f:
             settings_dict = json.load(f)
         item_filter_states = settings_dict.get("501", {})
         
         # 2.load item-names.json 
         item_name_dict = {}
-        item_names_path = os.path.join(self.dir_mod, r"data/local/lng/strings/item-names.original.json")
+        item_names_path = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.original.json")
         item_names_data = None
         with open(item_names_path, 'r', encoding='utf-8-sig') as f:
             item_names_data = json.load(f)
@@ -2286,7 +2279,7 @@ class FileOperations:
             item_name = item_name_dict[id]
             data.append([
                 id,
-                id,
+                item_name["Key"],
                 item_name["enUS"],
                 item_name["zhCN"],
                 item_name["zhTW"],
@@ -2300,7 +2293,7 @@ class FileOperations:
         """
         # 1.load item-names.json 
         item_name_dict = {}
-        item_names_path = os.path.join(self.dir_mod, r"data/local/lng/strings/item-names.json")
+        item_names_path = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.json")
         item_names_data = None
         with open(item_names_path, 'r', encoding='utf-8-sig') as f:
             item_names_data = json.load(f)
@@ -2400,7 +2393,7 @@ class FileOperations:
         if(radio == "default"):
             for file in files:
                 try:
-                    dst = os.path.join(self.dir_mod, path, file)
+                    dst = os.path.join(MOD_PATH, path, file)
                     os.remove(dst)
                     count += 1
                 except Exception as e:
@@ -2408,8 +2401,8 @@ class FileOperations:
         else:
             for file in files:
                 try:
-                    src = os.path.join(self.dir_mod, path, radio, file)
-                    dst = os.path.join(self.dir_mod, path, file)
+                    src = os.path.join(MOD_PATH, path, radio, file)
+                    dst = os.path.join(MOD_PATH, path, file)
                     shutil.copy2(src, dst)
                     count += 1
                 except Exception as e:
@@ -2421,7 +2414,7 @@ class FileOperations:
         APP_VERSION -> npcs.json.50001
         APP_DATE -> npcs.json.50002
         """
-        npcs = os.path.join(self.dir_mod, r"data/local/lng/strings/npcs.json")
+        npcs = os.path.join(MOD_PATH, r"data/local/lng/strings/npcs.json")
 
         try:
             json_data = None

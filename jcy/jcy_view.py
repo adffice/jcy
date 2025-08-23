@@ -1,5 +1,4 @@
 import base64
-import ctypes
 import webbrowser
 import hashlib
 import json
@@ -11,14 +10,16 @@ import time
 import threading
 import tkinter as tk
 import uuid
-import win32con
 import win32gui
 import win32process
 
+
+import pystray
+
 from cryptography.fernet import Fernet, InvalidToken
-from jcy_constants import APP_FULL_NAME, APP_SIZE, WM_SHOW_WINDOW, REGION_DOMAIN_MAP, REGION_NAME_MAP, TERROR_ZONE
-from jcy_paths import APP_DATA_PATH, ACCOUNTS_PATH
-from PIL import Image, ImageTk, ImageWin
+from jcy_constants import *
+from jcy_paths import *
+from PIL import Image, ImageTk
 from tkinter import filedialog, messagebox, scrolledtext, ttk
 
 
@@ -71,7 +72,7 @@ class FeatureView:
         notebook.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
         # --- D2R多开器 ---
-        launcher_tab = D2RLauncherApp(notebook, resource_path=self.controller.resource_path)
+        launcher_tab = D2RLauncherApp(notebook)
         notebook.add(launcher_tab, text="D2R多开器")
 
         # --- Terror Zone ---
@@ -131,7 +132,7 @@ class FeatureView:
         filter_tab = ttk.Frame(notebook)
         notebook.add(filter_tab, text=" 道具屏蔽 ")
 
-        columns = ["ID", "enUS", "简体中文", "繁體中文"]
+        columns = ["Key", "enUS", "简体中文", "繁體中文"]
         data = self.controller.file_operations.load_filter_config()
                 
         checktable = TableWithCheckbox(
@@ -148,9 +149,8 @@ class FeatureView:
         donate_tab = ttk.Frame(notebook)
         notebook.add(donate_tab, text="免责声明")
 
-        image_path = os.path.join(self.controller.resource_path, "assets", "donate_wechat.png")
         try:
-            image = Image.open(image_path)
+            image = Image.open(DONATE_WECHAT_PATH)
             image = image.resize((330, 440))
             photo = ImageTk.PhotoImage(image)
             label_img = tk.Label(donate_tab, image=photo)
@@ -178,14 +178,9 @@ class FeatureView:
     def _create_tray_icon(self):
         """创建支持双击的系统托盘图标"""
         try:
-            from PIL import Image
-            import pystray
             
-            icon_path = os.path.join(self.controller.resource_path, "assets", "bear.ico")
-            if not os.path.exists(icon_path):
-                icon_path = os.path.join(self.controller.resource_path, "assets", "bear.png")
             
-            image = Image.open(icon_path)
+            image = Image.open(LOGO_PATH)
             
             # 创建菜单项
             menu_items = [
@@ -414,7 +409,8 @@ class LabeledCheckGroup(ttk.LabelFrame):
             self.command(self.feature_id, selected)
 
     def get(self):
-        return sorted([key for key, var in self.vars.items() if var.get()])
+        return [key for key, var in self.vars.items() if var.get()]
+        # return sorted([key for key, var in self.vars.items() if var.get()])
 
     def set(self, selected_keys):
         for key, var in self.vars.items():
@@ -529,10 +525,9 @@ class D2RLauncherApp(tk.Frame):
     """
     D2R多开器
     """
-    def __init__(self, master=None, resource_path=None):
+    def __init__(self, master=None):
         super().__init__(master)  # 继承 Frame
         self.master = master
-        self.resource_path = resource_path
         self.pack(fill="both", expand=True)
 
         self.machine_key = self.get_machine_key()
@@ -574,9 +569,8 @@ class D2RLauncherApp(tk.Frame):
         # 全局设置区
         frame_global = ttk.LabelFrame(self, text="全局设置")
         frame_global.pack(fill="x", padx=10, pady=5)
-        # ?
-        help_icon_path = os.path.join(self.resource_path, "assets", "help.png")
-        self.help_img = tk.PhotoImage(file=help_icon_path)  # 防止被GC回收
+        # logo
+        self.help_img = tk.PhotoImage(file=HELP_PATH)  # 防止被GC回收
         lbl_help = tk.Label(frame_global, image=self.help_img, cursor="hand2")
         lbl_help.grid(row=0, column=3, padx=2)
         lbl_help.bind("<Button-1>", lambda e: self.open_help_link())
@@ -829,8 +823,7 @@ class D2RLauncherApp(tk.Frame):
 
     def release_mutex(self):
         try:
-            path = os.path.join(self.resource_path, "bin", "handle64.exe")
-            cmd_list = [path, "-a", "Check For Other Instances", "-nobanner"]
+            cmd_list = [str(HANDLE64_PATH), "-a", "Check For Other Instances", "-nobanner"]
             print(f"执行命令: {' '.join(cmd_list)}")
 
             result = subprocess.run(cmd_list, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=5)
@@ -840,7 +833,7 @@ class D2RLauncherApp(tk.Frame):
                 parts = line.split()
                 if len(parts) >= 6:
                     pid, handle = parts[2], parts[5]
-                    subprocess.run([path, "-p", pid, "-c", handle, "-y"], stdout=subprocess.DEVNULL)
+                    subprocess.run([str(HANDLE64_PATH), "-p", pid, "-c", handle, "-y"], stdout=subprocess.DEVNULL)
             print("释放互斥体成功")
         except subprocess.TimeoutExpired:
             print("调用 handle64 超时")
@@ -926,11 +919,9 @@ class D2RLauncherApp(tk.Frame):
         webbrowser.open(url)
         
 class TerrorZoneUI(tk.Frame):
-    def __init__(self, master=None, json_filename="terror_zone.json", lang="zhCN", fetcher=None):
+    def __init__(self, master=None, fetcher=None):
         super().__init__(master)
         self.master = master
-        self.lang = lang
-        self.json_path = os.path.join(APP_DATA_PATH, json_filename)
         self.fetcher = fetcher  # TerrorZoneFetcher实例
         self.pack(fill=tk.BOTH, expand=True)
         
@@ -946,11 +937,11 @@ class TerrorZoneUI(tk.Frame):
         self.tree.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
     def load_and_display_data(self):
-        if not os.path.isfile(self.json_path):
+        if not os.path.isfile(TERROR_ZONE_PATH):
             return
 
         try:
-            with open(self.json_path, "r", encoding="utf-8") as f:
+            with open(TERROR_ZONE_PATH, "r", encoding="utf-8") as f:
                 full_data = json.load(f)
             data_list = full_data.get("data", [])
 
@@ -963,9 +954,9 @@ class TerrorZoneUI(tk.Frame):
                     formatted_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(raw_time)) if raw_time else "未知时间"
                     if not zone_key:
                         continue
-                    zone_info = TERROR_ZONE.get(zone_key)
+                    zone_info = TERROR_ZONE_DICT.get(zone_key)
                     if isinstance(zone_info, dict):
-                        name = zone_info.get(self.lang, "未知名称")
+                        name = zone_info.get(LANG, zone_info.get(ENUS))
                     else:
                         name = "未知名称"
                     self.tree.insert("", "end", values=(formatted_time, name))

@@ -12,3 +12,5 @@ package.bat
 startup.bat
 accounts.json
 settings.json
+.version
+terror_zone.json
