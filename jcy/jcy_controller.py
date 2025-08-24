@@ -250,8 +250,10 @@ class FeatureController:
 
             #角色特效
             "301": self.file_operations.select_character_effects,
-            # 词条特效
+            # 属性词条特效
             "302": self.file_operations.select_entry_effects,
+            # 装备名称特效
+            "303": self.file_operations.select_item_name_effects,
 
             # 照亮范围
             "401": self.file_operations.modify_character_player,

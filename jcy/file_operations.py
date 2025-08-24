@@ -2196,7 +2196,7 @@ class FileOperations:
         return (count, total)
 
     def select_entry_effects(self, keys: list):
-        """词条特效"""
+        """属性词条特效"""
 
         count = 0
         handler_abbr = "1" in keys
@@ -2242,6 +2242,107 @@ class FileOperations:
 
         return (count, 1)
 
+    def select_item_name_effects(self, keys: list):
+        """装备名称特效"""
+        count = 0
+        handler_enUS = "4" in keys
+        handler_max = "5" in keys
+        handler_mark = "6" in keys
+
+        # load item.jcy.json
+        item_jcy_data = None
+        item_jcy_json = os.path.join(MOD_PATH, r"data/local/lng/strings/items.jcy.json")
+        with open(item_jcy_json, 'r', encoding='utf-8') as f:
+            item_jcy_data = json.load(f)
+
+        try:
+            # item-names.templet.json -> item-names.json
+            item_names_data = None
+            item_names_templet = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.templet.json")
+            with open(item_names_templet, 'r', encoding='utf-8-sig') as f:
+                item_names_data = json.load(f)
+
+            for item in item_names_data:
+                Key = item["Key"]
+                data = item_jcy_data.get(Key)
+                if data is not None:
+                    for lng in ("zhCN", "zhTW", "enUS"):
+                        arr = []
+                        if handler_max:
+                            max = data[lng].get("max")
+                            if max:
+                                arr.append("ÿc1[")
+                                arr.append(max)
+                                arr.append("]\n")
+                        if handler_mark:
+                            mark = data[lng].get("mark")
+                            if mark:
+                                arr.append("ÿc2")
+                                arr.append(mark)
+                                arr.append("\n")
+                        if len(arr) > 0:
+                            arr.append("ÿc4")
+                        arr.append(item.get(lng))
+                        if handler_enUS and lng in ("zhCN", "zhTW"):
+                            arr.append("ÿcI ")
+                            arr.append(item.get("enUS"))
+                        item[lng] = ''.join(arr)
+
+            item_names_templet_tmp = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.templet.json.tmp")
+            with open(item_names_templet_tmp, 'w', encoding="utf-8-sig") as f:
+                json.dump(item_names_data, f, ensure_ascii=False, indent=2)
+
+            item_names_json = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.json")
+            os.replace(item_names_templet_tmp, item_names_json)
+            count += 1
+        except Exception as e:
+            print(e)
+
+        try:
+            # item-runes.templet.json -> item-runes.json
+            item_runes_data = None
+            item_runes_templet = os.path.join(MOD_PATH, r"data/local/lng/strings/item-runes.templet.json")
+            with open(item_runes_templet, 'r', encoding='utf-8-sig') as f:
+                item_runes_data = json.load(f)
+
+            for item in item_runes_data:
+                Key = item["Key"]
+                data = item_jcy_data.get(Key)
+                if data is not None:
+                    for lng in ("zhCN", "zhTW", "enUS"):
+                        arr = []
+                        if handler_max:
+                            max = data[lng].get("max")
+                            if max:
+                                arr.append("ÿc1[")
+                                arr.append(max)
+                                arr.append("]\n")
+                        if handler_mark:
+                            mark = data[lng].get("mark")
+                            if mark:
+                                arr.append("ÿc2")
+                                arr.append(mark)
+                                arr.append("\n")
+                        if len(arr) > 0:
+                            arr.append("ÿc4")
+                        arr.append(item.get(lng))
+                        if handler_enUS and lng in ("zhCN", "zhTW"):
+                            arr.append("ÿcI ")
+                            arr.append(item.get("enUS"))
+                        item[lng] = ''.join(arr)
+
+            item_runes_templet_tmp = os.path.join(MOD_PATH, r"data/local/lng/strings/item-runes.templet.json.tmp")
+            with open(item_runes_templet_tmp, 'w', encoding="utf-8-sig") as f:
+                json.dump(item_runes_data, f, ensure_ascii=False, indent=2)
+
+            item_runes_json = os.path.join(MOD_PATH, r"data/local/lng/strings/item-runes.json")
+            os.replace(item_runes_templet_tmp, item_runes_json)
+            count += 1
+        except Exception as e:
+            print(e)
+
+        return (count, 2)
+
     def toggle_quick_buy(self, isEnabled:bool):
         """
         左键快速购买
@@ -2267,7 +2368,7 @@ class FileOperations:
         
         # 2.load item-names.json 
         item_name_dict = {}
-        item_names_path = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.original.json")
+        item_names_path = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.templet.json")
         item_names_data = None
         with open(item_names_path, 'r', encoding='utf-8-sig') as f:
             item_names_data = json.load(f)
