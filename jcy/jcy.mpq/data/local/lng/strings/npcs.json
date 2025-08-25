@@ -2,8 +2,8 @@
   {
     "id": 50001,
     "Key": "JcyModVersion",
-    "enUS": "v1.1.5",
-    "zhTW": "v1.1.5",
+    "enUS": "v1.1.5b",
+    "zhTW": "v1.1.5b",
     "deDE": "",
     "esES": "",
     "frFR": "",
@@ -14,13 +14,13 @@
     "jaJP": "",
     "ptBR": "",
     "ruRU": "",
-    "zhCN": "v1.1.5"
+    "zhCN": "v1.1.5b"
   },
   {
     "id": 50002,
     "Key": "JcyModDate",
-    "enUS": "20250824",
-    "zhTW": "20250824",
+    "enUS": "20250825",
+    "zhTW": "20250825",
     "deDE": "",
     "esES": "",
     "frFR": "",
@@ -31,7 +31,7 @@
     "jaJP": "",
     "ptBR": "",
     "ruRU": "",
-    "zhCN": "20250824"
+    "zhCN": "20250825"
   },
   {
     "id": 50003,

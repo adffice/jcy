@@ -2368,7 +2368,7 @@ class FileOperations:
         
         # 2.load item-names.json 
         item_name_dict = {}
-        item_names_path = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.templet.json")
+        item_names_path = os.path.join(MOD_PATH, r"data/local/lng/strings/item-names.filter.json")
         item_names_data = None
         with open(item_names_path, 'r', encoding='utf-8-sig') as f:
             item_names_data = json.load(f)
